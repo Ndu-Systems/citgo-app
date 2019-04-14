@@ -1,69 +1,112 @@
 <section class="modal account-modal shadow-black">
   <section class="modal-header">
-   <img src="assets/images/home/logo-white-bg.svg" alt="">
+    <img src="assets/images/home/logo-white-bg.svg" alt="">
+    <img src="assets/images/home/close-form.svg" class="close-btn" alt="">
+
   </section>
   <section class="popup-body">
-     <form [formGroup]="rForm" (ngSubmit)="addmedicalaid(rForm.value)" class="box form-group" class="dashboard-forms">
-       <div class="col-1-of-2 ">
+    <form [formGroup]="rForm" (ngSubmit)="addmedicalaid(rForm.value)" class="box form-group" class="dashboard-forms">
+      <div class="col-1-of-2 ">
         <div class="controls">
           <label for="">Medical Aid Name</label> <br />
-          <input type="text" class ="input-field" formControlName="MedicalaidName" />
+          <input type="text" class="input-field" formControlName="MedicalaidName" />
           <div class="alert" *ngIf="!rForm.controls['MedicalaidName'].valid">
-             Medical Aid Name is requried
+            Medical Aid Name is requried
           </div>
         </div>
-         <div class="controls">
-           <label for="">Medical Aid Name</label> <br />
-           <input type="text" class ="input-field" formControlName="MedicalaidName" />
-           <div class="alert" *ngIf="!rForm.controls['MedicalaidName'].valid">
-              Medical Aid Name is requried
-           </div>
-         </div>
-        
-       </div>
- 
-       <div class="col-1-of-2 ">
-         <div class="controls">
-           <label for="">Plan Type</label> <br />
-           <input type="text" class ="input-field" formControlName="MedicalaidType" />
-           <div class="alert" *ngIf="!rForm.controls['MedicalaidType'].valid">
-              Plan Type is requried
-           </div>
-         </div>
-         <div class="controls">
-           <label for="">Membership Number</label> <br />
-           <input type="email" class ="input-field" formControlName="MemberShipNumber" />
-           <div class="alert" *ngIf="!rForm.controls['MemberShipNumber'].valid ">
-              Membership Number is requried
-           </div>
-         </div>
-        
-       </div>
-       <div class="col-1-of-2 ">
-          <div class="controls">
-              <label for="">Primary Member</label> <br />
-              <input type="email" class ="input-field" formControlName="PrimaryMember" />
-              <div class="alert" *ngIf="!rForm.controls['PrimaryMember'].valid">
-                 Primary Member is requried
-              </div>
-            </div>
-         <div class="controls">
-           <label for="">Primary Member Id</label> <br />
-           <input type="email" class ="input-field" formControlName="PrimaryMemberId" />
-           <div class="alert" *ngIf="!rForm.controls['PrimaryMemberId'].valid ">
-              Primary Member Id is requried
-           </div>
-         </div>
-       
-       </div>
-        
-         <div class="controls">
-           <input type="submit" value="NEXT" class="button" [disabled]="!rForm.valid" />
-         </div>
-         
-         
+        <div class="controls">
+          <label for="">Medical Aid Name</label> <br />
+          <input type="text" class="input-field" formControlName="MedicalaidName" />
+          <div class="alert" *ngIf="!rForm.controls['MedicalaidName'].valid">
+            Medical Aid Name is requried
+          </div>
+        </div>
 
-       </form>
+      </div>
+
+      <div class="col-1-of-2 ">
+        <div class="controls">
+          <label for="">Plan Type</label> <br />
+          <input type="text" class="input-field" formControlName="MedicalaidType" />
+          <div class="alert" *ngIf="!rForm.controls['MedicalaidType'].valid">
+            Plan Type is requried
+          </div>
+        </div>
+        <div class="controls">
+          <label for="">Membership Number</label> <br />
+          <input type="email" class="input-field" formControlName="MemberShipNumber" />
+          <div class="alert" *ngIf="!rForm.controls['MemberShipNumber'].valid ">
+            Membership Number is requried
+          </div>
+        </div>
+
+      </div>
+      <div class="col-1-of-2 ">
+        <div class="controls">
+          <label for="">Primary Member</label> <br />
+          <input type="email" class="input-field" formControlName="PrimaryMember" />
+          <div class="alert" *ngIf="!rForm.controls['PrimaryMember'].valid">
+            Primary Member is requried
+          </div>
+        </div>
+        <div class="controls">
+          <label for="">Primary Member Id</label> <br />
+          <input type="email" class="input-field" formControlName="PrimaryMemberId" />
+          <div class="alert" *ngIf="!rForm.controls['PrimaryMemberId'].valid ">
+            Primary Member Id is requried
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-1-of-2 ">
+        <div class="controls">
+          <label for="">Primary Member</label> <br />
+          <input type="email" class="input-field" formControlName="PrimaryMember" />
+          <div class="alert" *ngIf="!rForm.controls['PrimaryMember'].valid">
+            Primary Member is requried
+          </div>
+        </div>
+        <div class="controls">
+          <label for="">Primary Member Id</label> <br />
+          <textarea formControlName="PrimaryMemberId" class="input-field textarea"></textarea>
+
+          <div class="alert" *ngIf="!rForm.controls['PrimaryMemberId'].valid ">
+            Primary Member Id is requried
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class=" col-1-of-2 small-nav">
+        <div class="nav">
+          <ul>
+            <li>
+              <span class="dot"></span>
+            </li>
+            <li>
+              <span class="dot"></span>
+            </li>
+            <li>
+              <span class="dot"></span>
+            </li>
+          </ul>
+         
+        </div>
+        <div class="controls">
+          <input type="submit" value="NEXT" class="button" [disabled]="!rForm.valid" />
+        </div>
+      </div>
+
+    </form>
+    <!-- <p>
+        PERSONAL INFORMATION
+        <span>
+            STEP 1 OF 3
+        </span>
+    </p> -->
+
   </section>
- </section>
- <!-- <p-toast></p-toast> -->
+</section>
+<!-- <p-toast></p-toast> -->

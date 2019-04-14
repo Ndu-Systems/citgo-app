@@ -18,16 +18,23 @@
 
   .modal-header {
     text-align: center;
+
     img {
       margin: 0 auto;
     }
 
+    .close-btn {
+      position: absolute;
+      top: 2rem;
+      right: 4rem;
+      cursor: pointer;
+    }
   }
 }
 
 .account-modal {
-  background-image: url(assets/images/home/forms-bg.svg) ;
-    background-position: center;
-    background-size:cover;
-    background-repeat: no-repeat;
+  background-image: url(assets/images/home/forms-bg.svg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
