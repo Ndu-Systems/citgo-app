@@ -1,32 +1,17 @@
-<section class="modal shadow-black">
+<section class="modal account-modal shadow-black">
   <section class="modal-header">
-    <ul>
-      <li>
-        <a>REGISTER PATIENT</a>
-      </li>
-      <li   class="active">
-        <a>MEDICAL INFO</a>
-      </li>
-      <li   class="anabled">
-        <a (click)="openNextScreen()">EMERGENCY CONTACTS</a>
-      </li>
-      <li class="exit">
-        <img src="assets/images/dashboard/btn-exit.png" (click)="closeModal()" class="img-btn" alt="">
-      </li>
-    </ul>
+   <img src="assets/images/home/logo-white-bg.svg" alt="">
   </section>
   <section class="popup-body">
      <form [formGroup]="rForm" (ngSubmit)="addmedicalaid(rForm.value)" class="box form-group" class="dashboard-forms">
-       <div class="col-1-of-3">
-         <div class="controls">
-           <label>Medical Aid</label><br><br>
-          <div class="switch-conatiner">
-              <label class="switch">
-                  <input type="checkbox" formControlName="HasMedicalAid" checked>
-                  <span class="slider round"></span>
-                </label>
+       <div class="col-1-of-2 ">
+        <div class="controls">
+          <label for="">Medical Aid Name</label> <br />
+          <input type="text" class ="input-field" formControlName="MedicalaidName" />
+          <div class="alert" *ngIf="!rForm.controls['MedicalaidName'].valid">
+             Medical Aid Name is requried
           </div>
-         </div>
+        </div>
          <div class="controls">
            <label for="">Medical Aid Name</label> <br />
            <input type="text" class ="input-field" formControlName="MedicalaidName" />
@@ -34,12 +19,10 @@
               Medical Aid Name is requried
            </div>
          </div>
-         <div class="image-div pc-only">
-         <img src="assets/images/dashboard/Add-Med.png" alt="">
-         </div>
+        
        </div>
  
-       <div class="col-1-of-3">
+       <div class="col-1-of-2 ">
          <div class="controls">
            <label for="">Plan Type</label> <br />
            <input type="text" class ="input-field" formControlName="MedicalaidType" />
@@ -56,7 +39,7 @@
          </div>
         
        </div>
-       <div class="col-1-of-3">
+       <div class="col-1-of-2 ">
           <div class="controls">
               <label for="">Primary Member</label> <br />
               <input type="email" class ="input-field" formControlName="PrimaryMember" />

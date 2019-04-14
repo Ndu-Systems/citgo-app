@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  showSignUp: boolean;
+  showSignUp: boolean =true;
+  showOverlay: boolean =true;
 
   constructor() { }
 
@@ -14,6 +15,7 @@ export class HomeComponent implements OnInit {
   }
   togleNav(){
     this.showSignUp = !this.showSignUp;
+    this.showOverlay = !this.showOverlay;
   }
   closeModalActionEvent(){
     alert(3)

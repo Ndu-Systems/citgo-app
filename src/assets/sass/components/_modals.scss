@@ -1,0 +1,33 @@
+.modal {
+  position: absolute;
+  left: 15%;
+  top: 15%;
+  width: 70%;
+  height: auto;
+  z-index: 100;
+  background: #ffffff;
+  padding: 2rem 5rem;
+  animation: animationFadeIn 1s ease-out 0s;
+  animation-fill-mode: backwards;
+
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+    left: 0;
+    top: 0;
+  }
+
+  .modal-header {
+    text-align: center;
+    img {
+      margin: 0 auto;
+    }
+
+  }
+}
+
+.account-modal {
+  background-image: url(assets/images/home/forms-bg.svg) ;
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+}

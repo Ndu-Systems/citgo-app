@@ -9,5 +9,7 @@
       </li>
     </ul>
   </div>
-  <app-form-persol-details *ngIf="showSignUp"></app-form-persol-details>
+  <div class="overlay"  *ngIf="showOverlay">
+    <app-form-persol-details *ngIf="showSignUp"></app-form-persol-details>
+  </div>
 </div>

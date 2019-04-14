@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
 @import "variables";
+*{
+    box-sizing: border-box;
+}
  
 html {
     font-size: 100%;
@@ -16,3 +19,20 @@ body {
 .container {
     box-shadow: 0px 0px 22px 4px #b0a7b029;
 }
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background:#47105d6b;
+    animation: animationFadeIn 1s ease-out 0s;
+    animation-fill-mode: backwards;
+    top: 0;
+    left: 0;
+  
+    @media only screen and (max-width: 600px) {
+      background:#fff;;
+  
+    }
+  }
+  
