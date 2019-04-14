@@ -2,4 +2,12 @@
   <p>
     home works!
   </p>  
+  <div class="nav">
+    <ul>
+      <li>
+       <a class="btn-nav" (click)="togleNav()" > Sign Up</a>
+      </li>
+    </ul>
+  </div>
+  <app-form-persol-details *ngIf="showSignUp"></app-form-persol-details>
 </div>

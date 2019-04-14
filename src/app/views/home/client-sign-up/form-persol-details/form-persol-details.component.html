@@ -1,0 +1,88 @@
+<section class="modal shadow-black">
+  <section class="modal-header">
+    <ul>
+      <li>
+        <a>REGISTER PATIENT</a>
+      </li>
+      <li   class="active">
+        <a>MEDICAL INFO</a>
+      </li>
+      <li   class="anabled">
+        <a (click)="openNextScreen()">EMERGENCY CONTACTS</a>
+      </li>
+      <li class="exit">
+        <img src="assets/images/dashboard/btn-exit.png" (click)="closeModal()" class="img-btn" alt="">
+      </li>
+    </ul>
+  </section>
+  <section class="popup-body">
+     <form [formGroup]="rForm" (ngSubmit)="addmedicalaid(rForm.value)" class="box form-group" class="dashboard-forms">
+       <div class="col-1-of-3">
+         <div class="controls">
+           <label>Medical Aid</label><br><br>
+          <div class="switch-conatiner">
+              <label class="switch">
+                  <input type="checkbox" formControlName="HasMedicalAid" checked>
+                  <span class="slider round"></span>
+                </label>
+          </div>
+         </div>
+         <div class="controls">
+           <label for="">Medical Aid Name</label> <br />
+           <input type="text" class ="input-field" formControlName="MedicalaidName" />
+           <div class="alert" *ngIf="!rForm.controls['MedicalaidName'].valid">
+              Medical Aid Name is requried
+           </div>
+         </div>
+         <div class="image-div pc-only">
+         <img src="assets/images/dashboard/Add-Med.png" alt="">
+         </div>
+       </div>
+ 
+       <div class="col-1-of-3">
+         <div class="controls">
+           <label for="">Plan Type</label> <br />
+           <input type="text" class ="input-field" formControlName="MedicalaidType" />
+           <div class="alert" *ngIf="!rForm.controls['MedicalaidType'].valid">
+              Plan Type is requried
+           </div>
+         </div>
+         <div class="controls">
+           <label for="">Membership Number</label> <br />
+           <input type="email" class ="input-field" formControlName="MemberShipNumber" />
+           <div class="alert" *ngIf="!rForm.controls['MemberShipNumber'].valid ">
+              Membership Number is requried
+           </div>
+         </div>
+        
+       </div>
+       <div class="col-1-of-3">
+          <div class="controls">
+              <label for="">Primary Member</label> <br />
+              <input type="email" class ="input-field" formControlName="PrimaryMember" />
+              <div class="alert" *ngIf="!rForm.controls['PrimaryMember'].valid">
+                 Primary Member is requried
+              </div>
+            </div>
+         <div class="controls">
+           <label for="">Primary Member Id</label> <br />
+           <input type="email" class ="input-field" formControlName="PrimaryMemberId" />
+           <div class="alert" *ngIf="!rForm.controls['PrimaryMemberId'].valid ">
+              Primary Member Id is requried
+           </div>
+         </div>
+       
+       </div>
+        
+         <div class="controls">
+           <input type="submit" value="SUBMIT" class="button" [disabled]="!rForm.valid" />
+         </div>
+         
+         <div class="controls skip">
+           <a (click)="openNextScreen()">Skip this step</a>
+         </div>
+
+       </form>
+  </section>
+ </section>
+ <!-- <p-toast></p-toast> -->
