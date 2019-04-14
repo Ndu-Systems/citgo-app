@@ -52,7 +52,7 @@
     background: #FFFFFF;
     border-radius: .2rem;
     padding: 0.7rem 2rem;
-    margin: 1rem 0;
+    margin: .3rem 0;
     width: 100%;
     color: #78909c;
     font-weight: 600;
@@ -81,10 +81,7 @@
     }
 
     @media only screen and (max-width: 600px) {
-      background: #29b6f6;
       padding: 0.8rem;
-      // border-radius: 2rem;
-      width: 15rem;
     }
   }
 }
@@ -97,6 +94,9 @@
 
   &:hover {
     background: none;
+  color: rgb(153, 149, 149);
+  border: none;
+
   }
 }
 

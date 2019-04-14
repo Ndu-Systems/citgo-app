@@ -24,14 +24,6 @@ Form ends here
 */
   UserId: string = getCurrentUser();
 
-  PatientId: string;
-  MedicalaidName: string;
-  MedicalaidType: string;
-  MemberShipNumber: string;
-  PrimaryMember: string;
-  PrimaryMemberId: string;
-  CreateUserId: string;
-  StatusId: number;
   constructor(
     private fb: FormBuilder,
   ) {
@@ -42,14 +34,17 @@ Form ends here
   ngOnInit() {
 
     this.rForm = this.fb.group({
-      PatientId: [1, Validators.required],
-      HasMedicalAid: [true, Validators.required],
-      MedicalaidName: [null, Validators.required],
-      MedicalaidType: [null, Validators.required],
-      MemberShipNumber: [null, Validators.required],
-      PrimaryMember: [null, Validators.required],
-      PrimaryMemberId: [null, Validators.required],
-      CreateUserId: [this.UserId, Validators.required],
+      FirstName: [null, Validators.required],
+      MiddleName: [null, Validators.required],
+      Surname: [true, Validators.required],
+      IDNumber: [null, Validators.required],
+      Email: [null, Validators.required],
+      CellphoneNumber: [null, Validators.required],
+      Gender: [null, Validators.required],
+      Province: ['', Validators.required],
+      City: ['', Validators.required],
+      PostCode: ['', Validators.required],
+      Address: ['', Validators.required],
       StatusId: [1, Validators.required]
     });
 

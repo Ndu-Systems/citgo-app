@@ -45,3 +45,8 @@ body {
     animation-fill-mode: backwards;
   }
 
+  .shadow-black {
+    -webkit-box-shadow: 10px 10px 32px 1px rgba(0, 0, 0, 0.685);
+    -moz-box-shadow: 10px 10px 32px 1px  rgba(0, 0, 0, 0.685);
+    box-shadow: 10px 10px 32px 1px  rgba(0, 0, 0, 0.685);
+  }

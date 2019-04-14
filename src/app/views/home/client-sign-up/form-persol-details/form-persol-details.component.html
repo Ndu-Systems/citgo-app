@@ -8,17 +8,49 @@
     <form [formGroup]="rForm" (ngSubmit)="addmedicalaid(rForm.value)" class="box form-group" class="dashboard-forms">
       <div class="col-1-of-2 ">
         <div class="controls">
-          <label for="">Medical Aid Name</label> <br />
-          <input type="text" class="input-field" formControlName="MedicalaidName" />
-          <div class="alert" *ngIf="!rForm.controls['MedicalaidName'].valid">
-            Medical Aid Name is requried
+          <label for="">First Name</label> <br />
+          <input type="text" class="input-field" formControlName="FirstName" />
+          <div class="alert" *ngIf="!rForm.controls['FirstName'].valid">
+              First Name is requried
           </div>
         </div>
         <div class="controls">
-          <label for="">Medical Aid Name</label> <br />
-          <input type="text" class="input-field" formControlName="MedicalaidName" />
-          <div class="alert" *ngIf="!rForm.controls['MedicalaidName'].valid">
-            Medical Aid Name is requried
+          <label for="">Middle Name</label> <br />
+          <input type="text" class="input-field" formControlName="MiddleName" />
+        </div>
+
+      </div>
+
+      <div class="col-1-of-2 ">
+        <div class="controls">
+          <label for="">Surname</label> <br />
+          <input type="text" class="input-field" formControlName="Surname" />
+          <div class="alert" *ngIf="!rForm.controls['Surname'].valid">
+              Surname is requried
+          </div>
+        </div>
+        <div class="controls">
+          <label for="">ID Number</label> <br />
+          <input type="text" class="input-field" formControlName="IDNumber" />
+          <div class="alert" *ngIf="!rForm.controls['IDNumber'].valid ">
+              ID Number is requried
+          </div>
+        </div>
+
+      </div>
+      <div class="col-1-of-2 ">
+        <div class="controls">
+          <label for="">Email</label> <br />
+          <input type="text" class="input-field" formControlName="Email" />
+          <div class="alert" *ngIf="!rForm.controls['Email'].valid">
+              Email is requried
+          </div>
+        </div>
+        <div class="controls">
+          <label for="">Cellphone Number</label> <br />
+          <input type="text" class="input-field" formControlName="CellphoneNumber" />
+          <div class="alert" *ngIf="!rForm.controls['CellphoneNumber'].valid ">
+              Cellphone Number is requried
           </div>
         </div>
 
@@ -26,53 +58,46 @@
 
       <div class="col-1-of-2 ">
         <div class="controls">
-          <label for="">Plan Type</label> <br />
-          <input type="text" class="input-field" formControlName="MedicalaidType" />
-          <div class="alert" *ngIf="!rForm.controls['MedicalaidType'].valid">
-            Plan Type is requried
+          <label for="">Gender</label> <br />
+          <input type="text" class="input-field" formControlName="Gender" />
+          <div class="alert" *ngIf="!rForm.controls['Gender'].valid">
+              Gender is requried
           </div>
         </div>
         <div class="controls">
-          <label for="">Membership Number</label> <br />
-          <input type="email" class="input-field" formControlName="MemberShipNumber" />
-          <div class="alert" *ngIf="!rForm.controls['MemberShipNumber'].valid ">
-            Membership Number is requried
+          <label for="">Province</label> <br />
+          <input type="text" class="input-field" formControlName="Province" />
+          <div class="alert" *ngIf="!rForm.controls['Province'].valid ">
+              Province Id is requried
           </div>
         </div>
 
       </div>
       <div class="col-1-of-2 ">
         <div class="controls">
-          <label for="">Primary Member</label> <br />
-          <input type="email" class="input-field" formControlName="PrimaryMember" />
-          <div class="alert" *ngIf="!rForm.controls['PrimaryMember'].valid">
-            Primary Member is requried
+          <label for="">City</label> <br />
+          <input type="text" class="input-field" formControlName="City" />
+          <div class="alert" *ngIf="!rForm.controls['City'].valid">
+              City is requried
           </div>
         </div>
         <div class="controls">
-          <label for="">Primary Member Id</label> <br />
-          <input type="email" class="input-field" formControlName="PrimaryMemberId" />
-          <div class="alert" *ngIf="!rForm.controls['PrimaryMemberId'].valid ">
-            Primary Member Id is requried
+          <label for="">PostCode</label> <br />
+          <input type="text" class="input-field" formControlName="PostCode" />
+          <div class="alert" *ngIf="!rForm.controls['PostCode'].valid ">
+              PostCode Id is requried
           </div>
         </div>
 
       </div>
-
-      <div class="col-1-of-2 ">
+      <div class="col-1-of-1 ">
+       
         <div class="controls">
-          <label for="">Primary Member</label> <br />
-          <input type="email" class="input-field" formControlName="PrimaryMember" />
-          <div class="alert" *ngIf="!rForm.controls['PrimaryMember'].valid">
-            Primary Member is requried
-          </div>
-        </div>
-        <div class="controls">
-          <label for="">Primary Member Id</label> <br />
-          <textarea formControlName="PrimaryMemberId" class="input-field textarea"></textarea>
+          <label for="">Full Address</label> <br />
+          <textarea formControlName="Address" class="input-field textarea"></textarea>
 
-          <div class="alert" *ngIf="!rForm.controls['PrimaryMemberId'].valid ">
-            Primary Member Id is requried
+          <div class="alert" *ngIf="!rForm.controls['Address'].valid ">
+              Address is requried
           </div>
         </div>
 
