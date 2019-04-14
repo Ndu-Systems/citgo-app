@@ -1,0 +1,1 @@
+export * from './form-persol-details/form-persol-details.component';

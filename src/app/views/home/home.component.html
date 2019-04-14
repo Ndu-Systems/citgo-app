@@ -10,7 +10,7 @@
       <div class="login container-col-1-of-3">
         <img src="assets/images/home/user.svg" alt="user icon">
         <h1>login</h1>
-        <h1>sign-up</h1>
+        <h1 (click)="togleNav()" >sign-up</h1>
       </div>
     </div>
     <div class="menu">
@@ -20,3 +20,5 @@
 
   <router-outlet></router-outlet>
 </div>
+<app-form-persol-details *ngIf="showSignUp"></app-form-persol-details>
+ 
