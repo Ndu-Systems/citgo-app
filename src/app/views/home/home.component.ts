@@ -1,24 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { ExitModalEventEmmiter } from "src/app/models";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: "app-home",
+  templateUrl: "./home.component.html",
+  styleUrls: ["./home.component.scss"]
 })
 export class HomeComponent implements OnInit {
-  showSignUp: boolean ;
-  showOverlay: boolean ;
+  showSignUp: boolean;
+  showOverlay: boolean;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-  togleNav(){
+  ngOnInit() {}
+  togleNav() {
     this.showSignUp = !this.showSignUp;
     this.showOverlay = !this.showOverlay;
   }
-  closeModalActionEvent(){
-    alert(3)
+  closeOptions(e: ExitModalEventEmmiter) {
+    this.togleNav();
+    //   if(e.close){
+    //     this.showOverlay = false;
+    //   }
+    // }
   }
-
 }

@@ -1,3 +1,4 @@
+import { CloseModalEventEmmiter } from './../../../../models/modal.eventemitter.model';
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { getCurrentUser } from "src/app/shared/config";
@@ -8,7 +9,7 @@ import { getCurrentUser } from "src/app/shared/config";
   styleUrls: ["./form-persol-details.component.scss"]
 })
 export class FormPersolDetailsComponent implements OnInit {
-  // @Output() closeModalAction: EventEmitter<any> = new EventEmitter();
+  @Output() closeModalAction: EventEmitter<CloseModalEventEmmiter> = new EventEmitter();
 
   /*
 Form begin here
@@ -57,6 +58,15 @@ Form ends here
       console.log(data);
     });
 
+  }
+
+  closeModal() {
+    this.closeModalAction.emit({
+      closeAll: true,
+      openAddEmengencyContact: false,
+      openAddMedicalAid: false,
+      openAddPatient: false
+    });
   }
 
 }

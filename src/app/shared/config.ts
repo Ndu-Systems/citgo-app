@@ -1,3 +1,3 @@
 export function getCurrentUser(){
-    return '';
+    return 'ndu';
 }
