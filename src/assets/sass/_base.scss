@@ -26,7 +26,7 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    background:#47105d6b;
+    background:#797979c2;
     animation: animationFadeIn 1s ease-out 0s;
     animation-fill-mode: backwards;
     top: 0;
@@ -37,5 +37,11 @@ body {
   
     }
   }
-  
+  .alert {
+    color: #a70a856b;
+    font-size: 0.8rem;
+    font-weight: 400;
+    animation: moveInLeft 1s ease-out 0.5s;
+    animation-fill-mode: backwards;
+  }
 

@@ -61,16 +61,18 @@
     }
   
     .button {
-      width: 22rem;
-      padding: 1.4rem;
-      background: #29b6f6;
-      text-transform: uppercase;
-      color: #fff;
-      font-weight: 600;
-      border: none;
-      box-shadow: 10px 10px 45px -4px rgba(0, 0, 0, 1);
-  
-      cursor: pointer;
+        width: 22rem;
+        padding: 1.4rem;
+        text-transform: uppercase;
+        color: #fff;
+        font-weight: 700;
+        letter-spacing: .5rem;
+        border: none;
+        background: no-repeat;
+        float: right;
+        text-align: right;
+        margin-right: -2rem;
+        cursor: pointer;
       &:hover {
         background: rgb(28, 155, 214);
       }
@@ -84,10 +86,12 @@
   }
   
   .button:disabled {
-    background: #d8d8d8;
     cursor: no-drop;
+    float: right;
+    cursor: no-drop;
+    color: rgb(153, 149, 149);
     &:hover {
-      background: #d8d8d8;
+        background: none;
     }
   }
   
