@@ -1,0 +1,37 @@
+
+//Displays one for each grid column
+.container-col-1-of-4 {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 2rem;
+    box-sizing: border-box;
+}
+.container-col-1-of-3 {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-gap: 2rem;
+    box-sizing: border-box;
+}
+
+.container-col-1-of-2 {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-gap: 2rem;
+    box-sizing: border-box;
+}
+.container-col-1-of-1 {
+    display: grid;
+    grid-template-columns: repeat(1);
+    grid-gap: 2rem;
+    box-sizing: border-box;
+}
+
+
+
+.container-col-2-of-3 {
+    display: grid;
+    grid-template-columns: repeat(2,60% auto);
+    grid-gap: 2rem;
+    box-sizing: border-box;
+}
+
