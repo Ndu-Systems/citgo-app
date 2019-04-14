@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  showSignUp: boolean =true;
-  showOverlay: boolean =true;
+  showSignUp: boolean ;
+  showOverlay: boolean ;
 
   constructor() { }
 
