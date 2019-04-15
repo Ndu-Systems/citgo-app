@@ -1,0 +1,24 @@
+@import '../../../../../assets/sass/variables';
+.growth  {
+    padding-top: 5rem;
+    padding-bottom: 10rem;
+    .image {
+        float: right;
+    }
+
+    h1 {
+        margin: 0 15rem;
+        .main{
+            color: $blue-color;
+            font-weight: 500;
+            display:block;
+        }
+        .paragraph {
+            color: $primary-color;
+            font-size: 1rem;
+            letter-spacing: 0;
+            font-weight: 400;
+        }
+    }
+ 
+}
