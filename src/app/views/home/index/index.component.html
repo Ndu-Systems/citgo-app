@@ -1,44 +1,69 @@
-<div class="container-col-1-of-2">
-  <div class="banner">
+<div class="overlay"  *ngIf="showOverlay">
+    <app-form-persol-details  (closeModalAction)="closeOptions($event)" *ngIf="showSignUp"></app-form-persol-details>
+  </div>
+<div class="index">
+  <header class="container-col-1-of-3">
+    <div class="logo">
+      <img src="assets/images/home/logo.png" alt="logo">
+    </div>
+    <div class="account">
+      <div class="access">
+        <h1>access account </h1>
+      </div>
+      <div class="login container-col-1-of-3">
+        <img src="assets/images/home/user.svg" alt="user icon">
+        <h1>login</h1>
+        <h1 (click)="togleNav()">sign-up</h1>
+      </div>
+    </div>
+    <div class="menu">
+      <img src="assets/images/home/menu-icon.png" alt="menu icon">
+    </div>
+  </header>
+  <div class="container-col-1-of-2">
+    <div class="banner">
+      <h1>
+        <span class="sub">
+          invest in oil
+        </span>
+        <span class="big">
+          african
+        </span>
+        <span class="big">
+          fuel industry
+        </span>
+        <span class="percent">
+          15 % profit monthly
+        </span>
+        <span class="percent">
+          5 % referral bonuses
+        </span>
+      </h1>
+      <div class="cta">
+        <img src="assets/images/home/invest-btn.png" alt="invest now button">
+      </div>
+    </div>
+  </div>
+  <div class="monthly">
     <h1>
-      <span class="sub">
-        invest in oil
-      </span>
-      <span class="big">
-        african
-      </span>
-      <span class="big">
-        fuel industry
-      </span>  
       <span class="percent">
-        15 % profit monthly
+        <span class="description">
+          profit monthly
+        </span>
+        <span class="value">
+          15%
+        </span>
       </span>
       <span class="percent">
-        5 %  referral bonuses
+        <span class="description">
+          profit monthly
+        </span>
+        <span class="value">
+          15%
+        </span>
       </span>
     </h1>
-    <div class="cta">
-      <img src="assets/images/home/invest-btn.png" alt="invest now button">
-    </div>
-  </div>  
+  </div>
 </div>
-<div class="monthly">
-  <h1>
-      <span class="percent">
-          <span class="description">
-              profit monthly
-          </span>
-          <span class="value">
-            15%
-          </span>
-      </span>    
-      <span class="percent">
-          <span class="description">
-              profit monthly
-          </span>
-          <span class="value">
-            15%
-          </span>
-      </span>    
-  </h1>
-</div>
+
+<app-control-section></app-control-section>

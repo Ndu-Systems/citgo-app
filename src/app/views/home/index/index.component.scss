@@ -1,3 +1,54 @@
+.index {
+  background: #4a235a;
+  background-image: url('../../../../assets/images/home/background-home.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: center;
+
+  header {
+    padding: 1rem 2rem;
+
+    .account {
+      text-transform: uppercase;
+
+      h1 {
+        font-weight: 400;
+      }
+
+      .access {
+        text-align: center;
+        font-size: 0.4444rem;
+        color: #AEA2A2;
+      }
+
+      .login.container-col-1-of-3 {
+        grid-gap: 0;
+        text-align: center;
+        margin: auto;
+        color: #FFFFFF;
+
+        img {
+          height: 3rem;
+          margin: auto;
+        }
+
+        h1 {
+          font-size: 20px;
+        cursor: pointer;
+        }
+      }
+    }
+
+    .menu {
+      margin: auto;
+      img {
+        height: 3rem;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
 .banner {
     padding-top: 5rem;
     margin: auto 2rem;

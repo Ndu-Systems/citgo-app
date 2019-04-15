@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ExitModalEventEmmiter } from 'src/app/models';
 
 @Component({
   selector: 'app-index',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexComponent implements OnInit {
 
-  constructor() { }
+  showSignUp: boolean;
+  showOverlay: boolean;
 
-  ngOnInit() {
+  constructor() {}
+
+  ngOnInit() {}
+  togleNav() {
+    this.showSignUp = !this.showSignUp;
+    this.showOverlay = !this.showOverlay;
+  }
+  closeOptions(e: ExitModalEventEmmiter) {
+    this.togleNav();
+    //   if(e.close){
+    //     this.showOverlay = false;
+    //   }
+    // }
   }
 
 }
