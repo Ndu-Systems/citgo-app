@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
 import {
     IndexComponent,
-    ControlSectionComponent
+    ControlSectionComponent,
+    AssetsComponentComponent
 } from './index';
 import { FormPersolDetailsComponent } from './client-sign-up';
 
@@ -20,7 +21,8 @@ export const declarations: Array<any> = [
     HomeComponent,
     IndexComponent,
     FormPersolDetailsComponent,
-    ControlSectionComponent
+    ControlSectionComponent,
+    AssetsComponentComponent
 ];
 @NgModule({
     imports: [RouterModule.forChild(routes)],

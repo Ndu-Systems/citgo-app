@@ -1,13 +1,11 @@
 @import '../../../../../assets/sass/variables';
 
-.control {
-    padding-top: 5rem;
-    padding-bottom: 10rem;
-    .image {
-        float: right;
-    }
-
+.assets {
+    background: $white-gray-color;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     h1 {
+        padding-bottom: 2rem;
         margin: 0 15rem;
         .main{
             color: $blue-color;
@@ -21,6 +19,11 @@
             font-weight: 400;
         }
     }
+    .management {
+        margin: 0 15rem;
 
- 
+        h1 {
+            margin: 0 5rem;
+        }
+    }
 }
