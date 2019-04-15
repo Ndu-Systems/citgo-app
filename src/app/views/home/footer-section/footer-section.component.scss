@@ -1,0 +1,29 @@
+@import '../../../../assets/sass/variables';
+.footer {
+    padding-top: 5rem;
+    background: $blue-gray-color;
+    text-align: center;
+    ul {
+        list-style: none;
+
+        a {
+            text-decoration: none;
+            color: $primary-color;
+
+            &:Hover{
+                color: $purple-dark-color;
+                font-weight: 700;
+            }
+        }
+    }
+
+    h1 {
+        .paragraph {
+            color: $primary-color;
+            font-size: 1rem;
+            letter-spacing: 0;
+            font-weight: 400;
+            display: block;
+        }
+    }
+}

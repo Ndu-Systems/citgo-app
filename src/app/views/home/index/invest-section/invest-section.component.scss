@@ -1,0 +1,15 @@
+
+@import '../../../../../assets/sass/variables';
+.invest {
+    padding-top: 2.5rem;
+    padding-bottom: 5rem;
+    text-align: center;
+    h1 {
+        .main{
+            color: $blue-color;
+            font-weight: 500;
+            display:block;
+        }
+        padding-bottom: 3rem;
+    }
+}

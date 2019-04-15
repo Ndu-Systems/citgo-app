@@ -6,9 +6,11 @@ import {
     ControlSectionComponent,
     AssetsComponentComponent,
     GrowthSectionComponent,
-    ApartSectionComponent
+    ApartSectionComponent,
+    InvestSectionComponent
 } from './index';
 import { FormPersolDetailsComponent } from './client-sign-up';
+import { FooterSectionComponent } from './footer-section';
 
 const routes: Routes = [
     {
@@ -26,7 +28,9 @@ export const declarations: Array<any> = [
     ControlSectionComponent,
     AssetsComponentComponent,
     GrowthSectionComponent,
-    ApartSectionComponent
+    ApartSectionComponent,
+    InvestSectionComponent,
+    FooterSectionComponent
 ];
 @NgModule({
     imports: [RouterModule.forChild(routes)],
