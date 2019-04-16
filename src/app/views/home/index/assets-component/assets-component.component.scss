@@ -18,6 +18,10 @@
             letter-spacing: 0;
             font-weight: 400;
         }
+        @media only screen and (max-width: 600px) {
+            margin: 0;
+            text-align: center;
+          }
     }
     .management {
         margin: 0 15rem;
@@ -25,5 +29,16 @@
         h1 {
             margin: 0 5rem;
         }
+        @media only screen and (max-width: 600px) {
+            margin: 0;
+            text-align: center;
+            img {
+                margin: 0 auto;
+            }
+          }
     }
+    @media only screen and (max-width: 600px) {
+        margin: 0;
+        text-align: center;
+      }
 }

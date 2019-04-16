@@ -19,6 +19,7 @@ body {
 
     @media only screen and (max-width: 600px) {
       padding: 0;
+      margin: 0;
     }
 
 }
@@ -27,6 +28,11 @@ body {
   -webkit-box-shadow: 10px 10px 34px 6px rgba(92,92,92,1);
   -moz-box-shadow: 10px 10px 34px 6px rgba(92,92,92,1);
   box-shadow: 10px 10px 34px 6px rgba(92,92,92,1);
+
+  
+  @media only screen and (max-width: 600px) {
+    box-shadow: none;
+  }
 }
 
 .overlay {

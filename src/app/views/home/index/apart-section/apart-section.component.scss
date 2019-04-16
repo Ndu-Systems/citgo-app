@@ -17,6 +17,13 @@
             letter-spacing: 0;
             font-weight: 400;
         }
+        @media only screen and (max-width: 600px) {
+            margin: 0;
+            text-align: left;
+            .main{
+               text-align: center;
+            }
+          }
     }
     .points {
         margin: 0 15rem;
@@ -33,5 +40,9 @@
                 grid-template-columns: 20% auto;
             }
         }
+        @media only screen and (max-width: 600px) {
+            margin: 0;
+            text-align: center;
+          }
     }
 }

@@ -19,6 +19,30 @@
             letter-spacing: 0;
             font-weight: 400;
         }
+        @media only screen and (max-width: 600px) {
+            margin: 0;
+            text-align: center;
+          }
     }
  
 }
+
+
+img.image-mobile {
+    display: none;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    img {
+     &.image-mobile {
+        display: block;
+        height: 12rem;
+        margin: 2rem auto;
+      }
+      &.image-desktop{
+          display: none;
+      }
+    }
+  
+  
+  }
