@@ -1,5 +1,7 @@
 <div class="overlay"  *ngIf="showOverlay">
     <app-form-persol-details  (closeModalAction)="closeOptions($event)" *ngIf="showSignUp"></app-form-persol-details>
+    <app-form-banking-details  (closeModalAction)="closeOptions($event)" *ngIf="showBankingInfoForm"></app-form-banking-details>
+    <app-form-beneficiaries  (closeModalAction)="closeOptions($event)" *ngIf="showBenefitariesForm"></app-form-beneficiaries>
   </div>
 <div class="index">
   <app-home-nav (closeNavAction)="closeNav($event)" *ngIf="showNav"></app-home-nav>

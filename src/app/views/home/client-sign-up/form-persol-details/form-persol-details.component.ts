@@ -35,7 +35,7 @@ Form ends here
 
     this.rForm = this.fb.group({
       FirstName: [null, Validators.required],
-      MiddleName: [null, Validators.required],
+      MiddleName: [null],
       Surname: [true, Validators.required],
       IDNumber: [null, Validators.required],
       Email: [null, Validators.required],
@@ -63,5 +63,8 @@ Form ends here
       openAddPatient: false
     });
   }
+  createClientAccount(data){
+console.log('New client: ',data);
 
+  }
 }

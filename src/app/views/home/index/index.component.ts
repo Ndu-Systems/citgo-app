@@ -10,7 +10,9 @@ import { NavigationEventEmiter } from '../home-nav/navigationEventEmiter';
 export class IndexComponent implements OnInit {
 
   showSignUp: boolean;
-  showOverlay: boolean;
+  showBankingInfoForm: boolean;
+  showBenefitariesForm: boolean=true;
+  showOverlay: boolean =true;
   showNav: boolean;
 
   constructor() { }

@@ -1,0 +1,78 @@
+<section class="modal account-modal shadow-black">
+  <section class="modal-header">
+    <img src="assets/images/home/logo-white-bg.svg" alt="">
+    <img src="assets/images/home/close-form.svg" (click)="closeModal()" class="close-btn" alt="">
+
+  </section>
+  <section class="popup-body">
+    <form [formGroup]="rForm" (ngSubmit)="createClientAccount(rForm.value)" class="box form-group" class="dashboard-forms">
+      <div class="col-1-of-2 ">
+        <div class="controls">
+          <label for="">BANK NAME</label> <br />
+          <input type="text" class="input-field" formControlName="BankName" />
+          <div class="alert" *ngIf="!rForm.controls['BankName'].valid">
+            BANK NAME is requried
+          </div>
+        </div>
+        <div class="controls">
+          <label for="">ACCOUNT NUMBER</label> <br />
+          <input type="text" class="input-field" formControlName="AccountNumber" />
+          <div class="alert" *ngIf="!rForm.controls['AccountNumber'].valid">
+            ACCOUNT NUMBER is requried
+          </div>
+        </div>
+       
+
+      </div>
+
+      <div class="col-1-of-2 ">
+        <div class="controls">
+          <label for="">BRANCH CODE</label> <br />
+          <input type="text" class="input-field" formControlName="BankBranch" />
+          <div class="alert" *ngIf="!rForm.controls['BankBranch'].valid">
+            BRANCH CODE is requried
+          </div>
+        </div>
+        <div class="controls">
+          <label for="">ACCOUNT TYPE</label> <br />
+          <input type="text" class="input-field" formControlName="AccountType" />
+          <div class="alert" *ngIf="!rForm.controls['AccountType'].valid ">
+            ACCOUNT TYPE is requried
+          </div>
+        </div>
+
+      </div>
+    
+
+
+      <div class=" col-1-of-2 small-nav">
+        <div class="nav">
+          <ul>
+            <li>
+              <span class="dot dot-active"></span>
+            </li>
+            <li>
+              <span class="dot "></span>
+            </li>
+            <li>
+              <span class="dot"></span>
+            </li>
+          </ul>
+         
+        </div>
+        <div class="controls">
+          <input type="submit" value="NEXT" class="button" [disabled]="!rForm.valid" />
+        </div>
+      </div>
+
+    </form>
+    <p class="step-number">
+      BANKING INFORMATION
+        <span>
+            STEP 2 OF 3
+        </span>
+    </p>
+
+  </section>
+</section>
+<!-- <p-toast></p-toast> -->
