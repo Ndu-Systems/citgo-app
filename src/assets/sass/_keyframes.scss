@@ -76,4 +76,26 @@
       opacity: 1;
     }
   }
+
+  //navigation key frames
+  @keyframes slide-menu {
+    from {
+      transform: scaleX(0);
+    }
   
+    to {
+      transform: scaleX(1);
+    }
+  }
+  
+@keyframes menu-item-animate {
+  from {
+    transform: translateY(60%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

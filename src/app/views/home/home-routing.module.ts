@@ -11,6 +11,7 @@ import {
 } from './index';
 import { FormPersolDetailsComponent } from './client-sign-up';
 import { FooterSectionComponent } from './footer-section';
+import { HomeNavComponent } from './home-nav';
 
 const routes: Routes = [
     {
@@ -30,7 +31,8 @@ export const declarations: Array<any> = [
     GrowthSectionComponent,
     ApartSectionComponent,
     InvestSectionComponent,
-    FooterSectionComponent
+    FooterSectionComponent,
+    HomeNavComponent
 ];
 @NgModule({
     imports: [RouterModule.forChild(routes)],

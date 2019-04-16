@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ExitModalEventEmmiter } from 'src/app/models';
+import { NavigationEventEmiter } from '../home-nav/navigationEventEmiter';
 
 @Component({
   selector: 'app-index',
@@ -10,20 +11,24 @@ export class IndexComponent implements OnInit {
 
   showSignUp: boolean;
   showOverlay: boolean;
+  showNav: boolean;
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
   togleNav() {
     this.showSignUp = !this.showSignUp;
     this.showOverlay = !this.showOverlay;
   }
+  OpenNav() {
+    this.showNav = !this.showNav;
+  }
+
+  closeNav(event: NavigationEventEmiter) {
+    this.OpenNav();
+  }
   closeOptions(e: ExitModalEventEmmiter) {
     this.togleNav();
-    //   if(e.close){
-    //     this.showOverlay = false;
-    //   }
-    // }
   }
 
 }

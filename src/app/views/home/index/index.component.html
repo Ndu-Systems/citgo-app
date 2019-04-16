@@ -2,6 +2,7 @@
     <app-form-persol-details  (closeModalAction)="closeOptions($event)" *ngIf="showSignUp"></app-form-persol-details>
   </div>
 <div class="index">
+  <app-home-nav (closeNavAction)="closeNav($event)" *ngIf="showNav"></app-home-nav>
   <header class="container-col-1-of-3">
     <div class="logo">
       <img src="assets/images/home/logo.png" alt="logo">
@@ -17,7 +18,7 @@
       </div>
     </div>
     <div class="menu">
-      <img src="assets/images/home/menu-icon.png" alt="menu icon">
+      <img src="assets/images/home/menu-icon.png" (click)="OpenNav()" alt="menu icon">
     </div>
   </header>
   <div class="container-col-1-of-2">
