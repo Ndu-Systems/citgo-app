@@ -1,26 +1,53 @@
 @import '../../../../../assets/sass/variables';
 
 .control {
-    padding-top: 5rem;
-    padding-bottom: 10rem;
-    .image {
-        float: right;
+  padding-top: 5rem;
+  padding-bottom: 10rem;
+
+  .image {
+    float: right;
+  }
+
+  h1 {
+    margin: 0 15rem;
+
+    .main {
+      color: $blue-color;
+      font-weight: 500;
+      display: block;
     }
 
-    h1 {
-        margin: 0 15rem;
-        .main{
-            color: $blue-color;
-            font-weight: 500;
-            display:block;
-        }
-        .paragraph {
-            color: $primary-color;
-            font-size: 1rem;
-            letter-spacing: 0;
-            font-weight: 400;
-        }
+    .paragraph {
+      color: $primary-color;
+      font-size: 1rem;
+      letter-spacing: 0;
+      font-weight: 400;
     }
 
- 
+    @media only screen and (max-width: 600px) {
+      margin: 0;
+      text-align: center;
+    }
+  }
+
+
+}
+
+img.image-mobile {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  img {
+   &.image-mobile {
+      display: block;
+      height: 20rem;
+      margin: 2rem auto;
+    }
+    &.image-desktop{
+        display: none;
+    }
+  }
+
+
 }

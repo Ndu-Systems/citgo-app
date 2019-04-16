@@ -100,3 +100,19 @@ nav {
  
  
 }
+
+@media only screen and (max-width: 600px) {
+ nav {
+   width: 100%;
+
+   ul {
+    padding-top: 3rem;
+    grid-template-columns: repeat(1);
+
+    span {
+      display: none;
+    }
+
+   }
+ }
+}
