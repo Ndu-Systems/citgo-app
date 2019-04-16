@@ -16,6 +16,11 @@ body {
     padding-bottom: 1rem;
     box-sizing: border-box;
 
+
+    @media only screen and (max-width: 600px) {
+      padding: 0;
+    }
+
 }
 
 .container {
