@@ -37,8 +37,8 @@ nav {
     list-style-type: none;
     margin: 15% auto 0px auto;
     padding: 0;
-    display: grid;
-    grid-template-columns: repeat(4, 25%);
+    // display: grid;
+    // grid-template-columns: repeat(4, 25%);
     width: 80%;
 
     a {
@@ -74,7 +74,7 @@ nav {
 //animations start here
 .show-menu {
   animation: slide-menu 1s ease-in forwards;
-  z-index: 99999999999999;
+  z-index: 99999;
 
   .close-btn {
     animation: animationFadeIn 1s 1s forwards;
@@ -115,4 +115,15 @@ nav {
 
    }
  }
+
+ nav ul {
+  list-style-type: none;
+  margin: 15% auto 0px auto;
+  padding: 0;
+  display: -ms-grid;
+  display: grid;
+  
+  grid-template-columns: repeat(4, 25%);
+  width: 80%;
+}
 }
