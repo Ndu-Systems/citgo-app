@@ -1,1 +1,63 @@
- 
+.account {
+    text-transform: uppercase;
+
+
+    h1 {
+      font-weight: 400;
+    }
+
+    .access {
+      text-align: center;
+      font-size: 0.4444rem;
+      color: #AEA2A2;
+    }
+
+    .login.container-col-1-of-3 {
+      grid-gap: 0;
+      text-align: left;
+      margin: auto;
+      color: #FFFFFF;
+
+      img {
+        height: 3rem;
+        margin: auto;
+      }
+
+      h1 {
+        font-size: 20px;
+        cursor: pointer;
+      }
+    }
+
+    @media only screen and (max-width: 600px) {
+     
+    }
+
+  }
+
+  li:nth-child(2) {
+    border-left: 2px solid gray;
+    width: 30rem; 
+  }
+
+  @media only screen and (max-width: 600px) {
+    ul {
+        grid-template-columns: 100%;
+        margin: 15% auto 0px 0rem;
+        li:nth-child(2) {
+            border-left:none;
+            width: 20rem; 
+            padding-top: 5rem;
+            .login {
+                img {
+                    display: none;
+                }
+
+                &.container-col-1-of-3{
+                    text-align: center;
+                    grid-template-columns: repeat(2,50%);
+                }
+            }
+          }
+    }
+}

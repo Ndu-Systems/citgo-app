@@ -8,6 +8,12 @@
   header {
     padding: 1rem 2rem;
 
+    .logo {
+      img {
+        height:6rem ;
+      }
+    }
+
     .account {
       text-transform: uppercase;
 
