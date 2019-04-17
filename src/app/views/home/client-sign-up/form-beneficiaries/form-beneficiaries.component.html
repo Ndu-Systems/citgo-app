@@ -5,7 +5,7 @@
 
   </section>
   <section class="popup-body">
-    <form [formGroup]="rForm" (ngSubmit)="createClientAccount(rForm.value)" class="box form-group" class="dashboard-forms">
+    <form [formGroup]="rForm" (ngSubmit)="onSubmit(rForm.value)" class="box form-group" class="dashboard-forms">
       <div class="col-1-of-2 ">
         <div class="controls">
           <label for="">NAME</label> <br />

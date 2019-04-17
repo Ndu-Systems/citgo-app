@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ExitModalEventEmmiter } from 'src/app/models';
+import { ExitModalEventEmmiter, CloseModalEventEmmiter } from 'src/app/models';
 import { NavigationEventEmiter } from '../home-nav/navigationEventEmiter';
 
 @Component({
@@ -11,8 +11,8 @@ export class IndexComponent implements OnInit {
 
   showSignUp: boolean;
   showBankingInfoForm: boolean;
-  showBenefitariesForm: boolean=true;
-  showOverlay: boolean =true;
+  showBenefitariesForm: boolean;
+  showOverlay: boolean ;
   showNav: boolean;
 
   constructor() { }
@@ -29,8 +29,30 @@ export class IndexComponent implements OnInit {
   closeNav(event: NavigationEventEmiter) {
     this.OpenNav();
   }
-  closeOptions(e: ExitModalEventEmmiter) {
-    this.togleNav();
+ 
+  closeModal(e:CloseModalEventEmmiter){
+    this.cloaseAll()
+    console.log(e);
+    alert(JSON.stringify(e))
+    debugger
+
+    if(e.closeAll){
+      this.showOverlay = false;
+    }
+    else if(e.showBankingInfoForm){
+      this.showSignUp = false;
+      this.showBankingInfoForm = true;
+    }
+    else if(e.showBenefitariesForm){
+      this.showSignUp = false;
+      this.showBankingInfoForm = false;
+      this.showBenefitariesForm = true;
+    }
+  }
+  cloaseAll(){
+    this.showSignUp = false;
+    this.showBankingInfoForm = false;
+    this.showBenefitariesForm = false;
   }
 
 }

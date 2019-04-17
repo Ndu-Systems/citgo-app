@@ -48,9 +48,9 @@ Form ends here
   closeModal() {
     this.closeModalAction.emit({
       closeAll: true,
-      openAddEmengencyContact: false,
-      openAddMedicalAid: false,
-      openAddPatient: false
+      showBankingInfoForm: false,
+      showBenefitariesForm: false,
+      showPersonalInfoForm: false
     });
   }
 

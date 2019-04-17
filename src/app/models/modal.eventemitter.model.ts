@@ -1,7 +1,7 @@
 export interface CloseModalEventEmmiter{
-    openAddPatient:boolean;
-    openAddMedicalAid:boolean;
-    openAddEmengencyContact:boolean;
+    showPersonalInfoForm:boolean;
+    showBankingInfoForm:boolean;
+    showBenefitariesForm:boolean;
     closeAll:boolean;  
     
     // optional for confirm box
@@ -14,3 +14,4 @@ export interface CloseModalEventEmmiter{
 export interface ExitModalEventEmmiter{
     close: boolean;
 };
+

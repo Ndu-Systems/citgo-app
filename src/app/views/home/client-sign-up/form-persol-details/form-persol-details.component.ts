@@ -1,7 +1,8 @@
 import { CloseModalEventEmmiter } from './../../../../models/modal.eventemitter.model';
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { getCurrentUser } from "src/app/shared/config";
+import { getCurrentUser, LAST_INSERT_ID } from "src/app/shared/config";
+import { AccountService } from '../../services/account.service';
 
 @Component({
   selector: "app-form-persol-details",
@@ -25,7 +26,7 @@ Form ends here
   UserId: string = getCurrentUser();
 
   constructor(
-    private fb: FormBuilder,
+    private fb: FormBuilder, private accountService:AccountService
   ) {
 
 
@@ -45,6 +46,7 @@ Form ends here
       City: ['', Validators.required],
       PostCode: ['', Validators.required],
       Address: ['', Validators.required],
+      CreateUserId: ['SYSTEM_WEB', Validators.required],
       StatusId: [1, Validators.required]
     });
 
@@ -58,13 +60,28 @@ Form ends here
   closeModal() {
     this.closeModalAction.emit({
       closeAll: true,
-      openAddEmengencyContact: false,
-      openAddMedicalAid: false,
-      openAddPatient: false
+      showBankingInfoForm: false,
+      showBenefitariesForm: false,
+      showPersonalInfoForm: false
     });
   }
   createClientAccount(data){
 console.log('New client: ',data);
+this.accountService.addClient(data).subscribe(response => {
+  if (response) {
+    console.log('response',response);
+    
+    localStorage.setItem(LAST_INSERT_ID, response);
+    this.closeModalAction.emit({
+      closeAll: false,
+      showBankingInfoForm: true,
+      showBenefitariesForm: false,
+      showPersonalInfoForm: false
+    });
+  } else {
+    alert(`Error: ${response}`);
+  }
+});
 
   }
 }
