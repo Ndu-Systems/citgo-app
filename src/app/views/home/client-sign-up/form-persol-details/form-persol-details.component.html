@@ -31,7 +31,7 @@
         </div>
         <div class="controls">
           <label for="">ID Number</label> <br />
-          <input type="text" class="input-field" formControlName="IDNumber" />
+          <input type="number" class="input-field" formControlName="IDNumber" />
           <div class="alert" *ngIf="!rForm.controls['IDNumber'].valid ">
               ID Number is requried
           </div>
@@ -41,7 +41,7 @@
       <div class="col-1-of-2 ">
         <div class="controls">
           <label for="">Email</label> <br />
-          <input type="text" class="input-field" formControlName="Email" />
+          <input type="email" class="input-field" formControlName="Email" />
           <div class="alert" *ngIf="!rForm.controls['Email'].valid">
               Email is requried
           </div>
@@ -59,9 +59,12 @@
       <div class="col-1-of-2 ">
         <div class="controls">
           <label for="">Gender</label> <br />
-          <input type="text" class="input-field" formControlName="Gender" />
+          <select  class ="input-field" formControlName="Gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
           <div class="alert" *ngIf="!rForm.controls['Gender'].valid">
-              Gender is requried
+            Gender is requried
           </div>
         </div>
         <div class="controls">
@@ -83,7 +86,7 @@
         </div>
         <div class="controls">
           <label for="">PostCode</label> <br />
-          <input type="text" class="input-field" formControlName="PostCode" />
+          <input type="number" class="input-field" formControlName="PostCode" />
           <div class="alert" *ngIf="!rForm.controls['PostCode'].valid ">
               PostCode Id is requried
           </div>

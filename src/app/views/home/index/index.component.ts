@@ -9,10 +9,10 @@ import { NavigationEventEmiter } from '../home-nav/navigationEventEmiter';
 })
 export class IndexComponent implements OnInit {
 
+  showOverlay: boolean ;
   showSignUp: boolean;
   showBankingInfoForm: boolean;
   showBenefitariesForm: boolean;
-  showOverlay: boolean ;
   showNav: boolean;
 
   constructor() { }
@@ -33,9 +33,7 @@ export class IndexComponent implements OnInit {
   closeModal(e:CloseModalEventEmmiter){
     this.cloaseAll()
     console.log(e);
-    alert(JSON.stringify(e))
-    debugger
-
+    // alert(JSON.stringify(e))
     if(e.closeAll){
       this.showOverlay = false;
     }

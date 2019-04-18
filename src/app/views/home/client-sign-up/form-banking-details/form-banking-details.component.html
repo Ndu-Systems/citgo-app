@@ -5,7 +5,7 @@
 
   </section>
   <section class="popup-body">
-    <form [formGroup]="rForm" (ngSubmit)="createClientAccount(rForm.value)" class="box form-group" class="dashboard-forms">
+    <form [formGroup]="rForm" (ngSubmit)="insertBankingInfo(rForm.value)" class="box form-group" class="dashboard-forms">
       <div class="col-1-of-2 ">
         <div class="controls">
           <label for="">BANK NAME</label> <br />
@@ -16,7 +16,7 @@
         </div>
         <div class="controls">
           <label for="">ACCOUNT NUMBER</label> <br />
-          <input type="text" class="input-field" formControlName="AccountNumber" />
+          <input type="number" class="input-field" formControlName="AccountNumber" />
           <div class="alert" *ngIf="!rForm.controls['AccountNumber'].valid">
             ACCOUNT NUMBER is requried
           </div>
@@ -27,7 +27,7 @@
 
       <div class="col-1-of-2 ">
         <div class="controls">
-          <label for="">BRANCH CODE</label> <br />
+          <label for="">BRANCH CODE / NAME</label> <br />
           <input type="text" class="input-field" formControlName="BankBranch" />
           <div class="alert" *ngIf="!rForm.controls['BankBranch'].valid">
             BRANCH CODE is requried

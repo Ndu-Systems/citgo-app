@@ -13,3 +13,10 @@
     padding-top: 2%;
     font-weight: 100;
 }
+
+.modal{
+    top:13%;
+    @media only screen and (max-width: 600px) {
+        top:1%;
+    }
+}
