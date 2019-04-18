@@ -1,22 +1,27 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { NavigationEventEmiter } from './navigationEventEmiter';
-import { ExitModalEventEmmiter } from 'src/app/models';
+import { CloseModalEventEmmiter } from "src/app/models";
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
+import { NavigationEventEmiter } from "./navigationEventEmiter";
+import { ExitModalEventEmmiter } from "src/app/models";
 
 @Component({
-  selector: 'app-home-nav',
-  templateUrl: './home-nav.component.html',
-  styleUrls: ['./home-nav.component.scss']
+  selector: "app-home-nav",
+  templateUrl: "./home-nav.component.html",
+  styleUrls: ["./home-nav.component.scss"]
 })
 export class HomeNavComponent implements OnInit {
-  @Output() closeNavAction:
-  EventEmitter<NavigationEventEmiter> = new EventEmitter();
+  @Output() closeNavAction: EventEmitter<
+    NavigationEventEmiter
+  > = new EventEmitter();
+  @Output() closeModalAction: EventEmitter<
+    CloseModalEventEmmiter
+  > = new EventEmitter();
+
   showSignUp: boolean;
   showOverlay: boolean;
- 
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() { }
+  ngOnInit() {}
   togleNav() {
     this.showSignUp = !this.showSignUp;
     this.showOverlay = !this.showOverlay;
@@ -26,7 +31,15 @@ export class HomeNavComponent implements OnInit {
       closeNav: true
     });
   }
-  closeOptions(e: ExitModalEventEmmiter) {
-    this.togleNav();
+  closeOptions(e: CloseModalEventEmmiter) {}
+  togleRegNav() {
+    this.closeModalAction.emit(
+      {
+        closeAll: false,
+        showBankingInfoForm: false,
+        showBenefitariesForm: false,
+        showPersonalInfoForm: true
+      }
+    );
   }
 }

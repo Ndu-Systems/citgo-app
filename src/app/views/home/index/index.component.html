@@ -4,7 +4,7 @@
     <app-form-beneficiaries  (closeModalAction)="closeModal($event)" *ngIf="showBenefitariesForm"></app-form-beneficiaries>
   </div>
 <div class="index">
-  <app-home-nav (closeNavAction)="closeNav($event)" *ngIf="showNav"></app-home-nav>
+  <app-home-nav (closeNavAction)="closeNav($event)"  (closeModalAction)="closeModal($event)" *ngIf="showNav"></app-home-nav>
   <header class="container-col-1-of-3">
     <div class="logo">
       <img src="assets/images/home/logo.svg" alt="logo">
@@ -65,10 +65,10 @@
       </span>
       <span class="percent">
         <span class="description">
-          profit monthly
+          referal bonuses
         </span>
         <span class="value">
-          15%
+          5%
         </span>
       </span>
     </h1>

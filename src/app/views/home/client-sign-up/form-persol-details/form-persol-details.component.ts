@@ -69,6 +69,7 @@ Form ends here
 console.log('New client: ',data);
 this.accountService.addClient(data).subscribe(response => {
   if (response) {
+    debugger
     console.log('response',response);
     
     localStorage.setItem(LAST_INSERT_ID, response);

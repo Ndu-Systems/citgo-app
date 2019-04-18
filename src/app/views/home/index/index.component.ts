@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ExitModalEventEmmiter, CloseModalEventEmmiter } from 'src/app/models';
+import {CloseModalEventEmmiter } from 'src/app/models';
 import { NavigationEventEmiter } from '../home-nav/navigationEventEmiter';
 
 @Component({
@@ -33,9 +33,13 @@ export class IndexComponent implements OnInit {
   closeModal(e:CloseModalEventEmmiter){
     this.cloaseAll()
     console.log(e);
-    // alert(JSON.stringify(e))
+    //  alert(JSON.stringify(e))
     if(e.closeAll){
       this.showOverlay = false;
+    }
+    else if(e.showPersonalInfoForm){
+      this.showOverlay = true;
+      this.showSignUp = true;
     }
     else if(e.showBankingInfoForm){
       this.showSignUp = false;

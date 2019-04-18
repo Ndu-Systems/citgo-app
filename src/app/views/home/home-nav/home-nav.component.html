@@ -1,6 +1,4 @@
-<div class="overlay"  *ngIf="showOverlay">
-  <app-form-persol-details  (closeModalAction)="closeOptions($event)" *ngIf="showSignUp"></app-form-persol-details>
-</div>
+
 <nav class="show-menu">
     <img src="../../../../assets/images/home/logo-white-bg.svg" class="logo" alt="logo">
     <img src="../../../../assets/images/home/close-x.png" alt="close btn" class="close-btn" id="close-menu" (click)="closeNav()">
@@ -17,19 +15,10 @@
           <div class="login container-col-1-of-3">
             <img src="assets/images/home/user.svg" alt="user icon">
             <h1>login</h1>
-            <h1 (click)="togleNav()">sign-up</h1>
+            <h1 (click)="togleRegNav()">sign-up</h1>
           </div>
         </div>
         
       </li>
-      <!-- <li>
-        <a routerLink="about-us" (click)="closeNav()">about</a>
-        <span>Get to know us better</span>
-      </li>
-      <li>
-        <a routerLink="our-services" (click)="closeNav()">our services</a>
-        <span>What we are capable of</span>
-      </li> -->
-   
     </ul>  
   </nav>
