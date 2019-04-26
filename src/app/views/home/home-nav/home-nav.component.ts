@@ -25,7 +25,6 @@ export class HomeNavComponent implements OnInit {
   constructor() { }
 
   ngOnInit() { }
-  
   togleNav() {
     this.showSignUp = !this.showSignUp;
     this.showOverlay = !this.showOverlay;
