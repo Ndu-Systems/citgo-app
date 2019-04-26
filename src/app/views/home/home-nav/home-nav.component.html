@@ -1,7 +1,7 @@
 
 <nav class="show-menu">
-    <img src="../../../../assets/images/home/logo-white-bg.svg" class="logo" alt="logo">
-    <img src="../../../../assets/images/home/close-x.png" alt="close btn" class="close-btn" id="close-menu" (click)="closeNav()">
+    <img src="assets/images/home/logo-white-bg.svg" class="logo" alt="logo">
+    <img src="assets/images/home/close-x.png" alt="close btn" class="close-btn" id="close-menu" (click)="closeNav()">
     <ul class="container-col-1-of-4">
       <li>
         <a routerLink="" (click)="closeNav()">home</a>
@@ -14,7 +14,7 @@
           </div>
           <div class="login container-col-1-of-3">
             <img src="assets/images/home/user.svg" alt="user icon">
-            <h1>login</h1>
+            <h1 (click)="togleSignIn()">login</h1>
             <h1 (click)="togleRegNav()">sign-up</h1>
           </div>
         </div>        

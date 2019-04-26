@@ -1,0 +1,37 @@
+<section class="modal account-modal shadow-black">
+  <section class="modal-header">
+    <img src="assets/images/home/logo-white-bg.svg" alt="">
+    <img src="assets/images/home/close-form.svg" (click)="closeModal()" class="close-btn" alt="">
+  </section>
+  <section class="popup-body">
+      <h1>
+          <span class="main">
+            sign in
+          </span>
+        </h1>
+    <form [formGroup]="rForm" (ngSubmit)="signIn(rForm.value)" class="box form-group" class="dashboard-forms">       
+       
+      <div class="col-1-of-1">
+        <div class="controls">
+          <label for="">Email</label> <br />
+          <input type="email" class="input-field" formControlName="Email" />
+          <div class="alert" *ngIf="!rForm.controls['Email'].valid">
+            Email is requried
+          </div>
+        </div>
+        <div class="controls">
+          <label for="">Password</label> <br />
+          <input type="password" class="input-field" formControlName="Password" />
+          <div class="alert" *ngIf="!rForm.controls['Password'].valid ">
+            Password is requried
+          </div>
+        </div>
+      </div>
+      <div class="controls">
+        <input type="submit" value="sign in" class="button" [disabled]="!rForm.valid" />
+      </div>
+      <img *ngIf="loading" class="pl-2" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+
+    </form>
+  </section>
+</section>

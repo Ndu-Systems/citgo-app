@@ -16,22 +16,33 @@ export class HomeNavComponent implements OnInit {
     CloseModalEventEmmiter
   > = new EventEmitter();
 
+  @Output() closeSigninModalAction: EventEmitter<ExitModalEventEmmiter> = new EventEmitter();
+
+
   showSignUp: boolean;
   showOverlay: boolean;
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
+  
   togleNav() {
     this.showSignUp = !this.showSignUp;
     this.showOverlay = !this.showOverlay;
   }
+
   closeNav() {
     this.closeNavAction.emit({
       closeNav: true
     });
   }
-  closeOptions(e: CloseModalEventEmmiter) {}
+  closeOptions(e: CloseModalEventEmmiter) { }
+  togleSignIn() {
+    this.closeSigninModalAction.emit({
+      close: true
+    });
+  }
+
   togleRegNav() {
     this.closeModalAction.emit(
       {
