@@ -1,0 +1,31 @@
+
+<div class="dashboard-nav">   
+  <nav class="topnav">
+      <ul>         
+          <li class="account">
+            <div class="container-col-1-of-2">
+                <img src="assets/images/dashboard/user.svg" alt="user image">
+                <div class="dropdown">
+                    <button class="dropbtn">
+                      Guest                    
+                    </button>
+                    <div class="dropdown-content">
+                        <a routerLink="" (click)="logout()">Logout</a>
+                    </div>
+                  </div>
+            </div>
+          </li>
+      </ul> 
+  </nav>
+  <div class="sidenav">
+    <img src="../../../../assets/images/dashboard/logo-white-bg.svg" alt="dashboard logo">
+    <ul>
+      <li class="container-1-of-1">
+          <a routerLink="dashboard">dashboard</a>
+      </li>
+      <li class="container-1-of-1">
+          <a routerLink="dashboard">bonuses</a>
+      </li>
+    </ul>
+  </div>
+</div>
