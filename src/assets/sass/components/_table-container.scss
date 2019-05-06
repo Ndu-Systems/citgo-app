@@ -1,0 +1,215 @@
+$screen-sm-min: 768px;
+$shadow: 0 2px 3px rgba(0, 0, 0, .2);
+$gray-border: darken(#f8f8f8, 10%);
+$gray-light: rgba(0, 0, 0, .35);
+$faded-yellow: lighten(#f1c40f, 40%);
+
+.table-container {
+  background: #f8f8f8;
+  padding: 2rem;
+
+  .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+
+    .table-wrapper {
+      max-width: 200rem;
+
+      .card-list-table {
+        border-spacing: 0 15px;
+        width: 80rem;
+
+        tbody tr {
+
+          background: white;
+          box-shadow: none;
+          margin: 0;
+
+        }
+
+        thead {
+          display: table-header-group;
+          text-align: left;
+
+
+          th:last-child {
+            box-shadow: none;
+          }
+
+          th {
+            border-bottom: 1px solid $gray-border;
+            padding: 12px 24px;
+            font-weight: 400;
+            text-transform: uppercase;
+          }
+        }
+
+        tbody {
+          tr {
+            display: table-row;
+            padding-bottom: 0;
+
+          }
+
+          td {
+
+            cursor: pointer;
+            display: table-cell;
+            padding: 20px 24px;
+            transition: background .2s ease-out;
+            vertical-align: middle;
+
+            &:after {
+              display: none;
+            }
+
+            &:before {
+              content: '';
+            }
+
+            &.full-name {
+              span {
+                display: block;
+                font-size: .7rem;
+                padding: .2rem;
+              }
+            }
+
+            &.note-box {
+              width: 50%;
+            }
+
+            h1{
+                .main {
+                    font-weight: 500;
+                }
+                .label {
+                    font-size: 0.7rem;
+                    letter-spacing: 0;
+                    font-weight: 700;
+                  }
+            }
+
+            .btn-group {
+              display: grid;
+              grid-template-columns: 30% 30% 30%;
+              column-gap: .3rem;
+
+              .btns {
+                img {
+                  width: 2rem;
+                }
+              }
+
+              &.btn-group-4 {
+                grid-template-columns: 25% 25% 25% auto;
+
+              }
+            }
+
+            &:nth-child(5) {
+              text-align: center;
+            }
+          }
+
+         
+        }
+      }
+
+
+
+      @media only screen and (max-width: 600px) {
+        .table-wrapper {
+          max-width: 300px;
+          width: 80%;
+          margin: 0 auto 0;
+          max-height: 500px;
+          overflow-y: scroll;
+          position: relative;
+          transition: all .2s ease-out;
+
+        }
+
+        .card-list-table {
+          table-layout: fixed;
+          background: transparent;
+          margin-bottom: 0;
+          width: 100%;
+
+          thead {
+            display: none;
+          }
+
+          tbody tr {
+            box-shadow: $shadow;
+            background: #fff;
+            border-bottom: 1px solid $gray-border;
+            // cursor: pointer;
+            display: block;
+            padding: 15px 10px;
+            margin: 0 0 10px 0;
+          }
+
+          tbody td {
+            border: 0;
+            display: block;
+            padding: 10px 10px 20px 40%;
+            position: relative;
+
+            &:first-of-type::after {
+              visibility: hidden;
+            }
+
+            &:after {
+              content: '';
+              width: calc(100% - 30px);
+              display: block;
+              margin: 0 auto;
+              height: 1px;
+              background: $gray-border;
+              position: absolute;
+              left: 0;
+              right: 0;
+              top: -6px
+            }
+
+            &:before {
+              color: $gray-light;
+              text-transform: uppercase;
+              font-size: .85em;
+              content: attr(data-title);
+              display: table-cell;
+              font-weight: 500;
+              height: 100%;
+              left: 15px;
+              margin: auto;
+              position: absolute;
+              vertical-align: middle;
+              white-space: nowrap;
+              width: 30%;
+            }
+
+            &:nth-child(5) {
+              text-align: left;
+            }
+
+            &.note-box {
+              width: 100%;
+            }
+          }
+
+          thead th {
+            text-transform: uppercase;
+            font-size: .85em;
+            color: $gray-light;
+            letter-spacing: .5pt;
+          }
+        }
+      }
+    }
+  }
+}

@@ -2,20 +2,21 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
 import { DashboardNavComponent } from './dashboard-nav';
-import { StatsComponent } from './stats';
+ 
+import { InvestmentsComponent } from './investments';
 
 const routes: Routes = [
     {
         path: '',
         component: DashboardComponent,
-        children: [{ path: '', component: StatsComponent }]
+        children: [{ path: '', component: InvestmentsComponent }]
     }
 ];
 
 export const declarations: Array<any> = [
     DashboardComponent,
-    DashboardNavComponent,
-    StatsComponent
+    DashboardNavComponent, 
+    InvestmentsComponent
 ];
 
 @NgModule({
