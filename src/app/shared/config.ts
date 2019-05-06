@@ -1,4 +1,4 @@
-export const IS_LOCAL = true;
+export const IS_LOCAL = false;
 let api = 'http://citgo.ndu-systems.net/api';
 let web = 'http://citgo.ndu-systems.net';
 if (IS_LOCAL) {
