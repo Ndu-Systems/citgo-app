@@ -1,4 +1,4 @@
-export const IS_LOCAL = false;
+export const IS_LOCAL = true;
 let api = 'http://citgo.ndu-systems.net/api';
 let web = 'http://citgo.ndu-systems.net';
 if (IS_LOCAL) {
@@ -9,6 +9,7 @@ if (IS_LOCAL) {
 export const   API_URL = api;
 export const WEB_HOST = web;
 export const LAST_INSERT_ID = 'LAST_INSERT_ID';
+export const CURRENT_USER = 'currentUser';
 
 export function getCurrentUser(){
     return 'ndu';
