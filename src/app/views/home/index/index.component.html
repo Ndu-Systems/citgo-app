@@ -2,6 +2,7 @@
     <app-form-persol-details  (closeModalAction)="closeModal($event)" *ngIf="showSignUp"></app-form-persol-details>
     <app-form-banking-details  (closeModalAction)="closeModal($event)" *ngIf="showBankingInfoForm"></app-form-banking-details>
     <app-form-beneficiaries  (closeModalAction)="closeModal($event)" *ngIf="showBenefitariesForm"></app-form-beneficiaries>
+    <app-sign-in  (closeSigninModalAction)="closeSignIn($event)" *ngIf="showSignIn"></app-sign-in>
   </div>
 <div class="index">
   <app-home-nav (closeNavAction)="closeNav($event)"  (closeModalAction)="closeModal($event)" *ngIf="showNav"></app-home-nav>
@@ -15,7 +16,7 @@
       </div>
       <div class="login container-col-1-of-3">
         <img src="assets/images/home/user.svg" alt="user icon">
-        <h1>login</h1>
+        <h1 (click)="openSignUp()">login</h1>
         <h1 (click)="togleNav()">sign-up</h1>
       </div>
     </div>

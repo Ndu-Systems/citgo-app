@@ -1,4 +1,15 @@
-.main{
-    padding: 4%;
-    text-align: center;
+@import '../../../assets/sass/variables';
+.container{
+
+    box-shadow: -1px 6px 35px -25px rgba(130,130,130,1);
+    
+    .main{
+        padding: 2%;   
+        padding-left: 0;
+        padding-top: 0;
+        padding-right: 0;
+        background: $blue-gray-color;   
+        
+         
+    }
 }

@@ -1,0 +1,25 @@
+@import '../../../../assets/sass/variables';
+
+
+
+.dashboard-nav nav {
+  background: $nav-background;
+    &.top-nav {
+    
+    ul li a {
+        color: $white-color;
+     }   
+   
+
+     .col-1-of-3 {
+      grid-template-columns: 10% 70% auto;
+    }
+  }
+
+}
+
+.dashboard-nav nav.topnav ul li a { 
+    color: $white-color;   
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}

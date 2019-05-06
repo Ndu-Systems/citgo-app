@@ -15,3 +15,4 @@ export interface ExitModalEventEmmiter{
     close: boolean;
 };
 
+

@@ -1,0 +1,21 @@
+.button {
+    // width: 22rem;
+    padding: 1.4rem;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: .5rem;
+    border: none;
+    background:$primary-blue;   
+    text-align: right;
+    margin-right: -2rem;
+    cursor: pointer;
+    border-radius: 15px;
+
+    &:hover {      
+    }
+
+    @media only screen and (max-width: 600px) {
+      padding: 0.8rem;
+    }
+  }

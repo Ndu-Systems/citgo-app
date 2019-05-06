@@ -1,13 +1,13 @@
 import { CloseModalEventEmmiter } from './../../../../models/modal.eventemitter.model';
-import { Component, OnInit, Output, EventEmitter } from "@angular/core";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { getCurrentUser, LAST_INSERT_ID } from "src/app/shared/config";
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { getCurrentUser, LAST_INSERT_ID } from 'src/app/shared/config';
 import { AccountService } from '../../services/account.service';
 
 @Component({
-  selector: "app-form-persol-details",
-  templateUrl: "./form-persol-details.component.html",
-  styleUrls: ["./form-persol-details.component.scss"]
+  selector: 'app-form-persol-details',
+  templateUrl: './form-persol-details.component.html',
+  styleUrls: ['./form-persol-details.component.scss']
 })
 export class FormPersolDetailsComponent implements OnInit {
   @Output() closeModalAction: EventEmitter<CloseModalEventEmmiter> = new EventEmitter();
@@ -17,8 +17,8 @@ Form begin here
 */
   rForm: FormGroup;
 
-  //validation
-  message: string = "";
+  // validation
+  message = '';
 
   /*
 Form ends here
@@ -26,14 +26,13 @@ Form ends here
   UserId: string = getCurrentUser();
 
   constructor(
-    private fb: FormBuilder, private accountService:AccountService
+    private fb: FormBuilder, private accountService: AccountService
   ) {
 
 
   }
 
   ngOnInit() {
-
     this.rForm = this.fb.group({
       FirstName: [null, Validators.required],
       MiddleName: [null],
@@ -50,7 +49,7 @@ Form ends here
       StatusId: [1, Validators.required]
     });
 
-    
+
     this.rForm.valueChanges.subscribe(data => {
       console.log(data);
     });
@@ -65,13 +64,13 @@ Form ends here
       showPersonalInfoForm: false
     });
   }
-  createClientAccount(data){
-console.log('New client: ',data);
+  createClientAccount(data) {
+console.log('New client: ', data);
 this.accountService.addClient(data).subscribe(response => {
   if (response) {
-    debugger
-    console.log('response',response);
-    
+    debugger;
+    console.log('response', response);
+
     localStorage.setItem(LAST_INSERT_ID, response);
     this.closeModalAction.emit({
       closeAll: false,
