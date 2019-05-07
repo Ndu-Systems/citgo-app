@@ -9,20 +9,20 @@
             sign in
           </span>
         </h1>
-    <form [formGroup]="rForm" (ngSubmit)="signIn(rForm.value)" class="box form-group" class="dashboard-forms">       
+    <form [formGroup]="rForm" (ngSubmit)="Login()" class="box form-group" class="dashboard-forms">       
        
       <div class="col-1-of-1">
         <div class="controls">
           <label for="">Email</label> <br />
-          <input type="email" class="input-field" formControlName="Email" />
-          <div class="alert" *ngIf="!rForm.controls['Email'].valid">
+          <input type="email" class="input-field" formControlName="email" />
+          <div class="alert" *ngIf="!rForm.controls['email'].valid">
             Email is requried
           </div>
         </div>
         <div class="controls">
           <label for="">Password</label> <br />
-          <input type="password" class="input-field" formControlName="Password" />
-          <div class="alert" *ngIf="!rForm.controls['Password'].valid ">
+          <input type="password" class="input-field" formControlName="password" />
+          <div class="alert" *ngIf="!rForm.controls['password'].valid ">
             Password is requried
           </div>
         </div>
