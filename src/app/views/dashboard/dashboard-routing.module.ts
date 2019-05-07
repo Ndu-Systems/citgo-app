@@ -5,12 +5,14 @@ import { DashboardNavComponent } from "./dashboard-nav";
 
 import { InvestmentsComponent } from "./investments";
 import { AuthGuard } from "src/app/guards/auth.guard";
+import { CLIENT_USER_ROLE } from "src/app/shared/config";
 
 const routes: Routes = [
   {
     path: "",
     component: DashboardComponent,
     canActivate: [AuthGuard],
+    data: { roles: [CLIENT_USER_ROLE] } ,
     children: [{ path: "", component: InvestmentsComponent }]
   }
 ];

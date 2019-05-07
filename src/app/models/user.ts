@@ -1,3 +1,4 @@
+
 export class User {
     UserId: string;
     Role: number;
@@ -16,3 +17,5 @@ export class User {
     ParentId?: string;
     StatusId?: number;
 }
+
+//3 to 28   pending, awaiting for payments

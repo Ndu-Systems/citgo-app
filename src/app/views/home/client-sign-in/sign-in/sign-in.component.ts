@@ -25,11 +25,11 @@ export class SignInComponent implements OnInit {
 
   ngOnInit() {
     this.rForm = this.fb.group({
-      email: new FormControl('', Validators.compose([
+      email: new FormControl('magwaza@mail.com', Validators.compose([
         Validators.required,
         Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
       ])),
-      password: [null, Validators.required]
+      password: ['pass@123!', Validators.required]
     });
   }
   closeModal() {
