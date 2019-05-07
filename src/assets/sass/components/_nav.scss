@@ -39,7 +39,7 @@ nav {
     padding: 0;
     // display: grid;
     // grid-template-columns: repeat(4, 25%);
-    width: 80%;
+    width: 100%;
 
     a {
       color: $white-color;
@@ -157,10 +157,10 @@ nav {
     &.topnav {
 
       ul {
-        overflow: hidden;
-   
+        
+        overflow: hidden;   
 
-        li{
+        li {
           float: left;
 
           a {
@@ -183,7 +183,7 @@ nav {
               grid-gap: 1rem;
             }
             img {
-              height: 3rem;
+              height: 5rem;
             }
             .dropdown {
 

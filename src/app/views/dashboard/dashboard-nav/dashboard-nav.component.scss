@@ -11,9 +11,7 @@
      }   
    
 
-     .col-1-of-3 {
-      grid-template-columns: 10% 70% auto;
-    }
+   
   }
 
 }
@@ -22,4 +20,23 @@
     color: $white-color;   
     font-size: 1.2rem;
     margin-top: 1rem;
+}
+
+.col-1-of-3 {
+  grid-template-columns: 25% 50% auto;
+}
+
+.buy-shares {
+  
+  float: right;
+  margin: 15px 7rem;
+
+  .button {
+    background: white;
+    color: black;
+    padding: 1rem 2rem;
+    letter-spacing: 0;
+    font-size: 1rem;
+    font-weight: 400;
+  }
 }
