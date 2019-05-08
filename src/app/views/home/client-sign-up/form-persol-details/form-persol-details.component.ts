@@ -43,8 +43,9 @@ Form ends here
       Gender: [null, Validators.required],
       Province: ['', Validators.required],
       City: ['', Validators.required],
-      PostCode: ['', Validators.required],
-      Address: ['', Validators.required],
+      Country: ['', Validators.required],
+      PostCode: ['0000', Validators.required],
+      Address: ['Not needed', Validators.required],
       CreateUserId: ['SYSTEM_WEB', Validators.required],
       StatusId: [1, Validators.required]
     });
