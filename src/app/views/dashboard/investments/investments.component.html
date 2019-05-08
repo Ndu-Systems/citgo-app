@@ -6,14 +6,14 @@
   <div class="table-container">
     <div class="wrap">
       <div class="table-wrapper">
-        <table class="table-responsive card-list-table" *ngIf="investments">
+        <table class="table-responsive card-list-table" *ngIf="investmentsList">
           <thead>
           </thead>
           <tbody>
-            <tr *ngFor="let data of investments">
+            <tr *ngFor="let data of investmentsList">
               <td data-title="name" class="full-name">
                 {{data.Name}}
-                <span>{{data.StatusId}}</span>
+                <span>{{status}}</span>
               </td>
               <td data-title="amount">
                 <h1>
