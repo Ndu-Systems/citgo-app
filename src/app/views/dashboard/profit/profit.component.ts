@@ -18,13 +18,13 @@ export class ProfitComponent implements OnInit {
         {
           label: "Test dummy",
           data: [65, 59, 80, 81, 56, 55, 40],
-          fill: false,
+          fill: true,
           borderColor: "#a70a856b"
         },
         {
           label: "Test dummy",
           data: [28, 48, 40, 19, 86, 27, 90],
-          fill: false,
+          fill: true,
           borderColor: "#2ECC71"
         }
       ]
