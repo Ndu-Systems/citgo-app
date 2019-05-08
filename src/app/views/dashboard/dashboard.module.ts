@@ -17,8 +17,7 @@ import { MessageService } from 'primeng/api';
     ChartModule,
     MessagesModule,
     MessageModule,
-    ToastModule
-    
+    ToastModule    
   ],
   declarations: [...declarations],
   providers: [MessageService]
