@@ -17,4 +17,8 @@ export class DashboardNavComponent implements OnInit {
   logout() {
     this.routeTo.navigate(['/']);
   }
+
+  toggleBuyShares() {
+    alert("Pop up comming here")
+  }
 }
