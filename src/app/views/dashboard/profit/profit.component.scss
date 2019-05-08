@@ -1,23 +1,51 @@
-$sigle-share-dot-size:.8rem;
-.profit{
-    display: grid;
-    grid-template-columns: 70% auto;
-    background: #fff;
-    padding: 2%;
+$sigle-share-dot-size: 0.8rem;
+h1{
+    font-weight: 400;
+}
 
-    .withdrawal{
-      ul{
-          list-style: none;
-          li{
-              padding: 1%;
-            .sigle-share{
-                display: inline-block;
-                width: $sigle-share-dot-size;
-                height: $sigle-share-dot-size;
-                border-radius: $sigle-share-dot-size;
-                background: #2ECC71;
-            }
-          }
+.profit {
+  display: grid;
+  grid-template-columns: 70% auto;
+  background: #fff;
+  padding: 2%;
+  position: relative;
+
+  .withdrawal {
+    .money {
+      color: #192a56;
+      span:nth-child(1) {
+        font-weight: 100;
+        font-size: 80%;
+      }
+      span:nth-child(2) {
+        font-weight: 300;
+        font-size: 150%;
+      }
+      span:nth-child(3) {
+        font-weight: 200;
+        font-size: 100%;
       }
     }
+    ul {
+      list-style: none;
+      li {
+        padding: 1%;
+        .sigle-share {
+          display: inline-block;
+          width: $sigle-share-dot-size;
+          height: $sigle-share-dot-size;
+          border-radius: $sigle-share-dot-size;
+          background: #2ecc71;
+        }
+      }
+    }
+    .success {
+      background: #2ecc71;
+    }
+  }
+  .bonus{
+      position: absolute;
+      bottom: 2rem;
+      right: 2rem;
+  }
 }
