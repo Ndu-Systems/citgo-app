@@ -4,22 +4,33 @@
 
 .dashboard-nav nav {
   background: $nav-background;
-    &.top-nav {
-    
-    ul li a {
-        color: $white-color;
-     }   
-   
 
-   
+  .logo {
+    opacity: 1;
+
+    img {
+      height: 5rem;
+      float: left;
+      margin: 0 4rem;
+    }
+  }
+
+  &.top-nav {
+
+    ul li a {
+      color: $white-color;
+    }
+
+
+
   }
 
 }
 
-.dashboard-nav nav.topnav ul li a { 
-    color: $white-color;   
-    font-size: 1.2rem;
-    margin-top: 1rem;
+.dashboard-nav nav.topnav ul li a {
+  color: $white-color;
+  font-size: 1.2rem;
+  margin-top: 1rem;
 }
 
 .col-1-of-3 {
@@ -27,7 +38,7 @@
 }
 
 .buy-shares {
-  
+
   float: right;
   margin: 15px 7rem;
 
@@ -39,4 +50,60 @@
     font-size: 1rem;
     font-weight: 400;
   }
+}
+
+.share-link {
+  margin-top: 1.5rem;
+  padding: 0.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  font-size: 0.8rem;
+  font-weight: 200;
+  letter-spacing: normal;
+  text-transform: lowercase;
+}
+.dashboard-nav nav.topnav ul li.account {
+  float: left;  
+  padding: 0;  
+  padding-right: 0; 
+
+  &.col-1-of-3 {
+
+  }
+
+  .dropdown {
+    .dropbtn {
+      padding: 1rem 0px;
+    }
+    &.notifications{
+        .dropdown-content {
+          background: #FFF;
+          min-width: 15rem;
+          padding: 0rem;
+        }
+
+        h1{
+          padding: 1rem;
+        }
+
+        &:hover{
+          cursor: pointer;
+        }
+
+    }
+  }
+ 
+}
+
+nav ul span {
+  color: #FFF;
+  display: block;
+  font-size: 0.8rem;
+  margin-top: 0;
+  letter-spacing: 0;
+  font-weight: 200;
+  opacity:1;
+  background: green;
+  padding: 1rem;
+  border-radius: 1rem;
 }

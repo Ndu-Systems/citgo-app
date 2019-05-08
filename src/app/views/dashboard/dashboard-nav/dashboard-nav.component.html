@@ -1,7 +1,8 @@
 <div class="dashboard-nav">
   <nav class="topnav col-1-of-3">
     <div class="logo">
-      <img src="../../../../assets/images/dashboard/logo-white-bg.svg" alt="dashboard logo">
+      <img src="../../../../assets/images/dashboard/logo-white-bg.svg" alt="">
+      <input type="button" value="copy my link" class="button share-link" />
     </div>
     <ul class="nav-tems">
       <li class="container-1-of-1">
@@ -13,23 +14,31 @@
       <li class="container-1-of-1">
         <a routerLink="dashboard">My transactions</a>
       </li>
-      <li class="buy-shares">       
-        <input type="button" value="buy shares" class="button shares"  />
+      <li class="buy-shares">
+        <input type="button" value="buy shares" class="button shares" />
       </li>
     </ul>
     <ul>
-      <li class="account">
-        <div class="container-col-1-of-2">
-          <img src="assets/images/dashboard/user-female.svg" alt="user image">
-          <div class="dropdown">
-            <button class="dropbtn">
-              Guest
-            </button>
-            <div class="dropdown-content">
-              <a routerLink="" (click)="logout()">Logout</a>
-            </div>
+      <li class="account container-col-1-of-3">
+        <div class="dropdown notifications">
+          <h1 class="dropbtn"><i class="fas fa-bell"></i></h1>
+          <div class="dropdown-content">
+             <div class="notification">
+               <h1>
+                 <span class="info">
+                 Hi there welcome to Citgo
+               </span></h1>
+             </div>
           </div>
         </div>
+        <img src="assets/images/dashboard/user-female.svg" alt="user image">
+        <div class="dropdown">
+          <h1 class="dropbtn">Guest</h1>
+          <div class="dropdown-content">
+            <a routerLink="" (click)="logout()">Logout</a>
+          </div>
+        </div>
+
       </li>
     </ul>
   </nav>
