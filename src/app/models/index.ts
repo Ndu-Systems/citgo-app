@@ -1,4 +1,4 @@
 
 export * from './modal.eventemitter.model';
-export * from './Investment';
+export * from './Investment.model';
 
