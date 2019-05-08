@@ -1,0 +1,23 @@
+$sigle-share-dot-size:.8rem;
+.profit{
+    display: grid;
+    grid-template-columns: 70% auto;
+    background: #fff;
+    padding: 2%;
+
+    .withdrawal{
+      ul{
+          list-style: none;
+          li{
+              padding: 1%;
+            .sigle-share{
+                display: inline-block;
+                width: $sigle-share-dot-size;
+                height: $sigle-share-dot-size;
+                border-radius: $sigle-share-dot-size;
+                background: #2ECC71;
+            }
+          }
+      }
+    }
+}

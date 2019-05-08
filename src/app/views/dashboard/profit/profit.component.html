@@ -1,0 +1,28 @@
+<div class="profit">
+  <div class="graph">
+    <p-toast [style]="{marginTop: '80px'}"></p-toast>
+
+    <p-chart type="line" [data]="data" (onDataSelect)="selectData($event)"></p-chart>
+  </div>
+  <div class="funds">
+<div class="withdrawal">
+  <h1>
+    <span>{{windrawal.currency}}</span>
+    <span>{{windrawal.rand}}</span>
+    <span>{{windrawal.cents}}</span>
+  </h1>
+  <button class="button success">Withdraw now</button>
+  <ul>
+    <li>
+      <span class="sigle-share"></span> R125.55
+    </li>
+    <li>
+      <span class="sigle-share"></span> R125.55
+    </li>
+  </ul>
+</div>
+  </div>
+</div>
+
+
+
