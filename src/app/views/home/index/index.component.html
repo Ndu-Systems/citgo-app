@@ -5,7 +5,7 @@
     <app-sign-in  (closeSigninModalAction)="closeSignIn($event)" *ngIf="showSignIn"></app-sign-in>
   </div>
 <div class="index">
-  <app-home-nav (closeNavAction)="closeNav($event)"  (closeModalAction)="closeModal($event)" *ngIf="showNav"></app-home-nav>
+  <app-home-nav (closeNavAction)="closeNav($event)"  (closeSigninModalAction)="closeSignIn($event)"  (closeModalAction)="closeModal($event)" *ngIf="showNav"></app-home-nav>
   <header class="container-col-1-of-3">
     <div class="logo">
       <img src="assets/images/home/logo.svg" alt="logo">
