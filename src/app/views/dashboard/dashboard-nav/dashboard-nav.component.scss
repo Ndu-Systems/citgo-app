@@ -4,6 +4,9 @@
 
 .dashboard-nav nav {
   background: $nav-background;
+  position: fixed;
+  z-index: 1000;
+  width: 95.8%;
 
   .logo {
     opacity: 1;
