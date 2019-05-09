@@ -41,9 +41,10 @@ export class BuyShareComponent implements OnInit {
     this.error = '';
     console.log('NEW SHARE', data);
     this.investmentService.buyShares(data).subscribe(response => {
-      if (response) {
-        this.router.navigate(['dashboard']);    
-      }
+      if(response.investments){
+        this.investmentService.setInvestments(response.investments);
+
+       }
     })
     this.closeModal();
   }
