@@ -23,12 +23,14 @@ export class InvestmentsComponent implements OnInit {
   ngOnInit() {
     this.user = this.authenticationService.currentUserValue;
     this.investmentService.getInvestmentsByClientId(this.user.ClientId).subscribe(response => {
+     if(response.investments){
       this.investmentsList = response.investments;
       this.investmentsList.forEach(inv => {
         if (Number(inv.StatusId) === 1) {
           this.status = 'ACTIVE';
         }
       });
+     }
 
     });
   }
