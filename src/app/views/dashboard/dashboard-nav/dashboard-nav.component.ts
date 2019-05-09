@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ExitModalEventEmmiter } from 'src/app/models';
 
 @Component({
   selector: 'app-dashboard-nav',
@@ -8,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class DashboardNavComponent implements OnInit {
 
+  showBuyShares: boolean = false;
+  showOverlay: boolean = false;
   constructor(
     private routeTo: Router,
   ) { }
@@ -19,6 +22,11 @@ export class DashboardNavComponent implements OnInit {
   }
 
   toggleBuyShares() {
-    alert("Pop up comming here")
+    this.showBuyShares = !this.showBuyShares;
+    return this.showOverlay = !this.showOverlay;
+  }
+
+  closeModal(event: ExitModalEventEmmiter) {
+    event.close = this.toggleBuyShares();
   }
 }

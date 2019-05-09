@@ -5,7 +5,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { DashboardComponent } from "./dashboard.component";
 import { DashboardNavComponent } from "./dashboard-nav";
 
-import { InvestmentsComponent } from "./investments";
+import { InvestmentsComponent, BuyShareComponent } from "./investments";
 import { AuthGuard } from "src/app/guards/auth.guard";
 import { CLIENT_USER_ROLE } from "src/app/shared/config";
 import { DashFooterComponent } from './dash-footer/dash-footer.component';
@@ -26,7 +26,8 @@ export const declarations: Array<any> = [
   InvestmentsComponent,
   ProfitComponent,
   DashboardHomeComponent,
-  DashFooterComponent
+  DashFooterComponent,
+  BuyShareComponent
 ];
 
 @NgModule({

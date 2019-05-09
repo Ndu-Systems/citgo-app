@@ -2,6 +2,7 @@
 export class User {
     UserId: string;
     Role: number;
+    ClientId?: string;
     Email?: string;
     Password?: string;
     FirstName?: string;

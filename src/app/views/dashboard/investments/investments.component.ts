@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Investment } from 'src/app/models';
-import { InvestmentService } from 'src/app/services';
- 
- 
+import { InvestmentService, AuthenticateService } from 'src/app/services';
+import { User } from 'src/app/models/user';
+
+
 
 
 @Component({
@@ -16,10 +17,12 @@ export class InvestmentsComponent implements OnInit {
 
   investmentsList: Investment[] = [];
   status: string = '';
-  constructor(private investmentService: InvestmentService) {}
+  user: User;
+  constructor(private investmentService: InvestmentService, private authenticationService: AuthenticateService) { }
 
   ngOnInit() {
-    this.investmentService.getAllInvestements().subscribe(response => {       
+    this.user = this.authenticationService.currentUserValue;
+    this.investmentService.getInvestmentsByClientId(this.user.ClientId).subscribe(response => {
       this.investmentsList = response.investments;
       this.investmentsList.forEach(inv => {
         if (Number(inv.StatusId) === 1) {

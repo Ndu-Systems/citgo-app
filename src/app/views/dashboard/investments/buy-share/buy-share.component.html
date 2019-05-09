@@ -1,3 +1,63 @@
-<p>
-  buy-share works!
-</p>
+<div class="buy-shares">
+  <section class="modal shadow-black">
+    <section class="modal-header col-1-of-2">
+      <h1>
+        <span class="main">
+          Buy shares
+        </span>
+      </h1>
+      <img src="assets/images/home/close-form.svg" (click)="closeModal()" class="close-btn" alt="">
+
+    </section>
+    <section class="popup-body">
+
+      <!-- <form [formGroup]="rForm" (ngSubmit)="Login()" class="box form-group" class="dashboard-forms">        -->
+      <form [formGroup]="rForm" (ngSubmit)="buy(rForm.value)" class="box form-group dashboard-forms">
+
+        <div class="col-1-of-1">
+          <div class="controls">
+            <label for="">Share amdount</label> <br />
+            <input type="number" class="input-field" formControlName="Amount" />
+            <div class="alert" *ngIf="!rForm.controls['Amount'].valid">
+              Share name is requried
+            </div>
+          </div>
+
+          <div class="controls">
+            <label for="">Share name</label> <br />
+            <input type="text" class="input-field" formControlName="Name" />
+            <div class="alert" *ngIf="!rForm.controls['Name'].valid">
+              Share name is requried
+            </div>
+          </div>
+
+          <div class="controls">
+            <label for="">Period type</label> <br />
+            <select class="input-field" formControlName="Type">
+              <option value="Month-to-month"> Month-To-Month</option>
+              <option value="Yearly"> Yearly</option>
+            </select>
+            <div class="alert" *ngIf="!rForm.controls['Type'].valid">
+              Type is requried
+            </div>
+          </div>
+          <div class="controls">
+            <input type="submit" value="buy shares" class="button" [disabled]="!rForm.valid" />
+          </div>
+          <div class="controls">
+            <h1>
+              <span class="error">
+                {{error}}
+              </span>
+            </h1>
+          </div>
+        </div>
+
+        <img *ngIf="loading" class="pl-2"
+          src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+
+      </form>
+    </section>
+  </section>
+
+</div>

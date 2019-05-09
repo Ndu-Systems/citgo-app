@@ -9,6 +9,7 @@ import {ToastModule} from 'primeng/toast';
 
 import { DashboardRoutingModule, declarations } from './dashboard-routing.module';
 import { MessageService } from 'primeng/api';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -17,7 +18,9 @@ import { MessageService } from 'primeng/api';
     ChartModule,
     MessagesModule,
     MessageModule,
-    ToastModule    
+    ToastModule, 
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [...declarations],
   providers: [MessageService]

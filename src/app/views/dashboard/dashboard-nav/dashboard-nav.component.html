@@ -1,3 +1,7 @@
+<div class="overlay" *ngIf="showOverlay">
+  <app-buy-share (closeBuySharesModalAction)="closeModal($event)" *ngIf="showBuyShares"></app-buy-share>
+</div>
+
 <div class="dashboard-nav">
   <nav class="topnav col-1-of-3">
     <div class="logo">
@@ -15,7 +19,7 @@
         <a routerLink="dashboard">My transactions</a>
       </li>
       <li class="buy-shares">
-        <input type="button" value="buy shares" class="button shares" (click)="toggleBuyShares()" />
+        <input type="button" value="buy shares"  class="button shares" (click)="toggleBuyShares()" />
       </li>
     </ul>
     <ul>
