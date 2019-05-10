@@ -16,11 +16,8 @@
       </h1>
       <button class="button success">Withdraw now</button>
       <ul>
-        <li>
-          <span class="sigle-share"></span> R125.55
-        </li>
-        <li>
-          <span class="sigle-share"></span> R125.55
+        <li *ngFor="let data of coloredProfitList">
+          <span class="sigle-share" [style.background-color]="data.color"></span>  <span class="currency">{{currency}}</span>{{data.amount}}
         </li>
       </ul>
       <div class="bonus">
@@ -28,7 +25,7 @@
           Referral bonus:
         </span>
         <span class="value">
-          R200.00
+          <span class="currency">{{currency}}</span> {{bonus}}
         </span>
       </div>
     </div>

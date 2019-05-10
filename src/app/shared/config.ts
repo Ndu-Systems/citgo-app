@@ -16,3 +16,5 @@ export const  CLIENT_USER_ROLE =2;
 export function getCurrentUser(){
     return 'ndu';
 }
+
+export const MONTHS_MAP = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']

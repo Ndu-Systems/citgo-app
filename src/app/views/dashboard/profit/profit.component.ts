@@ -3,6 +3,8 @@ import { InvestmentProfitService } from "./../../../services/investment/investme
 import { Money } from "./../../../models/money.model";
 import { Component, OnInit } from "@angular/core";
 import { MessageService } from "primeng/api";
+import { AuthenticateService } from "src/app/services";
+import { User } from "src/app/models/user";
 
 @Component({
   selector: "app-profit",
@@ -12,31 +14,40 @@ import { MessageService } from "primeng/api";
 export class ProfitComponent implements OnInit {
   data: any;
   windrawal: Money;
-  cleintId: string = "a39d846a-61b3-11e9-ac92-80fa5b45280e";
+  cleintId: string = "";
   clientProfits: Profit[];
+  coloredProfitList: any[] = [];
+  user: User;
+  colors = [
+    "#a70a856b",
+    "#16a085",
+    "#2c3e50",
+    "#f1c40f",
+    "#3498db",
+    "#a70a856b",
+    "#16a085",
+    "#2c3e50",
+    "#f1c40f",
+    "#3498db",
+    "#a70a856b",
+    "#16a085",
+    "#2c3e50",
+    "#f1c40f",
+    "#3498db",
+    "#a70a856b",
+    "#16a085",
+    "#2c3e50",
+    "#f1c40f",
+    "#3498db"
+  ];
+  currency: string='R';
+  bonus =300.75;
 
   constructor(
     private messageService: MessageService,
-    private investmentProfitService: InvestmentProfitService
-  ) {
-    this.data = {
-      labels: ["January", "February", "March", "April", "May", "June", "July"],
-      datasets: [
-        {
-          label: "Test dummy",
-          data: [65, 59, 80, 81, 56, 55, 40],
-          fill: true,
-          borderColor: "#a70a856b"
-        },
-        {
-          label: "Test dummy",
-          data: [28, 48, 40, 19, 86, 27, 90],
-          fill: true,
-          borderColor: "#2ECC71"
-        }
-      ]
-    };
-  }
+    private investmentProfitService: InvestmentProfitService,
+    private authenticationService: AuthenticateService
+  ) {}
 
   selectData(event) {
     this.messageService.add({
@@ -49,6 +60,10 @@ export class ProfitComponent implements OnInit {
   }
 
   ngOnInit() {
+    //get user
+    this.user = this.authenticationService.currentUserValue;
+    this.cleintId = this.user.ClientId;
+
     this.investmentProfitService.getProfits(this.cleintId).subscribe(r => {
       if (r.length) {
         this.clientProfits = r;
@@ -69,21 +84,67 @@ export class ProfitComponent implements OnInit {
 
   getGraphData() {
     let result = [];
+    let months: any[] = this.clientProfits.map(x => x.PMonth);
+    var uniqueMonths = [];
+    months.forEach(m => {
+      if (uniqueMonths.indexOf(m) < 0) {
+        uniqueMonths.push(m);
+      }
+    });
+
+    let colorIndex = 0;
     this.clientProfits.forEach(prof => {
-      let isNew = result.filter(x=>x.id == prof.InvestmentId).length == 0;
+      let isNew = result.filter(x => x.id == prof.InvestmentId).length == 0;
       if (isNew) {
         //add
         result.push({
-          name: prof.InvestmentName,
-          id:  prof.InvestmentId,
-          data: [prof.ProfitAmount]
+          label: prof.InvestmentName,
+          id: prof.InvestmentId,
+          data: [Number(prof.ProfitAmount)],
+          fill: true,
+          borderColor: this.colors[colorIndex++]
         });
+        // colorIndex++;
       } else {
         //apend
-        let i = result.indexOf(result.filter(x=>x.id == prof.InvestmentId)[0]);
-        result[i].data.push(prof.ProfitAmount)
+        let i = result.indexOf(
+          result.filter(x => x.id == prof.InvestmentId)[0]
+        );
+        result[i].data.push(Number(prof.ProfitAmount));
       }
     });
     console.log("data of the g:   ", result);
+    this.loadGraph(result, uniqueMonths);
+    this.loadColoredList(result);
+  }
+  loadGraph(result, months) {
+    console.log("result months", result);
+
+    this.data = {
+      labels: months,
+      datasets: [...result]
+    };
+  }
+
+
+  loadColoredList(data: any[]) {
+    let withdrwalSum =0;
+    data.forEach(v => {
+      this.coloredProfitList.push({
+        color: v.borderColor,
+        name: v.label,
+        amount: v.data.reduce(this.getSum, 0)
+      });
+      withdrwalSum += v.data.reduce(this.getSum, 0)
+    });
+    console.log("this.coloredProfitList", this.coloredProfitList);
+    this.windrawal = {
+      currency: this.currency,
+      rand : parseInt((withdrwalSum + this.bonus)+''),
+      cents: parseInt((((withdrwalSum + this.bonus) % 1) * 100)+'') || '00'
+    }
+  }
+  getSum(total, num) {
+    return total + Math.round(num);
   }
 }
