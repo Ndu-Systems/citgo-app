@@ -1,9 +1,15 @@
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { CloseModalEventEmmiter } from "src/app/models";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { getCurrentUser, LAST_INSERT_ID } from "src/app/shared/config";
+import {
+  getCurrentUser,
+  LAST_INSERT_ID,
+  WEB_HOST,
+  VERIFICATIONLINK
+} from "src/app/shared/config";
 import { BeneficiariesService } from "../../services/beneficiaries.service";
 import { Router } from "@angular/router";
+import { EmailService } from "src/app/services/email.service";
 
 @Component({
   selector: "app-form-beneficiaries",
@@ -30,15 +36,18 @@ Form ends here
 */
   UserId: string = getCurrentUser();
   clientId: string;
+  showVerificationEmailSent: boolean;
+  progress: string;
 
   constructor(
     private fb: FormBuilder,
     private beneficiariesService: BeneficiariesService,
-    private router:Router
+    private router: Router,
+    private emailService: EmailService
   ) {}
 
   ngOnInit() {
-    this.clientId = localStorage.getItem(LAST_INSERT_ID)
+    this.clientId = localStorage.getItem(LAST_INSERT_ID);
     this.rForm = this.fb.group({
       Name: [null, Validators.required],
       Surname: [null],
@@ -73,11 +82,18 @@ Form ends here
   }
   onSubmit(data) {
     console.log(data);
-    let formData = {beneficiaries:this.beneficiaries};
+    this.addMore(data);
+
+    if (!data) {
+      alert("no data");
+      return false;
+    }
+    let formData = { beneficiaries: this.beneficiaries };
     this.beneficiariesService.addBeneficiaries(formData).subscribe(response => {
+     
       if (response) {
         console.log("response", response);
-        this.router.navigate(['dashboard'])
+        this.router.navigate(["dashboard"]);
         this.closeModalAction.emit({
           closeAll: true,
           showBankingInfoForm: false,
@@ -89,4 +105,5 @@ Form ends here
       }
     });
   }
+
 }
