@@ -12,6 +12,7 @@ export const LAST_INSERT_ID = 'LAST_INSERT_ID';
 export const CURRENT_USER = 'currentUser';
 export const  ADMIN_USER_ROLE =1;
 export const  CLIENT_USER_ROLE =2;
+export const  STATUS_USER_NEW =4;
 
 export function getCurrentUser(){
     return 'ndu';
