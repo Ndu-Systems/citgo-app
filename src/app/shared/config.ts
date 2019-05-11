@@ -17,4 +17,7 @@ export function getCurrentUser(){
     return 'ndu';
 }
 
-export const MONTHS_MAP = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+export const VERIFICATIONLINK = "etr70554f35IG6767-ctrl789954";
+export const REFERALLINK = "has70554f35uyt6767-ctrl874554";
+
+export const SEND_ACC_VERIFICATION_EMAIL= 'http://citgo.ndu-systems.net/api/email/email-acc-verify.php';
