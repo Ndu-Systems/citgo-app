@@ -18,12 +18,15 @@ import { FormPersolDetailsComponent,
 import { FooterSectionComponent } from './footer-section';
 import { HomeNavComponent } from './home-nav';
 import { SignInComponent } from './client-sign-in';
+import { VERIFICATIONLINK } from 'src/app/shared/config';
+import { VerifyEmailComponent } from './verify-email/verify-email.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    children: [{ path: '', component: IndexComponent }]
+    children: [{ path: '', component: IndexComponent },  { path: `${VERIFICATIONLINK}/:id`, component: VerifyEmailComponent },
+  ]
   }
 ];
 export const declarations: Array<any> = [
@@ -39,7 +42,8 @@ export const declarations: Array<any> = [
   HomeNavComponent,
   FormBankingDetailsComponent,
   FormBeneficiariesComponent,
-  SignInComponent
+  SignInComponent,
+  VerifyEmailComponent
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],
