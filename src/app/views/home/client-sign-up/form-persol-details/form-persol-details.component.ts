@@ -37,7 +37,7 @@ Form ends here
   showVerificationEmailSent: boolean;
   progress: string;
   allUsers: User[] = [];
-  userExist: string = "hello";
+  userExist: string = "";
 
   constructor(
     private fb: FormBuilder,
@@ -72,7 +72,7 @@ Form ends here
       let emails = this.allUsers.map(x => x.Email);
       if (emails.filter(x => x == email).length > 0) {
         //user with email exist
-        this.userExist = "user with email exist";
+        this.userExist = "An account for the specified email address already exists. Try another email address.";
       } else {
         this.userExist = "";
       }
