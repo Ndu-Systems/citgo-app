@@ -1,3 +1,4 @@
+import { AuthenticateService } from 'src/app/services/user/authenticate.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ExitModalEventEmmiter } from 'src/app/models';
@@ -13,11 +14,13 @@ export class DashboardNavComponent implements OnInit {
   showOverlay: boolean = false;
   constructor(
     private routeTo: Router,
+    private authenticateService:AuthenticateService
   ) { }
 
   ngOnInit() {
   }
   logout() {
+    this.authenticateService.logout();
     this.routeTo.navigate(['/']);
   }
 

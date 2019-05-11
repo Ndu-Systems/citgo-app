@@ -1,6 +1,6 @@
 
 <h1>
-  Active funds
+  My shares
 </h1>
 <div class="investments">
   <div class="table-container">
@@ -13,7 +13,7 @@
             <tr *ngFor="let data of investmentsList">
               <td data-title="name" class="full-name">
                 {{data.Name}}
-                <span>{{data.Status}}</span>
+                <span class="{{data.Status}}">{{data.Status}}</span>
               </td>
               <td data-title="amount">
                 <h1>

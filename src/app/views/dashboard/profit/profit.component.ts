@@ -40,8 +40,8 @@ export class ProfitComponent implements OnInit {
     "#f1c40f",
     "#3498db"
   ];
-  currency: string='R';
-  bonus =300.75;
+  currency: string = "R";
+  bonus = 300.75;
 
   constructor(
     private messageService: MessageService,
@@ -126,23 +126,22 @@ export class ProfitComponent implements OnInit {
     };
   }
 
-
   loadColoredList(data: any[]) {
-    let withdrwalSum =0;
+    let withdrwalSum = 0;
     data.forEach(v => {
       this.coloredProfitList.push({
         color: v.borderColor,
         name: v.label,
         amount: v.data.reduce(this.getSum, 0)
       });
-      withdrwalSum += v.data.reduce(this.getSum, 0)
+      withdrwalSum += v.data.reduce(this.getSum, 0);
     });
     console.log("this.coloredProfitList", this.coloredProfitList);
     this.windrawal = {
       currency: this.currency,
-      rand : parseInt((withdrwalSum + this.bonus)+''),
-      cents: parseInt((((withdrwalSum + this.bonus) % 1) * 100)+'') || '00'
-    }
+      rand:  Math.round(withdrwalSum + this.bonus),
+      cents:  Math.round(((withdrwalSum + this.bonus) % 1) * 100) || "00"
+    };
   }
   getSum(total, num) {
     return total + Math.round(num);
