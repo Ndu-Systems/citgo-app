@@ -229,6 +229,7 @@ nav {
     
                   &:hover {
                     background-color:$primary-color;
+                    border-radius: 10px;
                   
                   }
                 }
@@ -237,6 +238,7 @@ nav {
               &:hover {
                 .dropdown-content {
                   display: block;
+                  border-radius: 10px;
                 }
               }
             }
