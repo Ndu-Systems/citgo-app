@@ -1,2 +1,86 @@
  @import '../../../assets/sass/variables';
  
+ header {
+    padding: 1rem 2rem;
+
+    .logo {
+      img {
+        height:4rem ;
+      }
+    }
+
+    .account {
+      text-transform: uppercase;
+
+
+
+      h1 {
+        font-weight: 400;
+      }
+
+      .access {
+        text-align: center;
+        font-size: 0.4444rem;
+        color: #AEA2A2;
+      }
+
+      .login.container-col-1-of-3 {
+        grid-gap: 0;
+        text-align: left;
+        margin: auto;
+        color: #FFFFFF;
+
+        img {
+          height: 3rem;
+          margin: auto;
+        }
+
+        h1 {
+          font-size: 20px;
+          cursor: pointer;
+        }
+      }
+
+      @media only screen and (max-width: 600px) {
+        display: none;
+      }
+
+    }
+
+    .menu {
+      margin: auto;
+
+      img {
+        height: 3rem;
+        cursor: pointer;
+
+        @media only screen and (max-width: 600px) {
+          display: none;
+        }
+
+      }
+    }
+
+    .mobile-menu {
+      display: none;
+
+      @media only screen and (max-width: 600px) {
+        display: block;
+        img {
+          float: right;
+          height: 1.555rem;
+          margin: 1rem 0;
+        }
+      }
+    }
+
+    @media screen and (max-width:600px){
+      header{
+        &.container-col-1-of-3 {
+          grid-template-columns: repeat(2, auto);
+        }
+      }
+    
+    }
+
+  }

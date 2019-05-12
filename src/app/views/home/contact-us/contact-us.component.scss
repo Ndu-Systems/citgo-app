@@ -1,0 +1,128 @@
+@import '../../../../assets/sass/variables';
+
+.banner {
+  background: #4a235a;
+  background-image: url('../../../../assets/images/home/background-home.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: center;
+  margin: -8rem 0;
+  margin-bottom: 5rem;
+
+  .header-content {
+    padding: 10%;
+    text-align: center;
+
+    h1 {
+      .heading-main {
+        font-size: 2.5rem;
+        font-weight: 400;
+        text-transform: capitalize;
+        color: white;
+      }
+    }
+  }
+}
+
+.main-container {
+
+  margin: -2rem auto;
+  width: 85%;
+  background: white;
+  margin-bottom: 5rem;
+  
+  border-radius: 5px;
+
+
+  h1 {
+    letter-spacing: 0;
+
+    .heading {
+      font-weight: 900;
+      font-size: 1.6rem;
+
+    }
+
+    .paragraph {
+      font-size: 0.8rem;
+      width: 60%;
+      margin-top: 1rem;
+      line-height: 1.5rem;
+
+      font-weight: 600;
+    }
+
+    .sub-heading {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0 2rem;
+      color: $primary-color;
+
+    }
+
+    .explainer {
+      font-size: 1rem;
+
+      font-weight: 500;
+    }
+  }
+
+  .heading-container {
+    background: $nav-background;
+    color: $white-color;
+    padding: 5rem 10rem;
+
+    h1 {
+        .heading-main {
+            padding-bottom: 1rem;
+        }
+        .details {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+    }
+  }
+
+  .dashboard-forms {
+
+    padding: 2.5rem 7rem;
+    .input-field {
+      font-size: 1.3rem;
+      font-weight: 400;
+      box-shadow: 10px 10px 34px 6px rgba(92, 92, 92, 0.1);
+      padding: 1.3rem;
+      border-radius: 1.5rem;
+    }
+
+    .button {
+      background: $purple-dark-color;
+      letter-spacing: 0;
+      float: none;
+      padding: 1.2rem 8.5rem;
+      font-size: 1.4rem;
+      font-weight: 500;
+    }
+
+    label {
+      color: $primary-color;
+    }
+
+    .controls {
+      margin: 2rem;
+
+      .button {
+        margin: 0;
+        float: right;
+
+        &:hover {
+          border-bottom: 0;
+        }
+      }
+    }
+
+    .alert {
+
+      color: #f9610cf0;
+    }
+  }
+}

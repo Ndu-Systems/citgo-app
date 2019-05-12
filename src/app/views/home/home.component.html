@@ -1,7 +1,35 @@
- 
-
-<div class="container home">  
+<div class="overlay" *ngIf="showOverlay">
+  <app-form-persol-details (closeModalAction)="closeModal($event)" *ngIf="showSignUp"></app-form-persol-details>
+  <app-form-banking-details (closeModalAction)="closeModal($event)" *ngIf="showBankingInfoForm">
+  </app-form-banking-details>
+  <app-form-beneficiaries (closeModalAction)="closeModal($event)" *ngIf="showBenefitariesForm"></app-form-beneficiaries>
+  <app-sign-in (closeSigninModalAction)="closeSignIn($event)" *ngIf="showSignIn"></app-sign-in>
+</div>
+<div class="container home">
+  <app-home-nav (closeNavAction)="closeNav($event)" (closeSigninModalAction)="closeSignIn($event)"
+    (closeModalAction)="closeModal($event)" *ngIf="showNav"></app-home-nav>
+  <header class="container-col-1-of-3">
+    <div class="logo">
+      <a routerLink="">
+        <img src="assets/images/home/icon-white-round.svg" alt="logo"></a>
+    </div>
+    <div class="account">
+      <div class="access">
+        <h1>access account </h1>
+      </div>
+      <div class="login container-col-1-of-3">
+        <img src="assets/images/home/user.svg" alt="user icon">
+        <h1 (click)="openSignUp()">login</h1>
+        <h1 (click)="togleNav()">sign-up</h1>
+      </div>
+    </div>
+    <div class="menu">
+      <img src="assets/images/home/menu-icon.png" (click)="OpenNav()" alt="menu icon">
+    </div>
+    <div class="mobile-menu">
+      <img src="assets/images/home/burger-menu.svg" (click)="OpenNav()" alt="burger menu" class="burger-menu">
+    </div>
+  </header>
   <router-outlet></router-outlet>
   <app-footer-section></app-footer-section>
 </div>
- 

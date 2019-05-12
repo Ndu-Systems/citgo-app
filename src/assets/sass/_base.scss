@@ -71,3 +71,20 @@ body {
     border-radius: 15px;
     cursor: pointer;
 }
+
+
+.heading-container {
+  background: $nav-background;
+  color: $white-color;
+  padding: 5rem 10rem;
+
+  h1 {
+      .heading-main {
+          padding-bottom: 1rem;
+      }
+      .details {
+          font-weight: 600;
+          font-size: 1rem;
+      }
+  }
+}
