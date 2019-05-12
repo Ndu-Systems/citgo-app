@@ -10,7 +10,7 @@
 
     .logo {
       img {
-        height:6rem ;
+        height:4rem ;
       }
     }
 
@@ -73,7 +73,8 @@
         display: block;
         img {
           float: right;
-          height: 4.555rem;
+          height: 1.555rem;
+          margin: 1rem 0;
         }
       }
     }
@@ -166,6 +167,7 @@
 .monthly {
   margin: auto 2rem;
   text-align: right;
+  padding-bottom: 10rem;
 
   h1 {
     padding: 2rem;

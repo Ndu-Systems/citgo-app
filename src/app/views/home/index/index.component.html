@@ -8,7 +8,7 @@
   <app-home-nav (closeNavAction)="closeNav($event)"  (closeSigninModalAction)="closeSignIn($event)"  (closeModalAction)="closeModal($event)" *ngIf="showNav"></app-home-nav>
   <header class="container-col-1-of-3">
     <div class="logo">
-      <img src="assets/images/home/logo.svg" alt="logo">
+      <img src="assets/images/home/icon-white-round.svg" alt="logo">
     </div>
     <div class="account">
       <div class="access">
@@ -24,7 +24,7 @@
       <img src="assets/images/home/menu-icon.png" (click)="OpenNav()" alt="menu icon">
     </div>   
     <div class="mobile-menu">
-      <img src="assets/images/home/burger-menu.svg" (click)="OpenNav()"  alt="burger menu">
+      <img src="assets/images/home/burger-menu.svg" (click)="OpenNav()"  alt="burger menu" class="burger-menu">
     </div>
   </header>
   <div class="container-col-1-of-2">
@@ -76,8 +76,9 @@
   </div>
 </div>
 
-<app-control-section></app-control-section>
+<app-calculator></app-calculator>
+<!-- <app-control-section></app-control-section>
 <app-assets-component></app-assets-component>
 <app-growth-section></app-growth-section>
 <app-apart-section></app-apart-section>
-<app-invest-section></app-invest-section>
+<app-invest-section></app-invest-section> -->

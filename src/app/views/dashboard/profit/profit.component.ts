@@ -76,9 +76,9 @@ export class ProfitComponent implements OnInit {
 
   getWidrawal() {
     this.windrawal = {
-      currency: "R",
-      rand: "1025",
-      cents: "75"
+      currency: this.currency,
+      rand: "00",
+      cents: "00"
     };
   }
 

@@ -25,10 +25,11 @@ nav {
     float: right;
     cursor: pointer;
     opacity: 0;
+    height: 2.5rem;
   }
 
   .logo {
-
+    height: 4rem;
     float: left;
     opacity: 0;
   }
@@ -36,20 +37,21 @@ nav {
   ul {
     list-style-type: none;
     margin: 15% auto 0px auto;
-    padding: 0;
+    padding: 0 5%;
     // display: grid;
     // grid-template-columns: repeat(4, 25%);
     width: 100%;
 
     a {
       color: $white-color;
-      font-weight: 400;
-      font-size: 2.555555rem;
+      font-weight: 300;
+      font-size: 2rem;
       text-decoration: none;
       letter-spacing: 0;
       text-transform: capitalize;
       &:hover {
         font-weight: 600;
+        color: $white-color;
       }
     }
 
@@ -58,7 +60,7 @@ nav {
       display: block;
       font-size: 1em;
       margin-top: 20px;
-      letter-spacing: 1rem;
+      letter-spacing: 0;
       font-weight: 200;
       opacity: 0.5;
       
@@ -96,7 +98,9 @@ nav {
   li:nth-of-type(3) {
     animation: menu-item-animate .6s forwards 1.6s ease-in-out;
   }
-
+  li:nth-of-type(4) {
+    animation: menu-item-animate .6s forwards 1.6s ease-in-out;
+  }
  
  
 }
@@ -229,6 +233,7 @@ nav {
     
                   &:hover {
                     background-color:$primary-color;
+                    border-radius: 10px;
                   
                   }
                 }
@@ -237,6 +242,7 @@ nav {
               &:hover {
                 .dropdown-content {
                   display: block;
+                  border-radius: 10px;
                 }
               }
             }
