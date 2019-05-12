@@ -91,7 +91,6 @@ export class CalculatorComponent implements OnInit {
     if (!amount || !months) return false;
      this.total = amount;
     for (let i = 0; i <= 12; i++) {
-    // for (let i = 0; i <= months; i++) {
       this.total += this.total*.15;
       if(i===months){
         this.widrawalDayAmount = Math.abs(amount-this.total);
@@ -103,9 +102,8 @@ export class CalculatorComponent implements OnInit {
     if (!amount) return false;
     this.total = amount;
    for (let i = 0; i <= 12; i++) {
-   // for (let i = 0; i <= months; i++) {
      this.total += amount*.15;
-     if(i===1){
+     if(i===0){
        this.widrawalDayAmount = Math.abs(amount-this.total);
      }
    }
