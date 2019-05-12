@@ -16,6 +16,7 @@ export class CalculatorComponent implements OnInit {
   widrawalDay: any='Date not set';
   total: number=0;
   profit: any=0;
+  widrawalDayAmount: number;
   constructor(private fb: FormBuilder) {
     this.data = {
       labels: ["January", "February", "March", "April", "May", "June", "July"],
@@ -89,15 +90,25 @@ export class CalculatorComponent implements OnInit {
   getCompoundGrowth(amount: number, months: number) {
     if (!amount || !months) return false;
      this.total = amount;
-    for (let i = 0; i <= months; i++) {
+    for (let i = 0; i <= 12; i++) {
+    // for (let i = 0; i <= months; i++) {
       this.total += this.total*.15;
+      if(i===months){
+        this.widrawalDayAmount = Math.abs(amount-this.total);
+      }
     }
     this.profit = Math.abs(amount-this.total);
   }
   geFlatGrowth(amount: number) {
     if (!amount) return false;
-     this.total = amount*.15;
-    
-    this.profit = Math.abs(amount-this.total);
+    this.total = amount;
+   for (let i = 0; i <= 12; i++) {
+   // for (let i = 0; i <= months; i++) {
+     this.total += amount*.15;
+     if(i===1){
+       this.widrawalDayAmount = Math.abs(amount-this.total);
+     }
+   }
+   this.profit = Math.abs(amount-this.total);
   }
 }
