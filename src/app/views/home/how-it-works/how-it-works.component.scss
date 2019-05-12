@@ -1,0 +1,165 @@
+@import '../../../../assets/sass/variables';
+
+.banner {
+  background: #4a235a;
+  background-image: url('../../../../assets/images/home/background-home.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: center;
+
+  .header-content {
+    padding: 10%;
+    text-align: center;
+
+    h1 {
+      .heading-main {
+        font-size: 2.5rem;
+        font-weight: 400;
+        text-transform: capitalize;
+        color: white;
+      }
+    }
+  }
+}
+
+.main-container {
+
+  margin: -2rem auto;
+  width: 85%;
+  background: white;
+  margin-bottom: 5rem;
+  padding: 5%;
+  border-radius: 5px;
+
+  h1 {
+    letter-spacing: 0;
+
+    .heading {
+      font-weight: 900;
+      font-size: 1.6rem;
+
+    }
+
+    .paragraph {
+      font-size: 0.8rem;
+      width: 60%;
+      margin-top: 1rem;
+      line-height: 1.5rem;
+
+      font-weight: 600;
+    }
+
+    .sub-heading {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0 2rem;
+      color: $primary-color;
+
+    }
+
+    .explainer {
+      font-size: 1rem;
+
+      font-weight: 500;
+    }
+  }
+
+  .simple {
+    padding-bottom: 5rem;
+  }
+
+  .navigation {
+
+    .nav-image {
+      padding-top: 4rem;
+    }
+
+    .col-1-of-2 {
+      grid-template-columns: 20% auto;
+      grid-gap: 0;
+    }
+  }
+ .points{
+     padding-bottom: 2rem;
+ }
+  .features {
+ 
+    padding-bottom: 0;
+    background: $white-color;
+    background-image: url(../../../../assets/images/home/features-bg.svg);
+    background-repeat: no-repeat;
+
+    .col-1-of-3 {
+      grid-gap: 0;
+      grid-template-columns: repeat(3, auto);
+    }
+
+    .features-heading {
+        padding: 2rem 5rem;
+        h1 {
+            color: $white-color;
+            .heading {
+                font-size: 2.2rem;
+            }
+        }
+    }
+  }
+
+  .card {
+    width: 430px;
+    height: 215px;
+    background: $white-color;
+    margin: 0 auto;
+    border-radius: 5px;
+    box-shadow: -1px 6px 35px -25px rgba(130, 130, 130, 1);
+    padding: 1rem;
+    margin-bottom: -2rem;
+
+    .col-1-of-2 {
+      grid-template-columns: 34% auto;
+    }
+
+
+    .circle-icon {
+      background: $primary-color;
+      width: 5rem;
+      height: 5rem;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 3rem;
+      padding: 20px;
+      margin: 1rem;
+      color: white;
+    }
+
+    h1 {
+        font-size: 0.9rem;
+      .heading {
+        font-size: 1.3rem;
+        font-weight: 500;
+        display: block;
+      }
+
+      .paragraph {
+        font-size: 0.8rem;
+        width: 100%;
+        line-height: 0.5rem;
+        font-weight: 600;
+        margin-top: 0;
+      }
+    }
+
+    .button {
+        background: none;
+        color: #440082;
+        border: 2px solid;
+        padding: 1rem 3rem;
+        letter-spacing: 0;
+        margin: 0;
+        float: right;
+       
+    }
+
+
+  }
+}
