@@ -1,6 +1,8 @@
 
 <nav class="show-menu">
-    <img src="assets/images/home/icon-white-round.svg" class="logo" alt="logo">
+    
+    <a routerLink="">
+        <img src="assets/images/home/icon-white-round.svg" alt="logo" class="logo"></a>
     <img src="assets/images/home/close-x.png" alt="close btn" class="close-btn" id="close-menu" (click)="closeNav()">
     <ul class="container-col-1-of-4">
       <li>
@@ -8,12 +10,12 @@
         <span>Welcome !</span>
       </li>
       <li>
-        <a routerLink="how-it-works" (click)="closeNav()">how it works</a>
-        <span>Who we are</span>
+        <a routerLink="/how-it-works" (click)="closeNav()">how it works</a>
+        <span>Putting it all together</span>
       </li>  
       <li>
-        <a routerLink="contact-us" (click)="closeNav()">contact us</a>
-        <span>Who we are</span>
+        <a routerLink="/contact-us" (click)="closeNav()">contact us</a>
+        <span>Let's connect</span>
       </li>
       <li>
         <div class="account">

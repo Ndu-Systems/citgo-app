@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { ExitModalEventEmmiter } from "src/app/models";
+import { ExitModalEventEmmiter, CloseModalEventEmmiter } from "src/app/models";
+import { NavigationEventEmiter } from "./home-nav/navigationEventEmiter";
 
 @Component({
   selector: "app-home",
@@ -7,21 +8,56 @@ import { ExitModalEventEmmiter } from "src/app/models";
   styleUrls: ["./home.component.scss"]
 })
 export class HomeComponent implements OnInit {
+  showOverlay: boolean ;
   showSignUp: boolean;
-  showOverlay: boolean;
+  showBankingInfoForm: boolean;
+  showBenefitariesForm: boolean;
+  showNav: boolean;
+  showSignIn: boolean;
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
   togleNav() {
     this.showSignUp = !this.showSignUp;
     this.showOverlay = !this.showOverlay;
   }
-  closeOptions(e: ExitModalEventEmmiter) {
-    this.togleNav();
-    //   if(e.close){
-    //     this.showOverlay = false;
-    //   }
-    // }
+  OpenNav() {
+    this.showNav = !this.showNav;
+  }
+
+  openSignUp(){
+    this.showSignIn = !this.showSignIn;
+    this.showOverlay = !this.showOverlay;
+  }
+  closeSignIn(event: ExitModalEventEmmiter){
+    this.openSignUp();
+  }
+  closeNav(event: NavigationEventEmiter) {
+    this.OpenNav();
+  }
+
+  closeModal(e: CloseModalEventEmmiter) {
+    this.cloaseAll();
+    console.log(e);
+    //  alert(JSON.stringify(e))
+    if (e.closeAll) {
+      this.showOverlay = false;
+    } else if (e.showPersonalInfoForm) {
+      this.showOverlay = true;
+      this.showSignUp = true;
+    } else if (e.showBankingInfoForm) {
+      this.showSignUp = false;
+      this.showBankingInfoForm = true;
+    } else if (e.showBenefitariesForm) {
+      this.showSignUp = false;
+      this.showBankingInfoForm = false;
+      this.showBenefitariesForm = true;
+    }
+  }
+  cloaseAll() {
+    this.showSignUp = false;
+    this.showBankingInfoForm = false;
+    this.showBenefitariesForm = false;
   }
 }
