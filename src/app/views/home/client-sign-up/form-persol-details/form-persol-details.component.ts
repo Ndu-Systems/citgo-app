@@ -7,7 +7,8 @@ import {
   getCurrentUser,
   LAST_INSERT_ID,
   WEB_HOST,
-  VERIFICATIONLINK
+  VERIFICATIONLINK,
+  STATUS_USER_NEW
 } from "src/app/shared/config";
 import { AccountService } from "../../services/account.service";
 import { EmailService } from "src/app/services/email.service";
@@ -61,7 +62,7 @@ Form ends here
       PostCode: ["0000", Validators.required],
       Address: ["Not needed", Validators.required],
       CreateUserId: ["SYSTEM_WEB", Validators.required],
-      StatusId: [1, Validators.required]
+      StatusId: [STATUS_USER_NEW, Validators.required]
     });
 
     this.rForm.valueChanges.subscribe(data => {
@@ -124,7 +125,6 @@ Form ends here
       link: link
     };
     this.emailService.sendVerifyAcc(data).subscribe(r => {
-      // alert(JSON.stringify(r))
       this.showVerificationEmailSent = true;
       this.progress = `To ensure that your email account is valid, we have sent you an email to  ${email} to  verify your account,  please check your mailbox`;
     });

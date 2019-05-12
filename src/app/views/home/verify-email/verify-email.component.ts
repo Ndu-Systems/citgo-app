@@ -1,10 +1,11 @@
-import { UserService } from './../services/user.service';
+import { UserService } from "./../services/user.service";
 import { AuthenticateService } from "src/app/services";
 import { User } from "src/app/models/user";
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { STATUS_USER_NEW } from "src/app/shared/config";
 import { first } from "rxjs/operators";
+import { Alert } from "selenium-webdriver";
 
 @Component({
   selector: "app-verify-email",
@@ -33,23 +34,23 @@ export class VerifyEmailComponent implements OnInit {
         return false;
       }
       this.currentUser = r;
-      // if (Number(this.currentUser.StatusId) == STATUS_USER_NEW) {
-      if (Number(this.currentUser.StatusId) == 1) {
-        
+      if (Number(this.currentUser.StatusId) == STATUS_USER_NEW) {
         this.currentUser.StatusId = 3;
+        this.currentUser.ModifyUserId = this.userId;
         this.userService.updateUser(this.currentUser).subscribe(res => {
-          alert(JSON.stringify(res));
+          // lOGIN USER
+          this.authicateService
+            .loginUser(this.currentUser.Email, this.currentUser.Password)
+            .pipe(first())
+            .subscribe(response => {
+              if (response) {
+                alert(JSON.stringify(response));
+                this.router.navigate(["/dashboard"]);
+              } else {
+                alert("Error");
+              }
+            });
         });
-        this.authicateService
-          .loginUser(this.currentUser.Email, this.currentUser.Password)
-          .pipe(first())
-          .subscribe(response => {
-            if (response) {
-              this.router.navigate(["/dashboard"]);
-            } else {
-              alert("Error");
-            }
-          });
       } else {
         this.Error = "This activation link  have already been used";
         this.progress = "";

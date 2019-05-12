@@ -14,6 +14,6 @@ export class UserService {
   }
 
   updateUser(user): Observable<any> {
-    return this.http.post<any>(`${API_URL}/api/user/get-user-emails.php`, user);
+    return this.http.post<any>(`${API_URL}/api/user/verify-user.php`, user);
   }
 }

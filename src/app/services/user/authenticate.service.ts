@@ -66,7 +66,7 @@ export class AuthenticateService {
   }
   getFullClientDetails(UserId) {
     return this.httpClient.get<any>(
-      `${this.url}/api/clients/get-client-by-id.php?ClientId=${UserId}`
+      `${this.url}/api/user/get-user-by-id.php?UserId=${UserId}`
     );
   }
 
