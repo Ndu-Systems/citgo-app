@@ -1,48 +1,65 @@
 @import '../../../../../assets/sass/variables';
-.apart {
-    background: $white-gray-color;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    h1 {
-        padding-bottom: 2rem;
-        margin: 0 15rem;
-        .main{
-            color: $blue-color;
-            font-weight: 500;
-            display:block;
-        }
-        .paragraph {
-            color: $primary-color;
-            font-size: 1rem;
-            letter-spacing: 0;
-            font-weight: 400;
-        }
-        @media only screen and (max-width: 600px) {
-            margin: 0;
-            text-align: left;
-            .main{
-               text-align: center;
-            }
-          }
-    }
-    .points {
-        margin: 0 15rem;
 
-        h1 {
-            margin: 0rem;
-        }
-        .point {
-            padding-bottom: 3rem;
-            .image {
-               margin: 0 auto;
-            }
-            &.container-col-1-of-2 {
-                grid-template-columns: 20% auto;
-            }
-        }
-        @media only screen and (max-width: 600px) {
-            margin: 0;
-            text-align: center;
-          }
+.apart {
+  background: $nav-background;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+ 
+  h1 {
+    padding-bottom: 2rem;
+    margin: 0 15rem;
+
+    .main {
+      color: $white-color;
+      font-weight: 500;
+      display: block;
+      padding: 4rem;
+      padding-left: 0;
     }
+
+    .paragraph {
+      color: $primary-color;
+      font-size: 1rem;
+      letter-spacing: 0;
+      font-weight: 400;
+    }
+
+    @media only screen and (max-width: 600px) {
+      margin: 0;
+      text-align: left;
+
+      .main {
+        text-align: center;
+      }
+    }
+  }
+
+  .points {
+    margin: 0 12rem;
+    padding: 2%;
+    background: $white-color;
+    margin-bottom: -3rem;
+    border-radius: 5px;
+
+    h1 {
+      margin: 0rem;
+    }
+
+    .point {
+      padding-bottom: 3rem;
+
+      .image {
+        margin: 0 auto;
+      }
+
+      &.container-col-1-of-2 {
+        grid-template-columns: 20% auto;
+      }
+    }
+
+    @media only screen and (max-width: 600px) {
+      margin: 0;
+      text-align: center;
+    }
+  }
 }
