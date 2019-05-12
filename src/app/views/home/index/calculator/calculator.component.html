@@ -1,6 +1,6 @@
 <div class="index-container">
   <div class="col-1-of-2">
-    <form [formGroup]="rForm" (ngSubmit)="buy(rForm.value)"  class="box form-group dashboard-forms">
+    <form [formGroup]="rForm" (ngSubmit)="buy(rForm.value)" class="box form-group dashboard-forms">
       <div class="col-1-of-1">
         <div class="controls">
           <label for="">amount</label> <br />
@@ -11,7 +11,24 @@
         </div>
 
         <div class="controls">
-          <label for="">period</label> 
+          <label for="">capititalization</label> <br />
+          <select class="input-field" formControlName="Capitalization">
+            <option value="12">12 Months Cotract</option>
+            <option value="6">6 Months Cotract</option>
+            <option value="3">3 Months Cotract</option>
+            <option value="0">Month-to-month</option>
+          </select>
+          <div class="explain" *ngIf="explainContract">
+            <p class="explainContract">{{explainContract}}</p>
+            <p class="widrawalDay"> Withdral date:{{widrawalDay}}</p>
+          </div>
+          <div class="alert" *ngIf="!rForm.controls['Capitalization'].valid">
+            Capitalization is requried
+          </div>
+        </div>
+
+        <div class="controls">
+          <label for="">period</label>
           <br />
           <input type="text" class="input-field" formControlName="Period" disabled />
           <div class="alert" *ngIf="!rForm.controls['Period'].valid">
@@ -20,26 +37,15 @@
         </div>
         <div class="controls">
           <label for="">rate</label> <br />
-          <input type="text" class="input-field" formControlName="Rate" disabled/>
+          <input type="text" class="input-field" formControlName="Rate" disabled />
           <div class="alert" *ngIf="!rForm.controls['Rate'].valid">
             Rate is requried
           </div>
         </div>
 
+
         <div class="controls">
-          <label for="">capititalization</label> <br />
-          <select class="input-field" formControlName="Capitalization">
-            <option value="12">12 Months</option>
-            <option value="6">6 Months</option>
-            <option value="3">3 Months</option>
-            <option value="0">Month-to-month</option>            
-          </select>
-          <div class="alert" *ngIf="!rForm.controls['Capitalization'].valid">
-            Capitalization is requried
-          </div>
-        </div>
-        <div class="controls">
-          <input type="submit" value="apply" class="button" [disabled]="!rForm.valid" />
+          <!-- <input type="submit" value="invest now" class="button" [disabled]="!rForm.valid" /> -->
         </div>
         <div class="controls">
           <h1>
@@ -54,5 +60,26 @@
         src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
 
     </form>
+    <div class="graph">
+      <p-toast [style]="{marginTop: '80px'}"></p-toast>
+
+      <p-chart type="line" [data]="data" (onDataSelect)="selectData($event)"></p-chart>
+      <div class="data">
+        <p>
+          <b>Profit</b> : {{profit | currency:'R'}}
+        </p>
+        <p>
+          <b>Total share value</b> : {{total | currency:'R'}}
+        </p>
+        <!-- <p>
+          <b>Total share value in 12 Months</b> : {{fullTotal | currency:'R'}}
+        </p> -->
+        <p>
+          <b>Widrawal date</b>: {{widrawalDay}}
+        </p>
+      </div>
+    </div>
   </div>
+  <!-- {{a | currency:'CAD'}} -->
+
 </div>
