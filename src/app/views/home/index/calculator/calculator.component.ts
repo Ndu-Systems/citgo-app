@@ -11,25 +11,27 @@ export class CalculatorComponent implements OnInit {
   rForm: FormGroup;
   data: any;
   explainContract = "";
-  currency:'R';
-  profits: number[] = [65, 59, 80, 81, 56, 55, 40];
-  widrawalDay: any='Date not set';
-  total: number=0;
-  profit: any=0;
+  currency: "R";
+  profits: number[] = [];
+  widrawalDay: any = "Date not set";
+  total: number = 0;
+  profit: any = 0;
   widrawalDayAmount: number;
-  constructor(private fb: FormBuilder) {
-    this.data = {
-      labels: ["January", "February", "March", "April", "May", "June", "July"],
-      datasets: [
-        {
-          label: "Your shares",
-          data: this.profits,
-          fill: true,
-          borderColor: "#440082"
-        }
-      ]
-    };
-  }
+  monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ];
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
     this.rForm = this.fb.group({
@@ -62,51 +64,56 @@ export class CalculatorComponent implements OnInit {
         this.widrawalDay = `${this.formatDate(widrawDate)}`;
         this.geFlatGrowth(amount);
       }
+      //load form
+      this.data = {
+        labels: this.monthNames,
+        datasets: [
+          {
+            label: "Your shares",
+            data: this.profits,
+            fill: true,
+            borderColor: "#440082"
+          }
+        ]
+      };
     });
   }
   formatDate(date: Date) {
-    var monthNames = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December"
-    ];
     return (
       date.getDay() +
       " " +
-      monthNames[date.getMonth()] +
+      this.monthNames[date.getMonth()] +
       " " +
       date.getFullYear()
     );
   }
   getCompoundGrowth(amount: number, months: number) {
+    this.profits = [];
+
     if (!amount || !months) return false;
-     this.total = amount;
-    for (let i = 0; i <= 12; i++) {
-      this.total += this.total*.15;
-      if(i===months){
-        this.widrawalDayAmount = Math.abs(amount-this.total);
+    this.total = amount;
+    for (let i = 0; i < 12; i++) {
+      this.total += this.total * 0.15;
+      if (i === months) {
+        this.widrawalDayAmount = Math.abs(amount - this.total);
       }
+      this.profits.push(Math.round(this.total));
     }
-    this.profit = Math.abs(amount-this.total);
+    this.profit = Math.abs(amount - this.total);
+    console.log(this.profits);
   }
   geFlatGrowth(amount: number) {
+    this.profits = [];
     if (!amount) return false;
     this.total = amount;
-   for (let i = 0; i <= 12; i++) {
-     this.total += amount*.15;
-     if(i===0){
-       this.widrawalDayAmount = Math.abs(amount-this.total);
-     }
-   }
-   this.profit = Math.abs(amount-this.total);
+    for (let i = 0; i < 12; i++) {
+      this.total += amount * 0.15;
+      this.profits.push(Math.round(this.total));
+
+      if (i === 0) {
+        this.widrawalDayAmount = Math.abs(amount - this.total);
+      }
+    }
+    this.profit = Math.abs(amount - this.total);
   }
 }
