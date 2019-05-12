@@ -66,7 +66,6 @@ Form ends here
 
     this.rForm.valueChanges.subscribe(data => {
       console.log(data);
-      debugger;
       this.userExist = "";
       let email = data.Email;
       let emails = this.allUsers.map(x => x.Email);
@@ -99,12 +98,14 @@ Form ends here
     }
     this.accountService.addClient(data).subscribe(response => {
       // to take
-      if (response) {
-        let link = `${WEB_HOST}/#/${VERIFICATIONLINK}/${response}`;
+      if (response.ClientId) {
+        console.log(response);
+        
+        let link = `${WEB_HOST}/#/${VERIFICATIONLINK}/${response.UserId}`;
         this.verifyAcc(data.FirstName, data.Email, link);
         console.log("response", response);
 
-        localStorage.setItem(LAST_INSERT_ID, response);
+        localStorage.setItem(LAST_INSERT_ID, response.ClientId);
         this.closeModalAction.emit({
           closeAll: false,
           showBankingInfoForm: true,
