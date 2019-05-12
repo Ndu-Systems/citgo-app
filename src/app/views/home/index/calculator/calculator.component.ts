@@ -17,6 +17,7 @@ export class CalculatorComponent implements OnInit {
   total: number = 0;
   profit: any = 0;
   widrawalDayAmount: number;
+  today: Date = new Date();
   monthNames = [
     "January",
     "February",
@@ -65,8 +66,9 @@ export class CalculatorComponent implements OnInit {
         this.geFlatGrowth(amount);
       }
       //load form
+      let months: string[] = this.get12Months();
       this.data = {
-        labels: this.monthNames,
+        labels: months,
         datasets: [
           {
             label: "Your shares",
@@ -77,6 +79,20 @@ export class CalculatorComponent implements OnInit {
         ]
       };
     });
+  }
+  get12Months(): string[] {
+    let months = [];
+    let thisMonthIndex = this.today.getMonth();
+  
+    for (let i =thisMonthIndex ; i < 12; i++) {
+      months.push(this.monthNames[i]);
+    }
+    
+    for (let i =0 ; i < thisMonthIndex; i++) {
+      months.push(this.monthNames[i]);
+    }
+
+    return months;
   }
   formatDate(date: Date) {
     return (
