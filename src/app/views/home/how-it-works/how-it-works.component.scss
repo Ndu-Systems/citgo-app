@@ -66,6 +66,16 @@
 
   .simple {
     padding-bottom: 5rem;
+
+    .tag {
+      padding: 0 5rem;
+
+      h1 {
+        .heading {
+          font-weight: 600;
+        }
+      }
+    }
   }
 
   .navigation {

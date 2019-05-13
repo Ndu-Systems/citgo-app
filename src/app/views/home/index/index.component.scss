@@ -1,3 +1,5 @@
+@import '../../../../assets/sass/variables';
+
 .index {
   background: #4a235a;
   background-image: url('../../../../assets/images/home/background-home.png');
@@ -192,4 +194,12 @@
   @media screen and (max-width:600px){
     display: none;
   }
+}
+.index-container {
+  padding: 0;
+  width: 85%;
+  margin: -70px auto;
+  margin-bottom: 5rem;
+  background: $white-color;
+  box-shadow: 10px 10px 34px 6px rgba(92, 92, 92, 0.2);
 }

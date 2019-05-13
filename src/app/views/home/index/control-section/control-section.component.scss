@@ -1,24 +1,28 @@
 @import '../../../../../assets/sass/variables';
 
-.control {
-  padding-top: 5rem;
-  padding-bottom: 10rem;
+.container-main {
+  padding: 2rem;
+  padding-top: 8rem;
+  background: $nav-background;
+  color: white;
+ 
 
   .image {
     float: right;
   }
 
   h1 {
-    margin: 0 15rem;
+    margin: 0;
+    padding: 2%;
 
-    .main {
-      color: $blue-color;
+    .heading-main {
+      padding-bottom: 1rem;
+      text-transform: capitalize;
       font-weight: 500;
-      display: block;
     }
 
     .paragraph {
-      color: $primary-color;
+      color: $white-color;
       font-size: 1rem;
       letter-spacing: 0;
       font-weight: 400;
@@ -30,24 +34,23 @@
     }
   }
 
+  .management {
+    margin: 0;
+    padding: 2%;
 
+    .content {
+      color: $white-color;
+      &.col-1-of-2 {
+        grid-template-columns: 25% auto;
+      }
+    }
+  }
 }
 
 img.image-mobile {
-  display: none;
+   
 }
 
-@media only screen and (max-width: 600px) {
-  img {
-   &.image-mobile {
-      display: block;
-      height: 20rem;
-      margin: 2rem auto;
-    }
-    &.image-desktop{
-        display: none;
-    }
-  }
-
+@media only screen and (max-width: 600px) { 
 
 }
