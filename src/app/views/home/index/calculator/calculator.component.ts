@@ -115,6 +115,10 @@ export class CalculatorComponent implements OnInit {
       }
       this.profits.push(Math.round(this.total));
     }
+    if(months == 12){
+      this.widrawalDayAmount = Math.abs(amount - this.total);
+
+    }
     this.profit = Math.abs(amount - this.total);
     console.log(this.profits);
   }
