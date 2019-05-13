@@ -1,5 +1,6 @@
 @import '../../../../assets/sass/variables';
 
+$number-begde : 1.5rem;
 
 
 .dashboard-nav nav {
@@ -73,10 +74,24 @@
   &.col-1-of-3 {
 
   }
-
   .dropdown {
     .dropbtn {
+      position: relative;
       padding: 1rem 0px;
+      .number-bedge{
+        position: absolute;
+        height: $number-begde;
+        width: $number-begde;
+        border-radius: $number-begde;
+        display: inline;
+        left: 0;
+        text-align: center;
+        box-sizing: border-box;
+        background: #1871CA;
+        color: #FFF;
+        padding: auto;
+
+      }
     }
     &.notifications{
         .dropdown-content {
