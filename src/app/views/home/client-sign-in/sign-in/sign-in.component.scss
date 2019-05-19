@@ -50,3 +50,21 @@
 
   }
 }
+
+
+@media only screen and (max-width: 600px) {
+
+  .modal {
+    width: 100%;
+    left: 0;
+    top: 0;
+    height: 100%;
+
+    .modal-header .close-btn {
+      position: absolute;
+      top: 2rem;
+      right: 4rem;
+      cursor: pointer;
+    }
+  }
+}
