@@ -1,65 +1,86 @@
 @import '../../../../../assets/sass/variables';
-.index-container{
-    // padding: 0;
-    // width: 85%;
-    // margin: -70px auto;
-    // margin-bottom: 5rem;
-    // background: $white-color;
-     
 
-    .col-1-of-2 {
-        grid-template-columns: 30% auto;
-        @media only screen and (max-width: 600px) {
-        grid-template-columns:100%;
-    
-        }
+.index-container {
+  // padding: 0;
+  // width: 85%;
+  // margin: -70px auto;
+  // margin-bottom: 5rem;
+  // background: $white-color;
+
+
+  .col-1-of-2 {
+    grid-template-columns: 30% auto;
+
+    @media only screen and (max-width: 600px) {
+      grid-template-columns: 100%;
+
+    }
+  }
+
+  .form-group {
+
+    .controls {
+      margin: 2rem 0;
+    }
+  }
+
+  .dashboard-forms {
+    padding-top: 0;
+
+    .input-field {
+      font-size: 1.3rem;
+      font-weight: 400;
+      box-shadow: 10px 10px 34px 6px rgba(92, 92, 92, 0.1);
+      padding: 1.3rem;
+      border-radius: 1.5rem;
     }
 
-    .form-group {
-
-        .controls {
-            margin: 2rem 0;            
-        }
+    .button {
+      background: $purple-dark-color;
+      letter-spacing: 0;
+      float: none;
+      padding: 1.2rem 8.5rem;
+      font-size: 1.4rem;
+      font-weight: 500;
     }
 
-    .dashboard-forms {
-        padding-top: 0;
-
-        .input-field {
-            font-size: 1.3rem;
-            font-weight: 400;
-            box-shadow: 10px 10px 34px 6px rgba(92, 92, 92, 0.1);
-            padding: 1.3rem;
-            border-radius: 1.5rem;
-        }
-
-        .button {
-            background: $purple-dark-color;
-            letter-spacing: 0;
-            float: none;
-            padding: 1.2rem 8.5rem;
-            font-size: 1.4rem;
-            font-weight: 500;
-        }
-
-        label {
-            color: $primary-color;
-        }
+    label {
+      color: $primary-color;
     }
-}
-.graph{
-    padding: 2%;
-}
-.alert{
-    color: rgb(58, 6, 59);
+  }
 }
 
-.explainContract{
-    color:#3498db;
-    letter-spacing: 0ch;
+.graph {
+  padding: 2%;
 }
-.widrawalDay{
-    color:#440082;
-    letter-spacing: 0ch;
 
+.alert {
+  color: rgb(58, 6, 59);
+}
+
+.explainContract {
+  color: #3498db;
+  letter-spacing: 0ch;
+}
+
+.widrawalDay {
+  color: #440082;
+  letter-spacing: 0ch;
+
+}
+
+@media only screen and (max-width: 600px) {
+  .heading-container {
+    padding: 0;
+    background: transparent;
+    h1 {
+      size: 2rem;
+
+      .heading-main {
+        font-size: 1.11111rem;
+        color: #440082;
+        font-weight: 600;
+      }
+    }
+  }
 }

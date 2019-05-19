@@ -26,4 +26,11 @@
             display: block;
         }
     }
+
+    @media only screen and (max-width: 600px) {
+        padding-top: 2rem;
+        .container-col-1-of-3{
+            grid-template-columns: 100%;
+        }
+      }
 }
