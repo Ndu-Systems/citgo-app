@@ -49,6 +49,7 @@ nav {
       text-decoration: none;
       letter-spacing: 0;
       text-transform: capitalize;
+
       &:hover {
         font-weight: 600;
         color: $white-color;
@@ -63,7 +64,7 @@ nav {
       letter-spacing: 0;
       font-weight: 200;
       opacity: 0.5;
-      
+
     }
 
     li {
@@ -86,7 +87,7 @@ nav {
     animation: animationFadeIn 1s 1s forwards;
   }
 
-  
+
   li:nth-of-type(1) {
     animation: menu-item-animate .6s forwards 1s ease-in-out;
   }
@@ -98,48 +99,51 @@ nav {
   li:nth-of-type(3) {
     animation: menu-item-animate .6s forwards 1.6s ease-in-out;
   }
+
   li:nth-of-type(4) {
     animation: menu-item-animate .6s forwards 1.6s ease-in-out;
   }
- 
- 
+
+
 }
 
 @media only screen and (max-width: 600px) {
- nav {
-   width: 100%;
+  nav {
+    width: 100%;
 
-   ul {
-    padding-top: 3rem;
-    grid-template-columns: repeat(1);
+    ul {
+      padding-top: 3rem;
+      grid-template-columns: repeat(1);
 
-    span {
-      display: none;
-    }
+      span {
+        display: none;
+      }
 
-    li {
-      margin: 2rem 0;
-      a {
-        font-size: 1.555rem;
+      li {
+        margin: 2rem 0;
+
+        a {
+          font-size: 1.555rem;
+        }
+      }
+
+      li:nth-last-child(1) {
+        padding-top: 0rem;
+        border-top: solid 1px #707070;
       }
     }
-    li:nth-last-child(1) {
-      padding-top: 0rem;
-      border-top: solid 1px #707070;
-     } 
-   }
- }
+  }
 
- nav ul {
-  list-style-type: none;
-  margin: 15% auto 0px auto;
-  padding: 0;
-  display: -ms-grid;
-  display: grid;
-  
-  grid-template-columns: repeat(4, 25%);
-  width: 80%;
-}
+  nav ul {
+    list-style-type: none;
+    margin: 15% auto 0px auto;
+    padding: 0;
+    display: -ms-grid;
+    display: grid;
+
+    grid-template-columns: repeat(4, 25%);
+    width: 80%;
+  }
 }
 
 
@@ -151,18 +155,20 @@ nav {
     height: 5rem;
     position: relative;
     padding: 0;
+
     ul {
-        margin: 0 auto;
-        li {
-          opacity: 1;
-        }
+      margin: 0 auto;
+
+      li {
+        opacity: 1;
+      }
     }
 
     &.topnav {
 
       ul {
-        
-        overflow: hidden;   
+
+        overflow: hidden;
 
         li {
           float: left;
@@ -186,13 +192,15 @@ nav {
             .container-col-1-of-2 {
               grid-gap: 1rem;
             }
+
             img {
               height: 5rem;
             }
+
             .dropdown {
 
               overflow: hidden;
-    
+
               .dropbtn {
                 font-size: 20px;
                 border: none;
@@ -202,7 +210,7 @@ nav {
                 background-color: inherit;
                 font-family: inherit;
                 margin: 0;
-    
+
                 img {
                   height: 1rem;
                 }
@@ -210,18 +218,18 @@ nav {
                 &:hover {
                   cursor: pointer;
                 }
-    
+
               }
-    
+
               .dropdown-content {
                 display: none;
                 position: absolute;
-                background-color:$primary-color;
+                background-color: $primary-color;
                 min-width: 160px;
                 box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
                 z-index: 1;
                 border-radius: 10px;
-    
+
                 a {
                   float: none;
                   color: black;
@@ -230,15 +238,15 @@ nav {
                   display: block;
                   text-align: left;
                   font-size: 1rem;
-    
+
                   &:hover {
-                    background-color:$primary-color;
+                    background-color: $primary-color;
                     border-radius: 10px;
-                  
+
                   }
                 }
               }
-    
+
               &:hover {
                 .dropdown-content {
                   display: block;
@@ -252,7 +260,8 @@ nav {
 
     }
   }
-  .sidenav{
+
+  .sidenav {
     text-align: center;
     margin: 0;
     padding: 0;
@@ -263,31 +272,33 @@ nav {
     height: 50rem;
     position: absolute;
     top: 1.5rem;
-    box-shadow: 32px -2px 32px -42px rgba(130,130,130,0.31);
-  
+    box-shadow: 32px -2px 32px -42px rgba(130, 130, 130, 0.31);
+
     ul {
       list-style-type: none;
       padding: 2rem;
       padding-right: 1rem;
       padding-left: 1rem;
+
       li {
-        
-       padding: 2rem;
-       padding-left: 0;
-       padding-right: 0;
+
+        padding: 2rem;
+        padding-left: 0;
+        padding-right: 0;
+
         a {
           text-decoration: none;
           text-transform: capitalize;
           font-weight: 600;
         }
 
-        a::before{
+        a::before {
           content: '';
           background: red;
           display: block;
           width: 10px;
-          height: 10px;    
-          margin: 0.5rem 6rem;       
+          height: 10px;
+          margin: 0.5rem 6rem;
         }
       }
     }

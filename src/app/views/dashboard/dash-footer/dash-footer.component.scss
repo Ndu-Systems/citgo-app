@@ -1,21 +1,28 @@
 .footer {
   background: #440082;
   padding: 2%;
-  display: grid;
-  grid-template-columns: 20% auto;
+
+  &.col-1-of-2 {
+    grid-template-columns: 30% auto;
+  }
+
   color: #fff;
   padding-top: 4%;
 
   .links {
-    h4{
+    h4 {
       padding-left: 12%;
     }
-      padding-top: 3%;
-      text-align: left;
+
+    padding-top: 3%;
+    text-align: left;
+
     ul {
       list-style: none;
+
       li {
         padding: 1%;
+
         a {
           text-decoration: none;
           color: #fff;
@@ -24,4 +31,22 @@
     }
   }
 
+}
+
+@media only screen and (max-width: 600px) {
+  .footer {
+    padding: 0;
+ 
+    .disclaimer {
+      display: none;
+    }
+
+    &.col-1-of-2 {
+      grid-template-columns: 100%;
+    }
+
+    .links {
+      text-align: center;
+    }
+  }
 }
