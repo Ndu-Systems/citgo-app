@@ -130,3 +130,63 @@
     }
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .banner {
+    margin-bottom: 1rem;
+    padding-top: 5rem;
+    background: $nav-background;
+
+    .header-content {
+      padding: 1rem;
+
+      h1 {
+        .heading-main {
+          font-size: 1.65rem;
+        }
+      }
+
+    }
+  }
+
+  .main-container {
+    width: 100%;
+    padding: 0;
+    padding-bottom: 2rem;
+
+    .heading-container {
+      padding: 2rem .71rem;
+      padding-top: 0;
+
+      h1 {
+        &.col-1-of-2 {
+          grid-template-columns: repeat(2, auto);
+        }
+
+        .heading-main {
+          font-size: 1.5rem;
+        }
+
+        .details {
+          font-weight: 400;
+        }
+      }
+    }
+
+    .dashboard-forms {
+      padding: 0;
+
+      .controls {
+        &.buttons{
+          margin: 0;
+        }
+        .button {
+          float: none;
+          margin: 0 0.5rem;
+        }
+      }
+
+    }
+
+  }
+}

@@ -5,4 +5,12 @@
     margin: 0 auto;
     padding: 3% 2%;
   }
+
+    
+  @media only screen and (max-width: 600px) {
+    .section {
+      width: 95%;
+    }
+    
+  }
 }

@@ -31,6 +31,9 @@
     @media only screen and (max-width: 600px) {
       margin: 0;
       text-align: center;
+      .heading-main {
+        font-size: 1.5555rem;
+      }
     }
   }
 
@@ -44,6 +47,20 @@
         grid-template-columns: 25% auto;
       }
     }
+  }
+
+  @media only screen and (max-width: 600px) {
+   padding: 0;
+   .management {
+     .content {
+       &.col-1-of-2 {
+         grid-template-columns: 100%;
+       }
+       img {
+         margin: 0 auto;
+       }
+     }
+   }
   }
 }
 

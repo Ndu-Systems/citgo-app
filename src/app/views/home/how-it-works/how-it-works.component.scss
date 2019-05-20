@@ -7,6 +7,7 @@
   background-size: cover;
   background-position-x: center;
   margin: -8rem 0;
+
   .header-content {
     padding: 10%;
     text-align: center;
@@ -89,11 +90,13 @@
       grid-gap: 0;
     }
   }
- .points{
-     padding-bottom: 2rem;
- }
+
+  .points {
+    padding-bottom: 2rem;
+  }
+
   .features {
- 
+
     padding-bottom: 0;
     background: $white-color;
     background-image: url(../../../../assets/images/home/features-bg.svg);
@@ -105,13 +108,15 @@
     }
 
     .features-heading {
-        padding: 2rem 5rem;
-        h1 {
-            color: $white-color;
-            .heading {
-                font-size: 2.2rem;
-            }
+      padding: 2rem 5rem;
+
+      h1 {
+        color: $white-color;
+
+        .heading {
+          font-size: 2.2rem;
         }
+      }
     }
   }
 
@@ -143,7 +148,8 @@
     }
 
     h1 {
-        font-size: 0.9rem;
+      font-size: 0.9rem;
+
       .heading {
         font-size: 1.3rem;
         font-weight: 500;
@@ -160,16 +166,101 @@
     }
 
     .button {
-        background: none;
-        color: #440082;
-        border: 2px solid;
-        padding: 1rem 3rem;
-        letter-spacing: 0;
-        margin: 0;
-        float: right;
-       
+      background: none;
+      color: #440082;
+      border: 2px solid;
+      padding: 1rem 3rem;
+      letter-spacing: 0;
+      margin: 0;
+      float: right;
+
     }
 
 
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .banner {
+    margin-bottom: 1rem;
+    padding-top: 5rem;
+    background: $nav-background;
+
+    .header-content {
+      padding: 1rem;
+
+      h1 {
+        .heading-main {
+          font-size: 1.65rem;
+        }
+      }
+
+    }
+  }
+  .main-container {
+    width: 95%;
+    padding: 0;
+    .simple {
+      &.col-1-of-2 {
+        grid-gap: 1rem;
+      }
+      .tag {
+        padding: 0;
+        h1 {
+          text-align: center;
+          .paragraph {
+            width: 100%;
+          }
+        }
+      }
+      .image-mock{
+        img {
+          height: 10rem;
+        }
+      }
+    }
+
+    .navigation {
+      .nav-image {
+        display: none;
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: -1rem;
+        .heading {
+          font-weight: 500;
+        }
+      }
+      .points {
+        &.col-1-of-2 {
+          grid-template-columns: 100%;
+        }
+      }
+
+      .features {
+        .features-heading {
+          padding: 4rem 0rem;
+          h1 {
+            .heading {
+              font-weight: 700;
+            }
+          }
+        }
+
+        .col-1-of-3 {
+          grid-gap: 2rem;   
+          grid-template-columns: repeat(1, auto);
+
+          .card {
+            width: 100%;
+            h1 {
+              .paragraph {
+                font-weight: 500;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

@@ -6,73 +6,72 @@
       </span>
     </h1>
   </div>
-
-  <div class="main-container">
-    <div class="heading-container">
-      <h1>
-        <span class="heading-main">
-            Our contact details.
+</div>
+<div class="main-container">
+  <div class="heading-container">
+    <h1>
+      <span class="heading-main">
+          Our contact details.
+      </span>
+    </h1>
+    <h1 class="col-1-of-2">
+        <span class="details">
+            +27 31 250 1221
         </span>
-      </h1>
-      <h1 class="col-1-of-2">
-          <span class="details">
-              +27 31 250 1221
-          </span>
-          <span class="details">
-              New road 21B
-          </span>
-          <span class="details">
-              queries@citgo.co.za
-          </span>
-          <span class="details">
-              Durban, 3001
-          </span>
-      </h1>
-    </div>
-    <div class="contact-us">
-      <form [formGroup]="rForm" (ngSubmit)="submit()" class="box form-group" class="dashboard-forms">
+        <span class="details">
+            New road 21B
+        </span>
+        <span class="details">
+            queries@citgo.co.za
+        </span>
+        <span class="details">
+            Durban, 3001
+        </span>
+    </h1>
+  </div>
+  <div class="contact-us">
+    <form [formGroup]="rForm" (ngSubmit)="submit()" class="box form-group" class="dashboard-forms">
 
-        <div class="col-1-of-1">
+      <div class="col-1-of-1">
+        <div class="controls">
+          <label for="">Full names</label> <br />
+          <input type="text" class="input-field" formControlName="Fullname" />
+          <div class="alert" *ngIf="!rForm.controls['Fullname'].valid">
+            Fullname is requried
+          </div>
+        </div>
+        <div class="col-1-of-2">
           <div class="controls">
-            <label for="">Full names</label> <br />
-            <input type="text" class="input-field" formControlName="Fullname" />
-            <div class="alert" *ngIf="!rForm.controls['Fullname'].valid">
-              Fullname is requried
+            <label for="">Email</label> <br />
+            <input type="Email" class="input-field" formControlName="Email" />
+            <div class="alert" *ngIf="!rForm.controls['Email'].valid ">
+              Email is requried
             </div>
           </div>
-          <div class="col-1-of-2">
-            <div class="controls">
-              <label for="">Email</label> <br />
-              <input type="Email" class="input-field" formControlName="Email" />
-              <div class="alert" *ngIf="!rForm.controls['Email'].valid ">
-                Email is requried
-              </div>
-            </div>
-            <div class="controls">
-                <label for="">Cellphone</label> <br />
-                <input type="text" class="input-field" formControlName="Cellphone" />
-                <div class="alert" *ngIf="!rForm.controls['Cellphone'].valid ">
-                    Cellphone is requried
-                </div>
-              </div>
-              
-          </div>
           <div class="controls">
-              <label for="">Message</label> <br />
-              <!-- <input type="text" class="input-field" formControlName="Cellphone" /> -->
-              <textarea name="" class="input-field" formControlName="Message" id="" cols="30" rows="10"></textarea>
-              <div class="alert" *ngIf="!rForm.controls['Message'].valid ">
-                  Message is requried
+              <label for="">Cellphone</label> <br />
+              <input type="text" class="input-field" formControlName="Cellphone" />
+              <div class="alert" *ngIf="!rForm.controls['Cellphone'].valid ">
+                  Cellphone is requried
               </div>
             </div>
+            
         </div>
         <div class="controls">
-          <input type="submit" value="submit" class="button" [disabled]="!rForm.valid" />
-        </div>
-        <img *ngIf="loading" class="pl-2"
-          src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+            <label for="">Message</label> <br />
+            <!-- <input type="text" class="input-field" formControlName="Cellphone" /> -->
+            <textarea name="" class="input-field" formControlName="Message" id="" cols="30" rows="10"></textarea>
+            <div class="alert" *ngIf="!rForm.controls['Message'].valid ">
+                Message is requried
+            </div>
+          </div>
+      </div>
+      <div class="controls buttons">
+        <input type="submit" value="submit" class="button" [disabled]="!rForm.valid" />
+      </div>
+      <img *ngIf="loading" class="pl-2"
+        src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
 
-      </form>
-    </div>
+    </form>
   </div>
 </div>

@@ -9,6 +9,12 @@
   margin: -22.22rem 0px;
   padding: 9% 0rem;
 
+
+  @media screen and (max-width:600px) {
+    padding: 0;
+    margin-bottom: 4rem;
+  }
+
   header {
     padding: 1rem 2rem;
 
@@ -148,8 +154,13 @@
   }
 
   @media screen and (max-width:600px) {
+    margin: 0;
+
     h1 {
-      margin: 0;
+
+      margin: 10rem 0px;
+      margin-bottom: 0;
+      padding: 1rem;
 
       .sub {
         font-size: 1rem;
@@ -157,6 +168,7 @@
 
       .big {
         font-size: 2.555rem;
+        font-weight: 600;
       }
 
       .percent {
@@ -171,10 +183,11 @@
 
     .cta-mobile {
       display: block;
+      text-align: center;
 
       img {
         height: 3rem;
-        margin: 0 2rem;
+
         margin-bottom: 4rem;
       }
     }
@@ -219,4 +232,8 @@
   margin-bottom: 5rem;
   background: $white-color;
   box-shadow: 10px 10px 34px 6px rgba(92, 92, 92, 0.2);
+
+  @media screen and (max-width:600px) {
+    width: 95%;
+  }
 }
