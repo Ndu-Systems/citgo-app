@@ -36,8 +36,7 @@ export class VerifyEmailComponent implements OnInit {
         return false;
       }
       this.currentUser = r;
-      // if (Number(this.currentUser.StatusId) == STATUS_USER_NEW) {
-      if (Number(this.currentUser.StatusId) == 3) {
+      if (Number(this.currentUser.StatusId) == STATUS_USER_NEW) {
         this.currentUser.StatusId = 3;
         this.currentUser.ModifyUserId = this.userId;
         this.userService.updateUser(this.currentUser).subscribe(res => {

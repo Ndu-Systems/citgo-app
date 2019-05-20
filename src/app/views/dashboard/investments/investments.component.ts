@@ -28,13 +28,6 @@ export class InvestmentsComponent implements OnInit {
       .subscribe(response => {
         if (response.investments) {
           this.investmentService.setInvestments(response.investments);
-
-          // this.investmentsList = response.investments;
-          // this.investmentsList.forEach(inv => {
-          //   if (Number(inv.StatusId) === 1) {
-          //     this.status = 'ACTIVE';
-          //   }
-          // });
         }
       });
   }

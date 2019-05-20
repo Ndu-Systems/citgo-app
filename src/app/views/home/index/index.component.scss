@@ -6,14 +6,15 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position-x: center;
-    margin: -22.22rem 0px;
-    padding: 9% 0rem;
+  margin: -22.22rem 0px;
+  padding: 9% 0rem;
+
   header {
     padding: 1rem 2rem;
 
     .logo {
       img {
-        height:4rem ;
+        height: 4rem;
       }
     }
 
@@ -74,6 +75,7 @@
 
       @media only screen and (max-width: 600px) {
         display: block;
+
         img {
           float: right;
           height: 1.555rem;
@@ -82,13 +84,13 @@
       }
     }
 
-    @media screen and (max-width:600px){
-      header{
+    @media screen and (max-width:600px) {
+      header {
         &.container-col-1-of-3 {
           grid-template-columns: repeat(2, auto);
         }
       }
-    
+
     }
 
   }
@@ -97,6 +99,12 @@
 .banner {
   padding-top: 15rem;
   margin: auto 7rem;
+
+  @media only screen and (max-width: 600px) {
+    margin: 0;
+    padding-top: 20rem;
+
+  }
 
   h1 {
     color: #ffffff;
@@ -126,9 +134,11 @@
       margin-bottom: 1rem;
     }
   }
-.cta-mobile {
-  display: none;
-}
+
+  .cta-mobile {
+    display: none;
+  }
+
   .cta {
     margin: auto 2rem;
 
@@ -136,32 +146,38 @@
       cursor: pointer;
     }
   }
-  @media screen and (max-width:600px){
-   h1 {
-     margin: 0;
-    .sub {
-      font-size: 1rem;     
-    }
-    .big {
-      font-size: 2.555rem;
-    }
-    .percent{
-      font-size: .77rem;
+
+  @media screen and (max-width:600px) {
+    h1 {
+      margin: 0;
+
+      .sub {
+        font-size: 1rem;
+      }
+
+      .big {
+        font-size: 2.555rem;
+      }
+
+      .percent {
+        font-size: .77rem;
+      }
+
     }
 
-   }
+    .cta {
+      display: none;
+    }
 
-   .cta {
-     display: none;
-   }
-   .cta-mobile {
-     display: block;
-     img {
-      height: 3rem;
-      margin: 0 2rem;
-      margin-bottom: 4rem;
-     }
-   }
+    .cta-mobile {
+      display: block;
+
+      img {
+        height: 3rem;
+        margin: 0 2rem;
+        margin-bottom: 4rem;
+      }
+    }
 
 
   }
@@ -190,11 +206,12 @@
     }
   }
 
-  
-  @media screen and (max-width:600px){
+
+  @media screen and (max-width:600px) {
     display: none;
   }
 }
+
 .index-container {
   padding: 0;
   width: 85%;

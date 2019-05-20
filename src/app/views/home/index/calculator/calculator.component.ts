@@ -16,8 +16,10 @@ export class CalculatorComponent implements OnInit {
   widrawalDay: any = "Date not set";
   total: number = 0;
   profit: any = 0;
+  error:string=''
   widrawalDayAmount: number;
   today: Date = new Date();
+  loading=false;
   monthNames = [
     "January",
     "February",
@@ -136,4 +138,9 @@ export class CalculatorComponent implements OnInit {
     }
     this.profit = Math.abs(amount - this.total);
   }
+  buy(data){
+    console.log(data);
+    
+  }
+
 }

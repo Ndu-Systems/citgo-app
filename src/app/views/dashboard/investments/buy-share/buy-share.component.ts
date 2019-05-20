@@ -12,6 +12,7 @@ export class BuyShareComponent implements OnInit {
   @Output() closeBuySharesModalAction: EventEmitter<ExitModalEventEmmiter> = new EventEmitter();
   rForm: FormGroup;
   error = '';
+  loading;
   currentUser;
   constructor(
     private fb: FormBuilder,

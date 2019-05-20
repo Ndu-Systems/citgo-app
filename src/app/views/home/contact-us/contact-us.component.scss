@@ -30,7 +30,7 @@
   width: 85%;
   background: white;
   margin-bottom: 5rem;
-  
+
   border-radius: 5px;
 
 
@@ -72,20 +72,24 @@
     color: $white-color;
     padding: 5rem 10rem;
 
+
+
     h1 {
-        .heading-main {
-            padding-bottom: 1rem;
-        }
-        .details {
-            font-weight: 600;
-            font-size: 1rem;
-        }
+      .heading-main {
+        padding-bottom: 1rem;
+      }
+
+      .details {
+        font-weight: 600;
+        font-size: 1rem;
+      }
     }
   }
 
   .dashboard-forms {
 
     padding: 2.5rem 7rem;
+
     .input-field {
       font-size: 1.3rem;
       font-weight: 400;

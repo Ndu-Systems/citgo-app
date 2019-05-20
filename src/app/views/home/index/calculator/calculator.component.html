@@ -71,7 +71,7 @@
     <div class="graph">
       <p-toast [style]="{marginTop: '80px'}"></p-toast>
 
-      <p-chart type="line" [data]="data" (onDataSelect)="selectData($event)"></p-chart>
+      <p-chart type="line" [data]="data"></p-chart>
       <div class="data">
         <p>
           <b>Profit</b> : {{profit | currency:'R'}}
