@@ -2,6 +2,7 @@ import { CloseModalEventEmmiter } from "src/app/models";
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { NavigationEventEmiter } from "./navigationEventEmiter";
 import { ExitModalEventEmmiter } from "src/app/models";
+import { SignUpProcessService } from "src/app/services/app-state/sign-up-process.service";
 
 @Component({
   selector: "app-home-nav",
@@ -16,15 +17,16 @@ export class HomeNavComponent implements OnInit {
     CloseModalEventEmmiter
   > = new EventEmitter();
 
-  @Output() closeSigninModalAction: EventEmitter<ExitModalEventEmmiter> = new EventEmitter();
-
+  @Output() closeSigninModalAction: EventEmitter<
+    ExitModalEventEmmiter
+  > = new EventEmitter();
 
   showSignUp: boolean;
   showOverlay: boolean;
 
-  constructor() { }
+  constructor(private signUpProcessService: SignUpProcessService) {}
 
-  ngOnInit() { }
+  ngOnInit() {}
   togleNav() {
     this.showSignUp = !this.showSignUp;
     this.showOverlay = !this.showOverlay;
@@ -35,7 +37,7 @@ export class HomeNavComponent implements OnInit {
       closeNav: true
     });
   }
-  closeOptions(e: CloseModalEventEmmiter) { }
+  closeOptions(e: CloseModalEventEmmiter) {}
   togleSignIn() {
     this.closeSigninModalAction.emit({
       close: true
@@ -43,13 +45,6 @@ export class HomeNavComponent implements OnInit {
   }
 
   togleRegNav() {
-    this.closeModalAction.emit(
-      {
-        closeAll: false,
-        showBankingInfoForm: false,
-        showBenefitariesForm: false,
-        showPersonalInfoForm: true
-      }
-    );
+    this.signUpProcessService.showPersonalInfoForm();
   }
 }

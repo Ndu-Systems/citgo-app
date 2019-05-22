@@ -63,14 +63,7 @@ Form ends here
     });
   }
 
-  closeModal() {
-    this.closeModalAction.emit({
-      closeAll: true,
-      showBankingInfoForm: false,
-      showBenefitariesForm: false,
-      showPersonalInfoForm: false
-    });
-  }
+  closeModal() {}
 
   addMore(data) {
     data.id = this.count;
@@ -90,20 +83,13 @@ Form ends here
     }
     let formData = { beneficiaries: this.beneficiaries };
     this.beneficiariesService.addBeneficiaries(formData).subscribe(response => {
-     
       if (response) {
         console.log("response", response);
         this.router.navigate(["dashboard"]);
-        this.closeModalAction.emit({
-          closeAll: true,
-          showBankingInfoForm: false,
-          showBenefitariesForm: false,
-          showPersonalInfoForm: false
-        });
+        //close all
       } else {
         alert(`Error: ${response}`);
       }
     });
   }
-
 }

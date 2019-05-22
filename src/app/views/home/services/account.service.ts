@@ -10,17 +10,6 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AccountService {
 
-  
-  userRegistrationProcessActive = new BehaviorSubject<SignUpProcess>(newProcess);
-  castUserRegistrationProcess = this.userRegistrationProcessActive.asObservable();
-
-  finishRegistrationProcess() {
-    this.userRegistrationProcessActive.next(newProcess);
-  }
-
- getRegistraionProcess(){
-    return this.userRegistrationProcessActive.value;
-  }
   constructor(private http: HttpClient) {}
 
   addClient(data): Observable<any> {

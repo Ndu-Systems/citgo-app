@@ -1,7 +1,8 @@
-import { AccountService } from './services/account.service';
+import { AccountService } from "./services/account.service";
 import { Component, OnInit } from "@angular/core";
 import { ExitModalEventEmmiter, CloseModalEventEmmiter } from "src/app/models";
 import { NavigationEventEmiter } from "./home-nav/navigationEventEmiter";
+import { SignUpProcessService } from "src/app/services/app-state/sign-up-process.service";
 
 @Component({
   selector: "app-home",
@@ -9,7 +10,7 @@ import { NavigationEventEmiter } from "./home-nav/navigationEventEmiter";
   styleUrls: ["./home.component.scss"]
 })
 export class HomeComponent implements OnInit {
-  showOverlay: boolean ;
+  showOverlay: boolean;
   showSignUp: boolean;
   showBankingInfoForm: boolean;
   showBenefitariesForm: boolean;
@@ -17,10 +18,19 @@ export class HomeComponent implements OnInit {
   showSignIn: boolean;
   showEmailSentScreen: boolean;
 
-  constructor(private accountService:AccountService) { }
+  constructor(
+    private accountService: AccountService,
+    private signUpProcessService: SignUpProcessService
+  ) {}
 
-  ngOnInit() { 
-  this.accountService.castUserRegistrationProcess.subscribe(d=>this.showEmailSentScreen=d.isProcessRunning)
+  ngOnInit() {
+    this.signUpProcessService.castUserRegistrationProcess.subscribe(process => {
+      this.showEmailSentScreen = process.isProcessRunning;
+      this.showSignUp = process.whichModalToShow.showPersonalInfoForm;
+      this.showBankingInfoForm = process.whichModalToShow.showBankingInfoForm;
+      this.showBenefitariesForm = process.whichModalToShow.showBenefitariesForm;
+      this.showOverlay = process.whichModalToShow.showOverlay;
+    });
   }
   togleNav() {
     this.showSignUp = !this.showSignUp;
@@ -30,11 +40,11 @@ export class HomeComponent implements OnInit {
     this.showNav = !this.showNav;
   }
 
-  openSignUp(){
+  openSignUp() {
     this.showSignIn = !this.showSignIn;
     this.showOverlay = !this.showOverlay;
   }
-  closeSignIn(event: ExitModalEventEmmiter){
+  closeSignIn(event: ExitModalEventEmmiter) {
     this.openSignUp();
   }
   closeNav(event: NavigationEventEmiter) {

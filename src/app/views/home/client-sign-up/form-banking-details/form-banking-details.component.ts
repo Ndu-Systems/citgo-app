@@ -1,18 +1,19 @@
-import { BankingInfoService } from './../../services/bankingInfo.service';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { CloseModalEventEmmiter } from 'src/app/models';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { getCurrentUser, LAST_INSERT_ID } from 'src/app/shared/config';
-import { AccountService } from '../../services/account.service';
+import { BankingInfoService } from "./../../services/bankingInfo.service";
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
+import { CloseModalEventEmmiter } from "src/app/models";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { getCurrentUser, LAST_INSERT_ID } from "src/app/shared/config";
+import { AccountService } from "../../services/account.service";
 
 @Component({
-  selector: 'app-form-banking-details',
-  templateUrl: './form-banking-details.component.html',
-  styleUrls: ['./form-banking-details.component.scss']
+  selector: "app-form-banking-details",
+  templateUrl: "./form-banking-details.component.html",
+  styleUrls: ["./form-banking-details.component.scss"]
 })
 export class FormBankingDetailsComponent implements OnInit {
-
-  @Output() closeModalAction: EventEmitter<CloseModalEventEmmiter> = new EventEmitter();
+  @Output() closeModalAction: EventEmitter<
+    CloseModalEventEmmiter
+  > = new EventEmitter();
 
   /*
 Form begin here
@@ -29,14 +30,12 @@ Form ends here
   clientId: string;
 
   constructor(
-    private fb: FormBuilder,private bankingInfoService:BankingInfoService
-  ) {
-
-
-  }
+    private fb: FormBuilder,
+    private bankingInfoService: BankingInfoService
+  ) {}
 
   ngOnInit() {
-this.clientId = localStorage.getItem(LAST_INSERT_ID)
+    this.clientId = localStorage.getItem(LAST_INSERT_ID);
     this.rForm = this.fb.group({
       BankName: [null, Validators.required],
       BankBranch: [null],
@@ -49,33 +48,19 @@ this.clientId = localStorage.getItem(LAST_INSERT_ID)
     this.rForm.valueChanges.subscribe(data => {
       console.log(data);
     });
-
   }
 
-  closeModal() {
-    this.closeModalAction.emit({
-      closeAll: true,
-      showBankingInfoForm: false,
-      showBenefitariesForm: false,
-      showPersonalInfoForm: false
-    });
-  }
+  closeModal() {}
 
-  insertBankingInfo(data){
-    console.log('Insert Banking Info: ',data);
+  insertBankingInfo(data) {
+    console.log("Insert Banking Info: ", data);
     this.bankingInfoService.addBankingInfo(data).subscribe(response => {
       if (response) {
-        console.log('response',response);
-          this.closeModalAction.emit({
-          closeAll: false,
-          showBankingInfoForm: false,
-          showBenefitariesForm: true,
-          showPersonalInfoForm: false
-        });
+        console.log("response", response);
+        //call next form
       } else {
         alert(`Error: ${response}`);
       }
     });
-    
-      }
+  }
 }

@@ -1,8 +1,7 @@
 <div class="overlay" *ngIf="showOverlay">
-  <app-form-persol-details (closeModalAction)="closeModal($event)" *ngIf="showSignUp"></app-form-persol-details>
-  <app-form-banking-details (closeModalAction)="closeModal($event)" *ngIf="showBankingInfoForm">
-  </app-form-banking-details>
-  <app-form-beneficiaries (closeModalAction)="closeModal($event)" *ngIf="showBenefitariesForm"></app-form-beneficiaries>
+  <app-form-persol-details *ngIf="showSignUp"></app-form-persol-details>
+  <app-form-banking-details *ngIf="showBankingInfoForm"></app-form-banking-details>
+  <app-form-beneficiaries *ngIf="showBenefitariesForm"></app-form-beneficiaries>
   <app-sign-in (closeSigninModalAction)="closeSignIn($event)" *ngIf="showSignIn"></app-sign-in>
 </div>
 <div class="overlay" *ngIf="showEmailSentScreen">

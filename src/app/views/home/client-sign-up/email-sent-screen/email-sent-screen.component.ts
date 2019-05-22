@@ -1,5 +1,6 @@
 import { AccountService } from './../../services/account.service';
 import { Component, OnInit } from '@angular/core';
+import { SignUpProcessService } from 'src/app/services/app-state/sign-up-process.service';
 
 @Component({
   selector: 'app-email-sent-screen',
@@ -9,17 +10,17 @@ import { Component, OnInit } from '@angular/core';
 export class EmailSentScreenComponent implements OnInit {
   progress: string;
 
-  constructor(private accountService:AccountService) { }
+  constructor(private accountService:AccountService, private signUpProcessService:SignUpProcessService) { }
 
   ngOnInit() {
-    let process = this.accountService.getRegistraionProcess();
+    let process = this.signUpProcessService.getRegistraionProcess();
      // let email = process.user.Email;
      let email = 'ndu@mail.com';
      this.progress = `To ensure that your email account is valid, we have sent you an email to  ${email} to  verify your account,  please check your mailbox`;
   }
   backHome(){
-    console.log(this.accountService.getRegistraionProcess());
+    console.log(this.signUpProcessService.getRegistraionProcess());
     
-    this.accountService.finishRegistrationProcess();
+    this.signUpProcessService.finishRegistrationProcess();
   }
 }

@@ -1,3 +1,4 @@
+import { SignUpProcessService } from './../../../../services/app-state/sign-up-process.service';
 import { User } from "src/app/models/user";
 import { UserService } from "./../../services/user.service";
 import { CloseModalEventEmmiter } from "./../../../../models/modal.eventemitter.model";
@@ -19,21 +20,8 @@ import { EmailService } from "src/app/services/email.service";
   styleUrls: ["./form-persol-details.component.scss"]
 })
 export class FormPersolDetailsComponent implements OnInit {
-  @Output() closeModalAction: EventEmitter<
-    CloseModalEventEmmiter
-  > = new EventEmitter();
-
-  /*
-Form begin here
-*/
   rForm: FormGroup;
-
-  // validation
   message = "";
-
-  /*
-Form ends here
-*/
   UserId: string = getCurrentUser();
   showVerificationEmailSent: boolean;
   progress: string;
@@ -44,7 +32,8 @@ Form ends here
     private fb: FormBuilder,
     private accountService: AccountService,
     private emailService: EmailService,
-    private userService: UserService
+    private userService: UserService,
+    private signUpProcessService: SignUpProcessService
   ) {}
 
   ngOnInit() {
@@ -72,7 +61,8 @@ Form ends here
       let emails = this.allUsers.map(x => x.Email);
       if (emails.filter(x => x == email).length > 0) {
         //user with email exist
-        this.userExist = "An account for the specified email address already exists. Try another email address.";
+        this.userExist =
+          "An account for the specified email address already exists. Try another email address.";
       } else {
         this.userExist = "";
       }
@@ -84,12 +74,7 @@ Form ends here
   }
 
   closeModal() {
-    this.closeModalAction.emit({
-      closeAll: true,
-      showBankingInfoForm: false,
-      showBenefitariesForm: false,
-      showPersonalInfoForm: false
-    });
+    this.signUpProcessService.closeAllSignUpForms()
   }
   createClientAccount(data) {
     console.log("New client: ", data);
@@ -101,18 +86,14 @@ Form ends here
       // to take
       if (response.ClientId) {
         console.log(response);
-        
+
         let link = `${WEB_HOST}/#/${VERIFICATIONLINK}/${response.UserId}`;
         this.verifyAcc(data.FirstName, data.Email, link);
         console.log("response", response);
 
         localStorage.setItem(LAST_INSERT_ID, response.ClientId);
-        this.closeModalAction.emit({
-          closeAll: false,
-          showBankingInfoForm: true,
-          showBenefitariesForm: false,
-          showPersonalInfoForm: false
-        });
+        //call next form
+        this.signUpProcessService.showBankingInfoForm();
       } else {
         alert(`Error: ${response}`);
       }
