@@ -14,7 +14,8 @@ export class SignInComponent implements OnInit {
   @Output() closeSigninModalAction: EventEmitter<ExitModalEventEmmiter> = new EventEmitter();
   rForm: FormGroup;
   loading = false;
-  error = ''; // TODO : Authentication Service
+  error = ''; 
+  isLogin: boolean = true;
   constructor(
     private fb: FormBuilder,
     private routeTo: Router,
@@ -64,6 +65,10 @@ export class SignInComponent implements OnInit {
           this.error = response;
         }
       });
+  }
+
+  toggleLogin(){
+    this.isLogin = !this.isLogin;
   }
 
 }

@@ -18,7 +18,7 @@ import {
 
 import { FooterSectionComponent } from './footer-section';
 import { HomeNavComponent } from './home-nav';
-import { SignInComponent } from './client-sign-in';
+import { SignInComponent, ForgotPasswordComponent } from './client-sign-in';
 import { VERIFICATIONLINK } from 'src/app/shared/config';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { HowItWorksComponent } from './how-it-works';
@@ -69,6 +69,7 @@ export const declarations: Array<any> = [
   HowItWorksComponent,
   ContactUsComponent,
   CalculatorComponent,EmailSentScreenComponent
+  ,ForgotPasswordComponent
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],

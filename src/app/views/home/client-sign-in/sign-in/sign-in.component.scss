@@ -48,6 +48,17 @@
       }
     }
 
+    .forgotPassword {
+      h1 {
+        float: left;
+        padding: 2rem 0;
+        font-size: 1.22rem;
+        text-transform: capitalize;
+        font-weight: 500;
+        cursor: pointer;
+      }
+    }
+
   }
 }
 
