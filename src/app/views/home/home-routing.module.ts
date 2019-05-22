@@ -24,6 +24,7 @@ import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { HowItWorksComponent } from './how-it-works';
 import { ContactUsComponent } from './contact-us';
 import { CalculatorComponent } from './index/calculator';
+import { EmailSentScreenComponent } from './client-sign-up/email-sent-screen/email-sent-screen.component';
 
 const routes: Routes = [
   {
@@ -67,7 +68,7 @@ export const declarations: Array<any> = [
   VerifyEmailComponent,
   HowItWorksComponent,
   ContactUsComponent,
-  CalculatorComponent
+  CalculatorComponent,EmailSentScreenComponent
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],

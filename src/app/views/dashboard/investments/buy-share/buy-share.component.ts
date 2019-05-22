@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { ExitModalEventEmmiter } from 'src/app/models';
+import { ExitModalEventEmmiter, Investment } from 'src/app/models';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticateService, InvestmentService } from 'src/app/services';
@@ -14,21 +14,36 @@ export class BuyShareComponent implements OnInit {
   error = '';
   loading;
   currentUser;
+  investmentsList: Investment[];
+  canBuy:boolean= true;
   constructor(
     private fb: FormBuilder,
     private router: Router,
     private authenticationService: AuthenticateService,
     private investmentService: InvestmentService
-  ) { }
+  ) { 
+     //get user shares -for naming purpose e.g  Share 1
+     this.investmentService.clientshares.subscribe(val => {
+      this.investmentsList = val;
+     if(this.investmentsList.filter(x=>x.StatusId==2).length >0){
+       alert(`You can not buy shares while you have pending shares`);
+       setTimeout(()=>{
+        this.closeModal();
+       },1000)
+     }
+    });
+  }
 
   ngOnInit() {
     this.currentUser = this.authenticationService.currentUserValue;
     this.rForm = this.fb.group({
       Amount: ['', Validators.required],
-      Name: ['', Validators.required],
+      Name: [`Share ${this.investmentsList.length+1}`, Validators.required],
       Type: ['', Validators.required],
       ClientId: [this.currentUser.ClientId]
     });
+
+   
   }
 
   closeModal() {

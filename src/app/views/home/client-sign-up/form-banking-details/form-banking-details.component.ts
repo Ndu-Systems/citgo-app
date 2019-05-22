@@ -3,6 +3,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CloseModalEventEmmiter } from 'src/app/models';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { getCurrentUser, LAST_INSERT_ID } from 'src/app/shared/config';
+import { AccountService } from '../../services/account.service';
 
 @Component({
   selector: 'app-form-banking-details',

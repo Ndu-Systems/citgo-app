@@ -5,6 +5,9 @@
   <app-form-beneficiaries (closeModalAction)="closeModal($event)" *ngIf="showBenefitariesForm"></app-form-beneficiaries>
   <app-sign-in (closeSigninModalAction)="closeSignIn($event)" *ngIf="showSignIn"></app-sign-in>
 </div>
+<div class="overlay" *ngIf="showEmailSentScreen">
+<app-email-sent-screen></app-email-sent-screen>
+</div>
 <div class="container home">
   <app-home-nav (closeNavAction)="closeNav($event)" (closeSigninModalAction)="closeSignIn($event)"
     (closeModalAction)="closeModal($event)" *ngIf="showNav"></app-home-nav>

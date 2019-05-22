@@ -45,4 +45,6 @@ export class DashboardNavComponent implements OnInit {
   closeModal(event: ExitModalEventEmmiter) {
     event.close = this.toggleBuyShares();
   }
+  closeNav(){
+  }
 }

@@ -1,3 +1,4 @@
+import { AccountService } from './services/account.service';
 import { Component, OnInit } from "@angular/core";
 import { ExitModalEventEmmiter, CloseModalEventEmmiter } from "src/app/models";
 import { NavigationEventEmiter } from "./home-nav/navigationEventEmiter";
@@ -14,10 +15,13 @@ export class HomeComponent implements OnInit {
   showBenefitariesForm: boolean;
   showNav: boolean;
   showSignIn: boolean;
+  showEmailSentScreen: boolean;
 
-  constructor() { }
+  constructor(private accountService:AccountService) { }
 
-  ngOnInit() { }
+  ngOnInit() { 
+  this.accountService.castUserRegistrationProcess.subscribe(d=>this.showEmailSentScreen=d.isProcessRunning)
+  }
   togleNav() {
     this.showSignUp = !this.showSignUp;
     this.showOverlay = !this.showOverlay;
