@@ -16,9 +16,18 @@ export class SignUpProcessService {
   finishRegistrationProcess() {
     this.userRegistrationProcessActive.next(newProcess);
   }
+  updateRegistrationProcessState(state) {
+    this.userRegistrationProcessActive.next(state);
+  }
 
   getRegistraionProcess() {
     return this.userRegistrationProcessActive.value;
+  }
+
+  showVerificationMailSent() {
+    let state = this.getRegistraionProcess();
+    state.showVerificationMailSent = true;
+    this.userRegistrationProcessActive.next(state);
   }
 
   // modals

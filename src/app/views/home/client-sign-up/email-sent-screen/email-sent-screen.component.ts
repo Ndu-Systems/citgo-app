@@ -18,9 +18,7 @@ export class EmailSentScreenComponent implements OnInit {
      let email = 'ndu@mail.com';
      this.progress = `To ensure that your email account is valid, we have sent you an email to  ${email} to  verify your account,  please check your mailbox`;
   }
-  backHome(){
-    console.log(this.signUpProcessService.getRegistraionProcess());
-    
+  backHome(){    
     this.signUpProcessService.finishRegistrationProcess();
   }
 }

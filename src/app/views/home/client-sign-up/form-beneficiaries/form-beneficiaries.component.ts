@@ -1,15 +1,12 @@
-import { Component, OnInit, Output, EventEmitter } from "@angular/core";
-import { CloseModalEventEmmiter } from "src/app/models";
+import { Component, OnInit} from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import {
   getCurrentUser,
-  LAST_INSERT_ID,
-  WEB_HOST,
-  VERIFICATIONLINK
+  LAST_INSERT_ID
 } from "src/app/shared/config";
 import { BeneficiariesService } from "../../services/beneficiaries.service";
 import { Router } from "@angular/router";
-import { EmailService } from "src/app/services/email.service";
+import { SignUpProcessService } from "src/app/services/app-state/sign-up-process.service";
 
 @Component({
   selector: "app-form-beneficiaries",
@@ -17,23 +14,11 @@ import { EmailService } from "src/app/services/email.service";
   styleUrls: ["./form-beneficiaries.component.scss"]
 })
 export class FormBeneficiariesComponent implements OnInit {
-  @Output() closeModalAction: EventEmitter<
-    CloseModalEventEmmiter
-  > = new EventEmitter();
 
-  /*
-Form begin here
-*/
   rForm: FormGroup;
   count: number = 1;
   beneficiaries: Array<any> = [];
-
-  //validation
   message: string = "";
-
-  /*
-Form ends here
-*/
   UserId: string = getCurrentUser();
   clientId: string;
   showVerificationEmailSent: boolean;
@@ -43,7 +28,8 @@ Form ends here
     private fb: FormBuilder,
     private beneficiariesService: BeneficiariesService,
     private router: Router,
-    private emailService: EmailService
+    private signUpProcessService: SignUpProcessService
+
   ) {}
 
   ngOnInit() {
@@ -63,7 +49,7 @@ Form ends here
     });
   }
 
-  closeModal() {}
+  closeModal() {this.signUpProcessService.closeAllSignUpForms()}
 
   addMore(data) {
     data.id = this.count;
@@ -86,7 +72,8 @@ Form ends here
       if (response) {
         console.log("response", response);
         this.router.navigate(["dashboard"]);
-        //close all
+        this.signUpProcessService.closeAllSignUpForms();
+         this.signUpProcessService.showVerificationMailSent()
       } else {
         alert(`Error: ${response}`);
       }

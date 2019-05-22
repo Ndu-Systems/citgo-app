@@ -4,6 +4,7 @@ import { CloseModalEventEmmiter } from "src/app/models";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { getCurrentUser, LAST_INSERT_ID } from "src/app/shared/config";
 import { AccountService } from "../../services/account.service";
+import { SignUpProcessService } from "src/app/services/app-state/sign-up-process.service";
 
 @Component({
   selector: "app-form-banking-details",
@@ -11,27 +12,15 @@ import { AccountService } from "../../services/account.service";
   styleUrls: ["./form-banking-details.component.scss"]
 })
 export class FormBankingDetailsComponent implements OnInit {
-  @Output() closeModalAction: EventEmitter<
-    CloseModalEventEmmiter
-  > = new EventEmitter();
-
-  /*
-Form begin here
-*/
   rForm: FormGroup;
-
-  //validation
   message: string = "";
-
-  /*
-Form ends here
-*/
   UserId: string = getCurrentUser();
   clientId: string;
 
   constructor(
     private fb: FormBuilder,
-    private bankingInfoService: BankingInfoService
+    private bankingInfoService: BankingInfoService,
+    private signUpProcessService: SignUpProcessService
   ) {}
 
   ngOnInit() {
@@ -50,14 +39,16 @@ Form ends here
     });
   }
 
-  closeModal() {}
+  closeModal() {
+    this.signUpProcessService.closeAllSignUpForms();
+  }
 
   insertBankingInfo(data) {
     console.log("Insert Banking Info: ", data);
     this.bankingInfoService.addBankingInfo(data).subscribe(response => {
       if (response) {
         console.log("response", response);
-        //call next form
+        this.signUpProcessService.showBeneficiariesInfoForm();
       } else {
         alert(`Error: ${response}`);
       }

@@ -14,7 +14,5 @@ export class BeneficiariesService {
   addBeneficiaries(data): Observable<any> {
     return this.http.post<any>(`${API_URL}/api/beneficiaries/add-beneficiaries.php`, data);
   }
- 
-
 
 }

@@ -1,6 +1,5 @@
-import { AccountService } from "./services/account.service";
 import { Component, OnInit } from "@angular/core";
-import { ExitModalEventEmmiter, CloseModalEventEmmiter } from "src/app/models";
+import { ExitModalEventEmmiter } from "src/app/models";
 import { NavigationEventEmiter } from "./home-nav/navigationEventEmiter";
 import { SignUpProcessService } from "src/app/services/app-state/sign-up-process.service";
 
@@ -18,14 +17,11 @@ export class HomeComponent implements OnInit {
   showSignIn: boolean;
   showEmailSentScreen: boolean;
 
-  constructor(
-    private accountService: AccountService,
-    private signUpProcessService: SignUpProcessService
-  ) {}
+  constructor(private signUpProcessService: SignUpProcessService) {}
 
   ngOnInit() {
     this.signUpProcessService.castUserRegistrationProcess.subscribe(process => {
-      this.showEmailSentScreen = process.isProcessRunning;
+      this.showEmailSentScreen = process.showVerificationMailSent;
       this.showSignUp = process.whichModalToShow.showPersonalInfoForm;
       this.showBankingInfoForm = process.whichModalToShow.showBankingInfoForm;
       this.showBenefitariesForm = process.whichModalToShow.showBenefitariesForm;
@@ -51,24 +47,6 @@ export class HomeComponent implements OnInit {
     this.OpenNav();
   }
 
-  closeModal(e: CloseModalEventEmmiter) {
-    this.cloaseAll();
-    console.log(e);
-    //  alert(JSON.stringify(e))
-    if (e.closeAll) {
-      this.showOverlay = false;
-    } else if (e.showPersonalInfoForm) {
-      this.showOverlay = true;
-      this.showSignUp = true;
-    } else if (e.showBankingInfoForm) {
-      this.showSignUp = false;
-      this.showBankingInfoForm = true;
-    } else if (e.showBenefitariesForm) {
-      this.showSignUp = false;
-      this.showBankingInfoForm = false;
-      this.showBenefitariesForm = true;
-    }
-  }
   cloaseAll() {
     this.showSignUp = false;
     this.showBankingInfoForm = false;

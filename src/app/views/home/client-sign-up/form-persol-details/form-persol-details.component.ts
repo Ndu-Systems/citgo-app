@@ -1,8 +1,7 @@
 import { SignUpProcessService } from './../../../../services/app-state/sign-up-process.service';
 import { User } from "src/app/models/user";
 import { UserService } from "./../../services/user.service";
-import { CloseModalEventEmmiter } from "./../../../../models/modal.eventemitter.model";
-import { Component, OnInit, Output, EventEmitter } from "@angular/core";
+import { Component, OnInit} from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import {
   getCurrentUser,
@@ -13,6 +12,7 @@ import {
 } from "src/app/shared/config";
 import { AccountService } from "../../services/account.service";
 import { EmailService } from "src/app/services/email.service";
+import { SignUpProcess } from 'src/app/models/signup.process.model';
 
 @Component({
   selector: "app-form-persol-details",
@@ -92,6 +92,10 @@ export class FormPersolDetailsComponent implements OnInit {
         console.log("response", response);
 
         localStorage.setItem(LAST_INSERT_ID, response.ClientId);
+        //update precess state
+        let state = this.signUpProcessService.getRegistraionProcess();
+        state.user = response;
+        this.signUpProcessService.updateRegistrationProcessState(state)
         //call next form
         this.signUpProcessService.showBankingInfoForm();
       } else {
