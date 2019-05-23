@@ -5,6 +5,7 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { getCurrentUser, LAST_INSERT_ID } from "src/app/shared/config";
 import { AccountService } from "../../services/account.service";
 import { SignUpProcessService } from "src/app/services/app-state/sign-up-process.service";
+import { ConfirmationService } from "primeng/api";
 
 @Component({
   selector: "app-form-banking-details",
@@ -20,7 +21,8 @@ export class FormBankingDetailsComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private bankingInfoService: BankingInfoService,
-    private signUpProcessService: SignUpProcessService
+    private signUpProcessService: SignUpProcessService,
+    private confirmationService: ConfirmationService
   ) {}
 
   ngOnInit() {
@@ -40,7 +42,12 @@ export class FormBankingDetailsComponent implements OnInit {
   }
 
   closeModal() {
-    this.signUpProcessService.closeAllSignUpForms();
+    this.confirmationService.confirm({
+      message: 'Are you sure you want to exit without saving?',
+      accept: () => {
+        this.signUpProcessService.closeAllSignUpForms();
+      }
+  });
   }
 
   insertBankingInfo(data) {

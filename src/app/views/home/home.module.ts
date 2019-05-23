@@ -5,6 +5,9 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { ToastModule } from "primeng/toast";
 import { MessageService } from 'primeng/api';
 import {ChartModule} from 'primeng/chart';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService} from 'primeng/api';
+
 
 
 
@@ -16,10 +19,11 @@ import {ChartModule} from 'primeng/chart';
     FormsModule,
     ReactiveFormsModule,
     ToastModule,
-    ChartModule
+    ChartModule,
+    ConfirmDialogModule
   ],
   declarations: [...declarations],
-  providers:[MessageService]
+  providers:[MessageService,ConfirmationService]
 
 })
 export class HomeModule {}

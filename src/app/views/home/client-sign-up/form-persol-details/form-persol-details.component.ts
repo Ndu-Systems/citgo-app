@@ -12,7 +12,7 @@ import {
 } from "src/app/shared/config";
 import { AccountService } from "../../services/account.service";
 import { EmailService } from "src/app/services/email.service";
-import { SignUpProcess } from 'src/app/models/processes/signup.process.model';
+import { ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: "app-form-persol-details",
@@ -33,7 +33,8 @@ export class FormPersolDetailsComponent implements OnInit {
     private accountService: AccountService,
     private emailService: EmailService,
     private userService: UserService,
-    private signUpProcessService: SignUpProcessService
+    private signUpProcessService: SignUpProcessService,
+    private confirmationService: ConfirmationService
   ) {}
 
   ngOnInit() {
@@ -74,7 +75,12 @@ export class FormPersolDetailsComponent implements OnInit {
   }
 
   closeModal() {
-    this.signUpProcessService.closeAllSignUpForms()
+    this.confirmationService.confirm({
+      message: 'Are you sure you want to exit without saving?',
+      accept: () => {
+        this.signUpProcessService.closeAllSignUpForms();
+      }
+  });
   }
   createClientAccount(data) {
     console.log("New client: ", data);
