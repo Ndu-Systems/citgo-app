@@ -1,12 +1,10 @@
-import { Component, OnInit} from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import {
-  getCurrentUser,
-  LAST_INSERT_ID
-} from "src/app/shared/config";
+import { getCurrentUser, LAST_INSERT_ID } from "src/app/shared/config";
 import { BeneficiariesService } from "../../services/beneficiaries.service";
 import { Router } from "@angular/router";
 import { SignUpProcessService } from "src/app/services/app-state/sign-up-process.service";
+import { ConfirmationService } from "primeng/api";
 
 @Component({
   selector: "app-form-beneficiaries",
@@ -14,7 +12,6 @@ import { SignUpProcessService } from "src/app/services/app-state/sign-up-process
   styleUrls: ["./form-beneficiaries.component.scss"]
 })
 export class FormBeneficiariesComponent implements OnInit {
-
   rForm: FormGroup;
   count: number = 1;
   beneficiaries: Array<any> = [];
@@ -28,8 +25,8 @@ export class FormBeneficiariesComponent implements OnInit {
     private fb: FormBuilder,
     private beneficiariesService: BeneficiariesService,
     private router: Router,
-    private signUpProcessService: SignUpProcessService
-
+    private signUpProcessService: SignUpProcessService,
+    private confirmationService: ConfirmationService
   ) {}
 
   ngOnInit() {
@@ -49,7 +46,14 @@ export class FormBeneficiariesComponent implements OnInit {
     });
   }
 
-  closeModal() {this.signUpProcessService.closeAllSignUpForms()}
+  closeModal() {
+    this.confirmationService.confirm({
+      message: "Are you sure you want to exit without saving?",
+      accept: () => {
+        this.signUpProcessService.closeAllSignUpForms();
+      }
+    });
+  }
 
   addMore(data) {
     data.id = this.count;
@@ -73,7 +77,7 @@ export class FormBeneficiariesComponent implements OnInit {
         console.log("response", response);
         this.router.navigate(["dashboard"]);
         this.signUpProcessService.closeAllSignUpForms();
-         this.signUpProcessService.showVerificationMailSent()
+        this.signUpProcessService.showVerificationMailSent();
       } else {
         alert(`Error: ${response}`);
       }
