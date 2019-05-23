@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ExitModalEventEmmiter } from "src/app/models";
 import { NavigationEventEmiter } from "./home-nav/navigationEventEmiter";
 import { SignUpProcessService } from "src/app/services/app-state/sign-up-process.service";
+import { LoginProcessService } from "src/app/services/app-state/login-process.service";
 
 @Component({
   selector: "app-home",
@@ -16,8 +17,9 @@ export class HomeComponent implements OnInit {
   showNav: boolean;
   showSignIn: boolean;
   showEmailSentScreen: boolean;
+  showResetPassword: boolean;
 
-  constructor(private signUpProcessService: SignUpProcessService) {}
+  constructor(private signUpProcessService: SignUpProcessService, private loginProcessService:LoginProcessService) {}
 
   ngOnInit() {
     this.signUpProcessService.castUserRegistrationProcess.subscribe(process => {
@@ -27,6 +29,13 @@ export class HomeComponent implements OnInit {
       this.showBenefitariesForm = process.whichModalToShow.showBenefitariesForm;
       this.showOverlay = process.whichModalToShow.showOverlay;
     });
+
+    // login
+    this.loginProcessService.castUserLoginProcess.subscribe(process=>{
+      this.showSignIn = process.showLogin;
+      this.showResetPassword = process.showResetPass;
+      this.showOverlay = process.showOverlay;
+    })
   }
   togleNav() {
     this.showSignUp = !this.showSignUp;

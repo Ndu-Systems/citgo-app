@@ -1,8 +1,8 @@
 import { CloseModalEventEmmiter } from "src/app/models";
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
-import { NavigationEventEmiter } from "./navigationEventEmiter";
 import { ExitModalEventEmmiter } from "src/app/models";
 import { SignUpProcessService } from "src/app/services/app-state/sign-up-process.service";
+import { LoginProcessService } from "src/app/services/app-state/login-process.service";
 
 @Component({
   selector: "app-home-nav",
@@ -10,9 +10,6 @@ import { SignUpProcessService } from "src/app/services/app-state/sign-up-process
   styleUrls: ["./home-nav.component.scss"]
 })
 export class HomeNavComponent implements OnInit {
-  @Output() closeNavAction: EventEmitter<
-    NavigationEventEmiter
-  > = new EventEmitter();
   @Output() closeModalAction: EventEmitter<
     CloseModalEventEmmiter
   > = new EventEmitter();
@@ -24,7 +21,10 @@ export class HomeNavComponent implements OnInit {
   showSignUp: boolean;
   showOverlay: boolean;
 
-  constructor(private signUpProcessService: SignUpProcessService) {}
+  constructor(
+    private signUpProcessService: SignUpProcessService,
+    private loginProcess: LoginProcessService
+  ) {}
 
   ngOnInit() {}
   togleNav() {
@@ -33,9 +33,7 @@ export class HomeNavComponent implements OnInit {
   }
 
   closeNav() {
-    this.closeNavAction.emit({
-      closeNav: true
-    });
+    this.loginProcess.showLogin();
   }
   closeOptions(e: CloseModalEventEmmiter) {}
   togleSignIn() {

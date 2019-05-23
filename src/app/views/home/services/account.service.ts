@@ -1,7 +1,5 @@
-import { SignUpProcess, newProcess } from '../../../models/signup.process.model';
-import { User } from './../../../models/user';
 import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { API_URL } from 'src/app/shared/config';
 import { HttpClient } from '@angular/common/http';
 

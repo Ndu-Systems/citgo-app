@@ -10,12 +10,13 @@ import { SignUpProcessService } from 'src/app/services/app-state/sign-up-process
 export class EmailSentScreenComponent implements OnInit {
   progress: string;
 
-  constructor(private accountService:AccountService, private signUpProcessService:SignUpProcessService) { }
+  constructor(private signUpProcessService:SignUpProcessService) { }
 
   ngOnInit() {
+    debugger
     let process = this.signUpProcessService.getRegistraionProcess();
-     // let email = process.user.Email;
-     let email = 'ndu@mail.com';
+     let email = process.user.Email;
+    //  let email = 'ndu@mail.com';
      this.progress = `To ensure that your email account is valid, we have sent you an email to  ${email} to  verify your account,  please check your mailbox`;
   }
   backHome(){    

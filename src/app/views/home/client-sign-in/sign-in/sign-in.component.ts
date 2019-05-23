@@ -1,9 +1,9 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { ExitModalEventEmmiter } from 'src/app/models';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { AuthenticateService } from 'src/app/services/user/authenticate.service';
+import { LoginProcessService } from 'src/app/services/app-state/login-process.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -11,7 +11,6 @@ import { AuthenticateService } from 'src/app/services/user/authenticate.service'
   styleUrls: ['./sign-in.component.scss']
 })
 export class SignInComponent implements OnInit {
-  @Output() closeSigninModalAction: EventEmitter<ExitModalEventEmmiter> = new EventEmitter();
   rForm: FormGroup;
   loading = false;
   error = ''; // TODO : Authentication Service
@@ -19,6 +18,7 @@ export class SignInComponent implements OnInit {
     private fb: FormBuilder,
     private routeTo: Router,
     private loginService: AuthenticateService,
+    private loginProcess: LoginProcessService
   ) {
   
   }
@@ -33,9 +33,7 @@ export class SignInComponent implements OnInit {
     });
   }
   closeModal() {
-    this.closeSigninModalAction.emit({
-      close: true
-    });
+  this.loginProcess.closeAll();
   }
 
   // convinient for easy form(rForm) data access
@@ -65,5 +63,10 @@ export class SignInComponent implements OnInit {
         }
       });
   }
+
+  resetPassword(){
+    this.loginProcess.showChangePass();
+  }
+
 
 }

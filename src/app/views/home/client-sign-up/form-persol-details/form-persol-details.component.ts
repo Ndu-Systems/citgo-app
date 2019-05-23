@@ -12,7 +12,7 @@ import {
 } from "src/app/shared/config";
 import { AccountService } from "../../services/account.service";
 import { EmailService } from "src/app/services/email.service";
-import { SignUpProcess } from 'src/app/models/signup.process.model';
+import { SignUpProcess } from 'src/app/models/processes/signup.process.model';
 
 @Component({
   selector: "app-form-persol-details",

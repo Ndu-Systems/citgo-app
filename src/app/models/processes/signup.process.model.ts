@@ -1,5 +1,5 @@
 import { User } from 'src/app/models/user';
-import { CloseModalEventEmmiter, initModalEvent } from '.';
+import { CloseModalEventEmmiter, initModalEvent } from '..';
 
 export interface SignUpProcess{
     showVerificationMailSent:boolean;
