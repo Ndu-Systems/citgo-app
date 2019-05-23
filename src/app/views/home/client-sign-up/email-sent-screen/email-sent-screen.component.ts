@@ -13,10 +13,9 @@ export class EmailSentScreenComponent implements OnInit {
   constructor(private signUpProcessService:SignUpProcessService) { }
 
   ngOnInit() {
-    debugger
     let process = this.signUpProcessService.getRegistraionProcess();
-     let email = process.user.Email;
-    //  let email = 'ndu@mail.com';
+    //  let email = process.user.Email;
+     let email = 'ndu@mail.com';
      this.progress = `To ensure that your email account is valid, we have sent you an email to  ${email} to  verify your account,  please check your mailbox`;
   }
   backHome(){    

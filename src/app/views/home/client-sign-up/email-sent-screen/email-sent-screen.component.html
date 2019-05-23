@@ -1,14 +1,16 @@
 <div class="overlay">
   <div class="main">
-    <div class="header">
-   
-      <i class="far fa-times-circle" (click)="backHome()"></i>
-    </div>
+
     <div class="body">
+      <div class="header">
+        <img src="assets/images/home/logowhite.svg" alt="">
+      </div>
       <h1>
-          {{progress}}
+        {{progress}}
       </h1>
-      <a  (click)="backHome()">Back Home</a>
+      <div class="link">
+        <a (click)="backHome()">Back Home</a>
+      </div>
     </div>
   </div>
 </div>
