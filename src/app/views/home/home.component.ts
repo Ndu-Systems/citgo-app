@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   showNav: boolean;
   showSignIn: boolean;
   showEmailSentScreen: boolean;
-  showResetPassword: boolean;
+  showForgotPassword: boolean;
 
   constructor(private signUpProcessService: SignUpProcessService, private loginProcessService:LoginProcessService) {}
 
@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
     // login
     this.loginProcessService.castUserLoginProcess.subscribe(process=>{
       this.showSignIn = process.showLogin;
-      this.showResetPassword = process.showResetPass;
+      this.showForgotPassword = process.showResetPass;
       this.showOverlay = process.showOverlay;
     })
   }

@@ -184,10 +184,15 @@ nav ul span {
               font-weight: 500;
               color: $white-color;
             }
-          }
-
-          
+          }         
         }
+      }
+
+      &.show-menu {
+        li:nth-of-type(5) {
+          animation: menu-item-animate .6s forwards 1.8s ease-in-out;
+        }
+      
       }
     }
   }

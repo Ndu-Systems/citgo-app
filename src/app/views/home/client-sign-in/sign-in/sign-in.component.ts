@@ -13,7 +13,8 @@ import { LoginProcessService } from 'src/app/services/app-state/login-process.se
 export class SignInComponent implements OnInit {
   rForm: FormGroup;
   loading = false;
-  error = ''; // TODO : Authentication Service
+  error = ''; 
+  isLogin: boolean = true;
   constructor(
     private fb: FormBuilder,
     private routeTo: Router,

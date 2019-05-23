@@ -1,3 +1,4 @@
+import { ForgotPasswordComponent } from './client-sign-in/forgot-password/forgot-password.component';
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { HomeComponent } from "./home.component";
@@ -24,7 +25,6 @@ import { HowItWorksComponent } from "./how-it-works";
 import { ContactUsComponent } from "./contact-us";
 import { CalculatorComponent } from "./index/calculator";
 import { EmailSentScreenComponent } from "./client-sign-up/email-sent-screen/email-sent-screen.component";
-import { ResetPasswordComponent } from "./client-sign-in/reset-password/reset-password.component";
 
 const routes: Routes = [
   {
@@ -69,7 +69,7 @@ export const declarations: Array<any> = [
   ContactUsComponent,
   CalculatorComponent,
   EmailSentScreenComponent,
-  ResetPasswordComponent
+  ForgotPasswordComponent
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],
