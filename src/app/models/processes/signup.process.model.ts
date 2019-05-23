@@ -8,7 +8,7 @@ export interface SignUpProcess{
 }
 
 export const newProcess: SignUpProcess = {
-    showVerificationMailSent:false,
+    showVerificationMailSent:true,
     user:null,
     whichModalToShow:initModalEvent
 }

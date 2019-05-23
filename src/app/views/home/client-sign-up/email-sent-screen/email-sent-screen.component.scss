@@ -22,6 +22,7 @@
       text-align: left;
 
     }
+  
 
     h1 {
         font-weight: 100;
@@ -44,6 +45,17 @@
         border-radius: .2rem;
         float: left;
       }
+  }
+  .footer {
+    width: 60%;
+    padding: 2%;
+    text-align: right;
+    margin: 0 auto;
+
+    img{
+        width: 20%;
+    }
+
   }
   }
 }
