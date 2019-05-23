@@ -21,7 +21,6 @@ export class LoginProcessService {
   }
 
   showLogin() {
-    debugger
     let state = this.getUserLoginProcess();
     state.showResetPass = false
     state.showLogin = true
