@@ -31,11 +31,11 @@ export class HomeComponent implements OnInit {
     });
 
     // login
-    this.loginProcessService.castUserLoginProcess.subscribe(process=>{
+    this.loginProcessService.castUserLoginProcess.subscribe(process => {
       this.showSignIn = process.showLogin;
       this.showForgotPassword = process.showResetPass;
       this.showOverlay = process.showOverlay;
-    })
+    });
   }
   togleNav() {
     this.showSignUp = !this.showSignUp;
