@@ -13,7 +13,7 @@ import { LoginProcessService } from 'src/app/services/app-state/login-process.se
 export class SignInComponent implements OnInit {
   rForm: FormGroup;
   loading = false;
-  error = ''; 
+  error = '';
   isLogin: boolean = true;
   constructor(
     private fb: FormBuilder,
@@ -21,7 +21,7 @@ export class SignInComponent implements OnInit {
     private loginService: AuthenticateService,
     private loginProcess: LoginProcessService
   ) {
-  
+
   }
 
   ngOnInit() {
@@ -34,7 +34,7 @@ export class SignInComponent implements OnInit {
     });
   }
   closeModal() {
-  this.loginProcess.closeAll();
+    this.loginProcess.closeAll();
   }
 
   // convinient for easy form(rForm) data access
@@ -42,19 +42,19 @@ export class SignInComponent implements OnInit {
 
   signIn() {
     this.loading = true;
-    this.routeTo.navigate(['dashboard']);    
+    this.routeTo.navigate(['dashboard']);
   }
   get formValues() {
     return this.rForm.controls;
   }
   Login() {
     // this.spinnerService.showSpinner();
- 
+
     this.loginService
       .loginUser(this.formValues.email.value, this.formValues.password.value)
       .pipe(first())
       .subscribe(response => {
-    
+
         if (response) {
           // this.router.navigate(["/dashboard"]);
           this.routeTo.navigate(["/dashboard"]);
@@ -65,7 +65,7 @@ export class SignInComponent implements OnInit {
       });
   }
 
-  resetPassword(){
+  resetPassword() {
     this.loginProcess.showChangePass();
   }
 
