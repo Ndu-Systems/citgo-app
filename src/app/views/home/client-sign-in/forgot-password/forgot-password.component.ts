@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticateService } from 'src/app/services';
@@ -37,7 +37,10 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   forgotPassword() {
-   alert(this.formValues.email.value);
+    alert(this.formValues.email.value);
+    const message = `An email has been sent to ${this.formValues.email.value}.
+      \n Please click on the Reset password button to access Citgo`;
+    this.loginProcess.showEmailNotification(message);
   }
 
   toLogin() {

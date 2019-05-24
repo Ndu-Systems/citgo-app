@@ -6,7 +6,10 @@
   <app-forgot-password *ngIf="showForgotPassword"></app-forgot-password>
 </div>
 <div  *ngIf="showEmailSentScreen">
-<app-email-sent-screen></app-email-sent-screen>
+    <app-email-sent-screen></app-email-sent-screen>
+</div>
+<div  *ngIf="showEmailNotificationScreen">
+    <app-email-notification [message]="message"></app-email-notification>
 </div>
 <div class="container home">
   <app-home-nav (closeNavAction)="closeNav($event)" (closeSigninModalAction)="closeSignIn($event)"

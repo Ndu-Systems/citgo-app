@@ -17,8 +17,9 @@ export class HomeComponent implements OnInit {
   showNav: boolean;
   showSignIn: boolean;
   showEmailSentScreen: boolean;
+  showEmailNotificationScreen: boolean;
   showForgotPassword: boolean;
-
+  message: string;
   constructor(private signUpProcessService: SignUpProcessService, private loginProcessService:LoginProcessService) {}
 
   ngOnInit() {
@@ -35,6 +36,8 @@ export class HomeComponent implements OnInit {
       this.showSignIn = process.showLogin;
       this.showForgotPassword = process.showResetPass;
       this.showOverlay = process.showOverlay;
+      this.showEmailNotificationScreen = process.showEmailNotification;
+      this.message = process.message;
     });
   }
   togleNav() {
