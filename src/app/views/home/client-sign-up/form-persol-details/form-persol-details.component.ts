@@ -105,6 +105,11 @@ export class FormPersolDetailsComponent implements OnInit {
         //call next form
         this.signUpProcessService.showBankingInfoForm();
       } else {
+        if(response=="0"){
+        alert(`Error:Email address alread used`);
+
+          return false
+        }
         alert(`Error: ${response}`);
       }
     });
