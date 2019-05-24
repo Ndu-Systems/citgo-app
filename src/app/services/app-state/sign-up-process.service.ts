@@ -32,7 +32,6 @@ export class SignUpProcessService {
   }
 
   showVerificationMailSent() {
-    debugger
     let state = this.getRegistraionProcess();
     state.whichModalToShow.showBenefitariesForm = false
     state.showVerificationMailSent = true;
@@ -69,5 +68,5 @@ export class SignUpProcessService {
     state.whichModalToShow = initModalEvent;
     this.userRegistrationProcessActive.next(state);
   }
-  //--modals
+  // --modals
 }

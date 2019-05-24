@@ -12,7 +12,7 @@ export class LoginProcessService {
     newLoginProcess
   );
   castUserLoginProcess = this.userLoginProcess.asObservable();
-  constructor() {}
+  constructor() { }
 
 
 
@@ -21,25 +21,37 @@ export class LoginProcessService {
   }
 
   showLogin() {
-    let state = this.getUserLoginProcess();
-    state.showResetPass = false
-    state.showLogin = true
-    state.showOverlay = true
+    const state = this.getUserLoginProcess();
+    state.showResetPass = false;
+    state.showLogin = true;
+    state.showOverlay = true;
+    state.showEmailNotification = false;
     this.userLoginProcess.next(state);
   }
 
   showChangePass() {
-    let state = this.getUserLoginProcess();
-    state.showResetPass = true
-    state.showLogin = false
-    state.showOverlay = true
+    const state = this.getUserLoginProcess();
+    state.showResetPass = true;
+    state.showLogin = false;
+    state.showOverlay = true;
+    state.showEmailNotification = false;
+    this.userLoginProcess.next(state);
+  }
+  showEmailNotification(message: string) {
+    const state = this.getUserLoginProcess();
+    state.showResetPass = true;
+    state.showLogin = false;
+    state.showOverlay = false;
+    state.showEmailNotification = true;
+    state.message = message;
     this.userLoginProcess.next(state);
   }
   closeAll() {
-    let state = this.getUserLoginProcess();
-    state.showResetPass = false
-    state.showLogin = false
-    state.showOverlay = false
+    const state = this.getUserLoginProcess();
+    state.showResetPass = false;
+    state.showLogin = false;
+    state.showOverlay = false;
+    state.showEmailNotification = false;
     this.userLoginProcess.next(state);
   }
 }
