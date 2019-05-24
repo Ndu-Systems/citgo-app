@@ -59,21 +59,16 @@ export class AuthenticateService {
   setUser(val) {
     this.currentUserSubject.next(val);
   }
-  getFullUserDetails(UserId) {
-    return this.httpClient.get<any>(
-      `${this.url}/api/account/get-user.php?UserId=${UserId}`
-    );
-  }
+
   getFullClientDetails(UserId) {
     return this.httpClient.get<any>(
       `${this.url}/api/user/get-user-by-id.php?UserId=${UserId}`
     );
   }
 
-  getUserByParentId(UserId) {
+  getUserByEmail(email: string) {
     return this.httpClient.get<any>(
-      `${this.url}/api/account/get-user-by-parent-id.php?UserId=${UserId}`
+      `${this.url}/api/user/get-user-by-email.php?Email=${email}`
     );
   }
-
 }
