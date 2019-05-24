@@ -1,6 +1,5 @@
-import { AccountService } from './../../services/account.service';
 import { Component, OnInit } from '@angular/core';
-import { SignUpProcessService } from 'src/app/services/app-state/sign-up-process.service';
+import { SignUpProcessService } from 'src/app/services';
 
 @Component({
   selector: 'app-email-sent-screen',

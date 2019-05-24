@@ -1,6 +1,5 @@
 import { SignUpProcessService } from './../../../../services/app-state/sign-up-process.service';
 import { User } from "src/app/models/user";
-import { UserService } from "./../../services/user.service";
 import { Component, OnInit} from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import {
@@ -10,9 +9,9 @@ import {
   VERIFICATIONLINK,
   STATUS_USER_NEW
 } from "src/app/shared/config";
-import { AccountService } from "../../services/account.service";
-import { EmailService } from "src/app/services/email.service";
+import { EmailService } from "src/app/services/shared-services/email/email.service";
 import { ConfirmationService } from 'primeng/api';
+import { AccountService, UserService } from 'src/app/services';
 
 @Component({
   selector: "app-form-persol-details",

@@ -1,12 +1,11 @@
-import { UserService } from "./../services/user.service";
-import { AuthenticateService } from "src/app/services";
 import { User } from "src/app/models/user";
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { STATUS_USER_NEW } from "src/app/shared/config";
 import { first } from "rxjs/operators";
-import { Alert } from "selenium-webdriver";
 import { MessageService } from "primeng/api";
+import { AuthenticateService } from "src/app/services/home/user/authenticate.service";
+import { UserService } from "src/app/services";
 
 @Component({
   selector: "app-verify-email",

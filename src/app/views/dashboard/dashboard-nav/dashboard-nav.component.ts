@@ -1,9 +1,8 @@
 import { User } from 'src/app/models/user';
-import { AuthenticateService } from "src/app/services/user/authenticate.service";
+import { AuthenticateService, DocumentsService } from "src/app/services";
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { ExitModalEventEmmiter } from "src/app/models";
-import { DocumentsService } from "../../home/services/documents/documents.service";
 
 @Component({
   selector: "app-dashboard-nav",

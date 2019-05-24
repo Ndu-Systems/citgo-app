@@ -1,11 +1,9 @@
-import { BankingInfoService } from "./../../services/bankingInfo.service";
-import { Component, OnInit, Output, EventEmitter } from "@angular/core";
-import { CloseModalEventEmmiter } from "src/app/models";
+import { Component, OnInit} from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { getCurrentUser, LAST_INSERT_ID } from "src/app/shared/config";
-import { AccountService } from "../../services/account.service";
 import { SignUpProcessService } from "src/app/services/app-state/sign-up-process.service";
 import { ConfirmationService } from "primeng/api";
+import { BankingInfoService } from "src/app/services";
 
 @Component({
   selector: "app-form-banking-details",

@@ -1,10 +1,10 @@
 import { Profit } from "./../../../models/profit.model";
-import { InvestmentProfitService } from "./../../../services/investment/investment-profit.service";
 import { Money } from "./../../../models/money.model";
 import { Component, OnInit } from "@angular/core";
 import { MessageService } from "primeng/api";
-import { AuthenticateService } from "src/app/services";
 import { User } from "src/app/models/user";
+import { InvestmentProfitService } from "src/app/services/dashboard/investment/investment-profit.service";
+import { AuthenticateService } from "src/app/services/home/user/authenticate.service";
 
 @Component({
   selector: "app-profit",

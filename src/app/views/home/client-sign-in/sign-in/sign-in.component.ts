@@ -7,8 +7,8 @@ import {
 } from "@angular/forms";
 import { Router } from "@angular/router";
 import { first } from "rxjs/operators";
-import { AuthenticateService } from "src/app/services/user/authenticate.service";
 import { LoginProcessService } from "src/app/services/app-state/login-process.service";
+import { AuthenticateService } from "src/app/services/home/user/authenticate.service";
 
 @Component({
   selector: "app-sign-in",

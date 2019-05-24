@@ -1,10 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { getCurrentUser, LAST_INSERT_ID } from "src/app/shared/config";
-import { BeneficiariesService } from "../../services/beneficiaries.service";
 import { Router } from "@angular/router";
-import { SignUpProcessService } from "src/app/services/app-state/sign-up-process.service";
 import { ConfirmationService } from "primeng/api";
+import { BeneficiariesService, SignUpProcessService } from "src/app/services";
 
 @Component({
   selector: "app-form-beneficiaries",

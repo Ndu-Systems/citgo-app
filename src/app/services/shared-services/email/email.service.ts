@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { SEND_ACC_VERIFICATION_EMAIL } from '../shared/config';
+import { SEND_ACC_VERIFICATION_EMAIL } from '../../../shared/config';
 
 @Injectable({
   providedIn: 'root'
