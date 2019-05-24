@@ -46,6 +46,7 @@ export class FormBankingDetailsComponent implements OnInit {
       message: 'Are you sure you want to exit without saving?',
       accept: () => {
         this.signUpProcessService.closeAllSignUpForms();
+        this.signUpProcessService.showVerificationMailSent();
       }
   });
   }

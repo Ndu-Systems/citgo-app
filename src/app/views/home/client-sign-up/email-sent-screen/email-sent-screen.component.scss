@@ -1,5 +1,5 @@
 .main {
-  background: #6D2BA9;
+  background: #6d2ba9;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -20,30 +20,39 @@
       width: 100%;
       padding: 2%;
       text-align: left;
-
     }
 
     h1 {
-        font-weight: 100;
-        width: 80%;
-        margin: 0 auto;
-        text-align: left;
-        padding: 1% 5%;
-      }
+      font-weight: 100;
+      width: 80%;
+      margin: 0 auto;
+      text-align: left;
+      padding: 1% 5%;
+    }
 
-  .link{
-    width: 80%;
-    margin: 0 auto;
-    text-align: left;
-    padding: 1% 5%;
-    a {
+    .link {
+      width: 80%;
+      margin: 0 auto;
+      text-align: left;
+      padding: 1% 5%;
+      a {
         text-decoration: none;
         color: #fff;
-        background: #4351BD;
+        background: #4351bd;
         padding: 1%;
-        border-radius: .2rem;
+        border-radius: 0.2rem;
         float: left;
       }
-  }
+    }
+    .footer {
+      width: 60%;
+      padding: 2%;
+      text-align: right;
+      margin: 0 auto;
+
+      img {
+        width: 20%;
+      }
+    }
   }
 }
