@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { Router } from '@angular/router';
 import { LoginProcessService } from 'src/app/services/app-state/login-process.service';
 import { AuthenticateService } from 'src/app/services/home/user/authenticate.service';
+import { VERIFICATIONLINK, WEB_HOST } from 'src/app/shared/config';
+import { EmailService } from 'src/app/services';
 
 @Component({
   selector: 'app-forgot-password',
@@ -15,8 +17,8 @@ export class ForgotPasswordComponent implements OnInit {
   error = '';
   constructor(
     private fb: FormBuilder,
-    private routeTo: Router,
-    private loginService: AuthenticateService,
+    private emailService: EmailService,
+    private authenticateService: AuthenticateService,
     private loginProcess: LoginProcessService
   ) {
 
@@ -37,10 +39,26 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   forgotPassword() {
-    alert(this.formValues.email.value);
-    const message = `An email has been sent to ${this.formValues.email.value}.
-      \n Please click on the Reset password button to access Citgo`;
-    this.loginProcess.showEmailNotification(message);
+    this.authenticateService.getUserByEmail(this.formValues.email.value).subscribe(response => {
+      if (response.UserId) {
+        const link = `${WEB_HOST}/#/${VERIFICATIONLINK}/${response.UserId}`;
+        const data = {
+          name: response.Email,
+          email: response.Email,
+          link: link
+        };
+
+        this.emailService.sendForgotPasswordEmail(data).subscribe(response => {
+          if (response) {
+            const message = `An email has been sent to ${this.formValues.email.value}.
+            Please click on the Reset password button to change password & access Citgo`;
+            this.loginProcess.showEmailNotification(message);
+          }
+        });
+      } else {
+        this.error = `User with ${this.formValues.email.value} couldn't be found!`;
+      }
+    });
   }
 
   toLogin() {
