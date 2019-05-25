@@ -4,6 +4,8 @@ import {ChartModule} from 'primeng/chart';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {ToastModule} from 'primeng/toast';
+import {OverlayPanelModule} from 'primeng/overlaypanel';
+
 
 
 
@@ -20,7 +22,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MessageModule,
     ToastModule, 
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    OverlayPanelModule
   ],
   declarations: [...declarations],
   providers: [MessageService]

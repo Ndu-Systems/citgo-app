@@ -27,10 +27,10 @@
     </ul>
     <ul>
       <li class="account container-col-1-of-3">
-    
+
         <div class="dropdown notifications">
           <h1 class="dropbtn"><i class="fas fa-bell"></i>
-          </h1>  
+          </h1>
           <div class="dropdown-content">
             <div class="notification">
               <h1>
@@ -40,13 +40,19 @@
             </div>
           </div>
         </div>
-        <img src="assets/images/dashboard/user-female.svg" alt="user image">
-        <div class="dropdown">
+        <img src="assets/images/dashboard/user-female.svg" (click)="op1.toggle($event)" alt="user image">
+        <!-- <div class="dropdown">
           <h1 class="dropbtn">{{client?.FirstName}}</h1>
           <div class="dropdown-content">
             <a routerLink="" (click)="logout()">Logout</a>
           </div>
-        </div>
+        </div> -->
+
+
+        <p-overlayPanel #op1>
+         <h1>Hello</h1>
+         <h1>Hello</h1>
+        </p-overlayPanel>
 
       </li>
     </ul>
