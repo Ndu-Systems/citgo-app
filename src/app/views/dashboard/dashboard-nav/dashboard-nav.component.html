@@ -39,7 +39,7 @@
             </div>           
           </p-overlayPanel>
         </div>
-        <div class="user">
+        <div class="user" *ngIf="client">
           <p-overlayPanel  #op1>
             <h1> <a routerLink="my-profile">my profile</a></h1>
             <h1><a routerLink="" (click)="logout()">Logout</a></h1>
