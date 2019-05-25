@@ -21,7 +21,7 @@ const routes: Routes = [
     children: [
       { path: "", component: DashboardHomeComponent },
       { path: "update-password", component: UpdatePasswordComponent },
-      { path: "my-refferals", component: MyRefferalsComponent }
+      { path: "my-refferals/:id", component: MyRefferalsComponent }
     ]
   }
 ];
