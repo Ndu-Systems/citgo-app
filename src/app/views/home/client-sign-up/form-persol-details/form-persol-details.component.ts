@@ -56,7 +56,7 @@ export class FormPersolDetailsComponent implements OnInit {
       Address: ["Not needed", Validators.required],
       CreateUserId: ["SYSTEM_WEB", Validators.required],
       StatusId: [STATUS_USER_NEW, Validators.required],
-      ParentId: [this.ParentId, Validators.required]
+      ParentId: [this.ParentId]
     });
 
     this.rForm.valueChanges.subscribe(data => {
