@@ -50,6 +50,7 @@ export class FormBeneficiariesComponent implements OnInit {
       message: "Are you sure you want to exit without saving?",
       accept: () => {
         this.signUpProcessService.closeAllSignUpForms();
+        this.signUpProcessService.showVerificationMailSent();
       }
     });
   }
@@ -74,7 +75,6 @@ export class FormBeneficiariesComponent implements OnInit {
     this.beneficiariesService.addBeneficiaries(formData).subscribe(response => {
       if (response) {
         console.log("response", response);
-        this.router.navigate(["dashboard"]);
         this.signUpProcessService.closeAllSignUpForms();
         this.signUpProcessService.showVerificationMailSent();
       } else {

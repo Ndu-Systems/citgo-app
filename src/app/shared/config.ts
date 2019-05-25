@@ -22,7 +22,7 @@ export function getCurrentUser(){
 
 export const VERIFICATIONLINK = "etr70554f35IG6767-ctrl789954";
 export const RESET_PASSWORD = "e23587411e523332s33111a33333ds1";
-export const REFERALLINK = "has70554f35uyt6767-ctrl874554";
+export const REFERALLINK = "sign-up-from-link";
 
 const onlineApi = "https://citgoafrica.com/api";
 export const SEND_ACC_VERIFICATION_EMAIL = `${onlineApi}/email/email-acc-verify.php`;

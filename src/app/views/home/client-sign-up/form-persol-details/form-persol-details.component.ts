@@ -26,6 +26,7 @@ export class FormPersolDetailsComponent implements OnInit {
   progress: string;
   allUsers: User[] = [];
   userExist: string = "";
+  ParentId:string="";
 
   constructor(
     private fb: FormBuilder,
@@ -37,6 +38,9 @@ export class FormPersolDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.signUpProcessService.castUserRegistrationProcess.subscribe(r=>{
+      this.ParentId = r.parentId;
+    })
     this.rForm = this.fb.group({
       FirstName: [null, Validators.required],
       MiddleName: [null],
@@ -51,7 +55,8 @@ export class FormPersolDetailsComponent implements OnInit {
       PostCode: ["0000", Validators.required],
       Address: ["Not needed", Validators.required],
       CreateUserId: ["SYSTEM_WEB", Validators.required],
-      StatusId: [STATUS_USER_NEW, Validators.required]
+      StatusId: [STATUS_USER_NEW, Validators.required],
+      ParentId: [this.ParentId, Validators.required]
     });
 
     this.rForm.valueChanges.subscribe(data => {

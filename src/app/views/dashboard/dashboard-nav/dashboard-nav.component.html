@@ -6,6 +6,7 @@
   <nav class="topnav col-1-of-3">
     <div class="logo">
       <img src="assets/images/dashboard/logo-white-bg.svg" alt="">
+      <!-- <span>{{mylink}}</span> -->
       <input type="button" value="copy my link" class="button share-link" />
     </div>
     <ul class="nav-tems">
@@ -39,7 +40,7 @@
         </div>
         <img src="assets/images/dashboard/user-female.svg" alt="user image">
         <div class="dropdown">
-          <h1 class="dropbtn">Guest</h1>
+          <h1 class="dropbtn">{{client?.FirstName}}</h1>
           <div class="dropdown-content">
             <a routerLink="" (click)="logout()">Logout</a>
           </div>

@@ -4,11 +4,13 @@ import { CloseModalEventEmmiter, initModalEvent } from '..';
 export interface SignUpProcess {
     showVerificationMailSent: boolean;
     user: User;
-    whichModalToShow: CloseModalEventEmmiter
+    whichModalToShow: CloseModalEventEmmiter;
+    parentId?:string;
 }
 
 export const newProcess: SignUpProcess = {
     showVerificationMailSent: false,
     user: null,
-    whichModalToShow: initModalEvent
+    whichModalToShow: initModalEvent,
+    parentId:''
 }
