@@ -40,15 +40,13 @@ export class ForgotPasswordComponent implements OnInit {
 
   forgotPassword() {
     this.authenticateService.getUserByEmail(this.formValues.email.value).subscribe(response => {
-      if (response) {
-        debugger
+      if (response) {        
         const link = `${WEB_HOST}/#/${RESET_PASSWORD}/${response}`;
         const data = {
           name: this.formValues.email.value,
           email: this.formValues.email.value,
           link: link
         };
-
         this.emailService.sendForgotPasswordEmail(data).subscribe(response => {
           if (response) {
             const message = `An email has been sent to ${this.formValues.email.value}.
