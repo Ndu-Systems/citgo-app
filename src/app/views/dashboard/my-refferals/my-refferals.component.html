@@ -3,5 +3,32 @@
     My Refferals
   </h1>
 
- {{refferals$ | async | json }}
+  <div class="cards" *ngIf="refferals$ | async as refferals; else nodata">
+    <div class="card" *ngFor="let data of refferals">
+      <div class="card-header">
+        <p class="status">Active</p>
+      </div>
+      <div class="profile-pic">
+        <!-- <i class="far fa-user"></i> -->
+        <i class="fas fa-user"></i>
+      </div>
+      <div class="name">
+        <h1>
+          {{data.FirstName}} {{data.Surname}}
+
+        </h1>
+      </div>
+      <div class="email">
+         <h2>
+            {{data.Email}}
+         </h2>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #nodata>
+    <h1>
+      Sorry
+    </h1>
+  </ng-template>
 </div>
