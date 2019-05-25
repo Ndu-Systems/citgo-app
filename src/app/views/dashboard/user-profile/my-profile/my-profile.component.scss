@@ -5,7 +5,7 @@
 
   h1 {
     font-size: 1.777rem;
-    text-align: center;
+    text-align: left;
     text-transform: capitalize;
     font-weight: 400;
     padding-bottom: 1rem;
@@ -15,11 +15,10 @@
     max-width: 100%;
     margin: 0 auto;
     background: $white-color;
-    padding: 4%;
+    padding: 2%;
 
     .controls {
-      padding: 1rem;
-
+      padding-bottom: 0.666rem;
       .error {
         padding: 2rem;
 
@@ -68,4 +67,25 @@
 
   }
 
+}
+
+.showError {
+  padding: 1rem;
+  background: #f39c12;
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+  border-radius: 0.5rem;
+  .alert{
+    color: #fff;
+   
+  }
+  h1 {
+    font-size: 1.333rem;
+    text-align: left;
+    text-transform: capitalize;
+    font-weight: 600;
+    padding-bottom: 1rem;
+    letter-spacing: 0;
+  }
+  
 }

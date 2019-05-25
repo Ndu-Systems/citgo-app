@@ -32,3 +32,7 @@ export const SEND_FORGOT_PASSWORD_EMAIL = `${onlineApi}/email/email-reset-passwo
 // Validator
 
 export const PASSWORD_DONT_MATCH_ERROR = 'Your password(s) do not match';
+export const OLD_PASSWORD_DONT_MATCH_ERROR = 'Your old password(s) do not match';
+export const PASSWORD_EXISTS_ERROR = 'Your password cannot be something familiar to us';
+
+export const UPDATE_CLIENT_ERROR = 'Something went wrong please try again later.';
