@@ -1,10 +1,16 @@
-import { REFERALLINK } from 'src/app/shared/config';
-import { WEB_HOST } from './../../../shared/config';
-import { User } from 'src/app/models/user';
-import { AuthenticateService, DocumentsService, CleintService } from "src/app/services";
+import { REFERALLINK } from "src/app/shared/config";
+import { WEB_HOST } from "./../../../shared/config";
+import { User } from "src/app/models/user";
+import {
+  AuthenticateService,
+  DocumentsService,
+  CleintService,
+  NotificationProcessService
+} from "src/app/services";
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { ExitModalEventEmmiter, Client } from "src/app/models";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "app-dashboard-nav",
@@ -14,39 +20,40 @@ import { ExitModalEventEmmiter, Client } from "src/app/models";
 export class DashboardNavComponent implements OnInit {
   showBuyShares: boolean = false;
   showOverlay: boolean = false;
-  client:Client; // full user structure
-  user:User; // pass role clientId
-  mylink='hello'
-  notifications = [{
-    id:1,
-    message:"new account welcome"
-  },
-  {
-    id:2,
-    message:"upload document"
-  }
-]
-showNotification: boolean = false;
+  client: Client; // full user structure
+  user: User; // pass role clientId
+  mylink = "hello";
+
+  notifications = [
+   
+  ];
+  showNotification: boolean = false;
   constructor(
     private routeTo: Router,
     private authenticateService: AuthenticateService,
     private documentsService: DocumentsService,
     private cleintService: CleintService,
+    private notificationProcessService: NotificationProcessService
   ) {}
   hasDocs: boolean = true;
-  documents:any[]=[];
+  documents: any[] = [];
   ngOnInit() {
-   this.user = this.authenticateService.currentUserValue;
+    this.user = this.authenticateService.currentUserValue;
 
-    this.documentsService.getClientDocuments(this.user.ClientId).subscribe(r=>{
-      this.documents = r;
-      if(this.documents.length < 0){
-        this.hasDocs = false;
-      }
+    this.documentsService
+      .getClientDocuments(this.user.ClientId)
+      .subscribe(r => {
+        this.documents = r;
+        if (this.documents.length < 0) {
+          this.hasDocs = false;
+        }
+      });
 
+    this.getUserDetails();
+
+    this.notificationProcessService.castNotificationProcess.subscribe(process=>{
+      this.notifications = process.notifications;
     })
-
-    this.getUserDetails()
   }
   logout() {
     this.authenticateService.logout();
@@ -61,33 +68,31 @@ showNotification: boolean = false;
   closeModal(event: ExitModalEventEmmiter) {
     event.close = this.toggleBuyShares();
   }
-  showNotifications(){
+  showNotifications() {
     this.showNotification = !this.showNotification;
   }
 
-  getUserDetails(){
-    this.cleintService.getClientById(this.user.ClientId).subscribe(r=>{
-     this.client = r;
-     this.mylink = `${WEB_HOST}/#/${REFERALLINK}/${this.client.ClientId}`;
-    })
+  getUserDetails() {
+    this.cleintService.getClientById(this.user.ClientId).subscribe(r => {
+      this.client = r;
+      this.mylink = `${WEB_HOST}/#/${REFERALLINK}/${this.client.ClientId}`;
+    });
   }
-  copylink(){
-   this.copyText(this.mylink);
-   alert('Your link is copied')
+  copylink() {
+    this.copyText(this.mylink);
+    alert("Your link is copied");
   }
-  copyText(val: string){
-    let selBox = document.createElement('textarea');
-      selBox.style.position = 'fixed';
-      selBox.style.left = '0';
-      selBox.style.top = '0';
-      selBox.style.opacity = '0';
-      selBox.value = val;
-      document.body.appendChild(selBox);
-      selBox.focus();
-      selBox.select();
-      document.execCommand('copy');
-      document.body.removeChild(selBox);
-    }
-  
-  
+  copyText(val: string) {
+    let selBox = document.createElement("textarea");
+    selBox.style.position = "fixed";
+    selBox.style.left = "0";
+    selBox.style.top = "0";
+    selBox.style.opacity = "0";
+    selBox.value = val;
+    document.body.appendChild(selBox);
+    selBox.focus();
+    selBox.select();
+    document.execCommand("copy");
+    document.body.removeChild(selBox);
+  }
 }

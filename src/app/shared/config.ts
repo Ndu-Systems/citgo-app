@@ -31,4 +31,12 @@ export const SEND_FORGOT_PASSWORD_EMAIL = `${onlineApi}/email/email-reset-passwo
 
 // Validator
 
+//share status
+export const SHARE_ACTIVE =1;
+export const SHARE_PENDING=2;
+export const SHARE_PENDING_VERFICATION=3;
+export const SHARE_DECLINED=3;
+export const SHARE_REMOVED=3;
+
+
 export const PASSWORD_DONT_MATCH_ERROR = 'Your password(s) do not match';
