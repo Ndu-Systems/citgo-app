@@ -17,5 +17,9 @@ export class CleintService {
       `${this.url}/api/clients/get-client-by-id.php?ClientId=${ClientId}`
     );
   }
-
+getClientReferrals(ClientId) {
+  return this.httpClient.get<any>(
+    `${this.url}/api/clients/get-client-refferals.php?ClientId=${ClientId}`
+  );
+}
 }
