@@ -25,10 +25,26 @@
     </ul>
     <ul>
       <li class="account container-col-1-of-3">
-        <div class="dropdown notifications">
-          <h1 class="dropbtn"><i class="fas fa-bell"></i>
+        <div class="dropdown notifcations">
+          <h1 class="dropbtn" (click)="showNotifications()"><i class="fas fa-bell"></i>
           </h1>
-          <!-- hasDocs -->
+          <div *ngIf="showNotifications">
+            <div class="dropdown-content" *ngIf="notifcations">
+              <div class="header">
+                <p class="close">X</p>
+              </div>
+              <div class="notification" *ngFor="let i of notifcations">
+                <h1>
+                  <span class="info">
+                    {{i.message}}
+                  </span></h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="dropdown notifications">
+          <h1 class="dropbtn"><i class="fas fa-bell"></i>
+          </h1>  
           <div class="dropdown-content">
             <div class="notification">
               <h1>
@@ -44,7 +60,7 @@
           <div class="dropdown-content">
             <a routerLink="" (click)="logout()">Logout</a>
           </div>
-        </div>
+        </div> -->
 
       </li>
     </ul>
@@ -80,7 +96,7 @@
       </li>
       <li class="buy-shares">
         <input type="button" value="buy shares" class="button shares" (click)="toggleBuyShares()" />
-      </li>    
+      </li>
     </ul>
   </nav>
 </header>
