@@ -31,21 +31,24 @@
         <div class="nofication">
           <h1 class="dropbtn"><i class="fas fa-bell" (click)="not.toggle($event)"></i>
           </h1>
-          <p-overlayPanel class="options" #not>
-            <h1>Hello </h1>
+          <p-overlayPanel #not>
+            <div class="notifications" *ngIf="notifications">
+                <div *ngFor="let item of notifications">
+                    <h1>{{item.message}}</h1>
+                  </div>
+            </div>           
           </p-overlayPanel>
-
         </div>
         <div class="user">
-          <p-overlayPanel class="options" #op1>
-            <h1>my profile</h1>
+          <p-overlayPanel  #op1>
+            <h1> <a routerLink="my-profile">my profile</a></h1>
             <h1><a routerLink="" (click)="logout()">Logout</a></h1>
           </p-overlayPanel>
           <img src="assets/images/dashboard/user-female.svg" *ngIf="client.Gender=='Female'" (click)="op1.toggle($event)" alt="user image">
           <img src="assets/images/dashboard/user-male.svg" *ngIf="client.Gender=='Male'" (click)="op1.toggle($event)" alt="user image">
         </div>
         <div class="user">
-            <h1>Hello {{client?.FirstName}}</h1>
+          <h1>Hello {{client?.FirstName}}</h1>
         </div>
         <!-- <div class="dropdown">
           <h1 class="dropbtn">{{client?.FirstName}}</h1>

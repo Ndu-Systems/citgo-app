@@ -17,7 +17,7 @@ export class DashboardNavComponent implements OnInit {
   client:Client; // full user structure
   user:User; // pass role clientId
   mylink='hello'
-  notifcations = [{
+  notifications = [{
     id:1,
     message:"new account welcome"
   },

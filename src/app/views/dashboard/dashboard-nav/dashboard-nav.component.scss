@@ -209,9 +209,12 @@ nav ul span {
 //   left: 1565px !important; 
 
 // }
+::ng-deep .ui-overlaypanel {
+  background:$nav-background!important;
+}
 .user {
   ::ng-deep .ui-overlaypanel {
-     background: $nav-background !important;
+   
     //  color: black !important;
       top: 56px !important;
       left: 1565px !important; 
@@ -223,16 +226,22 @@ nav ul span {
       padding-top: 1rem;
       color: white;
       font-weight: 300;
+      text-transform: capitalize
+      
+    }
+    h1:hover {
+      font-weight: 700;
+      cursor: pointer;
     }
 }
 
 .nofication {
   
 ::ng-deep .ui-overlaypanel {
-  background:$nav-background!important;
+  
   // color: black !important;
    top: 56px !important;
-   left: 1418px !important; 
+   left: 1252px !important;
  
  }
  h1 {
@@ -240,5 +249,6 @@ nav ul span {
   padding-top: 1rem;
   color: white;
   font-weight: 300;
+  text-transform: capitalize
 }
 }

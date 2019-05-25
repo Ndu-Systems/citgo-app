@@ -10,7 +10,7 @@ import { InvestmentsComponent, BuyShareComponent } from "./investments";
 import { AuthGuard } from "src/app/guards/auth.guard";
 import { CLIENT_USER_ROLE } from "src/app/shared/config";
 import { DashFooterComponent } from "./dash-footer/dash-footer.component";
-import { UpdatePasswordComponent } from "./user-profile";
+import { UpdatePasswordComponent, MyProfileComponent } from "./user-profile";
 
 const routes: Routes = [
   {
@@ -21,7 +21,9 @@ const routes: Routes = [
     children: [
       { path: "", component: DashboardHomeComponent },
       { path: "update-password", component: UpdatePasswordComponent },
-      { path: "my-refferals/:id", component: MyRefferalsComponent }
+      { path: "my-refferals/:id", component: MyRefferalsComponent },
+      { path: "my-profile", component: MyProfileComponent },
+      
     ]
   }
 ];
@@ -35,7 +37,8 @@ export const declarations: Array<any> = [
   DashFooterComponent,
   BuyShareComponent,
   UpdatePasswordComponent,
-  MyRefferalsComponent
+  MyRefferalsComponent,
+  MyProfileComponent
 ];
 
 @NgModule({
