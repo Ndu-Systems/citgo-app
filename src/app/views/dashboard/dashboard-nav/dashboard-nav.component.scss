@@ -252,3 +252,10 @@ nav ul span {
   text-transform: capitalize
 }
 }
+
+.notification{
+  cursor: pointer;
+  &:hover{
+    opacity: .6;
+  }
+}

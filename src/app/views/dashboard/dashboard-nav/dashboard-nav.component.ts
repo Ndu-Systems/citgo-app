@@ -1,3 +1,4 @@
+import { UserNotification } from "./../../../models/processes/notification.process.model";
 import { REFERALLINK } from "src/app/shared/config";
 import { WEB_HOST } from "./../../../shared/config";
 import { User } from "src/app/models/user";
@@ -24,9 +25,7 @@ export class DashboardNavComponent implements OnInit {
   user: User; // pass role clientId
   mylink = "hello";
 
-  notifications = [
-   
-  ];
+  notifications = [];
   showNotification: boolean = false;
   constructor(
     private routeTo: Router,
@@ -51,9 +50,11 @@ export class DashboardNavComponent implements OnInit {
 
     this.getUserDetails();
 
-    this.notificationProcessService.castNotificationProcess.subscribe(process=>{
-      this.notifications = process.notifications;
-    })
+    this.notificationProcessService.castNotificationProcess.subscribe(
+      process => {
+        this.notifications = process.notifications;
+      }
+    );
   }
   logout() {
     this.authenticateService.logout();
@@ -94,5 +95,12 @@ export class DashboardNavComponent implements OnInit {
     selBox.select();
     document.execCommand("copy");
     document.body.removeChild(selBox);
+  }
+  openNotification(notification: UserNotification) {
+    if (notification.isShare) {
+      // alert(notification.id);
+      this.notificationProcessService.showUplaod();
+      this.notificationProcessService.updateInvestementId(notification.id);
+    }
   }
 }

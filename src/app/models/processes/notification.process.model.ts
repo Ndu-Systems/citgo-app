@@ -1,10 +1,13 @@
 export interface NotificationProcessModel{
 notifications:UserNotification[];
+showUplaod:boolean;
+InvestmentId:string;
 }
 export const initNotificationProcessModel:NotificationProcessModel = {
-    notifications:[]
+    notifications:[],showUplaod:false,InvestmentId:''
 }
 export interface UserNotification{
     message:string;
-    id:number;
+    id:any;
+    isShare:boolean;
 }

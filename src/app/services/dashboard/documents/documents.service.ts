@@ -23,5 +23,10 @@ export class DocumentsService {
     );
 }
 
+addDocumentDetails(data){
+  return this.http.post<any>(`${API_URL}/api/documents/add-documents.php`,data);
+
+}
+
 
 }

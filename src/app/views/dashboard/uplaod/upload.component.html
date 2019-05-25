@@ -1,19 +1,33 @@
 
-<div class="main">
-  <h1>
-    Proof of payment
-  </h1>
-  <div class="form">
-    <div class="control">
-      <input class="email" type="file" (change)="filesChanged($event.target.files)"><br>
-      <button type="button" class="btn btn-info" (click)="uplaodFile()">Confirm</button>
-
-    </div>
-    <div>
-      <div class="message"> {{message}} </div>
-      <div class="success">
-        <h4>{{success}}</h4>
-      </div> <br>
-    </div>
+<div class="buy-shares overlay">
+    <section class="modal shadow-black">
+      <section class="modal-header col-1-of-2">
+        <h1>
+          <span class="main">
+            Upload support documents
+          </span>
+        </h1>
+        <img src="assets/images/dashboard/close-x.svg" (click)="closeModal()" class="close-btn" alt="">
+  
+      </section>
+      <section class="popup-body">
+          <div class="dashboard-forms">
+              <div class="controls">
+                <input class="input-field" type="file" (change)="filesChanged($event.target.files)"><br>
+          
+              </div>
+              <div class="controls">
+                <button type="button" class="button" (click)="uplaodFile()">Confirm</button>
+              </div>
+              <div>
+                <div class="message"> {{message}} </div>
+                <div class="success">
+                  <h4>{{success}}</h4>
+                </div> <br>
+              </div>
+            </div>
+      </section>
+    </section>
+  
   </div>
-</div>
+  
