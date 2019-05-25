@@ -1,11 +1,12 @@
 import { User } from "src/app/models/user";
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { STATUS_USER_NEW } from "src/app/shared/config";
+import { STATUS_USER_NEW, STATUS_USER_ACTIVE } from "src/app/shared/config";
 import { first } from "rxjs/operators";
 import { MessageService } from "primeng/api";
 import { AuthenticateService } from "src/app/services/home/user/authenticate.service";
 import { UserService } from "src/app/services";
+import { UserProfileProcessService } from "src/app/services/app-state/user-profile-process.service";
 
 @Component({
   selector: "app-verify-email",
@@ -22,7 +23,8 @@ export class VerifyEmailComponent implements OnInit {
     private authicateService: AuthenticateService,
     private userService: UserService,
     private router: Router,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private userProfileProcess: UserProfileProcessService
   ) {
     this.activatedRoute.params.subscribe(r => {
       this.userId = r["id"];
@@ -36,7 +38,7 @@ export class VerifyEmailComponent implements OnInit {
       }
       this.currentUser = r;
       if (Number(this.currentUser.StatusId) == STATUS_USER_NEW) {
-        this.currentUser.StatusId = 3;
+        this.currentUser.StatusId = STATUS_USER_ACTIVE;
         this.currentUser.ModifyUserId = this.userId;
         this.userService.updateUser(this.currentUser).subscribe(res => {
           // lOGIN USER
@@ -46,14 +48,16 @@ export class VerifyEmailComponent implements OnInit {
             .subscribe(response => {
               if (response) {
                
-                setTimeout(function() {
-                  this.popMessage(
-                    "success",
-                    "Account verified",
-                    `Your account was verified successfully`
-                  );
+                // setTimeout(function() {
+                //   this.popMessage(
+                //     "success",
+                //     "Account verified",
+                //     `Your account was verified successfully`
+                //   );
 
-                }, 3000);
+                // }, 3000);
+                
+                this.userProfileProcess.updateUserProfileProcessState({resetPasswordMessage: "Create your new password."})
                 this.router.navigate(["/dashboard"]);
 
 

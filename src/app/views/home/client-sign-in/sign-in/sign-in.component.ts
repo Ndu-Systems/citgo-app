@@ -32,7 +32,7 @@ export class SignInComponent implements OnInit {
   ngOnInit() {
     this.rForm = this.fb.group({
       email: new FormControl(
-        "magwaza@mail.com",
+        "youremail@example.com",
         Validators.compose([
           Validators.required,
           Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$")

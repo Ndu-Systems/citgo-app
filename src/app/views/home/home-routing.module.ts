@@ -18,8 +18,8 @@ import {
 
 import { FooterSectionComponent } from "./footer-section";
 import { HomeNavComponent } from "./home-nav";
-import { SignInComponent } from "./client-sign-in";
-import { VERIFICATIONLINK } from "src/app/shared/config";
+import { SignInComponent, ResetPasswordComponent } from "./client-sign-in";
+import { VERIFICATIONLINK, RESET_PASSWORD } from "src/app/shared/config";
 import { VerifyEmailComponent } from "./verify-email/verify-email.component";
 import { HowItWorksComponent } from "./how-it-works";
 import { ContactUsComponent } from "./contact-us";
@@ -39,6 +39,10 @@ const routes: Routes = [
       {
         path: `${VERIFICATIONLINK}/:id`,
         component: VerifyEmailComponent
+      },
+      {
+        path: `${RESET_PASSWORD}/:id`,
+        component: ResetPasswordComponent
       },
       {
         path: "how-it-works",
@@ -71,7 +75,8 @@ export const declarations: Array<any> = [
   CalculatorComponent,
   EmailSentScreenComponent,
   ForgotPasswordComponent,
-  EmailNotificationComponent
+  EmailNotificationComponent,
+  ResetPasswordComponent
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],

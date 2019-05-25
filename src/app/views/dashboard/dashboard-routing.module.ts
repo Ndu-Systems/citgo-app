@@ -9,14 +9,16 @@ import { InvestmentsComponent, BuyShareComponent } from "./investments";
 import { AuthGuard } from "src/app/guards/auth.guard";
 import { CLIENT_USER_ROLE } from "src/app/shared/config";
 import { DashFooterComponent } from './dash-footer/dash-footer.component';
+import { UpdatePasswordComponent } from './user-profile';
 
 const routes: Routes = [
   {
     path: "",
     component: DashboardComponent,
     canActivate: [AuthGuard],
-    data: { roles: [CLIENT_USER_ROLE] } ,
-    children: [{ path: "", component: DashboardHomeComponent }]
+    data: { roles: [CLIENT_USER_ROLE] },
+    children: [{ path: "", component: DashboardHomeComponent },
+    { path: "update-password", component: UpdatePasswordComponent }]
   }
 ];
 
@@ -27,11 +29,12 @@ export const declarations: Array<any> = [
   ProfitComponent,
   DashboardHomeComponent,
   DashFooterComponent,
-  BuyShareComponent
+  BuyShareComponent,
+  UpdatePasswordComponent
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class DashboardRoutingModule {}
+export class DashboardRoutingModule { }

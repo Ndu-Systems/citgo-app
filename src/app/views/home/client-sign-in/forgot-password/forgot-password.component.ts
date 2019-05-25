@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { Router } from '@angular/router';
 import { LoginProcessService } from 'src/app/services/app-state/login-process.service';
 import { AuthenticateService } from 'src/app/services/home/user/authenticate.service';
-import { VERIFICATIONLINK, WEB_HOST } from 'src/app/shared/config';
+import {  WEB_HOST, RESET_PASSWORD } from 'src/app/shared/config';
 import { EmailService } from 'src/app/services';
 
 @Component({
@@ -25,7 +25,7 @@ export class ForgotPasswordComponent implements OnInit {
   }
   ngOnInit() {
     this.rForm = this.fb.group({
-      email: new FormControl('magwaza@mail.com', Validators.compose([
+      email: new FormControl('youremail@example.com', Validators.compose([
         Validators.required,
         Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
       ]))
@@ -40,11 +40,12 @@ export class ForgotPasswordComponent implements OnInit {
 
   forgotPassword() {
     this.authenticateService.getUserByEmail(this.formValues.email.value).subscribe(response => {
-      if (response.UserId) {
-        const link = `${WEB_HOST}/#/${VERIFICATIONLINK}/${response.UserId}`;
+      if (response) {
+        debugger
+        const link = `${WEB_HOST}/#/${RESET_PASSWORD}/${response}`;
         const data = {
-          name: response.Email,
-          email: response.Email,
+          name: this.formValues.email.value,
+          email: this.formValues.email.value,
           link: link
         };
 
