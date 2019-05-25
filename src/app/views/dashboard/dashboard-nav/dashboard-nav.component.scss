@@ -202,3 +202,43 @@ nav ul span {
 }
 
  
+// ::ng-deep .ui-overlaypanel {
+//  background: green !important;
+//  color: bla !important;
+//   top: 56px !important;
+//   left: 1565px !important; 
+
+// }
+.user {
+  ::ng-deep .ui-overlaypanel {
+     background: $nav-background !important;
+    //  color: black !important;
+      top: 56px !important;
+      left: 1565px !important; 
+    
+    }
+
+    h1 {
+      font-size: 1rem;
+      padding-top: 1rem;
+      color: white;
+      font-weight: 300;
+    }
+}
+
+.nofication {
+  
+::ng-deep .ui-overlaypanel {
+  background:$nav-background!important;
+  // color: black !important;
+   top: 56px !important;
+   left: 1418px !important; 
+ 
+ }
+ h1 {
+  font-size: 1rem;
+  padding-top: 1rem;
+  color: white;
+  font-weight: 300;
+}
+}
