@@ -1,0 +1,19 @@
+
+<div class="main">
+  <h1>
+    Proof of payment
+  </h1>
+  <div class="form">
+    <div class="control">
+      <input class="email" type="file" (change)="filesChanged($event.target.files)"><br>
+      <button type="button" class="btn btn-info" (click)="uplaodFile()">Confirm</button>
+
+    </div>
+    <div>
+      <div class="message"> {{message}} </div>
+      <div class="success">
+        <h4>{{success}}</h4>
+      </div> <br>
+    </div>
+  </div>
+</div>

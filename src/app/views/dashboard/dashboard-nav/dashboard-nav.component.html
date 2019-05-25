@@ -2,7 +2,7 @@
   <app-buy-share (closeBuySharesModalAction)="closeModal($event)" *ngIf="showBuyShares"></app-buy-share>
 </div>
 
-<div class="dashboard-nav">
+<div class="dashboard-nav" *ngIf="client">
   <nav class="topnav col-1-of-3">
     <div class="logo">
       <img src="assets/images/dashboard/logo-white-bg.svg" alt="">
