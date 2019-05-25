@@ -17,6 +17,16 @@ export class DashboardNavComponent implements OnInit {
   client:Client; // full user structure
   user:User; // pass role clientId
   mylink='hello'
+  notifcations = [{
+    id:1,
+    message:"new account welcome"
+  },
+  {
+    id:2,
+    message:"upload document"
+  }
+]
+showNotification: boolean = false;
   constructor(
     private routeTo: Router,
     private authenticateService: AuthenticateService,
@@ -51,7 +61,8 @@ export class DashboardNavComponent implements OnInit {
   closeModal(event: ExitModalEventEmmiter) {
     event.close = this.toggleBuyShares();
   }
-  closeNav(){
+  showNotifications(){
+    this.showNotification = !this.showNotification;
   }
 
   getUserDetails(){
