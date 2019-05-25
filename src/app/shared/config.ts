@@ -27,3 +27,8 @@ export const REFERALLINK = "sign-up-from-link";
 const onlineApi = "https://citgoafrica.com/api";
 export const SEND_ACC_VERIFICATION_EMAIL = `${onlineApi}/email/email-acc-verify.php`;
 export const SEND_FORGOT_PASSWORD_EMAIL = `${onlineApi}/email/email-reset-password.php`;
+
+
+// Validator
+
+export const PASSWORD_DONT_MATCH_ERROR = 'Your password(s) do not match';
