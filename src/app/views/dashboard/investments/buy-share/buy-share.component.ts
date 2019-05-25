@@ -14,7 +14,7 @@ export class BuyShareComponent implements OnInit {
   error = '';
   loading;
   currentUser;
-  investmentsList: Investment[];
+  investmentsList: Investment[]=[];
   canBuy:boolean= true;
   constructor(
     private fb: FormBuilder,
@@ -24,13 +24,17 @@ export class BuyShareComponent implements OnInit {
   ) { 
      //get user shares -for naming purpose e.g  Share 1
      this.investmentService.clientshares.subscribe(val => {
-      this.investmentsList = val;
-     if(this.investmentsList.filter(x=>x.StatusId==2).length >0){
-       alert(`You can not buy shares while you have pending shares`);
-       setTimeout(()=>{
-        this.closeModal();
-       },1000)
-     }
+      if(val && val.length){
+        this.investmentsList = val;
+
+        if(this.investmentsList.filter(x=>x.StatusId==2).length >0){
+          alert(`You can not buy shares while you have pending shares`);
+          setTimeout(()=>{
+           this.closeModal();
+          },1000)
+        }
+      }
+   
     });
   }
 

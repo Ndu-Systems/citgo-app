@@ -6,7 +6,8 @@
   <div class="cards" *ngIf="refferals$ | async as refferals; else nodata">
     <div class="card" *ngFor="let data of refferals">
       <div class="card-header">
-        <p class="status">Active</p>
+        <p class="status" *ngIf="data.StatusId == '4'">Active</p>
+        <p class="status pending" *ngIf="data.StatusId =='3'">Pending</p>
       </div>
       <div class="profile-pic">
         <!-- <i class="far fa-user"></i> -->
