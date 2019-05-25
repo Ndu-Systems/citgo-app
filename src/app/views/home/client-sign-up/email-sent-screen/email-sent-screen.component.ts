@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SignUpProcessService } from 'src/app/services';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-email-sent-screen',
@@ -9,7 +10,9 @@ import { SignUpProcessService } from 'src/app/services';
 export class EmailSentScreenComponent implements OnInit {
   progress: string;
 
-  constructor(private signUpProcessService: SignUpProcessService) { }
+  constructor(private signUpProcessService: SignUpProcessService,
+    private router: Router
+    ) { }
 
   ngOnInit() {
     let process = this.signUpProcessService.getRegistraionProcess();
@@ -18,5 +21,6 @@ export class EmailSentScreenComponent implements OnInit {
   }
   backHome() {
     this.signUpProcessService.finishRegistrationProcess();
+    this.router.navigate(['/']);
   }
 }
