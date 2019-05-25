@@ -1,6 +1,6 @@
 export const IS_LOCAL = true;
-let api = 'http://citgoafrica.com//api';
-let web = 'http://citgoafrica.com/';
+let api = 'https://citgoafrica.com//api';
+let web = 'https://citgoafrica.com/';
 if (IS_LOCAL) {
     api = 'http://localhost:8080/citgo-php-api';
     web = 'http://localhost:4200';
