@@ -70,7 +70,14 @@ export class UploadComponent implements OnInit {
                 //update status to pening verification
                 investement.StatusId = SHARE_PENDING_VERFICATION;
                 this.investmentService.updateInvestment(investement).subscribe(res=>{
-                  alert(JSON.stringify(res))
+                 // update the investents state
+                 this.investmentService
+                 .getInvestmentsByClientId(this.clientId)
+                 .subscribe(response => {
+                   if (response.investments) {
+                     this.investmentService.setInvestments(response.investments);
+                   }
+                 });
                 })
               }
             });

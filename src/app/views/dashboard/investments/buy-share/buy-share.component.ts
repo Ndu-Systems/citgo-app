@@ -23,7 +23,7 @@ export class BuyShareComponent implements OnInit {
     private investmentService: InvestmentService
   ) { 
      //get user shares -for naming purpose e.g  Share 1
-     this.investmentService.clientshares.subscribe(val => {
+     this.investmentService.castClientshares.subscribe(val => {
       if(val && val.length){
         this.investmentsList = val;
 

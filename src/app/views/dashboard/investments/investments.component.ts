@@ -21,9 +21,6 @@ export class InvestmentsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.investmentService.clientshares.subscribe(val => {
-      this.investmentsList = val;
-    });
 
     this.user = this.authenticationService.currentUserValue;
     this.investmentService
@@ -31,12 +28,20 @@ export class InvestmentsComponent implements OnInit {
       .subscribe(response => {
         if (response.investments) {
           this.investmentService.setInvestments(response.investments);
-          this.checkForPending(response.investments);
         }
       });
+
+      this.investmentService.castClientshares.subscribe(val => {
+        this.investmentsList = val;
+      });
+
+      this.checkForPending();
+  
   }
-  checkForPending(investments: Investment[]) {
-    let pendings = investments.filter(x => Number(x.StatusId) == SHARE_PENDING);
+  checkForPending() {
+    // alert(JSON.stringify(this.investmentsList))
+    this.notificationProcessService.updateNotificationProcessState([]);
+    let pendings = this.investmentsList.filter(x => Number(x.StatusId) == SHARE_PENDING);
     if (pendings.length > 0) {
       let nots: UserNotification[] = [];
       pendings.forEach(investent => {

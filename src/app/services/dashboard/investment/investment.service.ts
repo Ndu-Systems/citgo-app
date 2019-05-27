@@ -9,13 +9,11 @@ import { Observable, BehaviorSubject } from "rxjs";
   providedIn: "root"
 })
 export class InvestmentService {
-  private clientsharesSubject: BehaviorSubject<Investment[]>;
-  public clientshares: Observable<Investment[]>;
+  private clientsharesSubject=new BehaviorSubject<Investment[]>(null);
+  public castClientshares= this.clientsharesSubject.asObservable();
 
   url = API_URL;
   constructor(private httpClient: HttpClient) {
-    this.clientsharesSubject = new BehaviorSubject<Investment[]>(null);
-    this.clientshares = this.clientsharesSubject.asObservable();
   }
 
   getAllInvestements() {
