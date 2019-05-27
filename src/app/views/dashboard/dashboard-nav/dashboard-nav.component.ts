@@ -11,7 +11,6 @@ import {
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { ExitModalEventEmmiter, Client } from "src/app/models";
-import { Observable } from "rxjs";
 
 @Component({
   selector: "app-dashboard-nav",

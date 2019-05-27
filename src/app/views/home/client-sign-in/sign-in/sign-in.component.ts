@@ -38,7 +38,7 @@ export class SignInComponent implements OnInit {
           Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$")
         ])
       ),
-      password: ["pass@123!s", Validators.required]
+      password: ["pass", Validators.required]
     });
   }
   closeModal() {

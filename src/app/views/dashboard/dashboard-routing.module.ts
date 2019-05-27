@@ -1,3 +1,5 @@
+import { AdminNavComponent } from './admin-components/admin-nav/admin-nav.component';
+import { AdminHomeComponent } from './admin-components/admin-home/admin-home.component';
 import { ShareDetailsComponent } from './investments/share-details/share-details.component';
 import { MyRefferalsComponent } from './my-refferals/my-refferals.component';
 import { DashboardHomeComponent } from "./dashboard-home/dashboard-home.component";
@@ -9,7 +11,7 @@ import { DashboardNavComponent } from "./dashboard-nav";
 
 import { InvestmentsComponent, BuyShareComponent } from "./investments";
 import { AuthGuard } from "src/app/guards/auth.guard";
-import { CLIENT_USER_ROLE } from "src/app/shared/config";
+import { CLIENT_USER_ROLE, ADMIN_USER_ROLE } from "src/app/shared/config";
 import { DashFooterComponent } from "./dash-footer/dash-footer.component";
 import { UpdatePasswordComponent, MyProfileComponent } from "./user-profile";
 import { UploadComponent } from './uplaod/upload.component';
@@ -19,7 +21,7 @@ const routes: Routes = [
     path: "",
     component: DashboardComponent,
     canActivate: [AuthGuard],
-    data: { roles: [CLIENT_USER_ROLE] },
+    data: { roles: [CLIENT_USER_ROLE, ADMIN_USER_ROLE] },
     children: [
       { path: "", component: DashboardHomeComponent },
       { path: "update-password", component: UpdatePasswordComponent },
@@ -43,7 +45,10 @@ export const declarations: Array<any> = [
   MyRefferalsComponent,
   UploadComponent,
   MyProfileComponent,
-  ShareDetailsComponent
+  ShareDetailsComponent,
+  //admin
+  AdminHomeComponent,
+  AdminNavComponent
   
 ];
 

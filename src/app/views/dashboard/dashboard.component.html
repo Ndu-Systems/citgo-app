@@ -1,6 +1,7 @@
 <div class="container">
  <div class="main">
-      <app-dashboard-nav></app-dashboard-nav>
+      <app-dashboard-nav *ngIf="!isCurrentUserAdmin"></app-dashboard-nav>
+      <app-admin-nav *ngIf="isCurrentUserAdmin"></app-admin-nav>
       <div class="container">
           <router-outlet></router-outlet>
       </div>

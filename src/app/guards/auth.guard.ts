@@ -20,10 +20,7 @@ export class AuthGuard implements CanActivate {
       if (route.data.roles) {
         if (route.data.roles.indexOf(Number(currentUser.Role)) != -1) {
           return true;
-        } else if (Number(currentUser.Role) === ADMIN_USER_ROLE) {
-          this.routeTo.navigate["admin-dashboard"];
-          return false;
-        } else {
+        }else {
           this.routeTo.navigate["/"];
           return false;
         }

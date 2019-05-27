@@ -1,0 +1,85 @@
+<div class="overlay" *ngIf="showOverlay">
+  <app-buy-share (closeBuySharesModalAction)="closeModal($event)" *ngIf="showBuyShares"></app-buy-share>
+</div>
+
+<div class="dashboard-nav" *ngIf="client">
+  <nav class="topnav col-1-of-3">
+    <div class="logo">
+      <img src="assets/images/dashboard/logo-white-bg.svg" alt="">
+    </div>
+    <ul class="nav-tems">
+      <li class="container-1-of-1">
+        <a routerLink="/dashboard/">Home</a>
+      </li>
+      <li class="container-1-of-1">
+        <a [routerLink]="['my-refferals',client.ClientId]">All Clients</a>
+      </li>
+      <li class="container-1-of-1">
+        <a [routerLink]="['my-refferals',client.ClientId]">All Investments</a>
+      </li>
+
+    </ul>
+    <ul>
+      <li class="account container-col-1-of-3">
+
+
+        <div class="user" *ngIf="client">
+          <p-overlayPanel #op1>
+            <h1> <a routerLink="my-profile">my profile</a></h1>
+            <h1><a routerLink="" (click)="logout()">Logout</a></h1>
+          </p-overlayPanel>
+
+          <img src="assets/images/dashboard/user-male.svg"  (click)="op1.toggle($event)"
+            alt="user image">
+        </div>
+        <div class="user">
+          <h1>Hello {{client?.FirstName}}</h1>
+        </div>
+        <!-- <div class="dropdown">
+          <h1 class="dropbtn">{{client?.FirstName}}</h1>
+          <div class="dropdown-content">
+            <a routerLink="" (click)="logout()">Logout</a>
+          </div>
+        </div> -->
+
+
+
+
+      </li>
+    </ul>
+  </nav>
+</div>
+<header class="mobile-header col-1-of-2">
+  <div class="logo">
+    <img src="assets/images/dashboard/logo-white-bg.svg" alt="">
+    <input type="button" value="copy my link" class="button share-link" />
+  </div>
+  <div class="menu-section">
+    <img src="assets/images/dashboard/burger-menu.svg" alt="burger-menu">
+  </div>
+  <nav class="show-menu">
+    <a routerLink="">
+      <img src="assets/images/home/icon-white-round.svg" alt="logo" class="logo"></a>
+    <img src="assets/images/home/close-x.png" alt="close btn" class="close-btn" id="close-menu" (click)="closeNav()">
+    <ul class="container-col-1-of-4">
+      <li class="account">
+        <img src="assets/images/dashboard/user-female.svg" alt="user image">
+        <h1 class="heading">
+          Guest
+        </h1>
+      </li>
+      <li>
+        <a routerLink="dashboard" (click)="closeNav()">home</a>
+      </li>
+      <li>
+        <a routerLink="dashboard" (click)="closeNav()">my referrals</a>
+      </li>
+      <li>
+        <a routerLink="dashboard" (click)="closeNav()">my transactions</a>
+      </li>
+      <li class="buy-shares">
+        <input type="button" value="buy shares" class="button shares" (click)="toggleBuyShares()" />
+      </li>
+    </ul>
+  </nav>
+</header>
