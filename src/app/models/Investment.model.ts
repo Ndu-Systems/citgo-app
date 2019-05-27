@@ -13,3 +13,5 @@ export interface Investment {
     ModifyUserId?: string;
     StatusId: number;
 }
+
+

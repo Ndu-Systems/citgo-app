@@ -36,4 +36,15 @@ export class InvestmentService {
       data
     );
   }
+
+  // update 
+  updateInvestment(data:Investment): Observable<Investment> {
+    return this.httpClient.post<any>(`${API_URL}/api/investments/update-investment.php`, data);
+  }
+  //get single investment by id
+  getInvestmentsById(InvestmentId): Observable<Investment> {
+    return this.httpClient.get<any>(
+      `${this.url}/api/investments/get-investment-by-id.php?InvestmentId=${InvestmentId}`
+    );
+  }
 }
