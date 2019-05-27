@@ -1,3 +1,4 @@
+import { ShareDetailsComponent } from './investments/share-details/share-details.component';
 import { MyRefferalsComponent } from './my-refferals/my-refferals.component';
 import { DashboardHomeComponent } from "./dashboard-home/dashboard-home.component";
 import { ProfitComponent } from "./profit/profit.component";
@@ -23,6 +24,7 @@ const routes: Routes = [
       { path: "", component: DashboardHomeComponent },
       { path: "update-password", component: UpdatePasswordComponent },
       { path: "my-refferals/:id", component: MyRefferalsComponent },
+      { path: "share-details/:id", component: ShareDetailsComponent },
       { path: "my-profile", component: MyProfileComponent },
       
     ]
@@ -40,7 +42,8 @@ export const declarations: Array<any> = [
   UpdatePasswordComponent,
   MyRefferalsComponent,
   UploadComponent,
-  MyProfileComponent 
+  MyProfileComponent,
+  ShareDetailsComponent
   
 ];
 
