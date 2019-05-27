@@ -2,6 +2,7 @@
   <app-buy-share (closeBuySharesModalAction)="closeModal($event)" *ngIf="showBuyShares"></app-buy-share>
 </div>
 
+
 <div class="dashboard-nav" *ngIf="client">
   <nav class="topnav col-1-of-3">
     <div class="logo">
@@ -25,7 +26,6 @@
     </ul>
     <ul>
       <li class="account container-col-1-of-3">
-
         <div class="nofication">
           <h1 class="dropbtn"><i class="fas fa-bell" (click)="not.toggle($event)"></i>
           </h1>

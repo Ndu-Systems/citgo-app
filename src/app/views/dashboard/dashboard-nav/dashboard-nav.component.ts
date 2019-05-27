@@ -11,6 +11,7 @@ import {
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { ExitModalEventEmmiter, Client } from "src/app/models";
+import { MessageService } from "primeng/api";
 
 @Component({
   selector: "app-dashboard-nav",
@@ -31,7 +32,8 @@ export class DashboardNavComponent implements OnInit {
     private authenticateService: AuthenticateService,
     private documentsService: DocumentsService,
     private cleintService: CleintService,
-    private notificationProcessService: NotificationProcessService
+    private notificationProcessService: NotificationProcessService,
+    private messageService: MessageService
   ) {}
   hasDocs: boolean = true;
   documents: any[] = [];
@@ -80,7 +82,9 @@ export class DashboardNavComponent implements OnInit {
   }
   copylink() {
     this.copyText(this.mylink);
-    alert("Your link is copied");
+    // alert("Your link is copied");
+    this.messageService.add({severity:'success', summary:'Share link', detail:'Your link is copied'});
+
   }
   copyText(val: string) {
     let selBox = document.createElement("textarea");

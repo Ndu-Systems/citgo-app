@@ -1,10 +1,12 @@
 <div class="container">
- <div class="main">
-      <app-dashboard-nav *ngIf="!isCurrentUserAdmin"></app-dashboard-nav>
-      <app-admin-nav *ngIf="isCurrentUserAdmin"></app-admin-nav>
-      <div class="container">
-          <router-outlet></router-outlet>
-      </div>
-      <app-dash-footer></app-dash-footer>
- </div>
+  <div class="main">
+    <app-dashboard-nav *ngIf="!isCurrentUserAdmin"></app-dashboard-nav>
+    <app-admin-nav *ngIf="isCurrentUserAdmin"></app-admin-nav>
+    <div class="container">
+      <p-toast [style]="{marginTop: '80px'}"></p-toast>
+
+      <router-outlet></router-outlet>
+    </div>
+    <app-dash-footer></app-dash-footer>
+  </div>
 </div>
