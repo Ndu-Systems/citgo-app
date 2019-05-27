@@ -43,11 +43,7 @@ export class DashboardHomeComponent implements OnInit {
         }
       });
 
-    this.notificationProcessService.castNotificationProcess.subscribe(
-      process => {
-        this.showUplaod = process.showUplaod;
-      }
-    );
+  
   }
 }
 ;

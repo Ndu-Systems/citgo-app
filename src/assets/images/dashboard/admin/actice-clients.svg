@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="109" height="109" viewBox="0 0 109 109">
+  <defs>
+    <filter id="Ellipse_125" x="0" y="0" width="109" height="109" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="actice-clients" transform="translate(-1534 -222)">
+    <g transform="matrix(1, 0, 0, 1, 1534, 222)" filter="url(#Ellipse_125)">
+      <circle id="Ellipse_125-2" data-name="Ellipse 125" cx="45.5" cy="45.5" r="45.5" transform="translate(9 6)" fill="#fff"/>
+    </g>
+    <path id="users-solid" d="M7.393,46.786a4.929,4.929,0,1,0-4.929-4.929A4.933,4.933,0,0,0,7.393,46.786Zm34.5,0a4.929,4.929,0,1,0-4.929-4.929A4.933,4.933,0,0,0,41.893,46.786Zm2.464,2.464H39.429a4.914,4.914,0,0,0-3.473,1.432,11.264,11.264,0,0,1,5.783,8.425h5.083a2.462,2.462,0,0,0,2.464-2.464V54.179A4.933,4.933,0,0,0,44.357,49.25Zm-19.714,0a8.625,8.625,0,1,0-8.625-8.625A8.621,8.621,0,0,0,24.643,49.25Zm5.914,2.464h-.639a11.908,11.908,0,0,1-10.55,0h-.639a8.874,8.874,0,0,0-8.871,8.871V62.8a3.7,3.7,0,0,0,3.7,3.7H35.732a3.7,3.7,0,0,0,3.7-3.7V60.586A8.874,8.874,0,0,0,30.557,51.714ZM13.33,50.682A4.914,4.914,0,0,0,9.857,49.25H4.929A4.933,4.933,0,0,0,0,54.179v2.464a2.462,2.462,0,0,0,2.464,2.464H7.539a11.293,11.293,0,0,1,5.791-8.425Z" transform="translate(1564 224)" fill="#440082"/>
+  </g>
+</svg>

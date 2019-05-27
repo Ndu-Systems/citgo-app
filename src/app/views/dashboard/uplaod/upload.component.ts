@@ -8,6 +8,8 @@ import { DocumentsService } from "src/app/services";
 import { Component, OnInit } from "@angular/core";
 import { UserDoc } from "src/app/models/user.document.model";
 import { Investment } from "src/app/models";
+import { UserNotification } from "src/app/models/processes/notification.process.model";
+import { MessageService } from "primeng/api";
 
 @Component({
   selector: "app-upload",
@@ -25,7 +27,9 @@ export class UploadComponent implements OnInit {
     private documentsService: DocumentsService,
     private notificationProcessService: NotificationProcessService,
     private authenticateService: AuthenticateService,
-    private investmentService: InvestmentService
+    private investmentService: InvestmentService,
+    private messageService: MessageService
+
   ) {}
 
   ngOnInit() {
@@ -77,6 +81,17 @@ export class UploadComponent implements OnInit {
                    if (response.investments) {
                      this.investmentService.setInvestments(response.investments);
                    }
+
+                   // update notifications
+                   let nots:UserNotification[] =this.notificationProcessService.getNotificationProcess().notifications; 
+                   console.log('nots',nots);
+                   nots = nots.filter(x=>x.id != this.InvestmentId);
+                   console.log('nots',nots);
+                   this.notificationProcessService.updateNotificationProcessState(nots);
+                   this.notificationProcessService.closeUplaod();
+                   this.messageService.add({severity:'success', summary:'Uploaded successfully image', detail:'Great!'});
+
+
                  });
                 })
               }

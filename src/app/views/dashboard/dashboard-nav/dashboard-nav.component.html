@@ -29,6 +29,8 @@
         <div class="nofication">
           <h1 class="dropbtn"><i class="fas fa-bell" (click)="not.toggle($event)"></i>
           </h1>
+
+
           <p-overlayPanel #not>
             <div class="notifications" *ngIf="notifications">
                 <div *ngFor="let item of notifications">
@@ -36,6 +38,9 @@
                   </div>
             </div>           
           </p-overlayPanel>
+
+
+          
         </div>
         <div class="user" *ngIf="client">
           <p-overlayPanel  #op1>
@@ -48,16 +53,7 @@
         <div class="user">
           <h1>Hello {{client?.FirstName}}</h1>
         </div>
-        <!-- <div class="dropdown">
-          <h1 class="dropbtn">{{client?.FirstName}}</h1>
-          <div class="dropdown-content">
-            <a routerLink="" (click)="logout()">Logout</a>
-          </div>
-        </div> -->
-
-
-
-
+    
       </li>
     </ul>
   </nav>

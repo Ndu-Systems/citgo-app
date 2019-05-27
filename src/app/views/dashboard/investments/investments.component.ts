@@ -32,22 +32,13 @@ export class InvestmentsComponent implements OnInit {
       });
 
       this.investmentService.castClientshares.subscribe(val => {
-        this.investmentsList = val;
+        // alert(val)
+        if(val){
+          this.investmentsList = val;
+         
+        }
       });
-
-      this.checkForPending();
   
   }
-  checkForPending() {
-    // alert(JSON.stringify(this.investmentsList))
-    this.notificationProcessService.updateNotificationProcessState([]);
-    let pendings = this.investmentsList.filter(x => Number(x.StatusId) == SHARE_PENDING);
-    if (pendings.length > 0) {
-      let nots: UserNotification[] = [];
-      pendings.forEach(investent => {
-        nots.push({ id: investent.InvestmentId,isShare:true, message: `Please uplaod proof of payment for ${investent.Name}` });
-      });
-      this.notificationProcessService.updateNotificationProcessState(nots);
-    }
-  }
+ 
 }

@@ -1,3 +1,4 @@
+import { AdminSammaryComponent } from './admin-components/admin-sammary/admin-sammary.component';
 import { AdminNavComponent } from './admin-components/admin-nav/admin-nav.component';
 import { AdminHomeComponent } from './admin-components/admin-home/admin-home.component';
 import { ShareDetailsComponent } from './investments/share-details/share-details.component';
@@ -48,7 +49,8 @@ export const declarations: Array<any> = [
   ShareDetailsComponent,
   //admin
   AdminHomeComponent,
-  AdminNavComponent
+  AdminNavComponent,
+  AdminSammaryComponent
   
 ];
 

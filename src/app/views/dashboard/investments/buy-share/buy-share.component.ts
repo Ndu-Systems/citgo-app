@@ -2,7 +2,9 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { ExitModalEventEmmiter, Investment } from 'src/app/models';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthenticateService, InvestmentService } from 'src/app/services';
+import { AuthenticateService, InvestmentService, NotificationProcessService } from 'src/app/services';
+import { UserNotification } from 'src/app/models/processes/notification.process.model';
+import { SHARE_PENDING } from 'src/app/shared/config';
 @Component({
   selector: 'app-buy-share',
   templateUrl: './buy-share.component.html',
@@ -20,7 +22,8 @@ export class BuyShareComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private authenticationService: AuthenticateService,
-    private investmentService: InvestmentService
+    private investmentService: InvestmentService,
+    private notificationProcessService: NotificationProcessService
   ) { 
      //get user shares -for naming purpose e.g  Share 1
      this.investmentService.castClientshares.subscribe(val => {
@@ -63,7 +66,14 @@ export class BuyShareComponent implements OnInit {
     this.investmentService.buyShares(data).subscribe(response => {
       if(response.investments){
         this.investmentService.setInvestments(response.investments);
-
+          // update notifications
+          let nots:UserNotification[] =this.notificationProcessService.getNotificationProcess().notifications.filter(x=>x.isShare==true); 
+          let newInvestement:Investment = response.investments.filter(x => Number(x.StatusId) == SHARE_PENDING)[0];
+          if(newInvestement.InvestmentId){
+            nots.push({ id: newInvestement.InvestmentId,isShare:true, message: `Please uplaod proof of payment for ${newInvestement.Name}` });
+          }
+          this.notificationProcessService.updateNotificationProcessState(nots);
+     
        }
     })
     this.closeModal();
