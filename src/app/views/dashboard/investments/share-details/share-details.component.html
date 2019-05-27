@@ -1,3 +1,91 @@
-<div class="main">
-  {{investment|json}}
+<div class="main" *ngIf="investment">
+  <div class="share">
+    <div class="icon">
+      <img src="assets/images/dashboard/share-icon.svg" alt="">
+    </div>
+    <div class="info">
+      <h3>
+        {{investment[0].Name}}
+        <span class="{{investment.Status}}">
+          {{investment[0].Status}}
+        </span>
+      </h3>
+
+    </div>
+
+    <div class="info">
+      <h3>
+        {{investment[0].Type}}
+        <span>
+          Type
+        </span>
+      </h3>
+      <h3>
+        {{investment[0].Amount}}
+        <span>
+          Type
+        </span>
+      </h3>
+    </div>
+
+    <div class="info">
+      <h3>
+        {{investment[0].InvestmentDate| date:'mediumDate'}}
+        <span>
+          Investment date
+        </span>
+      </h3>
+    </div>
+  </div>
+
+  <div class="related-details">
+    <div class="transictions">
+      <h1>
+        Transictions
+      </h1>
+    </div>
+    <div class="documents">
+      <h1>
+        Documents
+      </h1>
+   
+      <ul>
+        <li *ngFor="let doc of investment">
+          <div class="doc">
+            <div>
+              <img src="assets/images/dashboard/bank-starement.svg" alt="">
+            </div>
+            <div class="info">
+              <h3>
+                {{doc.DocumentName}}
+                <span>
+                    Description
+                </span>
+              </h3>
+             
+            </div>
+            <div class="info">
+             
+              <h3>
+                {{doc.UploadedDate|date:'mediumDate'}}
+                <span>
+                    Date Uploaded
+                </span>
+              </h3>
+            </div>
+            <div class="info">
+             
+              <h3>
+                {{doc.DocStatus}}
+                <span>
+                    Status
+                </span>
+              </h3>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
 </div>

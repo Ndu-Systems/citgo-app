@@ -23,7 +23,7 @@ export class ShareDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
-   this.investmentService.getInvestmentsById(this.investmentId).subscribe(inv=>{
+   this.investmentService.getInvestmentsandDocumentsById(this.investmentId).subscribe(inv=>{
      this.investment = inv;
    })
   }

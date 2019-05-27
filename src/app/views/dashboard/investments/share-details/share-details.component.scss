@@ -1,10 +1,42 @@
 .main {
-    padding: 6% 12%;
-    h1 {
-      font-size: 1.777rem;
-      text-align: left;
-      text-transform: capitalize;
-      font-weight: 400;
-      padding-bottom: 1rem;
+  padding: 6% 12%;
+  h1 {
+    font-size: 1.777rem;
+    text-align: left;
+    text-transform: capitalize;
+    font-weight: 400;
+    padding-bottom: 1rem;
+  }
+  .share {
+    display: grid;
+    grid-template-columns: 10% 25% 20% 15%;
+
+    .info {
+      h3 {
+        span {
+          display: block;
+          font-size: 50%;
+        }
+      }
     }
   }
+  .related-details{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    .documents{
+        .doc{
+            display: grid;
+            grid-template-columns: 25% 25% 25% 25%;
+
+            .info {
+                h3 {
+                  span {
+                    display: block;
+                    font-size: 50%;
+                  }
+                }
+              }
+        }
+      }
+  }
+}

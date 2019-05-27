@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="159.652" height="155.943" viewBox="0 0 159.652 155.943">
+  <defs>
+    <filter id="shared-icon" x="0" y="0" width="159.652" height="155.943" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="11" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="share-icon" transform="translate(-247 -186)">
+    <g transform="matrix(1, 0, 0, 1, 247, 186)" filter="url(#shared-icon)">
+      <ellipse id="shared-icon-2" data-name="shared-icon" cx="46.826" cy="44.972" rx="46.826" ry="44.972" transform="translate(33 33)" fill="#fff"/>
+    </g>
+    <path id="chart-pie-solid" d="M50.488,27.554h-22.7L42.905,42.672a1.535,1.535,0,0,0,2.123.065,22.911,22.911,0,0,0,7-13.475,1.533,1.533,0,0,0-1.536-1.708Zm-1.514-6.2A23.013,23.013,0,0,0,27.625.007a1.539,1.539,0,0,0-1.607,1.55V22.962H47.424a1.539,1.539,0,0,0,1.549-1.607Zm-27.547,6.2V4.855A1.533,1.533,0,0,0,19.72,3.318,22.942,22.942,0,0,0,.011,26.824,23.242,23.242,0,0,0,23.247,48.981a22.781,22.781,0,0,0,12.939-4.212,1.52,1.52,0,0,0,.15-2.3Z" transform="translate(301.002 234.996)" fill="#440082"/>
+  </g>
+</svg>
