@@ -26,7 +26,6 @@ export class UploadComponent implements OnInit {
   ngOnInit() {
     this.UserId = this.authenticateService.currentUserValue.UserId;
     this.clientId = this.authenticateService.currentUserValue.ClientId;
-    this.UserId = this.authenticateService.currentUserValue.UserId;
     this.notificationProcessService.castNotificationProcess.subscribe(process=>{
       this.InvestmentId = process.InvestmentId;
     })
@@ -54,7 +53,9 @@ export class UploadComponent implements OnInit {
       };
       console.log(doc);
       this.documentsService.addDocumentDetails(doc).subscribe(r=>{
-        alert(JSON.stringify(r))
+        if(r){
+          //create update 
+        }
       })
       
     });
