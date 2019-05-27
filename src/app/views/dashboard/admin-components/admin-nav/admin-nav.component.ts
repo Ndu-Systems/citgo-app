@@ -17,7 +17,6 @@ export class AdminNavComponent implements OnInit {
   showOverlay: boolean = false;
   client: Client; // full user structure
   user: User; // pass role clientId
-  mylink = "hello";
 
   notifications = [];
   showNotification: boolean = false;
@@ -61,7 +60,6 @@ export class AdminNavComponent implements OnInit {
   getUserDetails() {
     this.cleintService.getClientById(this.user.ClientId).subscribe(r => {
       this.client = r;
-      this.mylink = `${WEB_HOST}/#/${REFERALLINK}/${this.client.ClientId}`;
     });
   }
  
