@@ -49,6 +49,13 @@ h1{
     }
     .success {
       background: #2ecc71;
+      @media only screen and (max-width: 600px) {
+        margin-right: 2%;
+      }
+      &:disabled{
+      background: #7a7a7a;
+
+      }
     }
   }
   .bonus{
@@ -56,7 +63,11 @@ h1{
       bottom: 2rem;
       right: 2rem;
   }
-
+.warning{
+  display: block;
+  width: 100%;
+  padding: 1rem;
+}
   
   @media only screen and (max-width: 600px) {
     &.col-1-of-2 {

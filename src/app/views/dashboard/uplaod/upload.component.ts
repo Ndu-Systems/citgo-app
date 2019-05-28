@@ -87,7 +87,7 @@ export class UploadComponent implements OnInit {
                    nots = nots.filter(x=>x.id != this.InvestmentId);
                    this.notificationProcessService.updateNotificationProcessState(nots);
                    this.notificationProcessService.closeUplaod();
-                   this.messageService.add({severity:'success', summary:'Uploaded successfully image', detail:'Great!'});
+                   this.messageService.add({severity:'success', summary:'Great! ', detail:'File Uploaded successfully, We will be in touch soon'});
 
                  });
                 })
