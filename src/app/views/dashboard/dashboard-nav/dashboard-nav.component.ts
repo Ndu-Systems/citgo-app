@@ -82,9 +82,7 @@ export class DashboardNavComponent implements OnInit {
   }
   copylink() {
     this.copyText(this.mylink);
-    // alert("Your link is copied");
     this.messageService.add({severity:'success', summary:'Share link', detail:'Your link is copied'});
-
   }
   copyText(val: string) {
     let selBox = document.createElement("textarea");

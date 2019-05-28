@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AuthenticateService, InvestmentService, NotificationProcessService } from 'src/app/services';
 import { UserNotification } from 'src/app/models/processes/notification.process.model';
 import { SHARE_PENDING } from 'src/app/shared/config';
+import { MessageService } from 'primeng/api';
 @Component({
   selector: 'app-buy-share',
   templateUrl: './buy-share.component.html',
@@ -23,7 +24,9 @@ export class BuyShareComponent implements OnInit {
     private router: Router,
     private authenticationService: AuthenticateService,
     private investmentService: InvestmentService,
-    private notificationProcessService: NotificationProcessService
+    private notificationProcessService: NotificationProcessService,
+    private messageService: MessageService
+
   ) { 
      //get user shares -for naming purpose e.g  Share 1
      this.investmentService.castClientshares.subscribe(val => {
@@ -31,7 +34,8 @@ export class BuyShareComponent implements OnInit {
         this.investmentsList = val;
 
         if(this.investmentsList.filter(x=>x.StatusId==2).length >0){
-          alert(`You can not buy shares while you have pending shares`);
+          this.messageService.add({severity:'warn', summary:'Sorry!', detail:'You can not buy shares while you have pending shares'});
+
           setTimeout(()=>{
            this.closeModal();
           },1000)
