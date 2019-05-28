@@ -1,15 +1,21 @@
-@import '../../../../../assets/sass/variables';
+@import "../../../../../assets/sass/variables";
+*{
+  // width: 100%;
+}
 
 .modal {
-
-  padding: 0;
+  padding: .5rem;
   top: 2.5%;
   // height: 50rem;
+  @media only screen and (max-width: 600px) {
+    width: 75%;
+  }
   .modal-header {
     background: $nav-background;
     padding-bottom: 1.2rem;
     padding-left: 2rem;
     padding-right: 2rem;
+    width: 100%;
 
     .main {
       font-weight: 500;
@@ -22,52 +28,56 @@
     }
   }
 
-  .dashboard-forms{
+  .dashboard-forms {
     padding: 0 20rem;
-      label{
-          color: black;
-      }
-
-    
+    label {
+      color: black;
+    }
+    @media only screen and (max-width: 600px) {
+      padding: 0 2rem;
+    }
   }
-
 }
 .controls {
-    padding-bottom: 2rem;
+  padding-bottom: 2rem;
 }
 .dashboard-forms .input-field {
-    border: none;
-    background: #FFFFFF;
-    border-radius: 1rem;
-    padding: 1.2;
-    margin: 1rem 0;
-    width: 100%;
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: #192A56;
-     
-    box-shadow: -3px 0px 8px 0px rgba(0, 0, 0, 0.55);
+  border: none;
+  background: #ffffff;
+  border-radius: 1rem;
+  padding: 1.2;
+  margin: 1rem 0;
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #192a56;
+
+  box-shadow: -3px 0px 8px 0px rgba(0, 0, 0, 0.55);
 }
 
 .button {
-    background: $green-light;
-    
-    &:disabled{
-        color: $white-color;
-        &:hover {
-            background: $green-light;
-            color: $white-color;
-            border: none;
-        }
+  background: $green-light;
+
+  &:disabled {
+    color: $white-color;
+    &:hover {
+      background: $green-light;
+      color: $white-color;
+      border: none;
     }
-    
-   
+  }
 }
- 
+
 .error {
-    color: $red-color;
+  color: $red-color;
 }
 
 .alert {
   color: $red-color;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  // display: none;
 }
