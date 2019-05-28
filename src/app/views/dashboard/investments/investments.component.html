@@ -14,6 +14,7 @@
               <td data-title="name" class="full-name">
                 {{data.Name}}
                 <span class="{{data.Status}}">{{data.Status}}</span>
+                <span *ngIf="data.Status=='PENDING'" (click)="oplaodPOP(data)" class="UPLAOD">UPLOAD THE PROOF OF PAYMENT</span>
               </td>
               <td data-title="amount">
                 <h1>

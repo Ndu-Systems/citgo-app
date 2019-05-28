@@ -106,7 +106,6 @@ export class DashboardNavComponent implements OnInit {
   }
   openNotification(notification: UserNotification) {
     if (notification.isShare) {
-      // alert(notification.id);
       this.notificationProcessService.showUplaod();
       this.notificationProcessService.updateInvestementId(notification.id);
     }

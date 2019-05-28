@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Investment } from "src/app/models";
-import { InvestmentService, AuthenticateService } from "src/app/services";
+import { InvestmentService, AuthenticateService,NotificationProcessService } from "src/app/services";
 import { User } from "src/app/models/user";
 
 @Component({
@@ -15,6 +15,7 @@ export class InvestmentsComponent implements OnInit {
   constructor(
     private investmentService: InvestmentService,
     private authenticationService: AuthenticateService,
+    private notificationProcessService: NotificationProcessService,
   ) {}
 
   ngOnInit() {
@@ -34,6 +35,10 @@ export class InvestmentsComponent implements OnInit {
         }
       });
   
+  }
+  oplaodPOP(data:Investment){
+    this.notificationProcessService.showUplaod();
+    this.notificationProcessService.updateInvestementId(data.InvestmentId);
   }
  
 }
