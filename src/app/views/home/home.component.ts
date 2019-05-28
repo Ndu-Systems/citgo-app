@@ -1,8 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { ExitModalEventEmmiter } from "src/app/models";
-import { NavigationEventEmiter } from "./home-nav/navigationEventEmiter";
 import { SignUpProcessService } from "src/app/services/app-state/sign-up-process.service";
 import { LoginProcessService } from "src/app/services/app-state/login-process.service";
+import { NavigationProcessService } from "src/app/services";
 
 @Component({
   selector: "app-home",
@@ -20,7 +19,11 @@ export class HomeComponent implements OnInit {
   showEmailNotificationScreen: boolean;
   showForgotPassword: boolean;
   message: string;
-  constructor(private signUpProcessService: SignUpProcessService, private loginProcessService:LoginProcessService) {}
+  constructor(
+    private signUpProcessService: SignUpProcessService,
+    private loginProcessService: LoginProcessService,
+    private navigationProcessService: NavigationProcessService
+  ) {}
 
   ngOnInit() {
     this.signUpProcessService.castUserRegistrationProcess.subscribe(process => {
@@ -31,6 +34,11 @@ export class HomeComponent implements OnInit {
       this.showOverlay = process.whichModalToShow.showOverlay;
     });
 
+    //nav
+    this.navigationProcessService.castNavigationProcess.subscribe(process=>{
+      this.showNav = process.showNav;
+    })
+
     // login
     this.loginProcessService.castUserLoginProcess.subscribe(process => {
       this.showSignIn = process.showLogin;
@@ -40,28 +48,15 @@ export class HomeComponent implements OnInit {
       this.message = process.message;
     });
   }
-  togleNav() {
-    this.showSignUp = !this.showSignUp;
-    this.showOverlay = !this.showOverlay;
+
+  OpenNav(){
+    this.navigationProcessService.showNav();
   }
-  OpenNav() {
-    this.showNav = !this.showNav;
+  openSignUp(){
+    this.signUpProcessService.showPersonalInfoForm();
+  }
+  openSignIn(){
+    this.loginProcessService.showLogin();
   }
 
-  openSignUp() {
-    this.showSignIn = !this.showSignIn;
-    this.showOverlay = !this.showOverlay;
-  }
-  closeSignIn(event: ExitModalEventEmmiter) {
-    this.openSignUp();
-  }
-  closeNav(event: NavigationEventEmiter) {
-    this.OpenNav();
-  }
-
-  cloaseAll() {
-    this.showSignUp = false;
-    this.showBankingInfoForm = false;
-    this.showBenefitariesForm = false;
-  }
 }

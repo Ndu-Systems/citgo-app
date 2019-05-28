@@ -12,8 +12,7 @@
     <app-email-notification [message]="message"></app-email-notification>
 </div>
 <div class="container home">
-  <app-home-nav (closeNavAction)="closeNav($event)" (closeSigninModalAction)="closeSignIn($event)"
-    (closeModalAction)="closeModal($event)" *ngIf="showNav"></app-home-nav>
+  <app-home-nav *ngIf="showNav"></app-home-nav>
   <header class="container-col-1-of-3">
     <div class="logo">
       <a routerLink="">
@@ -26,7 +25,7 @@
       <div class="login container-col-1-of-3">
         <img src="assets/images/home/user.svg" alt="user icon">
         <h1 (click)="openSignUp()">login</h1>
-        <h1 (click)="togleNav()">sign-up</h1>
+        <h1 (click)="openSignIn()">sign-up</h1>
       </div>
     </div>
     <div class="menu">
