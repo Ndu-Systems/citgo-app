@@ -41,7 +41,7 @@ export class FormBeneficiariesComponent implements OnInit {
     });
 
     this.rForm.valueChanges.subscribe(data => {
-      console.log(data);
+       
     });
   }
 
@@ -61,24 +61,24 @@ export class FormBeneficiariesComponent implements OnInit {
       return 0;
 
     this.beneficiaries.push(data);
-    console.log("this.beneficiaries", this.beneficiaries);
+  
   }
   onSubmit(data) {
-    console.log(data);
+   
     this.addMore(data);
 
     if (!data) {
-      alert("no data");
+      
       return false;
     }
     let formData = { beneficiaries: this.beneficiaries };
     this.beneficiariesService.addBeneficiaries(formData).subscribe(response => {
       if (response) {
-        console.log("response", response);
+    
         this.signUpProcessService.closeAllSignUpForms();
         this.signUpProcessService.showVerificationMailSent();
       } else {
-        alert(`Error: ${response}`);
+        // alert(`Error: ${response}`);
       }
     });
   }

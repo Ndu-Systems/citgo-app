@@ -62,7 +62,6 @@ export class BuyShareComponent implements OnInit {
 
   buy(data) {
     this.error = '';
-    console.log('NEW SHARE', data);
     this.investmentService.buyShares(data).subscribe(response => {
       if(response.investments){
         this.investmentService.setInvestments(response.investments);

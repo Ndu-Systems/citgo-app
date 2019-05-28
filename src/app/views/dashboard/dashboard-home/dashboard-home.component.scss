@@ -4,6 +4,13 @@
     width: 80%;
     margin: 0 auto;
     padding: 3% 2%;
+
+    &.profit{
+      padding-bottom: 0;
+    }
+    &.investments{
+      padding-top: 0;
+    }
   }
 
     

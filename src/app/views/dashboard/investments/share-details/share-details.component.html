@@ -1,40 +1,45 @@
 <div class="main" *ngIf="investment">
-  <div class="share">
-    <div class="icon">
-      <img src="assets/images/dashboard/share-icon.svg" alt="">
-    </div>
-    <div class="info">
-      <h3>
-        {{investment[0].Name}}
-        <span class="{{investment.Status}}">
-          {{investment[0].Status}}
-        </span>
-      </h3>
+  <div class="banner">
 
-    </div>
+    <div class="col-1-of-2">
+      <div class="col-1-of-4">
+        <div class="icon">
+          <img src="assets/images/dashboard/share-icon.svg" alt="">
+        </div>
+        <div class="info">
+          <h3>
+            {{investment[0].Name}}
+            <span class="{{investment.Status}}">
+              {{investment[0].Status}}
+            </span>
+          </h3>
 
-    <div class="info">
-      <h3>
-        {{investment[0].Type}}
-        <span>
-          Type
-        </span>
-      </h3>
-      <h3>
-        {{investment[0].Amount}}
-        <span>
-          Type
-        </span>
-      </h3>
-    </div>
+        </div>
 
-    <div class="info">
-      <h3>
-        {{investment[0].InvestmentDate| date:'mediumDate'}}
-        <span>
-          Investment date
-        </span>
-      </h3>
+        <div class="info">
+          <h3>
+            {{investment[0].Type}}
+            <span>
+              Type
+            </span>
+          </h3>
+          <h3>
+            {{investment[0].Amount}}
+            <span>
+              Type
+            </span>
+          </h3>
+        </div>
+
+        <div class="info">
+          <h3>
+            {{investment[0].InvestmentDate| date:'mediumDate'}}
+            <span>
+              Investment date
+            </span>
+          </h3>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -48,7 +53,7 @@
       <h1>
         Documents
       </h1>
-   
+
       <ul>
         <li *ngFor="let doc of investment">
           <div class="doc">
@@ -59,32 +64,32 @@
               <h3>
                 {{doc.DocumentName}}
                 <span>
-                    Description
+                  Description
                 </span>
               </h3>
-             
+
             </div>
             <div class="info">
-             
+
               <h3>
                 {{doc.UploadedDate|date:'mediumDate'}}
                 <span>
-                    Date Uploaded
+                  Date Uploaded
                 </span>
               </h3>
             </div>
             <div class="info">
-             
+
               <h3>
                 {{doc.DocStatus}}
                 <span>
-                    Status
+                  Status
                 </span>
               </h3>
             </div>
             <div class="info">
-             
-             <a href="{{doc.DocumentUrl}}" target="_blank">View</a>
+
+              <a href="{{doc.DocumentUrl}}" target="_blank">View</a>
             </div>
           </div>
         </li>

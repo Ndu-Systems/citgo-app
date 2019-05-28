@@ -35,7 +35,7 @@ export class FormBankingDetailsComponent implements OnInit {
       ClientId: [this.clientId, Validators.required]
     });
     this.rForm.valueChanges.subscribe(data => {
-      console.log(data);
+   
     });
   }
 
@@ -50,10 +50,10 @@ export class FormBankingDetailsComponent implements OnInit {
   }
 
   insertBankingInfo(data) {
-    console.log("Insert Banking Info: ", data);
+  
     this.bankingInfoService.addBankingInfo(data).subscribe(response => {
       if (response) {
-        console.log("response", response);
+         
         this.signUpProcessService.showBeneficiariesInfoForm();
       } else {
         alert(`Error: ${response}`);

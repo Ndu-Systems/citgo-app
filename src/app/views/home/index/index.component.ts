@@ -39,8 +39,7 @@ export class IndexComponent implements OnInit {
   }
 
   closeModal(e: CloseModalEventEmmiter) {
-    this.cloaseAll();
-    console.log(e);
+    this.cloaseAll();    
     //  alert(JSON.stringify(e))
     if (e.closeAll) {
       this.showOverlay = false;

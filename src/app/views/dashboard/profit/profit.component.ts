@@ -66,8 +66,7 @@ export class ProfitComponent implements OnInit {
 
     this.investmentProfitService.getProfits(this.cleintId).subscribe(r => {
       if (r.length) {
-        this.clientProfits = r;
-        console.log(this.clientProfits);
+        this.clientProfits = r; 
         this.getGraphData();
       }
     });
@@ -113,12 +112,12 @@ export class ProfitComponent implements OnInit {
         result[i].data.push(Number(prof.ProfitAmount));
       }
     });
-    console.log("data of the g:   ", result);
+    
     this.loadGraph(result, uniqueMonths);
     this.loadColoredList(result);
   }
   loadGraph(result, months) {
-    console.log("result months", result);
+ 
 
     this.data = {
       labels: months,
@@ -136,7 +135,7 @@ export class ProfitComponent implements OnInit {
       });
       withdrwalSum += v.data.reduce(this.getSum, 0);
     });
-    console.log("this.coloredProfitList", this.coloredProfitList);
+   
     this.windrawal = {
       currency: this.currency,
       rand:  Math.round(withdrwalSum + this.bonus),

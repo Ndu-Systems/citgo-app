@@ -45,7 +45,7 @@ export class CalculatorComponent implements OnInit {
     });
 
     this.rForm.valueChanges.subscribe(data => {
-      console.log(data);
+ 
       let capitalization = Number(data.Capitalization);
       let amount = data.Amount;
       var today = new Date();
@@ -122,7 +122,7 @@ export class CalculatorComponent implements OnInit {
 
     }
     this.profit = Math.abs(amount - this.total);
-    console.log(this.profits);
+ 
   }
   geFlatGrowth(amount: number) {
     this.profits = [];
@@ -138,8 +138,7 @@ export class CalculatorComponent implements OnInit {
     }
     this.profit = Math.abs(amount - this.total);
   }
-  buy(data){
-    console.log(data);
+  buy(data){ 
     
   }
 

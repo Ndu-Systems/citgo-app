@@ -1,6 +1,6 @@
 import { SignUpProcessService } from './../../../../services/app-state/sign-up-process.service';
 import { User } from "src/app/models/user";
-import { Component, OnInit} from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import {
   getCurrentUser,
@@ -26,7 +26,7 @@ export class FormPersolDetailsComponent implements OnInit {
   progress: string;
   allUsers: User[] = [];
   userExist: string = "";
-  ParentId:string="";
+  ParentId: string = "";
 
   constructor(
     private fb: FormBuilder,
@@ -35,10 +35,10 @@ export class FormPersolDetailsComponent implements OnInit {
     private userService: UserService,
     private signUpProcessService: SignUpProcessService,
     private confirmationService: ConfirmationService
-  ) {}
+  ) { }
 
   ngOnInit() {
-    this.signUpProcessService.castUserRegistrationProcess.subscribe(r=>{
+    this.signUpProcessService.castUserRegistrationProcess.subscribe(r => {
       this.ParentId = r.parentId;
     })
     this.rForm = this.fb.group({
@@ -60,7 +60,7 @@ export class FormPersolDetailsComponent implements OnInit {
     });
 
     this.rForm.valueChanges.subscribe(data => {
-      console.log(data);
+
       this.userExist = "";
       let email = data.Email;
       let emails = this.allUsers.map(x => x.Email);
@@ -84,10 +84,10 @@ export class FormPersolDetailsComponent implements OnInit {
       accept: () => {
         this.signUpProcessService.closeAllSignUpForms();
       }
-  });
+    });
   }
   createClientAccount(data) {
-    console.log("New client: ", data);
+
     if (this.userExist != "") {
       alert("Email already exist");
       return false;
@@ -95,11 +95,10 @@ export class FormPersolDetailsComponent implements OnInit {
     this.accountService.addClient(data).subscribe(response => {
       // to take
       if (response.ClientId) {
-        console.log(response);
 
         let link = `${WEB_HOST}/#/${VERIFICATIONLINK}/${response.UserId}`;
         this.verifyAcc(data.FirstName, data.Email, link);
-        console.log("response", response);
+       
 
         localStorage.setItem(LAST_INSERT_ID, response.ClientId);
         //update precess state
@@ -109,12 +108,12 @@ export class FormPersolDetailsComponent implements OnInit {
         //call next form
         this.signUpProcessService.showBankingInfoForm();
       } else {
-        if(response=="0"){
-        alert(`Error:Email address alread used`);
+        if (response == "0") {
+          // alert(`Error:Email address alread used`);
 
           return false
         }
-        alert(`Error: ${response}`);
+        // alert(`Error: ${response}`);
       }
     });
   }
