@@ -20,6 +20,7 @@ import { MessageService } from "primeng/api";
 })
 export class DashboardNavComponent implements OnInit {
   showBuyShares: boolean = false;
+  showMobNots: boolean = true;
   showOverlay: boolean = false;
   client: Client; // full user structure
   user: User; // pass role clientId
@@ -64,6 +65,7 @@ export class DashboardNavComponent implements OnInit {
   }
 
   toggleBuyShares() {
+    this.closeMobileNav()
     this.showBuyShares = !this.showBuyShares;
     return (this.showOverlay = !this.showOverlay);
   }
