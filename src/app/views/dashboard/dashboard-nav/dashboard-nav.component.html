@@ -58,7 +58,20 @@
     </ul>
   </nav>
 </div>
-<header class="mobile-header col-1-of-2">
+
+<div class="open-mobilen-nav" >
+    <div class="logo">
+        <a routerLink="">
+          <img src="assets/images/home/icon-white-round.svg" alt="logo"></a>
+      </div>
+     
+      <div class="menu">
+        <img src="assets/images/dashboard/burger-menu.svg" (click)="openMobileNav()" alt="menu icon">
+      </div>
+    
+    </div>
+
+<header *ngIf="showMobileNav" class="mobile-header col-1-of-2">
   <div class="logo">
     <img src="assets/images/dashboard/logo-white-bg.svg" alt="">
     <input type="button" value="copy my link" class="button share-link" />
@@ -69,7 +82,7 @@
   <nav class="show-menu">
     <a routerLink="">
       <img src="assets/images/home/icon-white-round.svg" alt="logo" class="logo"></a>
-    <img src="assets/images/home/close-x.png" alt="close btn" class="close-btn" id="close-menu" (click)="closeNav()">
+    <img src="assets/images/home/close-x.png" alt="close btn" class="close-btn" id="close-menu" (click)="closeMobileNav()">
     <ul class="container-col-1-of-4">
       <li class="account">
         <img src="assets/images/dashboard/user-female.svg" alt="user image">
@@ -92,3 +105,5 @@
     </ul>
   </nav>
 </header>
+
+

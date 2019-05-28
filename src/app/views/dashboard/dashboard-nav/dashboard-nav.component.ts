@@ -27,6 +27,7 @@ export class DashboardNavComponent implements OnInit {
 
   notifications = [];
   showNotification: boolean = false;
+  showMobileNav: boolean;
   constructor(
     private routeTo: Router,
     private authenticateService: AuthenticateService,
@@ -82,7 +83,11 @@ export class DashboardNavComponent implements OnInit {
   }
   copylink() {
     this.copyText(this.mylink);
-    this.messageService.add({severity:'success', summary:'Share link', detail:'Your link is copied'});
+    this.messageService.add({
+      severity: "success",
+      summary: "Share link",
+      detail: "Your link is copied"
+    });
   }
   copyText(val: string) {
     let selBox = document.createElement("textarea");
@@ -103,5 +108,11 @@ export class DashboardNavComponent implements OnInit {
       this.notificationProcessService.showUplaod();
       this.notificationProcessService.updateInvestementId(notification.id);
     }
+  }
+  openMobileNav() {
+    this.showMobileNav = true;
+  }
+  closeMobileNav() {
+    this.showMobileNav = false;
   }
 }

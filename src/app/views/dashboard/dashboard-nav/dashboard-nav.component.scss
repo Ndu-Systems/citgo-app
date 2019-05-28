@@ -1,7 +1,6 @@
-@import '../../../../assets/sass/variables';
+@import "../../../../assets/sass/variables";
 
-$number-begde : 1.5rem;
-
+$number-begde: 1.5rem;
 
 .dashboard-nav nav {
   background: $nav-background;
@@ -20,15 +19,10 @@ $number-begde : 1.5rem;
   }
 
   &.top-nav {
-
     ul li a {
       color: $white-color;
     }
-
-
-
   }
-
 }
 
 .dashboard-nav nav.topnav ul li a {
@@ -46,7 +40,6 @@ $number-begde : 1.5rem;
 }
 
 .buy-shares {
-
   float: right;
   margin: 15px 7rem;
 
@@ -80,7 +73,8 @@ $number-begde : 1.5rem;
   padding: 0;
   padding-right: 0;
 
-  &.col-1-of-3 {}
+  &.col-1-of-3 {
+  }
 
   .dropdown {
     .dropbtn {
@@ -90,24 +84,18 @@ $number-begde : 1.5rem;
 
     &.notifications {
       .dropdown-content {
-        background: #FFF;
+        background: #fff;
         min-width: 20rem;
         margin-top: 1.33rem;
         width: 16rem;
         padding: 1rem;
-
-
       }
 
       h1 {
         padding: 1rem;
       }
-
-
-
     }
   }
-
 }
 
 nav ul span {
@@ -120,7 +108,7 @@ nav ul span {
   opacity: 1;
   background: $orange-color;
   padding: 1rem;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
 }
 
 .mobile-header {
@@ -134,10 +122,12 @@ nav ul span {
 
   .mobile-header {
     display: grid;
-
-
     grid-template-columns: 30% 70%;
 
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
 
     .logo {
       img {
@@ -193,69 +183,77 @@ nav ul span {
 
       &.show-menu {
         li:nth-of-type(5) {
-          animation: menu-item-animate .6s forwards 1.8s ease-in-out;
+          animation: menu-item-animate 0.6s forwards 1.8s ease-in-out;
         }
-
       }
     }
   }
 }
 
- 
-// ::ng-deep .ui-overlaypanel {
-//  background: green !important;
-//  color: bla !important;
-//   top: 56px !important;
-//   left: 1565px !important; 
-
-// }
 ::ng-deep .ui-overlaypanel {
-  background:$nav-background!important;
+  background: $nav-background !important;
 }
 .user {
   ::ng-deep .ui-overlaypanel {
-   
     //  color: black !important;
-      top: 56px !important;
-      left: 1565px !important; 
-    
-    }
+    top: 56px !important;
+    left: 1565px !important;
+  }
 
-    h1 {
-      font-size: 1rem;
-      padding-top: 1rem;
-      color: white;
-      font-weight: 300;
-      text-transform: capitalize
-      
-    }
-    h1:hover {
-      font-weight: 700;
-      cursor: pointer;
-    }
+  h1 {
+    font-size: 1rem;
+    padding-top: 1rem;
+    color: white;
+    font-weight: 300;
+    text-transform: capitalize;
+  }
+  h1:hover {
+    font-weight: 700;
+    cursor: pointer;
+  }
 }
 
 .nofication {
-  
-::ng-deep .ui-overlaypanel {
-  
-  // color: black !important;
-   top: 56px !important;
-   left: 1252px !important;
- 
- }
- h1 {
-  font-size: 1rem;
-  padding-top: 1rem;
-  color: white;
-  font-weight: 300;
-  text-transform: capitalize
-}
+  ::ng-deep .ui-overlaypanel {
+    // color: black !important;
+    top: 56px !important;
+    left: 1252px !important;
+  }
+  h1 {
+    font-size: 1rem;
+    padding-top: 1rem;
+    color: white;
+    font-weight: 300;
+    text-transform: capitalize;
+  }
 }
 
-.notification{
+.notification {
   cursor: pointer;
-  &:hover{
-    opacity: .6;
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.open-mobilen-nav {
+  display: none;
+  @media only screen and (max-width: 600px) {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    background: #440082;
+
+    .logo {
+      padding: 1rem;
+      img {
+        width: 3rem;
+      }
+    }
+    .menu {
+      padding: 1.5rem 1rem;
+      text-align: right;
+      img {
+        width: 3rem;
+      }
+    }
   }
 }

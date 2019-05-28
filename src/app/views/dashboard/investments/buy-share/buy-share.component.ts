@@ -1,7 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { ExitModalEventEmmiter, Investment } from 'src/app/models';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthenticateService, InvestmentService, NotificationProcessService } from 'src/app/services';
 import { UserNotification } from 'src/app/models/processes/notification.process.model';
 import { SHARE_PENDING } from 'src/app/shared/config';
@@ -21,7 +20,6 @@ export class BuyShareComponent implements OnInit {
   canBuy:boolean= true;
   constructor(
     private fb: FormBuilder,
-    private router: Router,
     private authenticationService: AuthenticateService,
     private investmentService: InvestmentService,
     private notificationProcessService: NotificationProcessService,
@@ -35,10 +33,7 @@ export class BuyShareComponent implements OnInit {
 
         if(this.investmentsList.filter(x=>x.StatusId==2).length >0){
           this.messageService.add({severity:'warn', summary:'Sorry!', detail:'You can not buy shares while you have pending shares'});
-
-          setTimeout(()=>{
            this.closeModal();
-          },1000)
         }
       }
    
