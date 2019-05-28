@@ -241,6 +241,11 @@ nav ul span {
     display: grid;
     grid-template-columns: repeat(2, 50%);
     background: #440082;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
 
     .logo {
       padding: 1rem;

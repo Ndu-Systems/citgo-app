@@ -28,7 +28,7 @@
           </select>
           <div class="explain" *ngIf="explainContract">
             <p class="explainContract">{{explainContract}}</p>
-            <p class="widrawalDay"> Withdral date:{{widrawalDay}}</p>
+            <p class="widrawalDay"> withdrawal date:{{widrawalDay}}</p>
           </div>
           <div class="alert" *ngIf="!rForm.controls['Capitalization'].valid">
             Capitalization is requried
@@ -82,7 +82,7 @@
           <b>Widrawable amount </b> : {{widrawalDayAmount | currency:'R'}}
         </p>
         <p>
-          <b>Widrawal date</b>: {{widrawalDay}} 
+          <b>Withdrawal date</b>: {{widrawalDay}} 
         </p>
       </div> 
     </div>

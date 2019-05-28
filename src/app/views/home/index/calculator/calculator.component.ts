@@ -62,7 +62,7 @@ export class CalculatorComponent implements OnInit {
       } else {
         // month ro month
         this.explainContract =
-          "Only your share value  will increase with 15% Monthly, No compond amount aligable,";
+          "Your share value  will increase with 15% Monthly, No compound amount eligible";
         var widrawDate = new Date(today.setMonth(today.getMonth() + 1));
         this.widrawalDay = `${this.formatDate(widrawDate)}`;
         this.geFlatGrowth(amount);
