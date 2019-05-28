@@ -11,24 +11,23 @@ import { NavigationProcessService } from "src/app/services";
   styleUrls: ["./home-nav.component.scss"]
 })
 export class HomeNavComponent implements OnInit {
-
-  showSignUp: boolean;
   showOverlay: boolean;
 
   constructor(
     private signUpProcessService: SignUpProcessService,
     private loginProcess: LoginProcessService,
-    private navigationProcessService: NavigationProcessService,
+    private navigationProcessService: NavigationProcessService
   ) {}
 
   ngOnInit() {}
 
   closeNav() {
-    this.loginProcess.showLogin();
     this.navigationProcessService.closeNav();
   }
-
-  togleRegNav() {
+  showSignIn() {
+    this.loginProcess.showLogin();
+  }
+  showSignUp() {
     this.signUpProcessService.showPersonalInfoForm();
   }
 }
