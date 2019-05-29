@@ -1,15 +1,19 @@
-$sigle-share-dot-size: 0.8rem;
-h1{
-    font-weight: 400;
+$sigle-share-dot-size: 0.8rem; 
+.col-1-of-2 {
+  grid-gap: 0rem;
 }
-
+.headers {
+  &.col-1-of-2{
+    grid-template-columns: repeat(2, 50%)
+  }
+}
 .profit {
   display: grid;
   // grid-template-columns: 70% auto;
   background: #fff;
   padding: 2%;
   position: relative;
-
+  width: 50rem;
   &.col-1-of-2 {
     grid-template-columns: 75% auto;
   }

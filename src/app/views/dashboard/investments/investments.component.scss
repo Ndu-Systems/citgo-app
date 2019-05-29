@@ -1,25 +1,48 @@
-h1 {
-  font-weight: 400;
+.cards {
+  grid-template-columns: 100%;
 }
-
-.investments {
+.card {
   h1 {
-    .main-header {
-      font-size: 2.5rem;
-      font-weight: 200;
-      padding-left: 8rem;
+    margin: 0;
+    span {      
+      font-size: 100%;
+    &.main {
+      font-size: 1.555rem;
+      font-weight: 700;
+      color: #3827B4;
+
+    }
+    &.sub-main {
+      font-weight: 500;
+      color: #8A8E90;
+      font-size: 1.222rem;
+    }
+    &.span {
+      font-size: 40%;
     }
   }
-}
-
-
-;
-
-@media only screen and (max-width: 600px) {
-  .table-container {
-    padding: 0;
   }
-}
-.UPLAOD{
-  color: rgb(10, 79, 226);
+ 
+  &.col-1-of-2 {
+    grid-template-columns: 60% 40%;
+    img {
+      height: 2rem;
+    }
+    .profit {
+      &.col-1-of-2 {
+        grid-gap: 0;
+        grid-template-columns: 10% 90%;
+        h1 {
+          margin: 0;
+          span {
+            .span {
+              font-size: 40%;
+  
+            }
+          }
+         
+        }
+      }
+    }
+  }
 }

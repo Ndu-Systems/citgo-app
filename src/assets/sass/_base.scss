@@ -9,8 +9,7 @@ html {
     font-weight: 500;
 }
 body {
-    font-family: 'Montserrat', sans-serif;
-    letter-spacing: 0.2555rem;
+    font-family: 'Montserrat', sans-serif;    
     padding: 2rem;
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -110,4 +109,18 @@ display: none;
 }
 .AWAITING-CONFIRMATION {
   color: #dadd08;
+}
+
+
+h1 {
+  
+  &.heading{
+      text-transform: capitalize;
+      color: #A2A8B5;
+      font-size: 1.33rem;
+      font-weight: 500;
+      padding: 1rem;
+      padding-bottom: 0.5rem;
+      letter-spacing: 0;
+  }
 }

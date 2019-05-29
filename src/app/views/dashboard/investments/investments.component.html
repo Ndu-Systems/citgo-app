@@ -1,60 +1,28 @@
-
-<h1>
-  My shares
-</h1>
 <div class="investments">
-  <div class="table-container">
-    <div class="wrap">
-      <div class="table-wrapper">
-        <table class="table-responsive card-list-table" *ngIf="investmentsList">
-          <thead>
-          </thead>
-          <tbody>
-            <tr *ngFor="let data of investmentsList">
-              <td data-title="name" class="full-name">
-                {{data.Name}}
-                <span class="{{data.Status}}">{{data.Status}}</span>
-                <span *ngIf="data.Status=='PENDING'" (click)="oplaodPOP(data)" class="UPLAOD">UPLOAD THE PROOF OF PAYMENT</span>
-              </td>
-              <td data-title="amount">
-                <h1>
-                  <span class="main">
-                    R {{data.Amount}}
-                  </span>
-                  <div class="label">
-                    Investment amount
-                  </div>
-                </h1>
-              </td>
-              <td data-title="profit">
-                <h1>
-                  <span class="main">
-                    R {{data.Profit}}
-                  </span>
-                  <div class="label">
-                    Current Profit
-                  </div>
-                </h1>
-              </td>
-              <td data-title="total">
-                <h1>
-                  <span class="main">
-                    R {{data.Total}}
-                  </span>
-                  <div class="label">
-                    Total Investment
-                  </div>
-                </h1>
-              </td>
-              <td>
-                  <!-- share-details -->
-                <a  [routerLink]="['share-details',data.InvestmentId]"><input type="submit" value="view more" class="button" /></a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+  <div class="cards">
+    <div class="card col-1-of-2">
+      <h1>
+        <span class="main">
+          Share 11
+        </span>
+      </h1>
+      <h1>
+        <span class="sub-main">
+          2020/05/23
+        </span>
+      </h1>
+      <div class="profit col-1-of-2">
+        <img src="../../../../assets/images/dashboard/arrow-up.svg" alt="arrow-up">
+        <h1>
+          50600
+        </h1>
       </div>
-
+      <h1>
+        5000
+        <span class="span">
+          buy amount
+        </span>
+      </h1>
     </div>
   </div>
 </div>

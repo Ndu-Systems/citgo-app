@@ -1,17 +1,25 @@
 <div class="dashboard">
-  <div class="section profit" *ngIf="!isCurrentUserAdmin">
+  <!-- <div class="section profit" *ngIf="!isCurrentUserAdmin">
     <app-profit></app-profit>
   </div>
-  
-  <div class="section investments" *ngIf="!isCurrentUserAdmin">
-    <app-investments></app-investments>
+   -->
+  <div class="col-1-of-2">
+    <div class="main">
+       <app-client-stats></app-client-stats>
+       <app-profit></app-profit>
+    </div>
+    <!-- <div class="shares">
+      <div class="section investments" *ngIf="!isCurrentUserAdmin">
+        <app-investments></app-investments>      
+      </div>
+    </div> -->
   </div>
 
- 
+
   <!-- ADMIN ADMIN ADMIN  -->
 
   <div class="section investments" *ngIf="isCurrentUserAdmin">
-    <app-admin-home ></app-admin-home>
+    <app-admin-home></app-admin-home>
   </div>
 
 </div>

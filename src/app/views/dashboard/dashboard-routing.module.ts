@@ -18,6 +18,7 @@ import { CLIENT_USER_ROLE, ADMIN_USER_ROLE } from "src/app/shared/config";
 import { DashFooterComponent } from "./dash-footer/dash-footer.component";
 import { UpdatePasswordComponent, MyProfileComponent } from "./user-profile";
 import { UploadComponent } from './uplaod/upload.component';
+import { ClientStatsComponent } from './dashboard-home/client-stats/client-stats.component';
 
 const routes: Routes = [
   {
@@ -54,7 +55,8 @@ export const declarations: Array<any> = [
   AdminNavComponent,
   AdminSammaryComponent,
   ToActionComponent,
-  AllClientsComponent
+  AllClientsComponent,
+  ClientStatsComponent
   
 ];
 

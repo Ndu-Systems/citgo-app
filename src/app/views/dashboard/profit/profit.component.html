@@ -1,39 +1,19 @@
-<h1>
-  My wallet
-</h1>
-<div class="profit col-1-of-2">
-  <div class="graph">
-    <p-chart type="line" [data]="data" (onDataSelect)="selectData($event)"></p-chart>
-  </div>
-  <div class="funds">
-    <div class="withdrawal">
-      <h1 class="money">
-        <span>{{windrawal.currency}}</span>
-        <span>{{windrawal.rand}}</span>
-        <span>.{{windrawal.cents}}</span>
-      </h1>
-      <button class="button success" disabled>Withdraw now</button> <br>
-      <div class="warning">
-        <span>
-          No available amount to withdraw
-        </span>
-      </div>
-      <br>
-      <ul>
-        <li *ngFor="let data of coloredProfitList">
-          <span class="sigle-share" [style.background-color]="data.color"></span> <span
-            class="currency">{{currency}}</span>{{data.amount}}
-        </li>
-      </ul>
+<div class="headers col-1-of-2">
+  <h1 class="heading">
+    My wallet
+  </h1>
+  <h1 class="heading">
+    My shares
+  </h1>
+</div>
+<div class="col-1-of-2">
 
-      <!-- <div class="bonus">
-        <span class="label">
-          Referral bonus:
-        </span>
-        <span class="value">
-          <span class="currency">{{currency}}</span> {{bonus}}
-        </span>
-      </div> -->
+  <div class="profit">
+    <div class="graph">
+      <p-chart type="line" [data]="data" (onDataSelect)="selectData($event)"></p-chart>
     </div>
+  </div>
+  <div class="" *ngIf="!isCurrentUserAdmin">
+    <app-investments></app-investments>
   </div>
 </div>

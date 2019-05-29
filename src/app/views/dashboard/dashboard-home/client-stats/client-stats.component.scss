@@ -1,0 +1,21 @@
+
+.card {
+    grid-template-columns: 20% 80%;
+    h1 {
+        letter-spacing: 0;
+        color: #3827B4;
+        font-size: 1.5555rem;
+        text-transform: capitalize;
+        font-weight: 700;
+        span {
+            width: 80%;
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+
+    }
+    img {
+        height: 3rem;
+        margin: 2rem 0;
+    }
+}
