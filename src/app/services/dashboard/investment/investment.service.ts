@@ -45,6 +45,12 @@ export class InvestmentService {
       `${this.url}/api/investments/get-investment-by-id.php?InvestmentId=${InvestmentId}`
     );
   }
+  //get  investments by status
+  getInvestmentsByStatus(StatusId): Observable<Investment[]> {
+    return this.httpClient.get<any>(
+      `${this.url}/api/investments/get-investment-by-status.php?StatusId=${StatusId}`
+    );
+  }
   //get single investment with docs by id
   getInvestmentsandDocumentsById(InvestmentId): Observable<Investment> {
     return this.httpClient.get<any>(
