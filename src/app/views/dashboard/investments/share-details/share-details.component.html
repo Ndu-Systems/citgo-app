@@ -1,48 +1,71 @@
 <div class="main" *ngIf="investment">
   <div class="banner">
-
     <div class="col-1-of-2">
-      <div class="col-1-of-4">
+      <div class="col-1-of-4 share-info">
         <div class="icon">
           <img src="assets/images/dashboard/share-icon.svg" alt="">
         </div>
         <div class="info">
-          <h3>
+          <h1>
             {{investment[0].Name}}
-            <span class="{{investment.Status}}">
+          </h1>
+          <h1>
+            <span class="{{investment[0].Status}}">
               {{investment[0].Status}}
             </span>
-          </h3>
-
+          </h1>
         </div>
-
         <div class="info">
-          <h3>
+          <h1>
             {{investment[0].Type}}
             <span>
               Type
             </span>
-          </h3>
-          <h3>
+          </h1>
+          <h1>
             {{investment[0].Amount}}
             <span>
               Type
             </span>
-          </h3>
+          </h1>
         </div>
-
         <div class="info">
-          <h3>
+          <h1>
             {{investment[0].InvestmentDate| date:'mediumDate'}}
             <span>
               Investment date
             </span>
-          </h3>
+          </h1>
         </div>
       </div>
+      <div></div>
     </div>
   </div>
-
+  <div class="tabs">
+    <input type="radio" id="tab1" name="tab-control" checked>
+    <input type="radio" id="tab2" name="tab-control">
+    <ul>
+      <li title="Features"><label for="tab1" role="button"><br><span>Transactions</span></label></li>
+      <li title="Delivery Contents"><label for="tab2" role="button"><span>Documents</span></label></li>
+    </ul>
+    <div class="slider">
+      <div class="indicator"></div>
+    </div>
+    <div class="content">
+      <section>
+        <h2>Features</h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea dolorem sequi, quo tempore
+        in eum obcaecati atque quibusdam officiis est dolorum minima deleniti ratione molestias numquam.
+        Voluptas voluptates quibusdam cum?
+      </section>
+      <section>
+        <h2>Delivery Contents</h2>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem quas adipisci a accusantium eius ut
+        voluptatibus ad impedit nulla, ipsa qui. Quasi temporibus eos commodi aliquid impedit amet, similique
+        nulla.
+      </section>
+    </div>
+  </div>
+  <!-- 
   <div class="related-details">
     <div class="transictions">
       <h1>
@@ -61,31 +84,31 @@
               <img src="assets/images/dashboard/bank-starement.svg" alt="">
             </div>
             <div class="info">
-              <h3>
+              <h1>
                 {{doc.DocumentName}}
                 <span>
                   Description
                 </span>
-              </h3>
+              </h1>
 
             </div>
             <div class="info">
 
-              <h3>
+              <h1>
                 {{doc.UploadedDate|date:'mediumDate'}}
                 <span>
                   Date Uploaded
                 </span>
-              </h3>
+              </h1>
             </div>
             <div class="info">
 
-              <h3>
+              <h1>
                 {{doc.DocStatus}}
                 <span>
                   Status
                 </span>
-              </h3>
+              </h1>
             </div>
             <div class="info">
 
@@ -96,5 +119,5 @@
       </ul>
     </div>
 
-  </div>
+  </div> -->
 </div>

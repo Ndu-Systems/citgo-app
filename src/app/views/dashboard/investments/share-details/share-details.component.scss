@@ -1,5 +1,8 @@
+@import '../../../../../assets/sass/variables';
+
 .main {
   padding: 6% 12%;
+
   h1 {
     font-size: 1.777rem;
     text-align: left;
@@ -7,36 +10,42 @@
     font-weight: 400;
     padding-bottom: 1rem;
   }
-  .share {
-    display: grid;
-    grid-template-columns: 10% 25% 20% 15%;
 
-    .info {
-      h3 {
-        span {
-          display: block;
-          font-size: 50%;
+  .banner {
+    background: $white-color;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    .col-1-of-2 {
+      grid-gap: 1rem;
+   
+      .col-1-of-4 {
+        grid-template-columns: repeat(4, 25%);
+        grid-gap: 0rem;
+        margin: 0;
+
+        &.share-info {
+          border-right: solid 0.1px $black-color;
         }
+        .info {
+          h1 {
+            font-size: 1.444rem;
+            font-weight: 700;
+
+            span {
+              display: block;
+              font-size: 50%;
+              font-weight: 400;
+
+              &.AWAITING-CONFIRMATION {
+                font-size: 0.5rem;
+                font-weight: 800;
+              }
+            }
+          }
+        }
+
       }
     }
-  }
-  .related-details{
-    display: grid;
-    grid-template-columns: 50% 50%;
-    .documents{
-        .doc{
-            display: grid;
-            grid-template-columns: 20% 20% 20% 20% 20%;
-
-            .info {
-                h3 {
-                  span {
-                    display: block;
-                    font-size: 50%;
-                  }
-                }
-              }
-        }
-      }
-  }
+  } 
 }
