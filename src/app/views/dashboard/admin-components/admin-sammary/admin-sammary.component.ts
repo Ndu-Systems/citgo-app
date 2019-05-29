@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { StatService } from "src/app/services";
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-admin-sammary',
@@ -6,8 +9,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-sammary.component.scss']
 })
 export class AdminSammaryComponent implements OnInit {
-
-  constructor() { }
+stat$:Observable<any> = this.statService.getAdminStat();
+  constructor(private statService:StatService) { }
 
   ngOnInit() {
   }

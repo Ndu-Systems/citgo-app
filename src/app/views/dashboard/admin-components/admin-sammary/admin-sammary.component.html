@@ -1,9 +1,10 @@
-<div class="cards">
+<div class="cards" *ngIf="stat$|async as stat; else nodata">
   <div class="card">
     <h1>
-      15
+      {{stat.activeShares}}
+
       <span>
-        active shares 
+        active shares
       </span>
     </h1>
     <div class="img">
@@ -13,9 +14,9 @@
 
   <div class="card">
     <h1>
-      15
+      {{stat.pendingShares}}
       <span>
-        pending approval 
+        pending approval
       </span>
     </h1>
     <div class="img">
@@ -25,14 +26,20 @@
 
   <div class="card">
     <h1>
-      15
+      {{stat.activeClients}}
       <span>
-       active clients
+        active clients
       </span>
     </h1>
     <div class="img">
       <img src="assets/images/dashboard/admin/actice-clients.svg" alt="">
     </div>
   </div>
-  
+
 </div>
+
+<ng-template #nodata>
+  <h1>
+    No stat
+  </h1>
+</ng-template>
