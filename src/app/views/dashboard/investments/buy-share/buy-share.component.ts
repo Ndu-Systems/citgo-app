@@ -30,11 +30,6 @@ export class BuyShareComponent implements OnInit {
      this.investmentService.castClientshares.subscribe(val => {
       if(val && val.length){
         this.investmentsList = val;
-
-        if(this.investmentsList.filter(x=>x.StatusId==2).length >0){
-          this.messageService.add({severity:'warn', summary:'Sorry!', detail:'You can not buy shares while you have pending shares'});
-           this.closeModal();
-        }
       }
    
     });
@@ -61,6 +56,14 @@ export class BuyShareComponent implements OnInit {
 
   buy(data) {
     this.error = '';
+    //check 
+
+    if(this.investmentsList.filter(x=>x.StatusId==2).length >0){
+      this.messageService.add({severity:'warn', summary:'Sorry!', detail:'You can not buy shares while you have pending shares'});
+       this.closeModal();
+    }
+
+    //end check
     this.investmentService.buyShares(data).subscribe(response => {
       if(response.investments){
         this.investmentService.setInvestments(response.investments);

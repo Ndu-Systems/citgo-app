@@ -1,3 +1,5 @@
+import { AllClientsComponent } from './admin-components/all-clients/all-clients.component';
+import { ToActionComponent } from './admin-components/to-action/to-action.component';
 import { AdminSammaryComponent } from './admin-components/admin-sammary/admin-sammary.component';
 import { AdminNavComponent } from './admin-components/admin-nav/admin-nav.component';
 import { AdminHomeComponent } from './admin-components/admin-home/admin-home.component';
@@ -50,7 +52,9 @@ export const declarations: Array<any> = [
   //admin
   AdminHomeComponent,
   AdminNavComponent,
-  AdminSammaryComponent
+  AdminSammaryComponent,
+  ToActionComponent,
+  AllClientsComponent
   
 ];
 

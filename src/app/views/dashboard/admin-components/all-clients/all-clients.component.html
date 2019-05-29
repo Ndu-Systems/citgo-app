@@ -1,0 +1,16 @@
+<div class="main">
+  <div class="clients" *ngIf="clients$|async as clients; else nodata">
+<div class="client" *ngFor="let client  of clients">
+
+  {{client.FirstName}} {{client.Surname}} <br>
+ <b> R {{client.Shares}}</b> <br>
+
+</div>
+  </div>
+
+  <ng-template #nodata>
+    <h1>
+      No data
+    </h1>
+  </ng-template>
+</div>

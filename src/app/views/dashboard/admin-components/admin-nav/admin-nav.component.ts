@@ -63,7 +63,14 @@ export class AdminNavComponent implements OnInit {
     });
   }
  
-  
+  closeNav(){
+    console.log('to do');
+    
+  }
+  toggleBuyShares(){
+    console.log('to do');
+    
+  }
 
 
 }

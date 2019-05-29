@@ -21,14 +21,14 @@
         <div class="controls">
           <label for="">capititalization</label> <br />
           <select class="input-field" formControlName="Capitalization">
-            <option value="12">12 Months Cotract</option>
-            <option value="6">6 Months Cotract</option>
-            <option value="3">3 Months Cotract</option>
+            <option value="12">12 Months contaract</option>
+            <option value="6">6 Months contaract</option>
+            <option value="3">3 Months contaract</option>
             <option value="0">Month-to-month</option>
           </select>
           <div class="explain" *ngIf="explainContract">
             <p class="explainContract">{{explainContract}}</p>
-            <p class="widrawalDay"> withdrawal date:{{widrawalDay}}</p>
+            <p class="widrawalDay"> withdrawal date: {{widrawalDay}}</p>
           </div>
           <div class="alert" *ngIf="!rForm.controls['Capitalization'].valid">
             Capitalization is requried

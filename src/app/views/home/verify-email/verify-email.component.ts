@@ -1,7 +1,8 @@
+import { UserRole } from 'src/app/models/userole.model';
 import { User } from "src/app/models/user";
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { STATUS_USER_NEW, STATUS_USER_ACTIVE } from "src/app/shared/config";
+import { STATUS_USER_NEW, STATUS_USER_ACTIVE, CLIENT_USER_ROLE } from "src/app/shared/config";
 import { first } from "rxjs/operators";
 import { MessageService } from "primeng/api";
 import { AuthenticateService } from "src/app/services/home/user/authenticate.service";
@@ -41,30 +42,31 @@ export class VerifyEmailComponent implements OnInit {
         this.currentUser.StatusId = STATUS_USER_ACTIVE;
         this.currentUser.ModifyUserId = this.userId;
         this.userService.updateUser(this.currentUser).subscribe(res => {
-          // lOGIN USER
-          this.authicateService
-            .loginUser(this.currentUser.Email, this.currentUser.Password)
-            .pipe(first())
-            .subscribe(response => {
-              if (response) {
-               
-                // setTimeout(function() {
-                //   this.popMessage(
-                //     "success",
-                //     "Account verified",
-                //     `Your account was verified successfully`
-                //   );
-
-                // }, 3000);
-                
-                this.userProfileProcess.updateUserProfileProcessState({resetPasswordMessage: "Create your new password."})
-                this.router.navigate(["/dashboard"]);
-
-
-              } else {
-                alert("Error");
-              }
-            });
+          let role:UserRole ={
+            UserId:this.currentUser.UserId,
+            RoleId:CLIENT_USER_ROLE,
+            CreateUserId: this.currentUser.UserId,
+            ModifyUserId: this.currentUser.UserId,
+            StatusId: 1
+          };
+          this.userService.addUserRole(role).subscribe(role => {
+            // lOGIN USER
+            console.log(role);
+            
+            this.authicateService
+              .loginUser(this.currentUser.Email, this.currentUser.Password)
+              .pipe(first())
+              .subscribe(response => {
+                if (response) {
+                  this.userProfileProcess.updateUserProfileProcessState({
+                    resetPasswordMessage: "Create your new password."
+                  });
+                  this.router.navigate(["/dashboard"]);
+                } else {
+                  alert("Error");
+                }
+              });
+          });
         });
       } else {
         this.Error = "This activation link  have already been used";

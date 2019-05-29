@@ -19,6 +19,7 @@ import { MessageService } from "primeng/api";
 export class UploadComponent implements OnInit {
   file: File;
   message: string;
+  success: string;
   clientId: any;
   InvestmentId: any;
   UserId: any;
