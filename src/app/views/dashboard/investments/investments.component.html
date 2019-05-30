@@ -1,14 +1,14 @@
-  <div class="cards">
-    <div class="card">
+<div class="cards" *ngIf="investmentsList">
+    <div class="card" *ngFor="let data of investmentsList">
       <div class="col-1-of-2">
         <div class="details-sec-1">
           <h1 class="share-name">
-            Share 11
+           {{data.Name}}
           </h1>
           <div class="growth">
             <img src="assets/images/dashboard/arrow-up.svg" alt="arrow-up">
             <h1>
-              50600
+              {{data.Amount  | currency:'R'}}
             </h1>
           </div>
         </div>
@@ -16,18 +16,15 @@
         <div class="details-sec-2">
             <h1>
               <span class="buy-date">
-                2020/05/23
+                {{data.CreateDate | date:'mediumDate' }}
               </span>
               <span class="buy-prince">
-               R 5000
+               {{data.Amount  | currency:'R'}}
+
               </span>
             </h1>
-            <a href="">More</a>
+            <a [routerLink]="['share-details',data.InvestmentId]">More</a>
           </div>
       </div>
-
-   
-
-
     </div>
   </div>

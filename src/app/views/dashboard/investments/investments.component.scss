@@ -1,6 +1,7 @@
 .cards {
   grid-template-columns: 100%;
   .card {
+    padding-right: 1rem;
     grid-template-columns: 100%;
     .col-1-of-2 {
       .details-sec-1 {
@@ -10,24 +11,41 @@
           color: #3827b4;
         }
         .growth {
+          padding: 1rem;
           img {
             display: inline;
-            height: 2rem;
+            height: 1rem;
           }
           h1 {
             display: inline;
+            font-size: 1rem;
+            font-weight: 800;
+            color: #2ecc71;
           }
         }
       }
       .details-sec-2 {
         h1 {
           .buy-date {
+            display: inline;
+            font-size: 1rem;
+            font-weight: 400;
+            color: #a8a8a8;
+            display: block;
           }
           .buy-prince {
+            display: inline;
+            font-size: .9rem;
+            font-weight: 300;
+            color: #a8a8a8;
           }
         }
         a {
           float: right;
+          cursor: pointer;
+          &:hover{
+            color: #0a3977;
+          }
         }
       }
     }
