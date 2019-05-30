@@ -1,19 +1,12 @@
-<div class="headers col-1-of-2">
-  <h1 class="heading">
-    My wallet
-  </h1>
-  <h1 class="heading">
-    My shares
-  </h1>
-</div>
-<div class="col-1-of-2">
+<div class="main">
 
-  <div class="profit">
-    <div class="graph">
-      <p-chart type="line" [data]="data" (onDataSelect)="selectData($event)"></p-chart>
+  <div class="col-1-of-2">
+
+    <div class="profit">
+      <div class="graph">
+        <p-chart type="line" [data]="data" (onDataSelect)="selectData($event)"></p-chart>
+      </div>
     </div>
-  </div>
-  <div class="" *ngIf="!isCurrentUserAdmin">
-    <app-investments></app-investments>
+  
   </div>
 </div>
