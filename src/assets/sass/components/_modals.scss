@@ -14,7 +14,7 @@
     width: 100%;
     left: 0;
     top: 0;
-  padding: 2rem 1rem;
+    padding: 2rem 1rem;
 
   }
 
@@ -23,6 +23,10 @@
 
     img {
       margin: 0 auto;
+
+      @media only screen and (max-width: 600px) {
+        width: 5rem;
+      }
     }
 
     .close-btn {
@@ -30,6 +34,9 @@
       top: 2rem;
       right: 4rem;
       cursor: pointer;
+      @media only screen and (max-width: 600px) {
+        width: 1.2rem;
+      }
     }
   }
 }

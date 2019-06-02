@@ -41,6 +41,11 @@
   padding: 2rem;
   padding-bottom: 0;
 
+  @media only screen and (max-width: 600px) {
+    padding: .5rem;
+
+  }
+
   label {
     color: #ffffff;
     font-weight: 600;
