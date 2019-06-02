@@ -112,6 +112,20 @@ display: none;
 }
 
 
+
+.ACTIVE-BG {
+  background: #2ECC71;
+}
+
+;
+
+.PENDING-BG {
+  background: #e67e22;
+}
+.AWAITING-CONFIRMATION-BG {
+  background: #dadd08;
+}
+
 h1 {
   
   &.heading{

@@ -12,6 +12,7 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { ExitModalEventEmmiter, Client } from "src/app/models";
 import { MessageService } from "primeng/api";
+import { BuySharesProcessService } from "src/app/services/app-state/buy-shares-process.service";
 
 @Component({
   selector: "app-dashboard-nav",
@@ -19,7 +20,7 @@ import { MessageService } from "primeng/api";
   styleUrls: ["./dashboard-nav.component.scss"]
 })
 export class DashboardNavComponent implements OnInit {
-  showBuyShares: boolean = false;
+  showBuyShares: boolean;
   showMobNots: boolean = true;
   showOverlay: boolean = false;
   client: Client; // full user structure
@@ -35,7 +36,8 @@ export class DashboardNavComponent implements OnInit {
     private documentsService: DocumentsService,
     private cleintService: CleintService,
     private notificationProcessService: NotificationProcessService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private buySharesProcessService: BuySharesProcessService
   ) {}
   hasDocs: boolean = true;
   documents: any[] = [];
@@ -58,21 +60,28 @@ export class DashboardNavComponent implements OnInit {
         this.notifications = process.notifications;
       }
     );
+
+    //show buy shares
+    this.buySharesProcessService.castBuySharesProcess.subscribe(process=>{
+      this.showBuyShares = process.showBuyForm;
+      this.showOverlay = process.showOverlay;
+      // alert(JSON.stringify(process))
+    })
   }
   logout() {
     this.authenticateService.logout();
     this.routeTo.navigate(["/"]);
   }
-
+buyShares(){
+  this.buySharesProcessService.showBuyShares();
+}
   toggleBuyShares() {
     this.closeMobileNav()
-    this.showBuyShares = !this.showBuyShares;
+    this.buySharesProcessService.closeBuyShares();
     return (this.showOverlay = !this.showOverlay);
   }
 
-  closeModal(event: ExitModalEventEmmiter) {
-    event.close = this.toggleBuyShares();
-  }
+
   showNotifications() {
     this.showNotification = !this.showNotification;
   }
@@ -83,27 +92,7 @@ export class DashboardNavComponent implements OnInit {
       this.mylink = `${WEB_HOST}/#/${REFERALLINK}/${this.client.ClientId}`;
     });
   }
-  copylink() {
-    this.copyText(this.mylink);
-    this.messageService.add({
-      severity: "success",
-      summary: "Share link",
-      detail: "Your link is copied"
-    });
-  }
-  copyText(val: string) {
-    let selBox = document.createElement("textarea");
-    selBox.style.position = "fixed";
-    selBox.style.left = "0";
-    selBox.style.top = "0";
-    selBox.style.opacity = "0";
-    selBox.value = val;
-    document.body.appendChild(selBox);
-    selBox.focus();
-    selBox.select();
-    document.execCommand("copy");
-    document.body.removeChild(selBox);
-  }
+
   openNotification(notification: UserNotification) {
     if (notification.isShare) {
       this.notificationProcessService.showUplaod();

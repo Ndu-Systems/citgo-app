@@ -11,18 +11,23 @@
               {{data.Amount  | currency:'R'}}
             </h1>
           </div>
+
+              <a class="status {{data.Status}}"> <span  class="{{data.Status}}-BG"></span>{{data.Status}}</a>
+            
         </div>
 
         <div class="details-sec-2">
-            <h1>
-              <span class="buy-date">
-                {{data.CreateDate | date:'mediumDate' }}
-              </span>
-              <span class="buy-prince">
-               {{data.Amount  | currency:'R'}}
+          <h1>
+              {{data.CreateDate | date:'mediumDate' }}
+              <span class="label">Buy Date</span>
+          </h1>
 
-              </span>
-            </h1>
+          <h1>
+              {{data.Amount  | currency:'R'}}
+              <span class="label">Buy Amount</span>
+          </h1>
+
+      
             <a [routerLink]="['share-details',data.InvestmentId]">More</a>
           </div>
       </div>

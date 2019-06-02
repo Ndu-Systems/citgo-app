@@ -1,5 +1,5 @@
 <div class="overlay" *ngIf="showOverlay">
-  <app-buy-share (closeBuySharesModalAction)="closeModal($event)" *ngIf="showBuyShares"></app-buy-share>
+  <app-buy-share  *ngIf="showBuyShares"></app-buy-share>
 </div>
 
 
@@ -7,8 +7,8 @@
   <nav class="topnav col-1-of-3">
     <div class="logo">
       <img src="assets/images/dashboard/logo-white-bg.svg" alt="">
-      <!-- <span>{{mylink}}</span> -->
-      <input type="button" (click)="copylink()" value="copy my link" class="button share-link" />
+      <!-- <span>{{mylink}}</span>
+      <input type="button" (click)="copylink()" value="copy my link" class="button share-link" /> -->
     </div>
     <ul class="nav-tems">
       <li class="container-1-of-1">
@@ -20,7 +20,7 @@
       <li class="container-1-of-1">
       </li>
       <li class="buy-shares">
-        <input type="button" value="buy shares" class="button shares" (click)="toggleBuyShares()" />
+        <input type="button" value="buy shares" class="button shares" (click)="buyShares()" />
       </li>
     </ul>
     <ul>
@@ -90,51 +90,17 @@
     <img src="assets/images/dashboard/burger-menu.svg" alt="burger-menu">
   </div>
   <nav class="show-menu">
-    <!-- <a routerLink="dashboard">
-      <img src="assets/images/home/icon-white-round.svg" alt="logo" class="logo"></a>
-    <img src="assets/images/home/close-x.png" alt="close btn" class="close-btn" id="close-menu"
-      (click)="closeMobileNav()">
-    <ul class="container-col-1-of-4">
-      <li class="account">
-        <img src="assets/images/dashboard/user-female.svg" alt="user image">
-        <h1 class="heading">
-          Guest
-        </h1>
-      </li>
-      <li>
-        <div class="nofication">
-          <h1 class="dropbtn"><i class="fas fa-bell" (click)="not.toggle($event)"></i>
-          </h1>
 
-          <div class="show-nots" *ngIf="notifications && showMobNots">
-            <div *ngFor="let item of notifications">
-              <h1 class="notification" (click)="openNotification(item)">{{item.message}}</h1>
-            </div>
-          </div>
-
-        </div>
-      </li>
-      <li>
-        <a routerLink="/dashboard/" (click)="closeMobileNav()">My wallet</a>
-      </li>
-      <li>
-        <a [routerLink]="['my-refferals',client.ClientId]" (click)="closeMobileNav()">My referrals</a>
-      </li>
-
-      <li class="buy-shares">
-        <input type="button" value="buy shares" class="button shares" (click)="toggleBuyShares()" />
-      </li>
-    </ul> -->
 
     <img src="assets/images/dashboard/close.svg" alt="close btn" class="close-btn" id="close-menu"
       (click)="closeMobileNav()">
-    <ul>
+    <ul class="mobile-ul">
       <li>
         <a routerLink="/dashboard/" (click)="closeMobileNav()" class="col-1-of-2"><img
             src="assets/images/dashboard/wallet.svg" class="menu-icons" alt="wallet-icon">
           <h1>My wallet</h1>
         </a>
-      </li>
+      </li>  
       <li>
         <a routerLink="/dashboard/" (click)="closeMobileNav()" class="col-1-of-3"><img
             src="assets/images/dashboard/bell.svg" class="menu-icons" alt="bell-icon">
@@ -143,7 +109,7 @@
         </a>
       </li>
       <li>
-        <a (click)="toggleBuyShares()" class="col-1-of-2"><img
+        <a (click)="buyShares()" class="col-1-of-2"><img
             src="assets/images/dashboard/shares.svg" class="menu-icons" alt="shares-icon">
           <h1>Buy shares</h1>
         </a>

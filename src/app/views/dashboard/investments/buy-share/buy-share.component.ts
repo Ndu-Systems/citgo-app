@@ -1,3 +1,4 @@
+import { BuySharesProcessService } from './../../../../services/app-state/buy-shares-process.service';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { ExitModalEventEmmiter, Investment } from 'src/app/models';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -11,7 +12,6 @@ import { MessageService } from 'primeng/api';
   styleUrls: ['./buy-share.component.scss']
 })
 export class BuyShareComponent implements OnInit {
-  @Output() closeBuySharesModalAction: EventEmitter<ExitModalEventEmmiter> = new EventEmitter();
   rForm: FormGroup;
   error = '';
   loading;
@@ -23,7 +23,8 @@ export class BuyShareComponent implements OnInit {
     private authenticationService: AuthenticateService,
     private investmentService: InvestmentService,
     private notificationProcessService: NotificationProcessService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private buySharesProcessService:BuySharesProcessService
 
   ) { 
      //get user shares -for naming purpose e.g  Share 1
@@ -48,9 +49,7 @@ export class BuyShareComponent implements OnInit {
   }
 
   closeModal() {
-    this.closeBuySharesModalAction.emit({
-      close: true
-    });
+    this.buySharesProcessService.closeBuyShares()
   }
 
 

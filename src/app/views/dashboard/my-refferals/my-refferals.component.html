@@ -3,26 +3,42 @@
     My Refferals
   </h1>
 
+  <div class="card-info" *ngIf="showTip">
+    <h1>Tip!</h1>
+    <p>
+      <span>1</span> <span class="copy" (click)="copylink()">Copy</span> your link and share it. :  <span  (click)="copylink()" class="link">{{mylink}}</span>
+    </p>
+    <p>
+      <span>2</span> Make sure your Referrals deposited funds on their accounts.
+    </p>
+    <p>
+      <span>1</span> As soon as your Referrals deposit, you will immediately get your 15% bonus.
+    </p>
+    <div class="close">
+      <a (click)="closeTip()">Close tip!</a>
+
+    </div>
+  </div>
+
   <div class="cards" *ngIf="refferals$ | async as refferals; else nodata">
     <div class="card" *ngFor="let data of refferals">
-      <div class="card-header">
-        <p class="status" *ngIf="data.StatusId == '3'">Active</p>
-        <p class="status pending" *ngIf="data.StatusId =='4'">Pending</p>
-      </div>
-      <div class="profile-pic">
-        <!-- <i class="far fa-user"></i> -->
-        <i class="fas fa-user"></i>
-      </div>
-      <div class="name">
-        <h1>
-          {{data.FirstName}} {{data.Surname}}
-
-        </h1>
-      </div>
-      <div class="email">
-         <h2>
-            {{data.Email}}
-         </h2>
+      <div class="col-1-of-2">
+        <div class="details-sec-1">
+          <h1 class="share-name">
+           {{data.FirstName}} {{data.Surname}}
+          </h1>
+          <div class="growth">
+            <h1>
+              {{data.Email}}  
+            </h1> <br>
+            <p class="status active" *ngIf="data.StatusId == '3'">Active</p>
+            <p class="status pending" *ngIf="data.StatusId =='4'">Pending</p>
+          </div>
+  
+              <a class="status {{data.Status}}"> <span  class="{{data.Status}}-BG"></span>{{data.Status}}</a>
+            
+        </div>
+  
       </div>
     </div>
   </div>
@@ -33,3 +49,4 @@
     </h1>
   </ng-template>
 </div>
+
