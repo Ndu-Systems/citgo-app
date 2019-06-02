@@ -1,3 +1,4 @@
+import { LoginProcessService } from './../../../services/app-state/login-process.service';
 import { Component, OnInit } from '@angular/core';
 import {CloseModalEventEmmiter, ExitModalEventEmmiter } from 'src/app/models';
 import { NavigationEventEmiter } from '../home-nav/navigationEventEmiter';
@@ -16,7 +17,7 @@ export class IndexComponent implements OnInit {
   showNav: boolean;
   showSignIn: boolean;
 
-  constructor() { }
+  constructor(private loginProcessService:LoginProcessService) { }
 
   ngOnInit() { }
   togleNav() {
@@ -60,5 +61,7 @@ export class IndexComponent implements OnInit {
     this.showBankingInfoForm = false;
     this.showBenefitariesForm = false;
   }
-
+investNow(){
+  this.loginProcessService.showLogin()
+}
 }

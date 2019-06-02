@@ -1,3 +1,4 @@
+import { SignUpProcessService } from "src/app/services/app-state/sign-up-process.service";
 import { Component, OnInit, EventEmitter, Output } from "@angular/core";
 import {
   FormGroup,
@@ -18,16 +19,15 @@ import { AuthenticateService } from "src/app/services/home/user/authenticate.ser
 export class SignInComponent implements OnInit {
   rForm: FormGroup;
   loading = false;
-  error = '';
+  error = "";
   isLogin: boolean = true;
   constructor(
     private fb: FormBuilder,
     private routeTo: Router,
     private loginService: AuthenticateService,
-    private loginProcess: LoginProcessService
-  ) {
-
-  }
+    private loginProcess: LoginProcessService,
+    private signUpProcessService: SignUpProcessService
+  ) {}
 
   ngOnInit() {
     this.rForm = this.fb.group({
@@ -52,7 +52,7 @@ export class SignInComponent implements OnInit {
 
   signIn() {
     this.loading = true;
-    this.routeTo.navigate(['dashboard']);
+    this.routeTo.navigate(["dashboard"]);
   }
   get formValues() {
     return this.rForm.controls;
@@ -66,7 +66,7 @@ export class SignInComponent implements OnInit {
       .subscribe(response => {
         if (response) {
           // this.router.navigate(["/dashboard"]);
-          this.routeTo.navigate(['/dashboard']);
+          this.routeTo.navigate(["/dashboard"]);
           // this.spinnerService.hideSpinner();
         } else {
           this.error = response;
@@ -76,5 +76,9 @@ export class SignInComponent implements OnInit {
 
   resetPassword() {
     this.loginProcess.showChangePass();
+  }
+  createAccount() {
+    this.loginProcess.closeAll();
+    this.signUpProcessService.showPersonalInfoForm();
   }
 }
