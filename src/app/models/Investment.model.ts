@@ -12,6 +12,7 @@ export interface Investment {
     ModifyDate?: Date;
     ModifyUserId?: string;
     StatusId: number;
+    ClientId?: string;
 }
 
 
