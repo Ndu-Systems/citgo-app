@@ -46,4 +46,4 @@ export const PASSWORD_EXISTS_ERROR = 'Your password cannot be something familiar
 export const UPDATE_CLIENT_ERROR = 'Something went wrong please try again later.';
 
 // bonus
-export const  BONUS_PERCENT = 0.15;
+export const  BONUS_PERCENT = 0.05;

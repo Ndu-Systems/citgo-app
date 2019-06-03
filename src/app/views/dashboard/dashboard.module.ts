@@ -8,7 +8,6 @@ import {OverlayPanelModule} from 'primeng/overlaypanel';
 
 
 
-
 import { DashboardRoutingModule, declarations } from './dashboard-routing.module';
 import { MessageService } from 'primeng/api';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -23,7 +22,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ToastModule, 
     FormsModule,
     ReactiveFormsModule,
-    OverlayPanelModule
+    OverlayPanelModule,
   ],
   declarations: [...declarations],
   providers: [MessageService]

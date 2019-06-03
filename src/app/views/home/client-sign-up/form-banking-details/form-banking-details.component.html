@@ -9,7 +9,9 @@
       <div class="col-1-of-2 ">
         <div class="controls">
           <label for="">BANK NAME</label> <br />
-          <input type="text" class="input-field" formControlName="BankName" />
+          <!-- <input type="text" class="input-field" formControlName="BankName" /> -->
+          <p-inputMask formControlName="BankName" mask="99-9999"></p-inputMask>
+
           <div class="alert" *ngIf="!rForm.controls['BankName'].valid">
             BANK NAME is requried
           </div>
