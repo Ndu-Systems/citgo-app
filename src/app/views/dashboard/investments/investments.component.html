@@ -1,35 +1,42 @@
 <div class="cards" *ngIf="investmentsList">
-    <div class="card" *ngFor="let data of investmentsList">
-      <div class="col-1-of-2">
-        <div class="details-sec-1">
-          <h1 class="share-name">
-           {{data.Name}}
+  <div class="card" *ngFor="let data of investmentsList">
+    <div class="col-1-of-2">
+      <div class="details-sec-1">
+        <h1 class="share-name">
+          {{data.Name}}
+        </h1>
+        <div class="growth">
+          <img src="assets/images/dashboard/arrow-up.svg" alt="arrow-up">
+          <h1>
+            {{data.Amount  | currency:'R'}}
           </h1>
-          <div class="growth">
-            <img src="assets/images/dashboard/arrow-up.svg" alt="arrow-up">
-            <h1>
-              {{data.Amount  | currency:'R'}}
-            </h1>
-          </div>
-
-              <a class="status {{data.Status}}"> <span  class="{{data.Status}}-BG"></span>{{data.Status}}</a>
-            
         </div>
 
-        <div class="details-sec-2">
-          <h1>
-              {{data.CreateDate | date:'mediumDate' }}
-              <span class="label">Buy Date</span>
-          </h1>
+        <a class="status {{data.Status}}"> <span class="{{data.Status}}-BG"></span>{{data.Status}}</a>
 
-          <h1>
-              {{data.Amount  | currency:'R'}}
-              <span class="label">Buy Amount</span>
-          </h1>
+      </div>
 
-      
-            <a [routerLink]="['share-details',data.InvestmentId]">More</a>
+      <div class="details-sec-2">
+        <h1>
+          {{data.CreateDate | date:'mediumDate' }}
+          <span class="label">Buy Date</span>
+        </h1>
+
+        <h1>
+          {{data.Amount  | currency:'R'}}
+          <span class="label">Buy Amount</span>
+        </h1>
+        <div class="col-1-of-2">
+          <div>
+            <h1 class="upload-proof-of-payment" *ngIf="data.Status == 'PENDING'" (click)="oplaodPOP(data)">
+              UPLOAD PROOF OF PAYMENT
+            </h1>
           </div>
+          <div>
+              <a [routerLink]="['share-details',data.InvestmentId]">More</a>
+          </div>       
+        </div>
       </div>
     </div>
   </div>
+</div>
