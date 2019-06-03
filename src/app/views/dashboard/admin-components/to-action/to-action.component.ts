@@ -1,4 +1,4 @@
-import { Bonus } from './../../../../models/bonus.model';
+import { Bonus } from "./../../../../models/bonus.model";
 import { CleintService } from "./../../../../services/dashboard/cleint.service";
 import { MessageService } from "primeng/api";
 import {
@@ -39,25 +39,37 @@ export class ToActionComponent implements OnInit {
           summary: "Now active! ",
           detail: "Share approved!"
         });
-        // grant a bonus
-        this.cleintService.getClientById(updatedInvestment.ClientId).subscribe(clientRes=>{
-          let client:Client = clientRes;
-          if(client.ClientId && client.ParentId){
-            let bonus:Bonus = {
-              Amount: updatedInvestment.Amount*BONUS_PERCENT,
-              ClientId: client.ParentId,
-              ParentId: updatedInvestment.ClientId,
-              CreateUserId:'SYS',
-              ModifyUserId: 'SYS',
-              StatusId: 1
+
+        //check if client have a parent
+        this.cleintService
+          .getClientById(updatedInvestment.ClientId)
+          .subscribe(clientRes => {
+            let client: Client = clientRes;
+            if (client.ClientId && client.ParentId) {
+              let bonus: Bonus = {
+                Amount: updatedInvestment.Amount * BONUS_PERCENT,
+                ClientId: client.ParentId,
+                ParentId: updatedInvestment.ClientId,
+                CreateUserId: "SYS",
+                ModifyUserId: "SYS",
+                StatusId: 1
+              };
+
+              // grant a bonus
+              this.bonusService.addBonus(bonus).subscribe(cli => {
+                let bunusReceiver: Client = cli;
+                this.messageService.add({
+                  severity: "success",
+                  summary: "Now active! ",
+                  detail: `Referral bonus of R ${updatedInvestment.Amount *
+                    BONUS_PERCENT}  granted to ${bunusReceiver.FirstName} ${
+                    bunusReceiver.Surname
+                  }`
+                });
+              });
             }
-            this.bonusService.addBonus(bonus).subscribe(bon=>{
-              
-            })
-          }
-        })
+          });
       }
     });
   }
 }
- 
