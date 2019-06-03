@@ -28,6 +28,11 @@
       margin: 0 auto;
       text-align: left;
       padding: 1% 5%;
+      
+      @media only screen and (max-width: 600px) {
+       font-size: 1rem;
+       font-weight: 400;
+      }
     }
 
     .link {
