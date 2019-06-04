@@ -2,18 +2,21 @@
   <div class="heading-container">
     <h1>
       <span class="heading-main">
-          Citgo oil share calculator.
+        Citgo oil share calculator.
       </span>
     </h1>
-    
   </div>
   <div class="col-1-of-2">
-    <form [formGroup]="rForm" (ngSubmit)="buy(rForm.value)" class="box form-group dashboard-forms">
+    <form
+      [formGroup]="rForm"
+      (ngSubmit)="buy(rForm.value)"
+      class="box form-group dashboard-forms"
+    >
       <div class="col-1-of-1">
         <div class="controls">
           <label for="">amount</label> <br />
-          <input type="number" class="input-field" formControlName="Amount" />
-          <div class="alert" *ngIf="!rForm.controls['Amount'].valid">
+          <input type="number" class="input-field" placeholder="enter buy amount" formControlName="Amount" />
+          <div class="alert" *ngIf="!rForm.controls['Amount'].valid && rForm.controls['Amount'].touched">
             Amount is required
           </div>
         </div>
@@ -27,10 +30,10 @@
             <option value="0">Month-to-month</option>
           </select>
           <div class="explain" *ngIf="explainContract">
-            <p class="explainContract">{{explainContract}}</p>
-            <p class="widrawalDay"> withdrawal date: {{widrawalDay}}</p>
+            <p class="explainContract">{{ explainContract }}</p>
+            <p class="widrawalDay">withdrawal date: {{ widrawalDay }}</p>
           </div>
-          <div class="alert" *ngIf="!rForm.controls['Capitalization'].valid">
+          <div class="alert" *ngIf="!rForm.controls['Capitalization'].valid && rForm.controls['Capitalization'].touched">
             Capitalization is requried
           </div>
         </div>
@@ -38,19 +41,28 @@
         <div class="controls">
           <label for="">period</label>
           <br />
-          <input type="text" class="input-field" formControlName="Period" disabled />
-          <div class="alert" *ngIf="!rForm.controls['Period'].valid">
+          <input
+            type="text"
+            class="input-field"
+            formControlName="Period"
+            disabled
+          />
+          <div class="alert" *ngIf="!rForm.controls['Period'].valid && rForm.controls['Period'].touched">
             period is requried
           </div>
         </div>
         <div class="controls">
           <label for="">rate</label> <br />
-          <input type="text" class="input-field" formControlName="Rate" disabled />
-          <div class="alert" *ngIf="!rForm.controls['Rate'].valid">
+          <input
+            type="text"
+            class="input-field"
+            formControlName="Rate"
+            disabled
+          />
+          <div class="alert" *ngIf="!rForm.controls['Rate'].valid && rForm.controls['Rate'].touched">
             Rate is requried
           </div>
         </div>
-
 
         <div class="controls">
           <!-- <input type="submit" value="invest now" class="button" [disabled]="!rForm.valid" /> -->
@@ -58,35 +70,29 @@
         <div class="controls">
           <h1>
             <span class="error">
-              {{error}}
+              {{ error }}
             </span>
           </h1>
         </div>
       </div>
 
-      <img *ngIf="loading" class="pl-2"
-        src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-
+      <img
+        *ngIf="loading"
+        class="pl-2"
+        src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+      />
     </form>
     <div class="graph">
-
       <p-chart type="line" [data]="data"></p-chart>
       <div class="data">
+        <p><b>Profit</b> : {{ profit | currency: "R" }}</p>
+        <p><b>Total share value</b> : {{ total | currency: "R" }}</p>
         <p>
-          <b>Profit</b> : {{profit | currency:'R'}}
+          <b>Withdrawable amount </b> : {{ widrawalDayAmount | currency: "R" }}
         </p>
-        <p>
-          <b>Total share value</b> : {{total | currency:'R'}}
-        </p>
-        <p>
-          <b>Withdrawable amount </b> : {{widrawalDayAmount | currency:'R'}}
-        </p>
-        <p>
-          <b>Withdrawal date</b>: {{widrawalDay}} 
-        </p>
-      </div> 
+        <p><b>Withdrawal date</b>: {{ widrawalDay }}</p>
+      </div>
     </div>
   </div>
   <!-- {{a | currency:'CAD'}} -->
-
 </div>

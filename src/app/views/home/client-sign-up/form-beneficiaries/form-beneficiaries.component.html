@@ -9,15 +9,15 @@
       <div class="col-1-of-2 ">
         <div class="controls">
           <label for="">NAME</label> <br />
-          <input type="text" class="input-field" formControlName="Name" />
-          <div class="alert" *ngIf="!rForm.controls['Name'].valid">
+          <input type="text" class="input-field" placeholder="enter name" formControlName="Name" />
+          <div class="alert" *ngIf="!rForm.controls['Name'].valid && rForm.controls['Name'].touched">
              NAME is requried
           </div>
         </div>
         <div class="controls">
           <label for="">SURNAME</label> <br />
-          <input type="text" class="input-field" formControlName="Surname" />
-          <div class="alert" *ngIf="!rForm.controls['Surname'].valid">
+          <input type="text" class="input-field" placeholder="enter surname" formControlName="Surname" />
+          <div class="alert" *ngIf="!rForm.controls['Surname'].valid && rForm.controls['Surname'].touched">
               SURNAME is requried
           </div>
         </div>
@@ -28,15 +28,15 @@
       <div class="col-1-of-2 ">
         <div class="controls">
           <label for="">ID NUMBER</label> <br />
-          <input type="text" class="input-field" formControlName="IDNumber" />
-          <div class="alert" *ngIf="!rForm.controls['IDNumber'].valid">
+          <input type="text" class="input-field" placeholder="enter id/passport number" formControlName="IDNumber" />
+          <div class="alert" *ngIf="!rForm.controls['IDNumber'].valid && rForm.controls['IDNumber'].touched">
               ID NUMBER is requried
           </div>
         </div>
         <div class="controls">
           <label for="">RELATION</label> <br />
-          <input type="text" class="input-field" formControlName="Relation" />
-          <div class="alert" *ngIf="!rForm.controls['Relation'].valid ">
+          <input type="text" class="input-field" placeholder="state relationship" formControlName="Relation" />
+          <div class="alert" *ngIf="!rForm.controls['Relation'].valid && rForm.controls['Relation'].touched">
               RELATION is requried
           </div>
         </div>

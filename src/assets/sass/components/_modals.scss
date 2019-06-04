@@ -1,3 +1,5 @@
+@import '../variables';
+
 .modal {
   position: absolute;
   left: 15%;
@@ -25,7 +27,7 @@
       margin: 0 auto;
 
       @media only screen and (max-width: 600px) {
-        width: 5rem;
+        width: 3rem;
       }
     }
 
@@ -46,4 +48,12 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+
+}
+
+@media only screen and (max-width: 600px) {
+  .account-modal {
+  background-color: $white-color;
+  background-image: none;
+  }
 }
