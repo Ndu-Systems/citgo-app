@@ -1,11 +1,58 @@
+@import "../../../../../assets/sass/variables";
+.main {
+  padding: 3%;
+  .clients {
+    .client {
+      padding: 1%;
+      background: #ffffff;
+      margin: 1%;
+      display: grid;
+      grid-template-columns: 10% 30% 20% 15% 10% 15%;
+      @media only screen and (max-width: 600px) {
+        grid-template-columns: 50% 50%;
+        padding: 2%;
+      }
 
-.main{
-    padding: 3%;
-    .clients {
-        .client {
-          padding: 1%;
-          background: #ffffff;
-          margin: 1%;
+      .prof-pic {
+        p {
+          padding: 0;
+          margin: 0;
+          font-size: 0.7rem;
+          margin-left: 1.8rem;
+          margin-top: -0.6rem;
         }
       }
+      .detail {
+        h1 {
+          font-size: 1.1rem;
+          text-align: left;
+          font-weight: 400;
+          margin-top: 2rem;
+
+          span {
+            display: block;
+            font-size: 0.7rem;
+            text-transform: capitalize;
+            text-align-last: left;
+          }
+
+          .active {
+            color: $green-light;
+          }
+        }
+      }
+      .more {
+        button {
+          background: #1871ca;
+          color: #ffffff;
+          padding: 0.7rem;
+          border: none;
+          border-radius: 0.4rem;
+          opacity: 0.3;
+          cursor: block;
+          margin-top: 2rem;
+        }
+      }
+    }
+  }
 }

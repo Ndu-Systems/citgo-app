@@ -1,19 +1,50 @@
 <div class="main">
-    <div class="shares" *ngIf="shares$|async as shares; else nodata">
-  <div class="share" *ngFor="let share  of shares">
-  
-    {{share.Amount}} {{share.Type}} <br>
-   <b> R {{share.CreateDate}}</b> <br>
-   <a href="{{share.DocumentUrl}}" target="_blank">View Attachment</a> <br>
-   <button class="btn" (click)="Approve(share)">Approve</button>
-  
-  </div>
+  <div class="shares" *ngIf="shares$|async as shares; else nodata">
+    <div class="share" *ngFor="let share  of shares">
+
+      <div class="detail">
+        <h1>
+          {{share.Amount | currency:'R'}} <br> 
+          <span>
+              {{share.CreateDate | date:'M/d/yy'}}
+          </span>
+        </h1>
+      </div>
+
+
+      <div class="detail">
+        <h1>
+          {{share.Type}}
+          <span>
+            Type
+          </span>
+        </h1>
+      </div>
+
+
+    
+
+      <div class="detail">
+        <h1 class="active">
+          Pending Confirmation
+          <span>
+              <a href="{{share.DocumentUrl}}" target="_blank">View Attachment</a>
+          </span>
+        </h1>
+      </div>
+    
+      <div class="more">
+        <button (click)="Approve(share)">Approve</button>
+      </div>
+
+
     </div>
-  
-    <ng-template #nodata>
-      <h1>
-        No data
-      </h1>
-    </ng-template>
+
   </div>
-  
+
+  <ng-template #nodata>
+    <h1>
+      No data
+    </h1>
+  </ng-template>
+</div>

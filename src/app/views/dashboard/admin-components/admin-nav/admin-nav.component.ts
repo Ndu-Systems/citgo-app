@@ -12,64 +12,15 @@ import { UserNotification } from 'src/app/models/processes/notification.process.
   styleUrls: ['./admin-nav.component.scss']
 })
 export class AdminNavComponent implements OnInit {
-
-  showBuyShares: boolean = false;
-  showOverlay: boolean = false;
-  client: Client; // full user structure
-  user: User; // pass role clientId
-
-  notifications = [];
-  showNotification: boolean = false;
-  constructor(
-    private routeTo: Router,
-    private authenticateService: AuthenticateService,
-    private documentsService: DocumentsService,
-    private cleintService: CleintService,
-    private notificationProcessService: NotificationProcessService
-  ) {}
-  hasDocs: boolean = true;
-  documents: any[] = [];
-  ngOnInit() {
-    this.user = this.authenticateService.currentUserValue;
-
-    this.documentsService
-      .getClientDocuments(this.user.ClientId)
-      .subscribe(r => {
-        this.documents = r;
-        if (this.documents.length < 0) {
-          this.hasDocs = false;
-        }
-      });
-
-    this.getUserDetails();
-
-    this.notificationProcessService.castNotificationProcess.subscribe(
-      process => {
-        this.notifications = process.notifications;
-      }
-    );
-  }
-  logout() {
-    this.authenticateService.logout();
-    this.routeTo.navigate(["/"]);
-  }
-
-
-
-
-  getUserDetails() {
-    this.cleintService.getClientById(this.user.ClientId).subscribe(r => {
-      this.client = r;
-    });
-  }
- 
-  closeNav(){
-    console.log('to do');
+  ngOnInit(): void {
     
   }
-  toggleBuyShares(){
-    console.log('to do');
-    
+  showMobileNav: boolean;
+  openMobileNav() {
+    this.showMobileNav = true;
+  }
+  closeMobileNav() {
+    this.showMobileNav = false;
   }
 
 

@@ -1,3 +1,11 @@
 .main{
     padding: 5%;
+    .col-1-of-2{
+        grid-template-columns: 60% 40%;
+        grid-gap: 1rem;
+
+        @media only screen and (max-width: 600px) {
+            grid-template-columns:100%;
+          }
+    }
 }

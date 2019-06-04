@@ -1,16 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="131" height="127" viewBox="0 0 131 127">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="98" height="94" viewBox="0 0 98 94">
   <defs>
-    <filter id="Ellipse_114" x="0" y="0" width="131" height="127" filterUnits="userSpaceOnUse">
+    <filter id="Ellipse_114" x="0" y="0" width="98" height="94" filterUnits="userSpaceOnUse">
       <feOffset input="SourceAlpha"/>
-      <feGaussianBlur stdDeviation="11" result="blur"/>
+      <feGaussianBlur stdDeviation="5.5" result="blur"/>
       <feFlood flood-opacity="0.161"/>
       <feComposite operator="in" in2="blur"/>
       <feComposite in="SourceGraphic"/>
     </filter>
   </defs>
-  <g id="user-female" transform="translate(-1710 -24)">
-    <g transform="matrix(1, 0, 0, 1, 1710, 24)" filter="url(#Ellipse_114)">
-      <ellipse id="Ellipse_114-2" data-name="Ellipse 114" cx="32.5" cy="30.5" rx="32.5" ry="30.5" transform="translate(33 33)" fill="#fff"/>
+  <g id="user-female" transform="translate(-1726.5 -40.5)">
+    <g transform="matrix(1, 0, 0, 1, 1726.5, 40.5)" filter="url(#Ellipse_114)">
+      <ellipse id="Ellipse_114-2" data-name="Ellipse 114" cx="32.5" cy="30.5" rx="32.5" ry="30.5" transform="translate(16.5 16.5)" fill="#fff"/>
     </g>
     <g id="girl-HJY6nanoE" transform="translate(1761.654 71.762)" opacity="0.68">
       <g id="Group_95" data-name="Group 95" transform="translate(0 0)">

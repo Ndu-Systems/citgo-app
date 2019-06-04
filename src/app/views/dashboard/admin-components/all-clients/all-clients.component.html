@@ -2,14 +2,49 @@
   <div class="clients" *ngIf="clients$|async as clients; else nodata">
 <div class="client" *ngFor="let client  of clients">
   <div class="prof-pic">
-    <img src="assets/images/dashboard/admin/user-female.svg" alt="">
+    <img *ngIf="client.Gender=='Female'" src="assets/images/dashboard/admin/user-female.svg" alt="">
+    <img *ngIf="client.Gender=='Male'" src="assets/images/dashboard/admin/user-male.svg" alt="">
     <p>
-      {{client.CreateDate}}
+      {{client.CreateDate  | date:'M/d/yy'}}
     </p>
   </div>
+<div class="detail">
+  <h1>
+    {{client.FirstName}} {{client.Surname}}
+    <span>
+      Full Name
+    </span>
+  </h1>
+</div>
 
-  {{client.FirstName}} {{client.Surname}} <br>
- <b> R {{client.Shares}}</b> <br>
+<div class="detail">
+  <h1>
+     {{client.Shares}}
+    <span>
+      Amount invested
+    </span>
+  </h1>
+</div>
+
+<div class="detail">
+  <h1>
+     {{client.NumberOfShares}}
+    <span>
+      Invested shares
+    </span>
+  </h1>
+</div>
+<div class="detail">
+  <h1 class="active">
+    Active
+    <span>
+      Status
+    </span>
+  </h1>
+</div>
+ <div class="more">
+   <button>View more</button>
+ </div>
 
 </div>
   </div>
