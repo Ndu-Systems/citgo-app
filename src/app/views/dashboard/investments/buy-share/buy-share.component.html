@@ -19,7 +19,7 @@
             <label for="">Share amount</label> <br />
             <input type="number" class="input-field" formControlName="Amount" />
             <div class="alert" *ngIf="!rForm.controls['Amount'].valid">
-              Share name is requried
+                Share amount must be between R5000 and R200000.
             </div>
           </div>
 
@@ -34,9 +34,17 @@
           <div class="controls">
             <label for="">Period type</label> <br />
             <select class="input-field" formControlName="Type">
-              <option value="Month-to-month"> Month-To-Month</option>
-              <option value="Yearly"> Yearly</option>
+                <option value="12">12 Months contaract</option>
+                <option value="6">6 Months contaract</option>
+                <option value="3">3 Months contaract</option>
+                <option value="0">Month-to-month</option>
             </select>
+            <div class="explain" *ngIf="explainContract">
+                <p class="explainContract">{{ explainContract }}</p>
+                <p class="widrawalDay">withdrawal date: {{ widrawalDay }}</p>
+                <p> <b>Withdrawable amount </b> : {{ widrawalDayAmount | currency: "R" }}</p>
+              </div>
+        
             <div class="alert" *ngIf="!rForm.controls['Type'].valid">
               Type is requried
             </div>

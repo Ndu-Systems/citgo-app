@@ -59,7 +59,7 @@
   background: $green-light;
 
   &:disabled {
-    color: $white-color;
+   opacity: .3;
     &:hover {
       background: $green-light;
       color: $white-color;
@@ -80,4 +80,9 @@
 
 @media only screen and (max-width: 600px) {
   // display: none;
+}
+
+.explainContract {
+  color: #3498db;
+  letter-spacing: 0ch;
 }

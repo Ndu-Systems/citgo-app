@@ -1,16 +1,15 @@
-@import '../../../../assets/sass/variables';
+@import "../../../../assets/sass/variables";
 
 .index {
   background: #4a235a;
-  background-image: url('../../../../assets/images/home/background-home.png');
+  background-image: url("../../../../assets/images/home/background-home.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position-x: center;
   margin: -22.22rem 0px;
   padding: 9% 0rem;
 
-
-  @media screen and (max-width:600px) {
+  @media screen and (max-width: 600px) {
     padding: 0;
     margin-bottom: 4rem;
   }
@@ -27,8 +26,6 @@
     .account {
       text-transform: uppercase;
 
-
-
       h1 {
         font-weight: 400;
       }
@@ -36,14 +33,14 @@
       .access {
         text-align: center;
         font-size: 0.4444rem;
-        color: #AEA2A2;
+        color: #aea2a2;
       }
 
       .login.container-col-1-of-3 {
         grid-gap: 0;
         text-align: left;
         margin: auto;
-        color: #FFFFFF;
+        color: #ffffff;
 
         img {
           height: 3rem;
@@ -59,7 +56,6 @@
       @media only screen and (max-width: 600px) {
         display: none;
       }
-
     }
 
     .menu {
@@ -72,7 +68,6 @@
         @media only screen and (max-width: 600px) {
           display: none;
         }
-
       }
     }
 
@@ -90,15 +85,13 @@
       }
     }
 
-    @media screen and (max-width:600px) {
+    @media screen and (max-width: 600px) {
       header {
         &.container-col-1-of-3 {
           grid-template-columns: repeat(2, auto);
         }
       }
-
     }
-
   }
 }
 
@@ -108,8 +101,7 @@
 
   @media only screen and (max-width: 600px) {
     margin: 0;
-    padding-top: 20rem;
-
+    
   }
 
   h1 {
@@ -118,7 +110,10 @@
     padding: 2rem;
     text-transform: uppercase;
     letter-spacing: 0.5rem;
-
+    @media only screen and (max-width: 600px) {
+      text-align: center;
+      padding-top: 0;
+    }
 
     .sub {
       font-size: 2.5rem;
@@ -153,11 +148,10 @@
     }
   }
 
-  @media screen and (max-width:600px) {
+  @media screen and (max-width: 600px) {
     margin: 0;
 
     h1 {
-
       margin: 10rem 0px;
       margin-bottom: 0;
       padding: 1rem;
@@ -172,9 +166,8 @@
       }
 
       .percent {
-        font-size: .77rem;
+        font-size: 0.77rem;
       }
-
     }
 
     .cta {
@@ -191,8 +184,6 @@
         margin-bottom: 4rem;
       }
     }
-
-
   }
 }
 
@@ -219,8 +210,7 @@
     }
   }
 
-
-  @media screen and (max-width:600px) {
+  @media screen and (max-width: 600px) {
     display: none;
   }
 }
@@ -233,7 +223,7 @@
   background: $white-color;
   box-shadow: 10px 10px 34px 6px rgba(92, 92, 92, 0.2);
 
-  @media screen and (max-width:600px) {
+  @media screen and (max-width: 600px) {
     width: 95%;
   }
 }
