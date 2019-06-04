@@ -1,4 +1,4 @@
-@import '../../../../../assets/sass/variables';
+@import "../../../../../assets/sass/variables";
 
 .modal {
   left: 30%;
@@ -26,11 +26,32 @@
         /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0652dd+40,0652dd+64,0652dd+64,064bd6+74,8928e8+100 */
         background: #0652dd;
         /* Old browsers */
-        background: -moz-linear-gradient(left, #0652dd 40%, #0652dd 64%, #0652dd 64%, #064bd6 74%, #8928e8 100%);
+        background: -moz-linear-gradient(
+          left,
+          #0652dd 40%,
+          #0652dd 64%,
+          #0652dd 64%,
+          #064bd6 74%,
+          #8928e8 100%
+        );
         /* FF3.6-15 */
-        background: -webkit-linear-gradient(left, #0652dd 40%, #0652dd 64%, #0652dd 64%, #064bd6 74%, #8928e8 100%);
+        background: -webkit-linear-gradient(
+          left,
+          #0652dd 40%,
+          #0652dd 64%,
+          #0652dd 64%,
+          #064bd6 74%,
+          #8928e8 100%
+        );
         /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(to right, #0652dd 40%, #0652dd 64%, #0652dd 64%, #064bd6 74%, #8928e8 100%);
+        background: linear-gradient(
+          to right,
+          #0652dd 40%,
+          #0652dd 64%,
+          #0652dd 64%,
+          #064bd6 74%,
+          #8928e8 100%
+        );
         /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0652dd', endColorstr='#8928e8', GradientType=1);
         /* IE6-9 */
@@ -47,7 +68,6 @@
         }
       }
     }
-
     .forgotPassword {
       h1 {
         float: left;
@@ -57,20 +77,29 @@
         font-weight: 500;
         cursor: pointer;
         display: block;
-
-@media only screen and (max-width: 600px) {
-  padding:0;
-
-}
+    
+        @media only screen and (max-width: 600px) {
+          padding: 0;
+          float: initial;
+          color: black;
+          font-size: 1rem;
+          display: block;
+          text-transform: uppercase;
+           .text {
+            display: block;
+            font-size: 0.777rem;
+            font-weight: 400;
+            margin-bottom: 0rem;
+            color: gray;
+            text-transform: initial;
+            }
+        }
       }
     }
-
   }
 }
 
-
 @media only screen and (max-width: 600px) {
-
   .modal {
     width: 100%;
     left: 0;
@@ -78,10 +107,34 @@
     height: 100%;
 
     .modal-header .close-btn {
-      position: absolute;
-      top: 2rem;
-      right: 4rem;
+      margin: 1rem 0;
       cursor: pointer;
+    }
+    .popup-body {
+      h1 {
+        color: black;
+        font-size: 1.444rem;
+        font-weight: 500;
+        text-transform: uppercase;
+      }
+
+      .dashboard-forms {
+        .button {
+          font-size: 1.2rem;
+          margin: 0 auto;
+          float: unset;
+          letter-spacing: 0;
+          font-weight: 500;
+          padding: 1rem;
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+    .col-1-of-1 {
+      margin-bottom: 0;
+      grid-gap: 0;
     }
   }
 }
+
