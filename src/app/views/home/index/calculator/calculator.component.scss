@@ -1,4 +1,4 @@
-@import '../../../../../assets/sass/variables';
+@import "../../../../../assets/sass/variables";
 
 .index-container {
   // padding: 0;
@@ -7,18 +7,15 @@
   // margin-bottom: 5rem;
   // background: $white-color;
 
-
   .col-1-of-2 {
     grid-template-columns: 30% auto;
 
     @media only screen and (max-width: 600px) {
       grid-template-columns: 100%;
-
     }
   }
 
   .form-group {
-
     .controls {
       margin: 2rem 0;
     }
@@ -57,10 +54,6 @@
   // }
 }
 
-.alert {
-  color: rgb(58, 6, 59);
-}
-
 .explainContract {
   color: #3498db;
   letter-spacing: 0ch;
@@ -69,7 +62,6 @@
 .widrawalDay {
   color: #440082;
   letter-spacing: 0ch;
-
 }
 
 @media only screen and (max-width: 600px) {
@@ -83,6 +75,52 @@
         font-size: 1.11111rem;
         color: #440082;
         font-weight: 600;
+      }
+    }
+  }
+
+  .index-container {
+    .dashboard-forms {
+      padding: 0 2rem;
+      .button {
+        float: initial;
+        color: $purple-dark-color;
+        &:disabled {
+          cursor: no-drop;
+          color: #999595;
+        }
+      }
+
+      .small-nav .nav {
+        text-align: left;
+        background: $blue-gray-color;
+        border-radius: 10rem;
+        margin-bottom: 2rem;
+      }
+
+      input::placeholder {
+        color: $gray-color;
+        font-weight: 700;
+        margin-left: 3rem;
+      }
+      .col-1-of-2 {
+        -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
+        grid-gap: 0rem;
+      }
+
+      label {
+        display: none;
+      }
+
+      .input-field {
+        font-size: 1rem;
+        box-shadow: none;
+      }
+    }
+    .form-group {
+      .controls {
+        margin: 0;
       }
     }
   }

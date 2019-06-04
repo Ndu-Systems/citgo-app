@@ -110,7 +110,17 @@ nav {
 @media only screen and (max-width: 600px) {
   nav {
     width: 100%;
-
+    .close-btn {
+    
+      height: 1.5rem;
+    }
+  
+    .logo {
+      height: 2rem;
+      float: left;
+      opacity: 0;
+    }
+  
     ul {
       padding-top: 3rem;
       grid-template-columns: repeat(1);
@@ -123,7 +133,7 @@ nav {
         margin: 2rem 0;
 
         a {
-          font-size: 1.555rem;
+          font-size: 1.222rem;
         }
       }
 

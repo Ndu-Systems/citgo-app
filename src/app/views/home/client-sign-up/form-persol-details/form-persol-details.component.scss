@@ -1,3 +1,5 @@
+@import "../../../../../assets/sass/variables";
+
 jj {
   text-align: center;
 }
@@ -6,4 +8,41 @@ jj {
   width: 100%;
   text-align: center;
   font-weight: 600;
+}
+@media only screen and (max-width: 600px) {
+  .modal {
+    padding: 0 2rem;
+  }
+  .dashboard-forms {
+    .button {
+      float: initial;
+      color: $purple-dark-color;
+      &:disabled {
+        cursor: no-drop;         
+        color: #999595;
+      }
+    }
+
+    .small-nav .nav {
+      text-align: left;
+      background: $blue-gray-color;
+      border-radius: 10rem;
+      margin-bottom: 2rem;
+    }
+
+    input::placeholder {
+      color: $gray-color;
+      font-weight: 700;
+      margin-left: 3rem;
+    }
+    .col-1-of-2 {
+      -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
+      grid-gap: 0rem;
+    }
+
+    label {
+      display: none;
+    }
+  }
 }
