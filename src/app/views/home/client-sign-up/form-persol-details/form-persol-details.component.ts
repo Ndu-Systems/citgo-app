@@ -11,7 +11,7 @@ import {
 } from "src/app/shared/config";
 import { EmailService } from "src/app/services/shared-services/email/email.service";
 import { ConfirmationService } from 'primeng/api';
-import { AccountService, UserService } from 'src/app/services';
+import { AccountService, UserService, LoginProcessService } from 'src/app/services';
 
 @Component({
   selector: "app-form-persol-details",
@@ -34,6 +34,7 @@ export class FormPersolDetailsComponent implements OnInit {
     private emailService: EmailService,
     private userService: UserService,
     private signUpProcessService: SignUpProcessService,
+    private loginProcess: LoginProcessService,
     private confirmationService: ConfirmationService
   ) { }
 
@@ -127,5 +128,10 @@ export class FormPersolDetailsComponent implements OnInit {
       this.showVerificationEmailSent = true;
       this.progress = `To ensure that your email account is valid, we have sent you an email to  ${email} to  verify your account,  please check your mailbox`;
     });
+  }
+
+  openSignIn(){
+    this.signUpProcessService.closeAllSignUpForms();
+    this.loginProcess.showLogin();
   }
 }

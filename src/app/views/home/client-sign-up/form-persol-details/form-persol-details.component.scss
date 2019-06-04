@@ -18,7 +18,7 @@ jj {
       float: initial;
       color: $purple-dark-color;
       &:disabled {
-        cursor: no-drop;         
+        cursor: no-drop;
         color: #999595;
       }
     }
@@ -43,6 +43,33 @@ jj {
 
     label {
       display: none;
+    }
+  }
+  .step-number {
+    text-align: center;
+    color: $black-color;
+  }
+}
+.to-sign-in {
+  padding: 1rem;
+  h1 {
+    cursor: pointer;
+    
+    @media only screen and (max-width: 600px) {
+      padding: 0;
+      float: initial;
+      color: black;
+      font-size: 1rem;
+      display: block;
+      text-transform: uppercase;
+       .text {
+        display: block;
+        font-size: 0.777rem;
+        font-weight: 400;
+        margin-bottom: 0rem;
+        color: gray;
+        text-transform: initial;
+        }
     }
   }
 }

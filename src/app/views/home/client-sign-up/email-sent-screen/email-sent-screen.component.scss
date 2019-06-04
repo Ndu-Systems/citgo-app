@@ -20,6 +20,11 @@
       width: 100%;
       padding: 2%;
       text-align: left;
+      @media only screen and (max-width: 600px) {
+        img {
+          height: 3rem;
+        }
+      }
     }
 
     h1 {
@@ -32,6 +37,8 @@
       @media only screen and (max-width: 600px) {
        font-size: 1rem;
        font-weight: 400;
+       margin: 2rem auto;
+       line-height: 1.7rem;
       }
     }
 
@@ -61,4 +68,10 @@
       }
     }
   }
+}
+
+
+@media only screen and (max-width: 600px) { 
+
+
 }

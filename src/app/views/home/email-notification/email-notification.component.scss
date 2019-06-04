@@ -24,14 +24,29 @@
             position: absolute;
             top: 3rem;
         }
+
+          
+        @media only screen and (max-width: 600px) {
+         img {
+           position: relative;
+           height: 3rem;
+         }  
+         }
       }
   
       h1 {
-        font-weight: 300;
+        font-weight: 100;
         width: 80%;
         margin: 0 auto;
         text-align: left;
         padding: 1% 5%;
+        
+        @media only screen and (max-width: 600px) {
+         font-size: 1rem;
+         font-weight: 400;
+         margin: 4rem auto;
+         line-height: 1.7rem;
+        }
       }
   
       .link {
