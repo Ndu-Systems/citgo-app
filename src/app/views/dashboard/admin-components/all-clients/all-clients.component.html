@@ -1,6 +1,12 @@
 <div class="main">
   <div class="clients" *ngIf="clients$|async as clients; else nodata">
 <div class="client" *ngFor="let client  of clients">
+  <div class="prof-pic">
+    <img src="assets/images/dashboard/admin/user-female.svg" alt="">
+    <p>
+      {{client.CreateDate}}
+    </p>
+  </div>
 
   {{client.FirstName}} {{client.Surname}} <br>
  <b> R {{client.Shares}}</b> <br>
