@@ -1,7 +1,5 @@
 @import "../../../../../assets/sass/variables";
-*{
-  // width: 100%;
-}
+ 
 
 .modal {
   padding: .5rem;
@@ -33,6 +31,10 @@
     label {
       color: black;
     }
+    .col-1-of-1 {
+      grid-gap: 0;
+      margin-bottom: 0;
+    }
     @media only screen and (max-width: 600px) {
       padding: 0 2rem;
     }
@@ -51,13 +53,16 @@
   font-size: 1.5rem;
   font-weight: 400;
   color: #192a56;
-
-  box-shadow: -3px 0px 8px 0px rgba(0, 0, 0, 0.55);
+  background: $blue-gray-color;
+  // box-shadow: -3px 0px 8px 0px rgba(0, 0, 0, 0.55);
 }
 
 .button {
   background: $green-light;
 
+  &:hover {
+    border-bottom: 0;
+  }
   &:disabled {
    opacity: .3;
     &:hover {

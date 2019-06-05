@@ -3,27 +3,27 @@
     <div class="col-1-of-2">
       <div class="col-1-of-4 share-info">
         <div class="icon">
-          <img src="assets/images/dashboard/share-icon.svg" alt="">
+          <img src="assets/images/dashboard/share-icon.svg" alt="" />
         </div>
         <div class="info">
           <h1>
-            {{investment[0].Name}}
+            {{ investment[0].Name }}
           </h1>
           <h1>
-            <span class="{{investment[0].Status}}">
-              {{investment[0].Status}}
+            <span class="{{ investment[0].Status }}">
+              {{ investment[0].Status }}
             </span>
           </h1>
         </div>
         <div class="info">
           <h1>
-            {{investment[0].Type}}
+            {{ investment[0].Type }}
             <span>
               Type
             </span>
           </h1>
           <h1>
-            {{investment[0].Amount}}
+            {{ investment[0].Amount }}
             <span>
               Type
             </span>
@@ -31,7 +31,7 @@
         </div>
         <div class="info">
           <h1>
-            {{investment[0].InvestmentDate| date:'mediumDate'}}
+            {{ investment[0].InvestmentDate | date: "mediumDate" }}
             <span>
               Investment date
             </span>
@@ -42,26 +42,66 @@
     </div>
   </div>
   <div class="tabs">
-    <input type="radio" id="tab1" name="tab-control" checked>
-    <input type="radio" id="tab2" name="tab-control">
+    <input type="radio" id="tab1" name="tab-control" checked />
+    <input type="radio" id="tab2" name="tab-control" />
     <ul>
-      <li title="Features"><label for="tab1" role="button"><br><span>Transactions</span></label></li>
-      <li title="Delivery Contents"><label for="tab2" role="button"><span>Documents</span></label></li>
+      <li title="Features">
+        <label for="tab1" role="button"><br /><span>Transactions</span></label>
+      </li>
+      <li title="Delivery Contents">
+        <label for="tab2" role="button"><span>Documents</span></label>
+      </li>
     </ul>
     <div class="slider">
       <div class="indicator"></div>
     </div>
     <div class="content">
       <section>
-        <h2>Features</h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea dolorem sequi, quo tempore
-        in eum obcaecati atque quibusdam officiis est dolorum minima deleniti ratione molestias numquam.
-        Voluptas voluptates quibusdam cum?
+        <h1>
+          <span class="notification">
+            no transactions available
+          </span>
+        </h1>
       </section>
       <section>
-        <h2>Delivery Contents</h2>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem quas adipisci a accusantium eius ut
-        voluptatibus ad impedit nulla, ipsa qui. Quasi temporibus eos commodi aliquid impedit amet, similique
-        nulla.
+        <div class="cards" *ngIf="investment[0].DocumentId; else noDocuments">
+          <div class="card" *ngFor="let doc of investment">
+            <img
+              src="assets/images/dashboard/bank-starement.svg"
+              alt="share-icon"
+            />
+            <h1>
+              {{ doc.DocumentName }}
+              <span class="text">
+                description
+              </span>
+            </h1>
+            <h1>
+              Bank Document
+              <span class="text">
+                type
+              </span>
+            </h1>
+            <h1>
+              {{ doc.UploadedDate | date: "mediumDate" }}
+              <span class="text">
+                upload date
+              </span>
+            </h1>
+            <a href="{{ doc.DocumentUrl }}" class="button" target="_blank">
+              <h1>
+                Open
+              </h1> 
+            </a>
+          </div>
+        </div>
+        <ng-template #noDocuments>
+          <h1>
+            <span class="notification">
+              no documents uploaded
+            </span>
+          </h1>
+        </ng-template>
       </section>
     </div>
   </div>

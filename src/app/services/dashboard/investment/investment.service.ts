@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Investment } from "src/app/models";
+import { Investment, InvestmentDocument } from "src/app/models";
 
 import { API_URL } from "src/app/shared/config";
 import { HttpClient } from "@angular/common/http";
@@ -52,7 +52,7 @@ export class InvestmentService {
     );
   }
   //get single investment with docs by id
-  getInvestmentsandDocumentsById(InvestmentId): Observable<Investment> {
+  getInvestmentsandDocumentsById(InvestmentId): Observable<InvestmentDocument> {
     return this.httpClient.get<any>(
       `${this.url}/api/investments/get-investment-and-documents-by-id.php?InvestmentId=${InvestmentId}`
     );
