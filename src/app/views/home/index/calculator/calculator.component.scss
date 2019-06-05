@@ -6,7 +6,13 @@
   // margin: -70px auto;
   // margin-bottom: 5rem;
   // background: $white-color;
-
+  .heading-container {
+    padding: 4rem 2rem;
+  }
+  .col-1-of-1 {
+    grid-gap: 0;
+    margin-bottom: 0;
+  }
   .col-1-of-2 {
     grid-template-columns: 30% auto;
 
@@ -17,7 +23,7 @@
 
   .form-group {
     .controls {
-      margin: 2rem 0;
+      margin: 1rem 0;
     }
   }
 
@@ -27,9 +33,10 @@
     .input-field {
       font-size: 1.3rem;
       font-weight: 400;
-      box-shadow: 10px 10px 34px 6px rgba(92, 92, 92, 0.1);
+      // box-shadow: 10px 10px 34px 6px rgba(92, 92, 92, 0.1);
       padding: 1.3rem;
       border-radius: 1.5rem;
+      background: $blue-gray-color;
     }
 
     .button {
@@ -43,6 +50,7 @@
 
     label {
       color: $primary-color;
+      text-transform: capitalize;
     }
   }
 }
@@ -65,21 +73,21 @@
 }
 
 @media only screen and (max-width: 600px) {
-  .heading-container {
-    padding: 0;
-    background: transparent;
-    h1 {
-      size: 2rem;
+  .index-container {
+    .heading-container {
+      padding: 0 2rem;
+      background: transparent;
+      h1 {
+        size: 2rem;
 
-      .heading-main {
-        font-size: 1.11111rem;
-        color: #440082;
-        font-weight: 600;
+        .heading-main {
+          font-size: 1.11111rem;
+          color: #440082;
+          font-weight: 600;
+        }
       }
     }
-  }
 
-  .index-container {
     .dashboard-forms {
       padding: 0 2rem;
       .button {
