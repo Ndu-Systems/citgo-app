@@ -108,7 +108,7 @@ export class BuyShareComponent implements OnInit {
     //check 
 
     if(this.investmentsList.filter(x=>x.StatusId==2).length >0){
-      this.messageService.add({severity:'warn', summary:'Sorry!', detail:'You can not buy shares while you have pending shares'});
+      this.messageService.add({ life:7000,severity:'warn', summary:'Sorry!', detail:'You can not buy shares while you have pending shares'});
        this.closeModal();
     }
 

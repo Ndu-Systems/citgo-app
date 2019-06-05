@@ -51,6 +51,7 @@ export class ProfitComponent implements OnInit {
 
   selectData(event) {
     this.messageService.add({
+      life:7000,
       severity: "info",
       summary: "Data Selected",
       detail: this.data.datasets[event.element._datasetIndex].data[

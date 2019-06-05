@@ -1,15 +1,10 @@
 import { Component, OnInit } from "@angular/core";
-import { Client, ExitModalEventEmmiter } from "src/app/models";
 import { User } from "src/app/models/user";
 import { Router } from "@angular/router";
 import {
   AuthenticateService,
-  DocumentsService,
-  CleintService,
-  NotificationProcessService
+  CleintService
 } from "src/app/services";
-import { WEB_HOST, REFERALLINK } from "src/app/shared/config";
-import { UserNotification } from "src/app/models/processes/notification.process.model";
 
 @Component({
   selector: "app-admin-nav",
@@ -19,9 +14,11 @@ import { UserNotification } from "src/app/models/processes/notification.process.
 export class AdminNavComponent implements OnInit {
   client;
   user: User;
+  showOverlay;
   constructor(
     private authenticateService: AuthenticateService,
-    private cleintService: CleintService
+    private cleintService: CleintService,
+    private routeTo:Router
   ) {
     this.user = this.authenticateService.currentUserValue;
   }
@@ -36,5 +33,9 @@ export class AdminNavComponent implements OnInit {
   }
   closeMobileNav() {
     this.showMobileNav = false;
+  }
+  logout() {
+    this.authenticateService.logout();
+    this.routeTo.navigate(["/"]);
   }
 }

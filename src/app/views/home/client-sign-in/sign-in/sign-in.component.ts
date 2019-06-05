@@ -1,3 +1,4 @@
+import { MessageService } from 'primeng/api';
 import { SignUpProcessService } from "src/app/services/app-state/sign-up-process.service";
 import { Component, OnInit, EventEmitter, Output } from "@angular/core";
 import {
@@ -26,19 +27,20 @@ export class SignInComponent implements OnInit {
     private routeTo: Router,
     private loginService: AuthenticateService,
     private loginProcess: LoginProcessService,
-    private signUpProcessService: SignUpProcessService
+    private signUpProcessService: SignUpProcessService,
+    private messageService:MessageService
   ) {}
 
   ngOnInit() {
     this.rForm = this.fb.group({
       email: new FormControl(
-        "magwaza@mail.com",
+        "",
         Validators.compose([
           Validators.required,
           Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$")
         ])
       ),
-      password: ["pass", Validators.required]
+      password: ["", Validators.required]
     });
   }
   closeModal() {
@@ -50,10 +52,6 @@ export class SignInComponent implements OnInit {
     return this.rForm.controls;
   }
 
-  signIn() {
-    this.loading = true;
-    this.routeTo.navigate(["dashboard"]);
-  }
   get formValues() {
     return this.rForm.controls;
   }
@@ -64,12 +62,11 @@ export class SignInComponent implements OnInit {
       .loginUser(this.formValues.email.value, this.formValues.password.value)
       .pipe(first())
       .subscribe(response => {
-        if (response) {
-          // this.router.navigate(["/dashboard"]);
+        if (response.UserId) {
           this.routeTo.navigate(["/dashboard"]);
-          // this.spinnerService.hideSpinner();
         } else {
-          this.error = response;
+          // this.error = response;
+          this.messageService.add({ life:7000,severity:'warn', summary: 'access denied!', detail:'Please make sure you enter your email address and password correctly'});
         }
       });
   }

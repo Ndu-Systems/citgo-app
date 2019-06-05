@@ -35,6 +35,7 @@ export class ToActionComponent implements OnInit {
       let updatedInvestment: Investment = res;
       if (updatedInvestment.StatusId == SHARE_ACTIVE) {
         this.messageService.add({
+          life: 7000,
           severity: "success",
           summary: "Now active! ",
           detail: "Share approved!"
@@ -46,6 +47,9 @@ export class ToActionComponent implements OnInit {
           .subscribe(clientRes => {
             let client: Client = clientRes;
             if (client.ClientId && client.ParentId) {
+
+              //update the current list
+
               let bonus: Bonus = {
                 Amount: updatedInvestment.Amount * BONUS_PERCENT,
                 ClientId: client.ParentId,
@@ -59,6 +63,7 @@ export class ToActionComponent implements OnInit {
               this.bonusService.addBonus(bonus).subscribe(cli => {
                 let bunusReceiver: Client = cli;
                 this.messageService.add({
+                  life: 7000,
                   severity: "success",
                   summary: "Now active! ",
                   detail: `Referral bonus of R ${updatedInvestment.Amount *
