@@ -14,25 +14,27 @@ export interface Investment {
     StatusId: number;
     ClientId?: string;
 }
-
-
-export interface InvestmentDocument {
-    InvestmentId: string;
-    ClientId: string;
-    Amount: string;
-    Profit: string;
-    Total: string;
-    Name: string;
-    Type: string;
-    InvestmentDate: string;
-    CreateDate: string;
-    CreateUserId: string;
-    ModifyDate: string;
-    ModifyUserId: string;
-    StatusId: string;
-    DocumentId: string;
-    DocumentCode: string;
-    DocumentName: string;
-    DocumentUrl: string;
-}
-
+ 
+    export interface InvestmentDocument {
+        InvestmentId?: string;
+        ClientId?: string;
+        Amount?: string;
+        Profit?: string;
+        Total?: string;
+        Name?: string;
+        Type?: string;
+        InvestmentDate?: string;
+        CreateDate?: any;
+        CreateUserId?: any;
+        ModifyDate?: any;
+        ModifyUserId?: any;
+        StatusId?: any;
+        DocumentId?: any;
+        DocumentCode?: any;
+        DocumentName?: any;
+        DocumentUrl?: any;
+        Status?: string;
+        UploadedDate?: any;
+        DocStatus?: string;
+    }
+  

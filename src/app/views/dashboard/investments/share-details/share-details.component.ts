@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { InvestmentService } from 'src/app/services';
 import { Observable } from 'rxjs';
-import { Investment } from 'src/app/models';
+import { Investment, InvestmentDocument } from 'src/app/models';
 
 @Component({
   selector: 'app-share-details',
@@ -11,8 +11,9 @@ import { Investment } from 'src/app/models';
 })
 export class ShareDetailsComponent implements OnInit {
 
-  investment:Investment;
+  investment:InvestmentDocument;
   investmentId: any;
+  
   constructor(
     private activatedRoute: ActivatedRoute,
     private investmentService: InvestmentService
@@ -21,10 +22,9 @@ export class ShareDetailsComponent implements OnInit {
       this.investmentId = r["id"];
     });
   }
-
   ngOnInit() {
    this.investmentService.getInvestmentsandDocumentsById(this.investmentId).subscribe(inv=>{
-     this.investment = inv;
+    this.investment = inv;      
    })
   }
 

@@ -1,4 +1,4 @@
-@import '../../../../../assets/sass/variables';
+@import "../../../../../assets/sass/variables";
 
 .main {
   padding: 6% 12%;
@@ -9,6 +9,15 @@
     text-transform: capitalize;
     font-weight: 400;
     padding-bottom: 1rem;
+
+    .notification {
+      font-size: 0.8rem;
+      padding: 1rem;
+      background: $orange-color;
+      border-radius: 0.5rem;
+      font-weight: 300;
+      color: $white-color;
+    }
   }
 
   .banner {
@@ -18,7 +27,7 @@
 
     .col-1-of-2 {
       grid-gap: 1rem;
-   
+
       .col-1-of-4 {
         grid-template-columns: repeat(4, 25%);
         grid-gap: 0rem;
@@ -44,8 +53,49 @@
             }
           }
         }
-
       }
     }
-  } 
+  }
+
+  .cards {
+    grid-template-columns: 100%;
+    .card {
+      grid-template-columns: 10% 30% 30% 20% 10%;
+      margin: 0;
+      padding: 0 1rem;
+      img {
+        height: 5.55555rem;
+      }
+      h1 {
+        font-size: 1rem;
+        padding-bottom: 0;
+        .text {
+          font-size: 0.666rem;
+          text-transform: uppercase;
+          font-weight: 400;
+          margin: 0.5rem 0;
+        }
+      }
+      a {
+        h1 {
+          color: $white-color;
+          text-align: center;
+        }
+        &:hover {
+          color: $white-color;
+        }
+      }
+      .button {
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        letter-spacing: normal;
+        text-transform: capitalize;
+        height: 3rem;
+        border-radius: 5px;
+        margin-top: 1rem;
+        background: $green-color;
+      }
+    }
+  }
 }

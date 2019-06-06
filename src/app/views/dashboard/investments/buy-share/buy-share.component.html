@@ -18,7 +18,7 @@
           <div class="controls">
             <label for="">Share amount</label> <br />
             <input type="number" class="input-field" formControlName="Amount" />
-            <div class="alert" *ngIf="!rForm.controls['Amount'].valid">
+            <div class="alert" *ngIf="!rForm.controls['Amount'].valid && rForm.controls['Amount'].touched">
                 Share amount must be between R5000 and R200000.
             </div>
           </div>
@@ -45,7 +45,7 @@
                 <p> <b>Withdrawable amount </b> : {{ widrawalDayAmount | currency: "R" }}</p>
               </div>
         
-            <div class="alert" *ngIf="!rForm.controls['Type'].valid">
+            <div class="alert" *ngIf="!rForm.controls['Type'].valid && rForm.controls['Type'].touched">
               Type is requried
             </div>
           </div>
