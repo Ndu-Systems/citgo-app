@@ -2,7 +2,10 @@
 
 .main {
   padding: 6% 12%;
-
+  .col-1-of-2 {
+    grid-template-columns: 40% auto;
+    grid-gap: 0;
+  }
   h1 {
     font-size: 1.777rem;
     text-align: left;
@@ -20,61 +23,46 @@
     }
   }
 
-  .banner {
-    background: $white-color;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-
-    .col-1-of-2 {
-      grid-gap: 1rem;
-
-      .col-1-of-4 {
-        grid-template-columns: repeat(4, 25%);
-        grid-gap: 0rem;
-        margin: 0;
-
-        &.share-info {
-          border-right: solid 0.1px $black-color;
-        }
-        .info {
-          h1 {
-            font-size: 1.444rem;
-            font-weight: 700;
-
-            span {
-              display: block;
-              font-size: 50%;
-              font-weight: 400;
-
-              &.AWAITING-CONFIRMATION {
-                font-size: 0.5rem;
-                font-weight: 800;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
   .cards {
     grid-template-columns: 100%;
+
     .card {
-      grid-template-columns: 10% 30% 30% 20% 10%;
+      padding: 1rem;
+      grid-template-columns: 35% 65%;
       margin: 0;
-      padding: 0 1rem;
+      height: 60%;
       img {
-        height: 5.55555rem;
+        height: 2.666rem;
+        margin: 0 1.5rem;
       }
       h1 {
         font-size: 1rem;
         padding-bottom: 0;
+        font-weight: 500;
+        margin: 0.22rem;
+        .ACTIVE {
+          color: $green-light;
+          font-weight: 600;
+          font-size: 0.73rem;
+          padding-top: 0.71rem;
+        }
         .text {
           font-size: 0.666rem;
           text-transform: uppercase;
           font-weight: 400;
           margin: 0.5rem 0;
         }
+      }
+      .col-1-of-1 {
+        grid-gap: 0;
+        h1 {
+          font-weight: 500;
+        }
+      }
+      .col-1-of-2 {
+        grid-gap: 0rem;
+        margin-bottom: 0;
+        grid-template-columns: 45% auto;
       }
       a {
         h1 {
@@ -91,10 +79,49 @@
         text-align: center;
         letter-spacing: normal;
         text-transform: capitalize;
-        height: 3rem;
+        height: 2rem;
         border-radius: 5px;
         margin-top: 1rem;
         background: $green-color;
+      }
+
+      &.documents {
+        grid-template-columns: 10% 30% 30% 15% 15%;
+        height: 100%;
+        img {
+          height: 5rem;
+          margin: 0;
+          margin-left: -2rem;
+          margin-top: -2rem;
+        }
+        h1 {
+          font-size: 0.888rem;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .main {
+    padding: 5rem 1rem;
+    height: 100%;
+
+    .col-1-of-2 {
+      grid-template-columns: 100%;
+      grid-gap: 0;
+    }
+    .cards {
+      grid-template-columns: 100%;
+      .card {
+        height: 100%;
+        h1 {
+          font-size: 0.777rem;
+        }
+        &.documents {
+          height: 100%;
+          grid-template-columns: 30% 40% 30%;
+        }
       }
     }
   }

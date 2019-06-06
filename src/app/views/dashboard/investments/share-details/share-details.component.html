@@ -1,110 +1,108 @@
 <div class="main" *ngIf="investment">
-  <div class="banner">
-    <div class="col-1-of-2">
-      <div class="col-1-of-4 share-info">
-        <div class="icon">
-          <img src="assets/images/dashboard/share-icon.svg" alt="" />
-        </div>
-        <div class="info">
-          <h1>
-            {{ investment[0].Name }}
-          </h1>
-          <h1>
-            <span class="{{ investment[0].Status }}">
-              {{ investment[0].Status }}
-            </span>
-          </h1>
-        </div>
-        <div class="info">
-          <h1>
-            {{ investment[0].Type }}
-            <span>
-              Type
-            </span>
-          </h1>
-          <h1>
-            {{ investment[0].Amount }}
-            <span>
-              Type
-            </span>
-          </h1>
-        </div>
-        <div class="info">
-          <h1>
-            {{ investment[0].InvestmentDate | date: "mediumDate" }}
-            <span>
-              Investment date
-            </span>
-          </h1>
-        </div>
-      </div>
-      <div></div>
-    </div>
-  </div>
-  <div class="tabs">
-    <input type="radio" id="tab1" name="tab-control" checked />
-    <input type="radio" id="tab2" name="tab-control" />
-    <ul>
-      <li title="Features">
-        <label for="tab1" role="button"><br /><span>Transactions</span></label>
-      </li>
-      <li title="Delivery Contents">
-        <label for="tab2" role="button"><span>Documents</span></label>
-      </li>
-    </ul>
-    <div class="slider">
-      <div class="indicator"></div>
-    </div>
-    <div class="content">
-      <section>
-        <h1>
-          <span class="notification">
-            no transactions available
-          </span>
-        </h1>
-      </section>
-      <section>
-        <div class="cards" *ngIf="investment[0].DocumentId; else noDocuments">
-          <div class="card" *ngFor="let doc of investment">
-            <img
-              src="assets/images/dashboard/bank-starement.svg"
-              alt="share-icon"
-            />
-            <h1>
-              {{ doc.DocumentName }}
-              <span class="text">
-                description
-              </span>
-            </h1>
-            <h1>
-              Bank Document
-              <span class="text">
-                type
-              </span>
-            </h1>
-            <h1>
-              {{ doc.UploadedDate | date: "mediumDate" }}
-              <span class="text">
-                upload date
-              </span>
-            </h1>
-            <a href="{{ doc.DocumentUrl }}" class="button" target="_blank">
+  <div class="row col-1-of-2">
+    <div class="cards">
+      <div class="card" (click)="AddRef()">
+        <img src="assets/images/dashboard/chart-arrow.svg" alt="chat arrow up" />
+        <div>
+          <div class="col-1-of-2">
+            <div>
               <h1>
-                Open
-              </h1> 
-            </a>
+                {{ investment[0].Name }}
+                <span class="{{ investment[0].Status }}">
+                  {{ investment[0].Status }}
+                </span>
+              </h1>
+            </div>
+            <div>
+              <h1>
+                {{ investment[0].InvestmentDate | date: "mediumDate" }}
+                <span class="text">Investment date</span>
+              </h1>
+            </div>
+          </div>
+          <div class="col-1-of-1">
+            <div>
+              <h1>
+                {{ investment[0].Profit | currency: "R" }}
+                <span class="text">Profit amount</span>
+              </h1>
+            </div>
+            <div>
+              <h1>
+                {{ investment[0].Amount | currency: "R" }}
+                <span class="text">Buy amount</span>
+              </h1>
+            </div>
           </div>
         </div>
-        <ng-template #noDocuments>
+      </div>
+    </div>
+    <div class="tabs">
+      <input type="radio" id="tab1" name="tab-control" checked />
+      <input type="radio" id="tab2" name="tab-control" />
+      <ul>
+        <li title="Features">
+          <label for="tab1" role="button"><br /><span>Transactions</span></label>
+        </li>
+        <li title="Delivery Contents">
+          <label for="tab2" role="button"><span>Documents</span></label>
+        </li>
+      </ul>
+      <div class="slider">
+        <div class="indicator"></div>
+      </div>
+      <div class="content">
+        <section>
           <h1>
             <span class="notification">
-              no documents uploaded
+              no transactions available
             </span>
           </h1>
-        </ng-template>
-      </section>
+        </section>
+        <section>
+          <div class="cards" *ngIf="investment[0].DocumentId; else noDocuments">
+            <div class="card documents" *ngFor="let doc of investment">
+              <img
+                src="assets/images/dashboard/bank-starement.svg"
+                alt="share-icon"
+              />
+              <h1>
+                {{ doc.DocumentName }}
+                <span class="text">
+                  description
+                </span>
+              </h1>
+              <h1>
+                Bank Document
+                <span class="text">
+                  type
+                </span>
+              </h1>
+              <h1>
+                {{ doc.UploadedDate | date: "mediumDate" }}
+                <span class="text">
+                  upload date
+                </span>
+              </h1>
+              <a href="{{ doc.DocumentUrl }}" class="button" target="_blank">
+                <h1>
+                  Open
+                </h1>
+              </a>
+            </div>
+          </div>
+          <ng-template #noDocuments>
+            <h1>
+              <span class="notification">
+                no documents uploaded
+              </span>
+            </h1>
+          </ng-template>
+        </section>
+      </div>
     </div>
   </div>
+
   <!-- 
   <div class="related-details">
     <div class="transictions">
