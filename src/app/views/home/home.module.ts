@@ -8,6 +8,8 @@ import {ChartModule} from 'primeng/chart';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
 import {InputMaskModule} from 'primeng/inputmask';
+import {KeyFilterModule} from 'primeng/keyfilter';
+
 
 
 
@@ -21,7 +23,8 @@ import {InputMaskModule} from 'primeng/inputmask';
     ToastModule,
     ChartModule,
     ConfirmDialogModule,
-    InputMaskModule
+    InputMaskModule,
+    KeyFilterModule
   ],
   declarations: [...declarations],
   providers:[MessageService,ConfirmationService]

@@ -1,7 +1,7 @@
 import { SignUpProcessService } from './../../../../services/app-state/sign-up-process.service';
 import { User } from "src/app/models/user";
 import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { FormGroup, FormBuilder, Validators, FormControl } from "@angular/forms";
 import {
   getCurrentUser,
   LAST_INSERT_ID,
@@ -19,7 +19,7 @@ import { AccountService, UserService, LoginProcessService } from 'src/app/servic
   styleUrls: ["./form-persol-details.component.scss"]
 })
 export class FormPersolDetailsComponent implements OnInit {
-  rForm: FormGroup;
+  // rForm: FormGroup;
   message = "";
   UserId: string = getCurrentUser();
   showVerificationEmailSent: boolean;
@@ -27,6 +27,25 @@ export class FormPersolDetailsComponent implements OnInit {
   allUsers: User[] = [];
   userExist: string = "";
   ParentId: string = "";
+
+  //form
+  rForm = new FormGroup({
+    FirstName:  new FormControl('',[Validators.required, Validators.minLength(3),Validators.maxLength(30)]),
+    MiddleName:  new FormControl(null),
+    Surname:   new FormControl(null, [Validators.required, Validators.minLength(3),Validators.maxLength(30)]),
+    IDNumber: new FormControl('',[Validators.required, Validators.minLength(8),Validators.maxLength(16)]),
+    Email:new FormControl(null, [Validators.required, Validators.email]),
+    CellphoneNumber:new FormControl('',[Validators.required, Validators.minLength(10),Validators.maxLength(15)]),
+    Gender:new FormControl(null, Validators.required),
+    Province: new FormControl(null, Validators.required),
+    City: new FormControl(null, Validators.required),
+    Country:new FormControl(null, Validators.required),
+    PostCode: new FormControl("0000", Validators.required),
+    Address:new FormControl("N/A", Validators.required),
+    CreateUserId:new FormControl("SYSTEM_WEB", Validators.required),
+    StatusId: new FormControl(STATUS_USER_NEW, Validators.required), 
+    ParentId: new FormControl(this.ParentId)
+  });
 
   constructor(
     private fb: FormBuilder,
@@ -42,23 +61,24 @@ export class FormPersolDetailsComponent implements OnInit {
     this.signUpProcessService.castUserRegistrationProcess.subscribe(r => {
       this.ParentId = r.parentId;
     })
-    this.rForm = this.fb.group({
-      FirstName: [null, Validators.compose([Validators.required, Validators.minLength(3),Validators.maxLength(30)])],
-      MiddleName: [null],
-      Surname: ["", Validators.compose([Validators.required, Validators.minLength(3),Validators.maxLength(30)])],
-      IDNumber: [null, Validators.compose([Validators.required, Validators.minLength(7),Validators.maxLength(20)])],
-      Email: [null, Validators.required],
-      CellphoneNumber: [null, Validators.compose([Validators.required, Validators.minLength(5),Validators.maxLength(15)])],
-      Gender: [null, Validators.required],
-      Province: ["", Validators.required],
-      City: ["", Validators.required],
-      Country: ["", Validators.required],
-      PostCode: ["0000", Validators.required],
-      Address: ["Not needed", Validators.required],
-      CreateUserId: ["SYSTEM_WEB", Validators.required],
-      StatusId: [STATUS_USER_NEW, Validators.required],
-      ParentId: [this.ParentId]
-    });
+    // this.rForm = this.fb.group({
+    //   FirstName: [null, Validators.compose([Validators.required, Validators.minLength(3),Validators.maxLength(30)])],
+    //   MiddleName: [null],
+    //   Surname: ["", Validators.compose([Validators.required, Validators.minLength(3),Validators.maxLength(30)])],
+    //   IDNumber: new FormControl('',[Validators.required, Validators.minLength(7),Validators.maxLength(20)]),
+    //   // IDNumber: [null, Validators.compose([Validators.required, Validators.minLength(7),Validators.maxLength(20)])],
+    //   Email: [null, Validators.required],
+    //   CellphoneNumber: [null, Validators.compose([Validators.required, Validators.minLength(5),Validators.maxLength(15)])],
+    //   Gender: ["", Validators.required],
+    //   Province: ["", Validators.required],
+    //   City: ["", Validators.required],
+    //   Country: ["", Validators.required],
+    //   PostCode: ["0000", Validators.required],
+    //   Address: ["Not needed", Validators.required],
+    //   CreateUserId: ["SYSTEM_WEB", Validators.required],
+    //   StatusId: [STATUS_USER_NEW, Validators.required],
+    //   ParentId: [this.ParentId]
+    // });
 
     this.rForm.valueChanges.subscribe(data => {
 
