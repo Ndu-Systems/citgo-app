@@ -15,7 +15,7 @@
       <div class="col-1-of-1">
         <div class="controls">
           <label for="">amount</label> <br />
-          <input type="number" class="input-field" placeholder="enter buy amount" formControlName="Amount" />
+          <input type="number" class="input-field" placeholder="Enter buy amount" formControlName="Amount" />
           <div class="alert" *ngIf="!rForm.controls['Amount'].valid && rForm.controls['Amount'].touched">
             Amount is required
           </div>
@@ -24,7 +24,7 @@
         <div class="controls">
           <label for="">capititalization</label> <br />
           <select class="input-field" formControlName="Capitalization">
-            <option value="12">12 Months contaract</option>
+            <option value="12" selected>12 Months contaract</option>
             <option value="6">6 Months contaract</option>
             <option value="3">3 Months contaract</option>
             <option value="0">Month-to-month</option>
@@ -38,7 +38,7 @@
           </div>
         </div>
 
-        <div class="controls">
+        <!-- <div class="controls">
           <label for="">period</label>
           <br />
           <input
@@ -50,7 +50,7 @@
           <div class="alert" *ngIf="!rForm.controls['Period'].valid && rForm.controls['Period'].touched">
             period is requried
           </div>
-        </div>
+        </div> -->
         <div class="controls">
           <label for="">rate</label> <br />
           <input

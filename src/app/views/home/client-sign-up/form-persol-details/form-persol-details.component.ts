@@ -43,12 +43,12 @@ export class FormPersolDetailsComponent implements OnInit {
       this.ParentId = r.parentId;
     })
     this.rForm = this.fb.group({
-      FirstName: [null, Validators.required],
+      FirstName: [null, Validators.compose([Validators.required, Validators.minLength(3),Validators.maxLength(30)])],
       MiddleName: [null],
-      Surname: ["", Validators.required],
-      IDNumber: [null, Validators.required],
+      Surname: ["", Validators.compose([Validators.required, Validators.minLength(3),Validators.maxLength(30)])],
+      IDNumber: [null, Validators.compose([Validators.required, Validators.minLength(7),Validators.maxLength(20)])],
       Email: [null, Validators.required],
-      CellphoneNumber: [null, Validators.required],
+      CellphoneNumber: [null, Validators.compose([Validators.required, Validators.minLength(5),Validators.maxLength(15)])],
       Gender: [null, Validators.required],
       Province: ["", Validators.required],
       City: ["", Validators.required],

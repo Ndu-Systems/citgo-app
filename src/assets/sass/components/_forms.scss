@@ -57,6 +57,12 @@
     color: #78909c;
     font-weight: 600;
   }
+  .ng-invalid{
+    border: .5px solid #e74c3c;
+  }
+  .ng-untouched{
+    border: none;
+  }
 
   .textarea {
     height: 5rem;
@@ -88,7 +94,6 @@
       padding: 0.8rem;
 
       .input-field {
-        border: none;
         background: $blue-gray-color;
         border-radius: 0.2rem;
         padding: 0.7rem 2rem;
@@ -108,7 +113,6 @@
     padding: 0rem;
 
     .input-field {
-      border: none;
       background: $blue-gray-color;
       border-radius: 10rem;
       padding: 1rem;

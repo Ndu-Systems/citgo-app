@@ -41,7 +41,7 @@ export class CalculatorComponent implements OnInit {
       Amount: ["", Validators.required],
       Period: ["12 months"],
       Rate: ["15 %"],
-      Capitalization: ["", Validators.required]
+      Capitalization: [12, Validators.required]
     });
 
     this.rForm.valueChanges.subscribe(data => {
