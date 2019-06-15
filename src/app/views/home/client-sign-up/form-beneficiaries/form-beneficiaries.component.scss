@@ -13,7 +13,11 @@
   text-align: center;
   color: #fff;
   padding-top: 2%;
-  font-weight: 100;
+  font-weight: 300;
+  @media only screen and (max-width: 600px) {
+    color: #000;
+
+  }
 }
 
 .modal {
@@ -48,6 +52,7 @@
       color: $gray-color;
       font-weight: 700;
       margin-left: 3rem;
+      text-transform: capitalize;
     }
     .col-1-of-2 {
       -ms-grid-columns: 100%;

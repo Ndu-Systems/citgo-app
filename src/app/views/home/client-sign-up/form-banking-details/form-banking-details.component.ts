@@ -28,8 +28,8 @@ export class FormBankingDetailsComponent implements OnInit {
     this.rForm = this.fb.group({
       BankName: [null, Validators.required],
       BankBranch: [null],
-      AccountNumber: [null, Validators.required],
-      AccountType: [null, Validators.required],
+      AccountNumber: [null, [Validators.required ,Validators.min(11111111), Validators.max(999999999999999)]],
+      AccountType: ['N/a', Validators.required],
       CreateUserId: [this.clientId, Validators.required],
       StatusId: [1, Validators.required],
       ClientId: [this.clientId, Validators.required]
@@ -50,7 +50,45 @@ export class FormBankingDetailsComponent implements OnInit {
   }
 
   insertBankingInfo(data) {
-  
+    let brancCodes:any[] = [
+      {
+      "bank": "ABSA Bank",
+      "code": "632 005"
+      },
+       {
+      "bank": "Bank of Athens",
+      "code": "410 506"
+      },
+       {
+      "bank": "Bidvest Bank",
+      "code": "462 005"
+      },
+       {
+      "bank": "Capitec Bank",
+      "code": "470 010"
+      },
+       {
+      "bank": "FNB",
+      "code": "250 655"
+      },
+       {
+      "bank": "Investec",
+      "code": "580 105"
+      },
+       {
+      "bank": "Nedbank",
+      "code": "198 765"
+      },
+       {
+      "bank": "SA Post Bank",
+      "code": "460 005"
+      },
+       {
+      "bank": "Standard Bank",
+      "code": "051 001"
+      }
+      ];
+  data.BankBranch = brancCodes.filter(x=>x.bank==data.BankName)[0].code;
     this.bankingInfoService.addBankingInfo(data).subscribe(response => {
       if (response) {
          

@@ -60,12 +60,14 @@ export class BuyShareComponent implements OnInit {
       if (capitalization > 0) {
         //contact
         this.explainContract =
-          "Your shares will increase with 15% Compounded  Monthly";
+          "Your shares will increase with at the fixed interest rate of 15% monthly";
         var widrawDate = new Date(
           today.setMonth(today.getMonth() + capitalization)
         );
         this.widrawalDay = `${this.formatDate(widrawDate)}`;
-        this.getCompoundGrowth(amount, capitalization);
+        // this.getCompoundGrowth(amount, capitalization);
+        this.geFlatGrowth(amount);
+
       } else {
         // month ro month
         this.explainContract =

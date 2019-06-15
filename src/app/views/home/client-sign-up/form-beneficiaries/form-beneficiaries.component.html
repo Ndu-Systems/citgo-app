@@ -11,18 +11,18 @@
         <div class="controls">
           <label for="">NAME</label> <br />
           <input type="text" class="input-field" placeholder="enter name" formControlName="Name" />
-          <div class="alert" *ngIf="!rForm.controls['Name'].valid && rForm.controls['Name'].touched">
-             NAME is requried
+          <div class="alert" *ngIf="!rForm.controls['Name'].valid">
+            NAME is requried
           </div>
         </div>
         <div class="controls">
           <label for="">SURNAME</label> <br />
           <input type="text" class="input-field" placeholder="enter surname" formControlName="Surname" />
-          <div class="alert" *ngIf="!rForm.controls['Surname'].valid && rForm.controls['Surname'].touched">
-              SURNAME is requried
+          <div class="alert"  *ngIf="!rForm.controls['Surname'].valid">
+            SURNAME is requried
           </div>
         </div>
-       
+
 
       </div>
 
@@ -30,31 +30,58 @@
         <div class="controls">
           <label for="">ID NUMBER</label> <br />
           <input type="text" class="input-field" placeholder="enter id/passport number" formControlName="IDNumber" />
-          <div class="alert" *ngIf="!rForm.controls['IDNumber'].valid && rForm.controls['IDNumber'].touched">
-              ID NUMBER is requried
+         
+          <div class="alert" *ngIf="rForm.controls['IDNumber'].errors?.required">
+            ID Number is required
+          </div>
+          <div class="alert"
+            *ngIf="rForm.controls['IDNumber'].errors?.minlength || rForm.controls['IDNumber'].errors?.maxlength">
+            ID Number/passport must be 8 to 16 characters long
           </div>
         </div>
         <div class="controls">
-          <label for="">RELATION</label> <br />
-          <input type="text" class="input-field" placeholder="state relationship" formControlName="Relation" />
-          <div class="alert" *ngIf="!rForm.controls['Relation'].valid && rForm.controls['Relation'].touched">
-              RELATION is requried
+          <label for="">Relationship</label> <br />
+          <select class="input-field" formControlName="Relation">
+            <option value=""> Select Relation</option>
+            <option value="parent">parent</option>
+            <option value="child">child</option>
+            <option value="spouse">spouse</option>
+            <option value="sibling">sibling</option>
+            <option value="grandparents">grandparents</option>
+            <option value="grandchild">grandchild</option>
+            <option value="parent's sibling">parent's sibling</option>
+            <option value="sibling's child">sibling's child</option>
+            <option value="aunt's/uncle's child">aunt's/uncle's child</option>
+          </select>
+          <div class="alert" *ngIf="!rForm.controls['Relation'].valid">
+            RELATION is requried
           </div>
         </div>
 
       </div>
-    
+
       <div class="col-1-of-1">
-       
-        <input  value=" ADD MORE +" (click)="addMore(rForm.value)" class="button" [disabled]="!rForm.valid" />
+
+        <input value=" ADD +" (click)="addMore(rForm.value)" class="button" />
       </div>
       <div class="col-1-of-1">
-       <p class="list">
-         <span *ngFor="let ben of beneficiaries">
-            {{ben.Name}} {{ben.Surname}},
-
-         </span>
-       </p>
+        <table class="list"  *ngIf="beneficiaries.length" >
+         
+          <thead>
+            <th>Full Name</th>
+            <th>Relationship</th>
+          </thead>
+          <tbody>
+            <tr  *ngFor="let ben of beneficiaries">
+              <td>
+                {{ben.Name}} {{ben.Surname}}
+              </td>
+              <td>
+                {{ben.Relation}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
 
@@ -71,23 +98,22 @@
               <span class="dot dot-active"></span>
             </li>
           </ul>
-         
+
         </div>
         <div class="controls">
-          <input type="submit" value="FINISH" class="button" [disabled]="!rForm.valid" />
+          <input type="submit" *ngIf="beneficiaries.length" value="FINISH" class="button" />
         </div>
       </div>
 
     </form>
     <p class="step-number">
       BENEFICIARY INFORMATION
-        <span>
-            FINAL STEP
-        </span>
+      <span>
+        FINAL STEP
+      </span>
     </p>
 
   </section>
 </section>
 
-<p-confirmDialog header="Confirmation"  icon="pi pi-exclamation-triangle"></p-confirmDialog>
-
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>

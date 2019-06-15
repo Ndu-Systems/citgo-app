@@ -32,7 +32,7 @@ export class FormBeneficiariesComponent implements OnInit {
     this.clientId = localStorage.getItem(LAST_INSERT_ID);
     this.rForm = this.fb.group({
       Name: [null, Validators.required],
-      Surname: [null],
+      Surname: [null,Validators.required],
       IDNumber: [null, Validators.required],
       Relation: [null, Validators.required],
       CreateUserId: [this.clientId, Validators.required],
@@ -61,6 +61,18 @@ export class FormBeneficiariesComponent implements OnInit {
       return 0;
 
     this.beneficiaries.push(data);
+
+    //clear form
+    
+    this.rForm = this.fb.group({
+      Name: [null, Validators.required],
+      Surname: [null, Validators.required],
+      IDNumber: [null, [Validators.required, Validators.minLength(8),Validators.maxLength(16)]],
+      Relation: [null, Validators.required],
+      CreateUserId: [this.clientId, Validators.required],
+      StatusId: [1, Validators.required],
+      ClientId: [this.clientId, Validators.required]
+    });
   
   }
   onSubmit(data) {
