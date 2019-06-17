@@ -11,14 +11,28 @@
   <div class="body">
     <div class="order">
 
-      <div class="banking fnb">
+      <div class="banking radio">
+        <p>
+          Select Bank
+        </p>
+        <div class="select-bank " (click)="selectBank('FNB',1)">
+          <img class="fnb" src="assets/images/dashboard/icons/fnbicon.png" alt="">FNB
+          <span class="selected active-{{isFnb}}"></span>
+        </div>
+
+        <div class="select-bank " (click)="selectBank('Standard  Bank',2)">
+          <img class="str" src="assets/images/dashboard/icons/standatbankicon.png" alt=""> Standard  Bank
+          <span class="selected active-{{isStandardBank}}"></span>
+        </div>
+      </div>
+      <div class="banking fnb" *ngIf="isFnb">
 
         <div class="info ">
           <b>Bank Name</b>: FNB <br>
           <b>Account No.</b>:1111 1111 111 <br>
           <b>Recipient</b>: Citgo Africa <br>
           <b>Branch</b>: 225 485 <br>
-          <b>Amount</b> :  {{amount  | currency:'ZAR'}}<br>
+          <b>Amount</b> : {{amount  | currency:'ZAR'}}<br>
           <b>Reference</b> : 2158S1 <br>
         </div>
         <div class="image">
@@ -26,24 +40,24 @@
         </div>
 
       </div>
-      <h1 class="or">
-        OR
-      </h1>
-      <div class="banking sbank">
 
-        <div class="info ">
-          <b>Bank Name</b>: Starndad bank <br>
-          <b>Account No.</b>: 1111 1111 111 <br>
-          <b>Recipient</b>: Citgo Africa <br>
-          <b>Branch</b>: 225 485 <br>
-          <b>Amount</b> : {{amount  | currency:'ZAR'}} <br>
-          <b>Reference</b> : 2158S1 <br>
-        </div>
-        <div class="image">
-          <img src="assets/images/dashboard/stbank.svg" alt="">
-        </div>
+      <div class="banking sbank" *ngIf="isStandardBank">
 
-      </div>
+          <div class="info ">
+            <b>Bank Name</b>: Standard  bank <br>
+            <b>Account No.</b>: 1111 1111 111 <br>
+            <b>Recipient</b>: Citgo Africa <br>
+            <b>Branch</b>: 225 485 <br>
+            <b>Amount</b> : {{amount  | currency:'ZAR'}} <br>
+            <b>Reference</b> : 2158S1 <br>
+          </div>
+          <div class="image">
+            <img src="assets/images/dashboard/stbank.svg" alt="">
+          </div>
+  
+        </div>
+    
+     
       <div class="btns">
         <button (click)="next()">NEXT</button>
       </div>
@@ -62,7 +76,7 @@
       Don't forget to make a deposit, when we receive your deposit, It will be updated to your wallet
     </p>
     <div class="btns">
-      <button  (click)="done()">DONE</button>
+      <button (click)="done()">DONE</button>
     </div>
   </div>
 </div>

@@ -13,6 +13,7 @@ export interface Investment {
     ModifyUserId?: string;
     StatusId: number;
     ClientId?: string;
+    bankId?: number;
 }
  
     export interface InvestmentDocument {

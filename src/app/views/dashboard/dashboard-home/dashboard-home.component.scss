@@ -4,8 +4,51 @@
     padding-right: 0;
     padding: 1rem;
 
+    .banking-details{
+      padding: 2rem 1rem;
+      display: -ms-grid;
+      background: #2C97DE;
+      color: white;
+      margin-top: 6rem;
+      .icon{
+        img{
+          width: 3rem;
+        }
+      }
+      .details{
+        h1{
+          font-size: 1.5rem;
+        font-weight: 400;
+        }
+        p{
+          font-size: .8rem;
+        }
+      }
+    }
+
     @media only screen and (max-width: 600px) {
       padding: 1rem;
+    }
+  }
+}
+
+
+
+
+// banking
+.banking {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  padding: 1.5rem 1rem;
+  // background: #fff;
+  border-radius: 0.5rem;
+  margin-bottom: 0;
+
+
+  .image {
+    text-align: center;
+    img {
+      width: 80%;
     }
   }
 }

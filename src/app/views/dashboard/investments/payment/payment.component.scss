@@ -1,7 +1,7 @@
 @import "../../../../../assets/sass/variables";
 
 .main {
-  background: #fff;
+  background: #ecf0f1;
   padding: 8rem 3rem;
   @media only screen and (max-width: 600px) {
     padding: 4rem 2rem;
@@ -19,22 +19,18 @@
     font-size: 0.8rem;
     background: #fff;
     padding: 1.5rem 1rem;
-    -webkit-box-shadow: 7px 4px 19px 0px rgba(0, 0, 0, 0.33);
-    -moz-box-shadow: 7px 4px 19px 0px rgba(0, 0, 0, 0.33);
-    box-shadow: 7px 4px 19px 0px rgba(0, 0, 0, 0.33);
+    border-radius: 0.5rem;
   }
   .body {
     .banking {
       display: grid;
       grid-template-columns: 70% 30%;
       padding: 1.5rem 1rem;
-    //   margin-top: 1rem;
+      background: #fff;
+      border-radius: 0.5rem;
       margin-bottom: 0;
-      -webkit-box-shadow: 7px 4px 19px 0px rgba(0, 0, 0, 0.33);
-      -moz-box-shadow: 7px 4px 19px 0px rgba(0, 0, 0, 0.33);
-      box-shadow: 7px 4px 19px 0px rgba(0, 0, 0, 0.33);
+    
 
-     
       .image {
         text-align: center;
         img {
@@ -42,18 +38,57 @@
         }
       }
     }
-    .fnb{
-        border-bottom: 3px solid  #79e2e8;
-    }
-    .sbank{
-        border-bottom: 3px solid  #0081c7;
+    .radio {
+      grid-template-columns: 100%;
+      margin-bottom: 1rem;
+      .select-bank {
+        position: relative;
+        display: grid;
+        grid-template-columns: 70% auto;
+        margin: 0.2rem;
+        padding: 0.1rem;
+        display: block;
+        img.fnb {
+          width: 3rem;
+          position: relative;
+          top: 0.5rem;
+          display: inline;
+          border: none;
+          left: -6px;
+        }
 
+        img.str {
+          width: 2rem;
+          position: relative;
+          top: 0.7rem;
+          display: inline;
+        }
+        .selected {
+          display: inline-block;
+          width: 1rem;
+          height: 1rem;
+          border-radius: 1rem;
+          background: #95a5a6c5;
+          position: absolute;
+          right: 0rem;
+          top: 0.5rem;
+        }
+        .active-true {
+          background: #2ecc71;
+        }
+      }
     }
-    .or {
-      text-align: center;
-      margin: 0.5rem;
+    .fnb {
+      border-bottom: 3px solid #79e2e8;
+      animation: moveInLeft .5s ease-out 0.1s;
+      animation-fill-mode: backwards;
     }
-   
+    .sbank {
+      border-bottom: 3px solid #0081c7;
+      animation: moveInRight .5s ease-out 0.1s;
+      animation-fill-mode: backwards;
+    }
+  
   }
   .error {
     color: $red-color;
@@ -79,47 +114,45 @@
   }
 }
 
-.awaiting{
-    background: #3827b4;
-    /* Old browsers */
-    background: -moz-linear-gradient(left, #3827b4 0%, #6c18a4 100%);
-    /* FF3.6-15 */
-    background: -webkit-linear-gradient(left, #3827b4 0%, #6c18a4 100%);
-    /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to right, #3827b4 0%, #6c18a4 100%);
+.awaiting {
+  background: #3827b4;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #3827b4 0%, #6c18a4 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #3827b4 0%, #6c18a4 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #3827b4 0%, #6c18a4 100%);
 
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  text-align: center;
 
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000;
+  padding-top: 5rem;
+  color: #fff;
+  .image {
     text-align: center;
 
-    padding-top: 5rem;
-    color: #fff;
-    .image{
-        text-align: center;
-      
-        img{
-            width: 30%;
-        }
+    img {
+      width: 30%;
     }
+  }
 }
 
-.btns{
+.btns {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  button {
     text-align: center;
-    padding: 1.5rem 1rem;
-    button{
-        text-align: center;
-        background: #0081c7;
-        padding: 2%;
-        border: none;
-        color: #fff;
-        width: 8rem;
-        font-weight: 700;
-        border-radius: .2rem;
-
-    }
+    background: #0081c7;
+    padding: 2%;
+    border: none;
+    color: #fff;
+    width: 8rem;
+    font-weight: 700;
+    border-radius: 0.2rem;
+  }
 }

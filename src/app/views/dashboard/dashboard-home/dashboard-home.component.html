@@ -1,6 +1,55 @@
 <div class="dashboard">
 
   <div class="main" *ngIf="!isCurrentUserAdmin">
+    <div class="banking-details" *ngIf="showBankingInfo">
+      <div class="icon">
+        <img src="assets/images/dashboard/info.svg" alt="">
+      </div>
+      <div class="details">
+        <h1>
+          Depost details
+        </h1>
+        <p>
+          Sign in into your bank and make deposit with this information
+        </p>
+        <div class="banking fnb" *ngIf="isFnb">
+
+          <div class="info ">
+            <b>Bank Name</b>: FNB <br>
+            <b>Account No.</b>:1111 1111 111 <br>
+            <b>Recipient</b>: Citgo Africa <br>
+            <b>Branch</b>: 225 485 <br>
+            <b>Amount</b> : {{amount  | currency:'ZAR'}}<br>
+            <b>Reference</b> : 2158S1 <br>
+          </div>
+          <div class="image">
+            <img src="assets/images/dashboard/fnb.svg" alt="">
+          </div>
+
+        </div>
+
+        <div class="banking sbank" *ngIf="isStandardBank">
+
+          <div class="info ">
+            <b>Bank Name</b>: Standard bank <br>
+            <b>Account No.</b>: 1111 1111 111 <br>
+            <b>Recipient</b>: Citgo Africa <br>
+            <b>Branch</b>: 225 485 <br>
+            <b>Amount</b> : {{amount  | currency:'ZAR'}} <br>
+            <b>Reference</b> : 2158S1 <br>
+          </div>
+          <div class="image">
+            <img src="assets/images/dashboard/stbank.svg" alt="">
+          </div>
+
+        </div>
+
+        <p>
+          Your deposit will reflect in your Citgo wallet as soon as we receive the funds. This may take a few minutes or
+          up to two business days depending on your bank. We'll let you know as soon as it arrives
+        </p>
+      </div>
+    </div>
     <app-client-stats></app-client-stats>
     <div class="col-1-of-2">
       <div class="profit">
@@ -26,4 +75,3 @@
   </div>
 
 </div>
-
