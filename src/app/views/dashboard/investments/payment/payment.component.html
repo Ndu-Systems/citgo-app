@@ -3,7 +3,8 @@
     Payment details
   </h1>
   <p class="intro">
-    To finalise your investment process, please deposit your share order amount to the given details below, and make sure
+    To finalise your investment process, please deposit your share order amount to the given details below, and make
+    sure
     you use the correct reference number as displayed below to avoid <i> delays in your shares approval. </i>
   </p>
   <!-- <hr> -->
@@ -17,7 +18,7 @@
           <b>Account No.</b>:1111 1111 111 <br>
           <b>Recipient</b>: Citgo Africa <br>
           <b>Branch</b>: 225 485 <br>
-          <b>Amount</b> : R50000 <br>
+          <b>Amount</b> :  {{amount  | currency:'ZAR'}}<br>
           <b>Reference</b> : 2158S1 <br>
         </div>
         <div class="image">
@@ -31,11 +32,11 @@
       <div class="banking sbank">
 
         <div class="info ">
-          <b>Bank Name</b>: Starndad bank  <br>
+          <b>Bank Name</b>: Starndad bank <br>
           <b>Account No.</b>: 1111 1111 111 <br>
           <b>Recipient</b>: Citgo Africa <br>
           <b>Branch</b>: 225 485 <br>
-          <b>Amount</b> : R50000 <br>
+          <b>Amount</b> : {{amount  | currency:'ZAR'}} <br>
           <b>Reference</b> : 2158S1 <br>
         </div>
         <div class="image">
@@ -44,13 +45,24 @@
 
       </div>
       <div class="btns">
-          <button>NEXT</button>
+        <button (click)="next()">NEXT</button>
       </div>
     </div>
   </div>
 
 </div>
 
-<div class="awaiting">
-
+<div class="awaiting" *ngIf="isDone">
+  <div class="image">
+    <img src="../../../../../assets/images/dashboard/hourglass-half-solid.svg" alt="">
+  </div>
+  <div>
+    <h1>Awaiting deposit</h1>
+    <p>
+      Don't forget to make a deposit, when we receive your deposit, It will be updated to your wallet
+    </p>
+    <div class="btns">
+      <button  (click)="done()">DONE</button>
+    </div>
+  </div>
 </div>

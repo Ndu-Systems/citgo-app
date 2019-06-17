@@ -53,21 +53,7 @@
       text-align: center;
       margin: 0.5rem;
     }
-    .btns{
-        text-align: center;
-        padding: 1.5rem 1rem;
-        button{
-            text-align: center;
-            background: #0081c7;
-            padding: 2%;
-            border: none;
-            color: #fff;
-            width: 8rem;
-            font-weight: 700;
-            border-radius: .2rem;
-
-        }
-    }
+   
   }
   .error {
     color: $red-color;
@@ -109,4 +95,31 @@
     top: 0;
     left: 0;
     z-index: 1000;
+    text-align: center;
+
+    padding-top: 5rem;
+    color: #fff;
+    .image{
+        text-align: center;
+      
+        img{
+            width: 30%;
+        }
+    }
+}
+
+.btns{
+    text-align: center;
+    padding: 1.5rem 1rem;
+    button{
+        text-align: center;
+        background: #0081c7;
+        padding: 2%;
+        border: none;
+        color: #fff;
+        width: 8rem;
+        font-weight: 700;
+        border-radius: .2rem;
+
+    }
 }
