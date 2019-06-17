@@ -13,6 +13,7 @@
         </div>
 
         <a class="status {{data.Status}}"> <span class="{{data.Status}}-BG"></span>{{data.Status}}</a>
+        <a *ngIf="data.Status == 'PENDING'" class="remove" (click)="remove(data)" ><i class="fas fa-trash-alt"></i>Remove</a>
 
       </div>
 
@@ -40,3 +41,5 @@
     </div>
   </div>
 </div>
+
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
