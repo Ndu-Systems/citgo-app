@@ -1,0 +1,112 @@
+@import "../../../../../assets/sass/variables";
+
+.main {
+  background: #fff;
+  padding: 8rem 3rem;
+  @media only screen and (max-width: 600px) {
+    padding: 4rem 2rem;
+  }
+  .heading {
+    text-align: center;
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: black;
+  }
+  .intro {
+    color: #000;
+    letter-spacing: 0ch;
+    font-size: 0.8rem;
+    background: #fff;
+    padding: 1.5rem 1rem;
+    -webkit-box-shadow: 7px 4px 19px 0px rgba(0, 0, 0, 0.33);
+    -moz-box-shadow: 7px 4px 19px 0px rgba(0, 0, 0, 0.33);
+    box-shadow: 7px 4px 19px 0px rgba(0, 0, 0, 0.33);
+  }
+  .body {
+    .banking {
+      display: grid;
+      grid-template-columns: 70% 30%;
+      padding: 1.5rem 1rem;
+    //   margin-top: 1rem;
+      margin-bottom: 0;
+      -webkit-box-shadow: 7px 4px 19px 0px rgba(0, 0, 0, 0.33);
+      -moz-box-shadow: 7px 4px 19px 0px rgba(0, 0, 0, 0.33);
+      box-shadow: 7px 4px 19px 0px rgba(0, 0, 0, 0.33);
+
+     
+      .image {
+        text-align: center;
+        img {
+          width: 80%;
+        }
+      }
+    }
+    .fnb{
+        border-bottom: 3px solid  #79e2e8;
+    }
+    .sbank{
+        border-bottom: 3px solid  #0081c7;
+
+    }
+    .or {
+      text-align: center;
+      margin: 0.5rem;
+    }
+    .btns{
+        text-align: center;
+        padding: 1.5rem 1rem;
+        button{
+            text-align: center;
+            background: #0081c7;
+            padding: 2%;
+            border: none;
+            color: #fff;
+            width: 8rem;
+            font-weight: 700;
+            border-radius: .2rem;
+
+        }
+    }
+  }
+  .error {
+    color: $red-color;
+  }
+
+  .alert {
+    color: $red-color;
+  }
+
+  @media only screen and (max-width: 600px) {
+    // display: none;
+  }
+
+  .explainContract {
+    color: #3498db;
+    letter-spacing: 0ch;
+    font-size: 0.8rem;
+    font-style: italic;
+  }
+  .normal {
+    font-style: normal;
+    color: black;
+  }
+}
+
+.awaiting{
+    background: #3827b4;
+    /* Old browsers */
+    background: -moz-linear-gradient(left, #3827b4 0%, #6c18a4 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #3827b4 0%, #6c18a4 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #3827b4 0%, #6c18a4 100%);
+
+
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}

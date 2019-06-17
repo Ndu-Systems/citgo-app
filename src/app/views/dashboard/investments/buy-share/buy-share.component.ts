@@ -1,15 +1,15 @@
-import { BuySharesProcessService } from "./../../../../services/app-state/buy-shares-process.service";
-import { Component, OnInit, EventEmitter, Output } from "@angular/core";
-import { ExitModalEventEmmiter, Investment } from "src/app/models";
+import { Router } from '@angular/router';
+import { UserNotification } from './../../../../models/processes/notification.process.model';
+import { Component, OnInit} from "@angular/core";
+import { Investment } from "src/app/models";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import {
   AuthenticateService,
   InvestmentService,
   NotificationProcessService
 } from "src/app/services";
-import { UserNotification } from "src/app/models/processes/notification.process.model";
 import { SHARE_PENDING } from "src/app/shared/config";
-import { MessageService } from "primeng/api";
+import { MessageService, ConfirmationService } from "primeng/api";
 @Component({
   selector: "app-buy-share",
   templateUrl: "./buy-share.component.html",
@@ -22,20 +22,21 @@ export class BuyShareComponent implements OnInit {
   currentUser;
   investmentsList: Investment[] = [];
   canBuy: boolean = true;
-  widrawalDay: string;
   profits: any[];
   total: number;
-  widrawalDayAmount: number;
+  nextProfitAmount: number;
   profit: number;
   explainContract =
     "Your shares will increase with the fixed interest rate of 15% monthly";
+  maturityDate: Date;
   constructor(
     private fb: FormBuilder,
     private authenticationService: AuthenticateService,
     private investmentService: InvestmentService,
     private notificationProcessService: NotificationProcessService,
     private messageService: MessageService,
-    private buySharesProcessService: BuySharesProcessService
+    private confirmationService: ConfirmationService,
+    private routeTo:Router
   ) {
     //get user shares -for naming purpose e.g  Share 1
     this.investmentService.castClientshares.subscribe(val => {
@@ -62,24 +63,22 @@ export class BuyShareComponent implements OnInit {
     });
 
     this.rForm.valueChanges.subscribe(data => {
-      let capitalization = Number(data.Type);
       let amount = data.Amount;
-      var today = new Date();
+     this.maturityDate =  new Date(new Date().setFullYear(new Date().getFullYear() + 1))
+
 
       if (amount > 0) {
-        //contact
-
-        var widrawDate = new Date(
-          today.setMonth(today.getMonth() + capitalization)
-        );
-        this.widrawalDay = `${this.formatDate(widrawDate)}`;
-        // this.getCompoundGrowth(amount, capitalization);
         this.geFlatGrowth(amount);
       }
     });
   }
 
   buy(data) {
+    this.confirmationService.confirm({
+      message: `You are about to buy shares for R${data.Amount}, continue?`,
+      accept: () => {
+        
+
     this.error = "";
     if (this.investmentsList.filter(x => x.StatusId == 2).length > 0) {
       this.messageService.add({
@@ -114,10 +113,17 @@ export class BuyShareComponent implements OnInit {
             isShare: true,
             message: `Please uplaod proof of payment for ${newInvestement.Name}`
           });
+
+
         }
         this.notificationProcessService.updateNotificationProcessState(nots);
+
+        this.routeTo.navigate(['dashboard/payment', newInvestement.InvestmentId])
       }
     });
+      }
+    });
+
   }
   monthNames = [
     "January",
@@ -145,15 +151,16 @@ export class BuyShareComponent implements OnInit {
   geFlatGrowth(amount: number) {
     this.profits = [];
     if (!amount) return false;
+
     this.total = amount;
     for (let i = 0; i < 12; i++) {
       this.total += amount * 0.15;
+
       this.profits.push(Math.round(this.total));
 
-      if (i === 0) {
-        this.widrawalDayAmount = Math.abs(amount - this.total);
-      }
+    
     }
     this.profit = Math.abs(amount - this.total);
+    this.nextProfitAmount  = .15*amount;
   }
 }

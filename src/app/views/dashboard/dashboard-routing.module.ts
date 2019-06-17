@@ -19,6 +19,7 @@ import { DashFooterComponent } from "./dash-footer/dash-footer.component";
 import { UpdatePasswordComponent, MyProfileComponent } from "./user-profile";
 import { UploadComponent } from './uplaod/upload.component';
 import { ClientStatsComponent } from './dashboard-home/client-stats/client-stats.component';
+import { PaymentComponent } from './investments/payment/payment.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,7 @@ const routes: Routes = [
       { path: "my-refferals/:id", component: MyRefferalsComponent },
       { path: "buy-share/:id", component: BuyShareComponent },
       { path: "share-details/:id", component: ShareDetailsComponent },
+      { path: "payment/:id", component: PaymentComponent },
       { path: "my-profile", component: MyProfileComponent },
       
     ]
@@ -51,6 +53,7 @@ export const declarations: Array<any> = [
   UploadComponent,
   MyProfileComponent,
   ShareDetailsComponent,
+  PaymentComponent,
   //admin
   AdminHomeComponent,
   AdminNavComponent,

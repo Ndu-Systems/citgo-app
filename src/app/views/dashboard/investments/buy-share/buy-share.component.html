@@ -28,11 +28,12 @@
           <div class="explain ">
               <p class="explainContract normal">{{ explainContract }}</p>
             <p class="explainContract normal">You can withdraw your interest payouts monthly,
-              And the total investemnts at maturity (12 Months)</p>
+              and the total investemnts at maturity0 <i> (12 Months)</i></p>
           </div>
-          <div class="explain" *ngIf="widrawalDayAmount">
-              <p class="widrawalDay">Maturity date: {{ widrawalDay }}</p>
-              <p> <b>Share value on maturity</b> : {{ widrawalDayAmount | currency: "R" }}</p>
+          <div class="explain" *ngIf="total">
+              <p class="widrawalDay"><b>Maturity date:</b> {{ maturityDate |date  }}</p>
+              <p> <b>Share value on maturity</b> : {{ total | currency: "R" }}</p>
+              <p> <b>Profit in Next 30 days</b> : {{ nextProfitAmount | currency: "R" }}</p>
             </div>
       
           
@@ -57,3 +58,4 @@
 </div>
 
 
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>

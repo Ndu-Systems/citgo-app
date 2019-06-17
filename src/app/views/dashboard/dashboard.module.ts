@@ -5,12 +5,11 @@ import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {ToastModule} from 'primeng/toast';
 import {OverlayPanelModule} from 'primeng/overlaypanel';
-
-
-
 import { DashboardRoutingModule, declarations } from './dashboard-routing.module';
-import { MessageService } from 'primeng/api';
+import { MessageService, ConfirmationService } from 'primeng/api';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+
 
 @NgModule({
   imports: [
@@ -23,9 +22,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     OverlayPanelModule,
+    ConfirmDialogModule
   ],
   declarations: [...declarations],
-  providers: [MessageService]
+  providers: [MessageService,ConfirmationService]
 
 })
 export class DashboardModule { }
