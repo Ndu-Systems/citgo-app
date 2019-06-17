@@ -1,134 +1,123 @@
-import { BuySharesProcessService } from './../../../../services/app-state/buy-shares-process.service';
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { ExitModalEventEmmiter, Investment } from 'src/app/models';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AuthenticateService, InvestmentService, NotificationProcessService } from 'src/app/services';
-import { UserNotification } from 'src/app/models/processes/notification.process.model';
-import { SHARE_PENDING } from 'src/app/shared/config';
-import { MessageService } from 'primeng/api';
+import { BuySharesProcessService } from "./../../../../services/app-state/buy-shares-process.service";
+import { Component, OnInit, EventEmitter, Output } from "@angular/core";
+import { ExitModalEventEmmiter, Investment } from "src/app/models";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import {
+  AuthenticateService,
+  InvestmentService,
+  NotificationProcessService
+} from "src/app/services";
+import { UserNotification } from "src/app/models/processes/notification.process.model";
+import { SHARE_PENDING } from "src/app/shared/config";
+import { MessageService } from "primeng/api";
 @Component({
-  selector: 'app-buy-share',
-  templateUrl: './buy-share.component.html',
-  styleUrls: ['./buy-share.component.scss']
+  selector: "app-buy-share",
+  templateUrl: "./buy-share.component.html",
+  styleUrls: ["./buy-share.component.scss"]
 })
 export class BuyShareComponent implements OnInit {
   rForm: FormGroup;
-  error = '';
+  error = "";
   loading;
   currentUser;
-  investmentsList: Investment[]=[];
-  canBuy:boolean= true;
-  explainContract: string;
+  investmentsList: Investment[] = [];
+  canBuy: boolean = true;
   widrawalDay: string;
   profits: any[];
   total: number;
   widrawalDayAmount: number;
   profit: number;
+  explainContract =
+    "Your shares will increase with the fixed interest rate of 15% monthly";
   constructor(
     private fb: FormBuilder,
     private authenticationService: AuthenticateService,
     private investmentService: InvestmentService,
     private notificationProcessService: NotificationProcessService,
     private messageService: MessageService,
-    private buySharesProcessService:BuySharesProcessService
-
-  ) { 
-     //get user shares -for naming purpose e.g  Share 1
-     this.investmentService.castClientshares.subscribe(val => {
-      if(val && val.length){
+    private buySharesProcessService: BuySharesProcessService
+  ) {
+    //get user shares -for naming purpose e.g  Share 1
+    this.investmentService.castClientshares.subscribe(val => {
+      if (val && val.length) {
         this.investmentsList = val;
       }
-   
     });
   }
 
   ngOnInit() {
     this.currentUser = this.authenticationService.currentUserValue;
     this.rForm = this.fb.group({
-      Amount: [null, Validators.compose([Validators.required, Validators.min(5000), Validators.max(200000)])],
-      Name: [`Share ${this.investmentsList.length+1}`, Validators.required],
-      Type: ['', Validators.required],
+      Amount: [
+        null,
+        Validators.compose([
+          Validators.required,
+          Validators.min(5000),
+          Validators.max(200000)
+        ])
+      ],
+      Name: [`Share ${this.investmentsList.length + 1}`, Validators.required],
+      Type: ["12", Validators.required],
       ClientId: [this.currentUser.ClientId]
     });
 
     this.rForm.valueChanges.subscribe(data => {
- 
       let capitalization = Number(data.Type);
       let amount = data.Amount;
       var today = new Date();
 
-      if (capitalization > 0) {
+      if (amount > 0) {
         //contact
-        this.explainContract =
-          "Your shares will increase with at the fixed interest rate of 15% monthly";
+
         var widrawDate = new Date(
           today.setMonth(today.getMonth() + capitalization)
         );
         this.widrawalDay = `${this.formatDate(widrawDate)}`;
         // this.getCompoundGrowth(amount, capitalization);
         this.geFlatGrowth(amount);
-
-      } else {
-        // month ro month
-        this.explainContract =
-          "Your share value  will increase with 15% Monthly, No compound amount eligible";
-        var widrawDate = new Date(today.setMonth(today.getMonth() + 1));
-        this.widrawalDay = `${this.formatDate(widrawDate)}`;
-        this.geFlatGrowth(amount);
       }
-    
     });
   }
 
-  closeModal() {
-    this.buySharesProcessService.closeBuyShares()
-  }
-
-  getCompoundGrowth(amount: number, months: number) {
-    this.profits = [];
-
-    if (!amount || !months) return false;
-    this.total = amount;
-    for (let i = 0; i < 12; i++) {
-      this.total += this.total * 0.15;
-      if (i === months) {
-        this.widrawalDayAmount = Math.abs(amount - this.total);
-      }
-      this.profits.push(Math.round(this.total));
-    }
-    if(months == 12){
-      this.widrawalDayAmount = Math.abs(amount - this.total);
-
-    }
-    this.profit = Math.abs(amount - this.total);
- 
-  }
-
-
   buy(data) {
-    this.error = '';
-    //check 
-
-    if(this.investmentsList.filter(x=>x.StatusId==2).length >0){
-      this.messageService.add({ life:7000,severity:'warn', summary:'Sorry!', detail:'You can not buy shares while you have pending shares'});
-       this.closeModal();
+    this.error = "";
+    if (this.investmentsList.filter(x => x.StatusId == 2).length > 0) {
+      this.messageService.add({
+        life: 7000,
+        severity: "warn",
+        summary: "Sorry!",
+        detail: "You can not buy shares while you have pending shares"
+      });
+      return 0;
     }
 
-    //end check
     this.investmentService.buyShares(data).subscribe(response => {
-      if(response.investments){
+      if (response.investments) {
         this.investmentService.setInvestments(response.investments);
-          // update notifications
-          let nots:UserNotification[] =this.notificationProcessService.getNotificationProcess().notifications.filter(x=>x.isShare==true); 
-          let newInvestement:Investment = response.investments.filter(x => Number(x.StatusId) == SHARE_PENDING)[0];
-          if(newInvestement.InvestmentId){
-            nots.push({ id: newInvestement.InvestmentId,isShare:true, message: `Please uplaod proof of payment for ${newInvestement.Name}` });
-          }
-          this.notificationProcessService.updateNotificationProcessState(nots);
-     
-       }
-    })
-    this.closeModal();
+        // update notifications
+        this.messageService.add({
+          life: 7000,
+          severity: "success",
+          summary: "Well Done!",
+          detail: "Your shares order was placed successfully"
+        });
+
+        let nots: UserNotification[] = this.notificationProcessService
+          .getNotificationProcess()
+          .notifications.filter(x => x.isShare == true);
+        let newInvestement: Investment = response.investments.filter(
+          x => Number(x.StatusId) == SHARE_PENDING
+        )[0];
+        if (newInvestement.InvestmentId) {
+          nots.push({
+            id: newInvestement.InvestmentId,
+            isShare: true,
+            message: `Please uplaod proof of payment for ${newInvestement.Name}`
+          });
+        }
+        this.notificationProcessService.updateNotificationProcessState(nots);
+      }
+    });
   }
   monthNames = [
     "January",

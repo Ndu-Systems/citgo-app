@@ -107,7 +107,7 @@
         </a>
       </li>
       <li>
-        <a (click)="buyShares()" class="col-1-of-2"><img
+        <a  [routerLink]="['buy-share',client.ClientId]"  (click)="closeMobileNav()" class="col-1-of-2"><img
             src="assets/images/dashboard/shares.svg" class="menu-icons" alt="shares-icon">
           <h1>Buy shares</h1>
         </a>

@@ -5,6 +5,14 @@ $status-span:.7rem;
   @media only screen and (max-width: 600px) {
     padding: 8rem 0;
   }
+  .heading{
+    text-align: center;
+    display: block;
+    font-size: 2em;
+    font-weight: bold;
+    color: black;
+
+  }
   .card-info{
     padding: 2%;
     color: #fff;
