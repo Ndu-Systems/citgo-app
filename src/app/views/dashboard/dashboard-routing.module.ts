@@ -30,6 +30,7 @@ const routes: Routes = [
       { path: "", component: DashboardHomeComponent },
       { path: "update-password", component: UpdatePasswordComponent },
       { path: "my-refferals/:id", component: MyRefferalsComponent },
+      { path: "buy-share/:id", component: BuyShareComponent },
       { path: "share-details/:id", component: ShareDetailsComponent },
       { path: "my-profile", component: MyProfileComponent },
       

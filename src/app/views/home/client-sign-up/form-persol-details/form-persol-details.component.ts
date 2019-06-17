@@ -61,6 +61,7 @@ export class FormPersolDetailsComponent implements OnInit {
     this.signUpProcessService.castUserRegistrationProcess.subscribe(r => {
       this.ParentId = r.parentId;
     })
+
     // this.rForm = this.fb.group({
     //   FirstName: [null, Validators.compose([Validators.required, Validators.minLength(3),Validators.maxLength(30)])],
     //   MiddleName: [null],
@@ -84,12 +85,17 @@ export class FormPersolDetailsComponent implements OnInit {
 
       this.userExist = "";
       let email = data.Email;
-      let emails = this.allUsers.map(x => x.Email);
-      if (emails.filter(x => x == email).length > 0) {
+      let cellPhone = data.CellphoneNumber;
+      if (this.allUsers.filter(x => x.Email == email).length > 0) {
         //user with email exist
         this.userExist =
           "An account for the specified email address already exists. Try another email address.";
-      } else {
+      } 
+      else if(this.allUsers.filter(x => x.CellphoneNumber == cellPhone).length > 0){
+        this.userExist =
+        "An account with the specified cellphone number  already exists. Try another cellphone number.";
+      }
+      else {
         this.userExist = "";
       }
     });
@@ -110,7 +116,7 @@ export class FormPersolDetailsComponent implements OnInit {
   createClientAccount(data) {
 
     if (this.userExist != "") {
-      alert("Email already exist");
+      alert("Email/Cellphone already exist");
       return false;
     }
     this.accountService.addClient(data).subscribe(response => {

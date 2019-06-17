@@ -1,29 +1,11 @@
 @import "../../../../../assets/sass/variables";
  
 
-.modal {
-  padding: .5rem;
-  top: 2.5%;
-  // height: 50rem;
+.main {
+  background: #fff;
+  padding: 8rem 3rem;
   @media only screen and (max-width: 600px) {
-    width: 100%;
-  }
-  .modal-header {
-    background: $nav-background;
-    padding-bottom: 1.2rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    width: 100%;
-
-    .main {
-      font-weight: 500;
-      color: $white-gray-color;
-      float: left;
-    }
-
-    .close-btn {
-      float: right;
-    }
+    padding: 8rem 0;
   }
 
   .dashboard-forms {
@@ -45,7 +27,7 @@
 }
 .dashboard-forms .input-field {
   border: none;
-  background: #ffffff;
+  background: #ecf0f1;
   border-radius: 1rem;
   padding: 1.2;
   margin: 1rem 0;
@@ -53,8 +35,6 @@
   font-size: 1.5rem;
   font-weight: 400;
   color: #192a56;
-  background: $blue-gray-color;
-  // box-shadow: -3px 0px 8px 0px rgba(0, 0, 0, 0.55);
 }
 
 .button {

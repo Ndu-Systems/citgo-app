@@ -1,69 +1,53 @@
-<div class="buy-shares">
-  <section class="modal shadow-black">
-    <section class="modal-header col-1-of-2">
-      <h1>
-        <span class="main">
-          Buy shares
-        </span>
-      </h1>
-      <img src="assets/images/home/close-form.svg" (click)="closeModal()" class="close-btn" alt="">
+<div class="main">
+  <h1>
+    buy shares
+  </h1>
 
-    </section>
-    <section class="popup-body">
+  <div class="body">
+    <form [formGroup]="rForm" (ngSubmit)="buy(rForm.value)" class="box form-group dashboard-forms">
 
-      <!-- <form [formGroup]="rForm" (ngSubmit)="Login()" class="box form-group" class="dashboard-forms">        -->
-      <form [formGroup]="rForm" (ngSubmit)="buy(rForm.value)" class="box form-group dashboard-forms">
-
-        <div class="col-1-of-1">
-          <div class="controls">
-            <label for="">Share amount</label> <br />
-            <input type="number" class="input-field" formControlName="Amount" />
-            <div class="alert" *ngIf="!rForm.controls['Amount'].valid && rForm.controls['Amount'].touched">
-                Share amount must be between R5000 and R200000.
-            </div>
-          </div>
-
-          <!-- <div class="controls">
-            <label for="">Share name</label> <br />
-            <input type="text" class="input-field" formControlName="Name" />
-            <div class="alert" *ngIf="!rForm.controls['Name'].valid">
-              Share name is requried
-            </div>
-          </div> -->
-
-          <div class="controls">
-            <label for="">Period type</label> <br />
-            <select class="input-field" formControlName="Type">
-                <option value="12">12 Months contaract</option>
-                <option value="6">6 Months contaract</option>
-                <option value="3">3 Months contaract</option>
-            </select>
-            <div class="explain" *ngIf="explainContract">
-                <p class="explainContract">{{ explainContract }}</p>
-                <p class="widrawalDay">withdrawal date: {{ widrawalDay }}</p>
-                <p> <b>Withdrawable amount </b> : {{ widrawalDayAmount | currency: "R" }}</p>
-              </div>
-        
-            <div class="alert" *ngIf="!rForm.controls['Type'].valid && rForm.controls['Type'].touched">
-              Type is requried
-            </div>
-          </div>
-          <div class="controls">
-            <input type="submit" value="buy shares" class="button" [disabled]="!rForm.valid" />
-          </div>
-          <div class="controls">
-            <h1>
-              <span class="error">
-                {{error}}
-              </span>
-            </h1>
+      <div class="col-1-of-1">
+        <div class="controls">
+          <label for="">Share amount</label> <br />
+          <input type="number" class="input-field" formControlName="Amount" />
+          <div class="alert" *ngIf="!rForm.controls['Amount'].valid && rForm.controls['Amount'].touched">
+              Share amount must be between R5000 and R200000.
           </div>
         </div>
+        <div class="controls">
+          <label for="">Period type</label> <br />
+          <select class="input-field" formControlName="Type">
+              <option value="12">12 Months contaract</option>
+              <option value="6">6 Months contaract</option>
+              <option value="3">3 Months contaract</option>
+          </select>
+          <div class="explain" *ngIf="explainContract">
+              <p class="explainContract">{{ explainContract }}</p>
+              <p class="widrawalDay">withdrawal date: {{ widrawalDay }}</p>
+              <p> <b>Withdrawable amount </b> : {{ widrawalDayAmount | currency: "R" }}</p>
+            </div>
+      
+          <div class="alert" *ngIf="!rForm.controls['Type'].valid && rForm.controls['Type'].touched">
+            Type is requried
+          </div>
+        </div>
+        <div class="controls">
+          <input type="submit" value="buy shares" class="button" [disabled]="!rForm.valid" />
+        </div>
+        <div class="controls">
+          <h1>
+            <span class="error">
+              {{error}}
+            </span>
+          </h1>
+        </div>
+      </div>
 
-        <img *ngIf="loading" class="pl-2"
-          src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-      </form>
-    </section>
-  </section>
+      <img *ngIf="loading" class="pl-2"
+        src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+    </form>
+  </div>
 
 </div>
+
+

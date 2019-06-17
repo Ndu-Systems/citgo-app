@@ -37,6 +37,8 @@ export class ClientStatsComponent implements OnInit {
     this.router.navigate(["dashboard/my-refferals", this.cleintId]);
   }
   buyShares() {
-    this.buySharesProcessService.showBuyShares();
+    // this.buySharesProcessService.showBuyShares();
+    this.router.navigate(["dashboard/buy-share", this.cleintId]);
+
   }
 }

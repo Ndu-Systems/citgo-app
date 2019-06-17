@@ -23,7 +23,9 @@ export class HomeComponent implements OnInit {
     private signUpProcessService: SignUpProcessService,
     private loginProcessService: LoginProcessService,
     private navigationProcessService: NavigationProcessService
-  ) {}
+  ) {
+
+  }
 
   ngOnInit() {
     this.signUpProcessService.castUserRegistrationProcess.subscribe(process => {
@@ -47,6 +49,8 @@ export class HomeComponent implements OnInit {
       this.showEmailNotificationScreen = process.showEmailNotification;
       this.message = process.message;
     });
+
+
   }
 
   OpenNav(){

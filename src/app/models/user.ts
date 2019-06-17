@@ -17,6 +17,7 @@ export class User {
     ModifyDate?: string;
     ParentId?: string;
     StatusId?: number;
+    CellphoneNumber?: number;
 }
 
 //3 to 28   pending, awaiting for payments
