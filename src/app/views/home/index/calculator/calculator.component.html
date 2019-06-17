@@ -16,54 +16,26 @@
         <div class="controls">
           <label for="">amount</label> <br />
           <input type="number" class="input-field" placeholder="Enter buy amount" formControlName="Amount" />
-          <div class="alert" *ngIf="!rForm.controls['Amount'].valid && rForm.controls['Amount'].touched">
+          <!-- <div class="alert" *ngIf="!rForm.controls['Amount'].valid && rForm.controls['Amount'].touched">
             Amount is required
-          </div>
+          </div> -->
         </div>
+        
+        <div class="explain">
+            <p class="explainContract">Minimum deposit:  R5 000.00</p>
+            <p class="explainContract">Maximum deposit:  R200 000.00</p>
+          </div>
+          <div class="alert" *ngIf="!rForm.controls['Amount'].valid && rForm.controls['Amount'].touched">
+              Share amount must be between R5000 and R200 000.
+          </div>
 
         <div class="controls">
-          <label for="">capititalization</label> <br />
-          <select class="input-field" formControlName="Capitalization">
-            <option value="12" selected>12 Months contaract</option>
-            <option value="6">6 Months contaract</option>
-            <option value="3">3 Months contaract</option>
-            <option value="0">Month-to-month</option>
-          </select>
+       
           <div class="explain" *ngIf="explainContract">
             <p class="explainContract">{{ explainContract }}</p>
-            <p class="widrawalDay">withdrawal date: {{ widrawalDay }}</p>
           </div>
-          <div class="alert" *ngIf="!rForm.controls['Capitalization'].valid && rForm.controls['Capitalization'].touched">
-            Capitalization is requried
-          </div>
+          
         </div>
-
-        <!-- <div class="controls">
-          <label for="">period</label>
-          <br />
-          <input
-            type="text"
-            class="input-field"
-            formControlName="Period"
-            disabled
-          />
-          <div class="alert" *ngIf="!rForm.controls['Period'].valid && rForm.controls['Period'].touched">
-            period is requried
-          </div>
-        </div> -->
-        <div class="controls">
-          <label for="">rate</label> <br />
-          <input
-            type="text"
-            class="input-field"
-            formControlName="Rate"
-            disabled
-          />
-          <div class="alert" *ngIf="!rForm.controls['Rate'].valid && rForm.controls['Rate'].touched">
-            Rate is requried
-          </div>
-        </div>
-
         <div class="controls">
           <!-- <input type="submit" value="invest now" class="button" [disabled]="!rForm.valid" /> -->
         </div>
@@ -88,9 +60,9 @@
         <p><b>Profit</b> : {{ profit | currency: "R" }}</p>
         <p><b>Total share value</b> : {{ total | currency: "R" }}</p>
         <p>
-          <b>Withdrawable amount </b> : {{ widrawalDayAmount | currency: "R" }}
+          <b>Profit in Next 30 days </b> : {{ widrawalDayAmount | currency: "R" }}
         </p>
-        <p><b>Withdrawal date</b>: {{ widrawalDay }}</p>
+        <p><b>Withdrawal date</b>: {{ maturityDate| date }}</p>
       </div>
     </div>
   </div>

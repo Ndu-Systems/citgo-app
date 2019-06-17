@@ -10,7 +10,8 @@ import { a } from "@angular/core/src/render3";
 export class CalculatorComponent implements OnInit {
   rForm: FormGroup;
   data: any;
-  explainContract = "";
+  explainContract =
+    "Your shares will increase with the fixed interest rate of 15% monthly";
   currency: "R";
   profits: number[] = [];
   widrawalDay: any = "Date not set";
@@ -34,11 +35,16 @@ export class CalculatorComponent implements OnInit {
     "November",
     "December"
   ];
+  maturityDate: Date;
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
     this.rForm = this.fb.group({
-      Amount: ["", Validators.required],
+      Amount: ["", [
+        Validators.required,
+        Validators.min(5000),
+        Validators.max(200000)
+      ]],
       Period: ["12 months"],
       Rate: ["15 %"],
       Capitalization: [12, Validators.required]
@@ -48,25 +54,14 @@ export class CalculatorComponent implements OnInit {
  
       let capitalization = Number(data.Capitalization);
       let amount = data.Amount;
-      var today = new Date();
 
-      if (capitalization > 0) {
-        //contact
-        this.explainContract =
-          "Your shares will increase with 15% Compounded  Monthly";
-        var widrawDate = new Date(
-          today.setMonth(today.getMonth() + capitalization)
-        );
-        this.widrawalDay = `${this.formatDate(widrawDate)}`;
-        this.getCompoundGrowth(amount, capitalization);
-      } else {
-        // month ro month
-        this.explainContract =
-          "Your share value  will increase with 15% Monthly, No compound amount eligible";
-        var widrawDate = new Date(today.setMonth(today.getMonth() + 1));
-        this.widrawalDay = `${this.formatDate(widrawDate)}`;
+
+      if (amount >= 5000 && amount <=200000) {
+        this.maturityDate =  new Date(new Date().setFullYear(new Date().getFullYear() + 1))
+
         this.geFlatGrowth(amount);
-      }
+
+      } 
       //load form
       let months: string[] = this.get12Months();
       this.data = {

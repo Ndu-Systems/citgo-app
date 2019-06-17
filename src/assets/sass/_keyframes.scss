@@ -16,8 +16,13 @@
   
   @keyframes moveInRight {
     0% {
-      transform: translateX(500px);
+      transform: translateX(15px);
     }
+     
+    80% {
+      transform: translateX(10px);
+    }
+  
     100% {
       transform: translateX(0);
     }
