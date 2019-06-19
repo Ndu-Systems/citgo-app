@@ -9,6 +9,7 @@ import { DashboardRoutingModule, declarations } from './dashboard-routing.module
 import { MessageService, ConfirmationService } from 'primeng/api';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {AccordionModule} from 'primeng/accordion';
 
 
 
@@ -23,7 +24,8 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
     FormsModule,
     ReactiveFormsModule,
     OverlayPanelModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    AccordionModule
   ],
   declarations: [...declarations],
   providers: [MessageService,ConfirmationService]

@@ -1,20 +1,4 @@
-<div class="footer col-1-of-2">
-  <!-- <div class="links" *ngIf="client">
-    <h4><u>
-        Fast Links
-      </u></h4>
-    <ul>
-      <li>
-        <a routerLink='dasboard'>My wallet</a>
-      </li>
-      <li>
-        <a  [routerLink]="['my-refferals',client.ClientId]">My referrals</a>
-      </li>
-      <li>
-        <a routerLink='dasboard'>My transactions</a>
-      </li>
-    </ul>
-  </div> -->
+<!-- <div class="footer col-1-of-2">
   <p>@Citgo Oil Africa</p>
   <div class="disclaimer">
     <h1>Disclaimer:</h1>
@@ -23,5 +7,32 @@
       you know how we will use such information. If any of these information changes please contact us immediately to
       avoid complication during your transactions.
     </p>
+  </div>
+</div> -->
+
+<div class="footer col-1-of-2" *ngIf="client">
+  <div class="menu">
+    <div class="wallet">
+      <a routerLink="/dashboard/"  routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" >
+        <img src="assets/images/dashboard/wallet.svg"
+          class="menu-icons" alt="wallet-icon">
+        <h1>My wallet</h1>
+      </a>
+    </div>
+
+    <div class="buy-shares">
+        <a [routerLink]="['buy-share',client.ClientId]"  routerLinkActive="active"   [routerLinkActiveOptions]="{exact:true}" >
+          <img   src="assets/images/dashboard/shares.svg" class="menu-icons" alt="shares-icon">
+          <h1>Buy shares</h1>
+        </a>
+      </div>
+
+      <div class="referrals">
+          <a [routerLink]="['my-refferals',client.ClientId]"    routerLinkActive="active"   [routerLinkActiveOptions]="{exact:true}" >
+            <img   src="assets/images/dashboard/users.svg" class="menu-icons" alt="shares-icon">
+            <h1>My referrals</h1>
+          </a>
+        </div>
+  
   </div>
 </div>

@@ -1,5 +1,5 @@
 import { WEB_HOST, IS_LOCAL } from './shared/config';
-import { Router } from "@angular/router";
+import { Router, NavigationEnd } from "@angular/router";
 import { Component, OnInit } from "@angular/core";
 
 @Component({
@@ -14,6 +14,14 @@ export class AppComponent implements OnInit {
     if (!router.includes("https") && !IS_LOCAL) {
       window.location.href = WEB_HOST;
     }
+
+    //scroll up
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+          return;
+      }
+      window.scrollTo(0, 0)
+  });
   }
   title = "citgo-app";
 }

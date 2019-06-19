@@ -305,10 +305,17 @@ nav ul span {
     }
 
     .menu {
-      padding: 1.5rem 1rem;
+      padding: .5rem 1rem;
       text-align: right;
 
-      img {}
+      img {
+        width: 3.5rem;
+      }
+      .logout{
+        position: relative;
+        top: -25px;
+        color: white;
+      }
     }
   }
 

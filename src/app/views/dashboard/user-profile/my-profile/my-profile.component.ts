@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CleintService, AuthenticateService } from 'src/app/services';
 import { Client } from 'src/app/models';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UPDATE_CLIENT_ERROR, PASSWORD_DONT_MATCH_ERROR, PASSWORD_EXISTS_ERROR, OLD_PASSWORD_DONT_MATCH_ERROR } from 'src/app/shared/config';
+import { MessageService } from 'primeng/components/common/api';
 @Component({
   selector: 'app-my-profile',
   templateUrl: './my-profile.component.html',
@@ -16,7 +17,8 @@ export class MyProfileComponent implements OnInit {
   constructor(private clientService: CleintService,
     private fb: FormBuilder,
     private authenticateService: AuthenticateService,
-    private router: Router
+    private router: Router,
+    private messageService: MessageService
   ) {
     this.rForm = this.fb.group({
       Email: [null, Validators.required],
@@ -61,7 +63,8 @@ export class MyProfileComponent implements OnInit {
       FirstName: [this.client.FirstName, Validators.required],
       Surname: [this.client.Surname, Validators.required],
       MiddleName: [this.client.MiddleName, Validators.required],
-      IDNumber: [this.client.IDNumber, Validators.required],
+      IDNumber: new FormControl(this.client.IDNumber,[Validators.required, Validators.minLength(8),Validators.maxLength(16)]),
+
 
       City: [this.client.City, Validators.required],
       Province: [this.client.Province, Validators.required],
@@ -117,7 +120,8 @@ debugger
     }
     this.clientService.updateClient(this.client).subscribe(response => {
       if (response != null) {
-        alert('client successfully updated');
+        this.messageService.add({ life:4000,severity:'success', summary: 'You are up todate!', detail:'Your details are updated successfully!'});
+
         this.router.navigate(['/dashboard']);
       } else {
         this.error = UPDATE_CLIENT_ERROR;

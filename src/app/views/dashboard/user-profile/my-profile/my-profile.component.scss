@@ -2,6 +2,11 @@
 
 .main-container {
   padding: 5%;
+  @media only screen and (max-width: 600px) {
+
+    padding: 7rem 1rem;
+
+  }
 
   h1 {
     font-size: 1.777rem;
@@ -16,6 +21,9 @@
     margin: 0 auto;
     background: $white-color;
     padding: 2%;
+    @media only screen and (max-width: 600px) {
+      background:none;
+    }
 
     .controls {
       padding-bottom: 0.666rem;
@@ -64,6 +72,18 @@
     cursor: pointer;
     max-width: 75rem;
     background: $primary-color;
+    @media only screen and (max-width: 600px) {
+      border-radius: .5rem;
+      letter-spacing: 0rem;
+      padding: .9rem 1rem;
+      margin: 0 auto;
+
+
+
+    }
+    &:disabled{
+      opacity: .4;
+    }
 
   }
 
