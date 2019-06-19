@@ -1,4 +1,4 @@
-export const IS_LOCAL:boolean = false;
+export const IS_LOCAL:boolean = true;
 let api = 'https://citgoafrica.com/api';
 let web = 'https://citgoafrica.com/';
 if (IS_LOCAL) {
@@ -13,6 +13,7 @@ export const CURRENT_USER = 'currentUser';
 export const  ADMIN_USER_ROLE =1;
 export const  CLIENT_USER_ROLE =2;
 export const  STATUS_USER_NEW =4;
+
 export const  STATUS_USER_ACTIVE =3;
 export const DEFAULT_PASSWORD= "pass@123!";
 

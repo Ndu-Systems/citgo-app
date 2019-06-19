@@ -6,6 +6,7 @@ import { User } from 'src/app/models/user';
 import { AuthenticateService, UserService } from 'src/app/services';
 import { first } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-update-password',
@@ -23,13 +24,14 @@ export class UpdatePasswordComponent implements OnInit {
     private userProfileProcess: UserProfileProcessService,
     private authenticateService: AuthenticateService,
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private messageService:MessageService
   ) { }
 
   ngOnInit() {
     this.userProfileProcess.castUserProfileProcess.subscribe(process => {
       if (process.resetPasswordMessage != null) {
-        this.heading = process.resetPasswordMessage;
+        this.heading = process.resetPasswordMessage || 'Update Your password';
       }      
     });
     this.rForm = this.fb.group({
@@ -54,6 +56,8 @@ export class UpdatePasswordComponent implements OnInit {
     this.error = '';
     if (this.formValues.Password.value !== this.formValues.confirmPassword.value) {
       this.error = PASSWORD_DONT_MATCH_ERROR;
+      this.messageService.add({ life:7000,severity:'warn', summary: 'Opps!', detail:this.error});
+      return false;
     }
     this.currentUser.Password = this.formValues.Password.value;
     this.userService.updateUser(this.currentUser).subscribe(Response => {
@@ -65,6 +69,7 @@ export class UpdatePasswordComponent implements OnInit {
           .subscribe(response => {
             if (response) {
               this.userProfileProcess.updateUserProfileProcessState({ resetPasswordMessage: "reset your password." })
+              this.messageService.add({ life:7000,severity:'success', summary: 'Welcome back!', detail:'Your Password has been changed!'});
               this.router.navigate(["/dashboard"]);
             } else {
               this.error = response;
