@@ -5,9 +5,9 @@ export interface Bank {
     BankBranch: string;
     AccountNumber: string;
     AccountType: string;
-    CreateDate: string;
+    CreateDate?: string;
     CreateUserId: string;
-    ModifyDate: string;
+    ModifyDate?: string;
     ModifyUserId: string;
     StatusId: string;
 }
