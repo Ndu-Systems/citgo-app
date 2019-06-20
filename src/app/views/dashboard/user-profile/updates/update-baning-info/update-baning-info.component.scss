@@ -1,0 +1,33 @@
+.main {
+  padding: 5rem 2rem;
+h1{
+    font-size: 1.5rem;
+}
+  .dashboard-forms {
+    h1 {
+      font-weight: 400;
+      font-size: 1.5rem;
+    }
+    .controls {
+      @media only screen and (max-width: 600px) {
+        padding: 1rem 0;
+      }
+      label {
+        @media only screen and (max-width: 600px) {
+          color: rgb(47, 16, 56);
+          font-size: 0.8rem;
+        }
+      }
+      .input-field {
+        background: #fff;
+      }
+      .button{
+          color: #6D2BA9;
+          &:disabled{
+              opacity: .4;
+          }
+      }
+    }
+  }
+
+}

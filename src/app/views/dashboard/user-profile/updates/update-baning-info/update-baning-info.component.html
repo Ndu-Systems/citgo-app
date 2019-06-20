@@ -1,3 +1,66 @@
-<p>
-  update-baning-info works!
-</p>
+
+<div class="main">
+  <h1 class="form-headings">
+      Update Banking Details
+    </h1>
+    <form  *ngIf="rForm" [formGroup]="rForm" (ngSubmit)="updateBankingInfo(rForm.value)" class="box form-group"
+class="dashboard-forms">
+<div class="col-1-of-2 ">
+  <div class="controls">
+    <label for="">BANK NAME</label> <br />
+
+
+    <select class="input-field" formControlName="BankName">
+      <option value=""> Select your bank</option>
+      <option value="ABSA Bank">ABSA Bank</option>
+      <option value="Bank of Athens">Bank of Athens</option>
+      <option value="Bidvest Bank">Bidvest Bank</option>
+      <option value="Capitec Bank">Capitec Bank</option>
+      <option value="FNB">FNB</option>
+      <option value="Investec">Investec</option>
+      <option value="Nedbank">Nedbank</option>
+      <option value="SA Post Bank">SA Post Bank</option>
+      <option value="Standard Bank">Standard Bank</option>
+    </select>
+    <div class="alert" *ngIf="
+        !rForm.controls['BankName'].valid &&
+        rForm.controls['BankName'].touched
+      ">
+      BANK NAME is required
+    </div>
+  </div>
+  <div class="controls">
+    <label for="">ACCOUNT NUMBER</label> <br />
+    <input type="number" class="input-field" placeholder="Your account number"  formControlName="AccountNumber" />
+    <div class="alert" *ngIf="rForm.controls['AccountNumber'].hasError('required')">
+      ACCOUNT NUMBER is required
+    </div>
+    <div class="alert" *ngIf="rForm.controls['AccountNumber'].hasError('min') ||  rForm.controls['AccountNumber'].hasError('max')">
+      ACCOUNT NUMBER must be 8 to 15 characters digits
+</div> 
+  </div>
+</div>
+
+
+
+<div class=" col-1-of-2 small-nav">
+  <div class="nav">
+    <ul>
+      <li>
+        <span class="dot"></span>
+      </li>
+      <li>
+        <span class="dot dot-active"></span>
+      </li>
+      <li>
+        <span class="dot"></span>
+      </li>
+    </ul>
+  </div>
+  <div class="controls">
+    <input type="submit" value="NEXT" class="button" [disabled]="!rForm.valid" />
+  </div>
+</div>
+</form>
+
+</div>
