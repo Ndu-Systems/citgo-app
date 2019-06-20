@@ -30,6 +30,9 @@
     padding: 0.5em 1.5em;
     box-shadow: 10px -1px 83px -21px rgba(0, 0, 0, 1);
     cursor: "pointer";
+    @media only screen and (max-width: 600px) {
+      box-shadow: none;
+    }
   }
 
   input[type="submit"]:hover {
@@ -57,13 +60,12 @@
     color: #78909c;
     font-weight: 600;
   }
-  .ng-invalid{
-    border: .5px solid #e74c3c;
+  .ng-invalid {
+    border: 0.5px solid #e74c3c;
   }
-  .ng-untouched{
+  .ng-untouched {
     border: none;
     // border: .5px solid #ffe23d;
-
   }
 
   .textarea {
@@ -104,8 +106,7 @@
         color: #78909c;
         font-weight: 600;
       }
-
-     }
+    }
   }
   .success {
     background: #2ecc71;
@@ -244,7 +245,7 @@
   }
 }
 
-.form-headings{
+.form-headings {
   text-align: center;
   text-align: center;
   margin: 0;
@@ -252,6 +253,5 @@
   display: none;
   @media only screen and (max-width: 600px) {
     display: block;
-
   }
 }

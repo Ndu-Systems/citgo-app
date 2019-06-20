@@ -20,6 +20,9 @@ import { UpdatePasswordComponent, MyProfileComponent } from "./user-profile";
 import { UploadComponent } from './uplaod/upload.component';
 import { ClientStatsComponent } from './dashboard-home/client-stats/client-stats.component';
 import { PaymentComponent } from './investments/payment/payment.component';
+import { UpdatePersonalInfoComponent } from './user-profile/updates/update-personal-info/update-personal-info.component';
+import { UpdateBaningInfoComponent } from './user-profile/updates/update-baning-info/update-baning-info.component';
+import { UpdateBenefitiariesComponent } from './user-profile/updates/update-benefitiaries/update-benefitiaries.component';
 
 const routes: Routes = [
   {
@@ -35,6 +38,11 @@ const routes: Routes = [
       { path: "share-details/:id", component: ShareDetailsComponent },
       { path: "payment/:id", component: PaymentComponent },
       { path: "my-profile", component: MyProfileComponent },
+
+      //updates
+      { path: "update-personal-info/:id", component: UpdatePersonalInfoComponent },
+      { path: "update-banking-info/:id", component: UpdateBaningInfoComponent },
+      { path: "update-benefitiaries/:id", component: UpdateBenefitiariesComponent },
       
     ]
   }
@@ -60,7 +68,12 @@ export const declarations: Array<any> = [
   AdminSammaryComponent,
   ToActionComponent,
   AllClientsComponent,
-  ClientStatsComponent
+  ClientStatsComponent,
+
+  // update
+  UpdatePersonalInfoComponent,
+  UpdateBaningInfoComponent,
+  UpdateBenefitiariesComponent
   
 ];
 

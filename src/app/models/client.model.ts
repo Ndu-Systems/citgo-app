@@ -21,3 +21,5 @@ export interface Client{
         CellphoneNumber: string;
         Password?: string;
 }
+
+

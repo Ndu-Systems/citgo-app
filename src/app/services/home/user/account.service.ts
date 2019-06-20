@@ -13,5 +13,8 @@ export class AccountService {
   addClient(data): Observable<any> {
     return this.http.post<any>(`${API_URL}/api/clients/add-client.php`, data);
   }
+  updateClient(data): Observable<any> {
+    return this.http.post<any>(`${API_URL}/api/clients/update-client.php`, data);
+  }
 
 }
