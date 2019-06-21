@@ -36,6 +36,7 @@ export class UpdateBaningInfoComponent implements OnInit {
             BankingDetailsId: null,
             ClientId: this.clientId,
             BankName: "",
+            AccountHolder: "",
             BankBranch: "",
             AccountNumber: "",
             AccountType: "432432",
@@ -47,6 +48,7 @@ export class UpdateBaningInfoComponent implements OnInit {
 
         this.rForm = this.fb.group({
           BankName: [this.bankingDetails.BankName, Validators.required],
+          AccountHolder: [this.bankingDetails.AccountHolder, Validators.required],
           BankBranch: [this.bankingDetails.BankBranch],
           AccountNumber: [
             this.bankingDetails.AccountNumber,

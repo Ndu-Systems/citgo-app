@@ -41,7 +41,7 @@ export class VerifyEmailComponent implements OnInit {
       if (Number(this.currentUser.StatusId) == STATUS_USER_NEW) {
         this.currentUser.StatusId = STATUS_USER_ACTIVE;
         this.currentUser.ModifyUserId = this.userId;
-        this.userService.updateUser(this.currentUser).subscribe(res => {
+        this.userService.verifyUser(this.currentUser).subscribe(res => {
           let role:UserRole ={
             UserId:this.currentUser.UserId,
             RoleId:CLIENT_USER_ROLE,

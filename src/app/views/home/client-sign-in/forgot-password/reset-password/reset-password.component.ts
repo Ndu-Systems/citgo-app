@@ -40,7 +40,7 @@ export class ResetPasswordComponent implements OnInit {
       if (Number(this.currentUser.StatusId) == STATUS_USER_ACTIVE) {      
         this.currentUser.ModifyUserId = this.userId;
         this.currentUser.Password = DEFAULT_PASSWORD;
-        this.userService.updateUser(this.currentUser).subscribe(res => {
+        this.userService.verifyUser(this.currentUser).subscribe(res => {
           // lOGIN USER
           this.authicateService
             .loginUser(this.currentUser.Email, this.currentUser.Password)

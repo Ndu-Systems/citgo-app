@@ -2,6 +2,7 @@ export interface Bank {
     BankingDetailsId: string;
     ClientId: string;
     BankName: string;
+    AccountHolder: string;
     BankBranch: string;
     AccountNumber: string;
     AccountType: string;

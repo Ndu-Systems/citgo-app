@@ -14,7 +14,7 @@ import { DashboardNavComponent } from "./dashboard-nav";
 
 import { InvestmentsComponent, BuyShareComponent } from "./investments";
 import { AuthGuard } from "src/app/guards/auth.guard";
-import { CLIENT_USER_ROLE, ADMIN_USER_ROLE } from "src/app/shared/config";
+import { CLIENT_USER_ROLE, ADMIN_USER_ROLE, UPDATE_CONTACT_INFO } from "src/app/shared/config";
 import { DashFooterComponent } from "./dash-footer/dash-footer.component";
 import { UpdatePasswordComponent, MyProfileComponent } from "./user-profile";
 import { UploadComponent } from './uplaod/upload.component';
@@ -73,7 +73,8 @@ export const declarations: Array<any> = [
   // update
   UpdatePersonalInfoComponent,
   UpdateBaningInfoComponent,
-  UpdateBenefitiariesComponent
+  UpdateBenefitiariesComponent,
+   
   
 ];
 

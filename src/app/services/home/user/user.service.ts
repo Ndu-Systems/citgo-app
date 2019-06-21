@@ -8,14 +8,21 @@ import { UserRole } from "src/app/models/userole.model";
   providedIn: "root"
 })
 export class UserService {
+ 
   constructor(private http: HttpClient) {}
 
+  getUserById(UserId): Observable<any> {
+    return this.http.get<any>(`${API_URL}/api/user/get-user-by-id.php?UserId=${UserId}`);
+  }
   getAllUsers(): Observable<any> {
     return this.http.get<any>(`${API_URL}/api/user/get-user-emails.php`);
   }
 
-  updateUser(user): Observable<any> {
+  verifyUser(user): Observable<any> {
     return this.http.post<any>(`${API_URL}/api/user/verify-user.php`, user);
+  }
+  updateUser(user): Observable<any> {
+    return this.http.post<any>(`${API_URL}/api/user/update-user.php`, user);
   }
   addUserRole(data:UserRole): Observable<any> {
     return this.http.post<any>(`${API_URL}/api/useroles/add-user-role.php`, data);

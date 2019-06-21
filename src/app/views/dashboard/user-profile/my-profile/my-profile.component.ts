@@ -1,8 +1,11 @@
+import { UPDATE_CONTACT_INFO } from './../../../../shared/config';
+import { EmailService } from './../../../../services/shared-services/email/email.service';
 import { BeneficiariesService } from './../../../../services/home/beneficiaries.service';
 import { Component, OnInit } from "@angular/core";
 import { CleintService, AuthenticateService } from "src/app/services";
 import { Client } from "src/app/models";
 import { Router } from "@angular/router";
+import { WEB_HOST } from 'src/app/shared/config';
 
 @Component({
   selector: "app-my-profile",
@@ -11,15 +14,16 @@ import { Router } from "@angular/router";
 })
 export class MyProfileComponent implements OnInit {
   client: Client;
-  error;
   fullname: string;
   email: string;
   beneficiaries: any;
+  isDone: boolean;
   constructor(
     private clientService: CleintService,
     private authenticateService: AuthenticateService,
     private router: Router,
     private beneficiariesService: BeneficiariesService,
+    private emailService: EmailService
   ) {}
 
   ngOnInit() {
@@ -42,5 +46,17 @@ export class MyProfileComponent implements OnInit {
 
   back() {
     this.router.navigate(["/dashboard"]);
+  }
+  sendChangeEmailConfirmation() {
+    let link   = `${WEB_HOST}/#/${UPDATE_CONTACT_INFO}/${this.client.UserId}`;
+
+    let data = {
+      name: this.client.FirstName,
+      email: this.client.Email,
+      link: link
+    };
+    this.emailService.sendChangePass(data).subscribe(r => {
+      this.isDone = true;
+    });
   }
 }

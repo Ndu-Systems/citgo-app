@@ -1,24 +1,63 @@
 @import '../../../../../assets/sass/variables';
 $status-span : 1rem;
+
 .main-container {
   padding: 5%;
+
   @media only screen and (max-width: 600px) {
 
     padding: 7rem 1rem;
-    padding:0;
+    padding: 0;
     padding-top: 3.5rem;
     padding-bottom: 5rem;
 
   }
-  .female-header{
-    width: 100%;
-    // background: #252525;
-    #email, #fullname{
+
+  .main-profile {
+    background: linear-gradient(to right, #3827b4 0%, #6c18a4);
+    margin-top: 2rem;
+
+    .profile-heading {
+      color: #fff;
+      font-size: 1.5rem;
+    }
+
+    .prof-pic {
       width: 100%;
       text-align: center;
     }
+
+    .user-details {
+      color: #fff;
+
+      h1 {
+        text-align: center;
+        color: #fff;
+
+      }
+
+      p {
+        text-align: center;
+      }
+    }
+
+    .actions {
+
+      .action {
+        display: inline;
+        color: white;
+        font-size: .6rem;
+        text-transform: uppercase;
+        margin: 0 .3rem;
+        padding: .4rem;
+        border: .1rem solid #fff;
+        border-radius: .4rem;
+      }
+
+    }
   }
 }
+
 .cards {
   grid-template-columns: 100%;
   margin-bottom: 10rem;
@@ -26,7 +65,8 @@ $status-span : 1rem;
   .card {
     padding-right: 1rem;
     grid-template-columns: 100%;
-    h1{
+
+    h1 {
       font-size: 1.2rem;
       text-align: center;
       font-weight: 400;
@@ -65,7 +105,8 @@ $status-span : 1rem;
             margin-right: .5rem;
           }
         }
-        .remove{
+
+        .remove {
           color: red;
           margin-left: 4rem;
         }
@@ -74,6 +115,7 @@ $status-span : 1rem;
       .details-sec-2 {
         display: grid;
         grid-template-columns: 50% 50%;
+
         h1 {
           font-size: .9rem;
           font-weight: 500;
@@ -88,17 +130,20 @@ $status-span : 1rem;
             text-transform: uppercase;
             letter-spacing: .3rem;
           }
+
           &.upload-proof-of-payment {
             font-weight: 500;
             font-size: .7rem;
             color: $orange-color;
             margin: .211rem;
-            &:hover{
+
+            &:hover {
               cursor: pointer;
             }
           }
         }
-        .edit{
+
+        .edit {
           float: right;
           margin-right: 2rem;
         }
@@ -121,7 +166,62 @@ $status-span : 1rem;
     }
   }
 }
-.nodata{
+
+.nodata {
   color: #8d5e06;
   font-size: .8rem;
+}
+
+
+
+.awaiting {
+  background: #3827b4;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #3827b4 0%, #6c18a4 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #3827b4 0%, #6c18a4 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #3827b4 0%, #6c18a4 100%);
+
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  text-align: center;
+  padding: 1.5rem;
+  padding-top: 5rem;
+  color: #fff;
+
+  .image {
+    text-align: center;
+
+    img {
+      width: 30%;
+    }
+
+
+  }
+
+  p {
+    font-weight: 300;
+  }
+
+  .btns {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    padding-top: 5rem;
+
+    button {
+      text-align: center;
+      background: #0081c7;
+      padding: 2%;
+      border: none;
+      color: #fff;
+      width: 8rem;
+      font-weight: 700;
+      border-radius: 0.2rem;
+    }
+  }
 }

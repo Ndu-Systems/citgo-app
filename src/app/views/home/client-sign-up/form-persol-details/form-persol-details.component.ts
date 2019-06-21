@@ -62,24 +62,6 @@ export class FormPersolDetailsComponent implements OnInit {
       this.ParentId = r.parentId;
     })
 
-    // this.rForm = this.fb.group({
-    //   FirstName: [null, Validators.compose([Validators.required, Validators.minLength(3),Validators.maxLength(30)])],
-    //   MiddleName: [null],
-    //   Surname: ["", Validators.compose([Validators.required, Validators.minLength(3),Validators.maxLength(30)])],
-    //   IDNumber: new FormControl('',[Validators.required, Validators.minLength(7),Validators.maxLength(20)]),
-    //   // IDNumber: [null, Validators.compose([Validators.required, Validators.minLength(7),Validators.maxLength(20)])],
-    //   Email: [null, Validators.required],
-    //   CellphoneNumber: [null, Validators.compose([Validators.required, Validators.minLength(5),Validators.maxLength(15)])],
-    //   Gender: ["", Validators.required],
-    //   Province: ["", Validators.required],
-    //   City: ["", Validators.required],
-    //   Country: ["", Validators.required],
-    //   PostCode: ["0000", Validators.required],
-    //   Address: ["Not needed", Validators.required],
-    //   CreateUserId: ["SYSTEM_WEB", Validators.required],
-    //   StatusId: [STATUS_USER_NEW, Validators.required],
-    //   ParentId: [this.ParentId]
-    // });
 
     this.rForm.valueChanges.subscribe(data => {
 

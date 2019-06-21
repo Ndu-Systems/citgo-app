@@ -1,4 +1,4 @@
-export const IS_LOCAL:boolean = false;
+export const IS_LOCAL:boolean = true;
 let api = 'https://citgoafrica.com/api';
 let web = 'https://citgoafrica.com/';
 if (IS_LOCAL) {
@@ -23,11 +23,15 @@ export function getCurrentUser(){
 
 export const VERIFICATIONLINK = "etr70554f35IG6767-ctrl789954";
 export const RESET_PASSWORD = "e23587411e523332s33111a33333ds1";
+export const UPDATE_CONTACT_INFO = "e23587488969889a33333ds1";
+export const REQUEST_NEW_EMAIL_REQUEST= "e23587488969889a33333vc4";
 export const REFERALLINK = "sign-up-from-link";
 
 const onlineApi = "https://citgoafrica.com/api";
 export const SEND_ACC_VERIFICATION_EMAIL = `${onlineApi}/email/email-acc-verify.php`;
 export const SEND_FORGOT_PASSWORD_EMAIL = `${onlineApi}/email/email-reset-password.php`;
+export const SEND_UPDATE_CONTACT_DETAILS_EMAIL = `${onlineApi}/email/email-update-email.php`;
+export const SEND_NEW_EMAIL_REQUEST_EMAIL = `${onlineApi}/email/new-email-request-email.php`;
 
 
 // Validator

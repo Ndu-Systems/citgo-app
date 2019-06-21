@@ -60,7 +60,7 @@ export class UpdatePasswordComponent implements OnInit {
       return false;
     }
     this.currentUser.Password = this.formValues.Password.value;
-    this.userService.updateUser(this.currentUser).subscribe(Response => {
+    this.userService.verifyUser(this.currentUser).subscribe(Response => {
       if (Response) {
         // lOGIN USER
         this.authenticateService
