@@ -61,189 +61,102 @@
     
   
   </div>
-  <!-- 
-  <h1>
-    my profile
-  </h1> -->
-  <!-- <p-accordion>
 
 
-    <p-accordionTab header="Personal details">
-      <form [formGroup]="rForm" (ngSubmit)="updateProfile()" class=" form-group" class="dashboard-forms">
-        <div class="col-1-of-2">
-          <div class="col-1-of-1">
-            <div class="col-1-of-2">
-              <div class="controls">
-                <label for="">FirstName</label> <br />
-                <input type="text" class="input-field" formControlName="FirstName" />
-                <div class="alert" *ngIf="!rForm.controls['FirstName'].valid && rForm.controls['Email'].touched">
-                  FirstName is requried
-                </div>
-              </div>
-              <div class="controls">
-                <label for="">Surname</label> <br />
-                <input type="text" class="input-field" formControlName="Surname" />
-                <div class="alert" *ngIf="!rForm.controls['Surname'].valid && rForm.controls['Email'].touched">
-                  Surname is requried
-                </div>
-              </div>
-              <div class="controls">
-                <label for="">Id number</label> <br />
-                <input type="text" maxlength="16" class="input-field" formControlName="IDNumber" />
-                <div class="alert" *ngIf="rForm.controls['IDNumber'].errors?.required">
-                  ID Number is required
-                </div>
-                <div class="alert"
-                  *ngIf="rForm.controls['IDNumber'].errors?.minlength || rForm.controls['IDNumber'].errors?.maxlength">
-                  ID Number/passport must be 8 to 16 characters long
-                </div>
-              </div>
-            </div>
+<div class="cards" *ngIf="client">
+  <div class="card">
+    <h1>Personal Details</h1>
+    <div class="col-1-of-2">
+  
+      <div class="details-sec-2">
+        <h1>
+          {{client.FirstName }}  {{client.Surname }}
+          <span class="label">Full Name</span>
+        </h1>
 
-          </div>
+        <h1>
+          {{client.Gender}}
+          <span class="label">Gender</span>
+        </h1>
+        <h1>
+          {{client.IDNumber}}
+          <span class="label">ID Number</span>
+        </h1>
+        <h1>
+          {{client.Country}}
+          <span class="label">Country</span>
+        </h1>
+        <h1>
+          {{client.Province}}
+          <span class="label">Province</span>
+        </h1>
+        <h1>
+          {{client.City}}
+          <span class="label">City</span>
+        </h1>
+        <div></div>
+          <div >
+              <a class="edit" [routerLink]="['../update-personal-info',client.ClientId]">EDIT</a>
+          </div>       
+      </div>
+    </div>
+  </div>
 
-          <div></div>
-          <div class="controls">
-            <input type="submit" value="update personal details" class="button" [disabled]="!rForm.valid" />
-          </div>
-        </div>
+  <div class="card">
+    <h1>
+      Your bank details to withdraw money from Citgo
+    </h1>
+    <div class="col-1-of-2">
+  
+      <div class="details-sec-2">
+        <h1>
+          {{client.BankName }}
+          <span class="label">Bank Name</span>
+        </h1>
 
-      </form>
-    </p-accordionTab>
+        <h1>
+          {{client.AccountNumber}}
+          <span class="label">Acc Number</span>
+        </h1>
+        <div></div>
+          <div >
+              <a  class="edit" [routerLink]="['../update-banking-info',client.ClientId]">EDIT</a>
+          </div>       
+      </div>
+    </div>
+  </div>
 
+  <div class="card" *ngIf="beneficiaries">
+    <h1>
+        Beneficiaries
+    </h1>
+    <div class="col-1-of-2" *ngIf="beneficiaries.length; else noben">
+  
+      <div class="details-sec-2" *ngFor="let data of beneficiaries">
+        <h1>
+          {{data.Name }}  {{data.Surname }}
+          <span class="label">Full Name</span>
+        </h1>
 
+        <h1>
+          {{data.Relation}}
+          <span class="label">Relation</span>
+        </h1>
+       
+        <div></div>
+          <div >
+              <a  class="edit"  [routerLink]="['../update-benefitiaries',data.BeneficiaryId]">EDIT</a>
+          </div>       
+      </div>
+    </div>
 
-    <p-accordionTab header="Contact details">
-      <form [formGroup]="rForm" (ngSubmit)="updateProfile()" class="box form-group" class="dashboard-forms">
-        <div class="col-1-of-2">
-          <div class="col-1-of-1">
+    <ng-template #noben>
+      <p class="nodata">You have no beneficiaries  
 
-            <div class="col-1-of-2">
-              <div class="controls">
-                <label for="">Email</label> <br />
-                <input type="email" disabled class="input-field" formControlName="Email" />
-                <div class="alert" *ngIf="!rForm.controls['Email'].valid && rForm.controls['Email'].touched">
-                  Email is requried
-                </div>
-              </div>
-              <div class="controls">
-                <label for="">Phone number</label> <br />
-                <input type="text" class="input-field" formControlName="CellphoneNumber" />
-                <div class="alert" *ngIf="!rForm.controls['CellphoneNumber'].valid && rForm.controls['Email'].touched">
-                  Cellphone Number is requried
-                </div>
-              </div>
-            </div>
-
-
-          </div>
-
-          <div></div>
-          <div class="controls">
-            <input type="submit" value="Contact details" class="button" [disabled]="!rForm.valid" />
-          </div>
-        </div>
-
-
-      </form>
-    </p-accordionTab>
-    <p-accordionTab header="Address details">
-      <form [formGroup]="rForm" (ngSubmit)="updateProfile()" class="box form-group" class="dashboard-forms">
-
-        <div class="col-1-of-2">
-          <div class="col-1-of-1">
-
-            <div class="col-1-of-2">
-              <div class="controls">
-                <label for="">Country</label> <br />
-                <input type="email" class="input-field" formControlName="Country" />
-                <div class="alert" *ngIf="!rForm.controls['Country'].valid && rForm.controls['Email'].touched">
-                  Country is requried
-                </div>
-              </div>
-
-              <div class="controls">
-                <label for="">City</label> <br />
-                <input type="email" class="input-field" formControlName="City" />
-                <div class="alert" *ngIf="!rForm.controls['City'].valid && rForm.controls['Email'].touched">
-                  City is requried
-                </div>
-              </div>
-              <div class="controls">
-                <label for="">Province</label> <br />
-                <input type="email" class="input-field" formControlName="Province" />
-                <div class="alert" *ngIf="!rForm.controls['Province'].valid && rForm.controls['Email'].touched">
-                  Province is requried
-                </div>
-              </div>
-
-
-            </div>
-          </div>
-
-          <div></div>
-          <div class="controls">
-            <input type="submit" value="update profile" class="button" [disabled]="!rForm.valid" />
-          </div>
-        </div>
-
-      </form>
-    </p-accordionTab>
-    <p-accordionTab header="Password  Update">
-      <form [formGroup]="rForm" (ngSubmit)="updateProfile()" class="box form-group" class="dashboard-forms">
-
-        <div class="col-1-of-2">
-
-          <div class="col-1-of-1">
-            <h1>Change password</h1>
-            <div class="controls">
-              <label for="">Old Password</label><br />
-              <input type="password" class="input-field" formControlName="oldPassword" />
-              <div class="alert" *ngIf="!rForm.controls['oldPassword'].valid && rForm.controls['oldPassword'].touched">
-                Old of password is requried
-              </div>
-            </div>
-            <div class="controls">
-              <label for="">New Password</label><br />
-              <input type="password" class="input-field" formControlName="newPassword" />
-              <div class="alert" *ngIf="!rForm.controls['newPassword'].valid && rForm.controls['newPassword'].touched">
-                New password is requried
-              </div>
-            </div>
-            <div class="controls">
-              <label for="">Confirm New Password</label><br />
-              <input type="password" class="input-field" formControlName="confirmPassword" />
-              <div class="alert"
-                *ngIf="!rForm.controls['confirmPassword'].valid && rForm.controls['confirmPassword'].touched">
-                Confirmation of password is requried
-              </div>
-            </div>
-          </div>
-          <div></div>
-          <div class="controls">
-            <input type="submit" value="update Password" class="button" [disabled]="!rForm.valid" />
-          </div>
-        </div>
-
-      </form>
-    </p-accordionTab>
-  </p-accordion> -->
-
-<div class="personal-info">
-  <div class="more">
-      <a [routerLink]="['../update-personal-info',client.ClientId]">More</a>
+        <a   [routerLink]="['../update-benefitiaries','please-add-new']" class="edit"> ADD</a>
+      </p>
+    </ng-template>
   </div>
 </div>
-<div class="personal-info">
-  <div class="more">
-      <a [routerLink]="['../update-banking-info',client.ClientId]">update-banking-info</a>
-  </div>
-</div>
-<div class="personal-info">
-  <div class="more">
-      <a [routerLink]="['../update-benefitiaries',client.ClientId]">More</a>
-  </div>
-</div>
-
 
 </div>

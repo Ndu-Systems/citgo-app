@@ -4,6 +4,9 @@
     <img src="assets/images/home/close-x.svg" (click)="closeModal()" class="close-btn" alt="" />
   </section>
   <section class="popup-body">
+    <h1 class="heading">
+        Add your bank details to withdraw money from Citgo
+    </h1>
     <form [formGroup]="rForm" (ngSubmit)="insertBankingInfo(rForm.value)" class="box form-group"
       class="dashboard-forms">
       <div class="col-1-of-2 ">
@@ -30,6 +33,7 @@
             BANK NAME is required
           </div>
         </div>
+        
         <div class="controls">
           <label for="">ACCOUNT NUMBER</label> <br />
           <input type="number" class="input-field" placeholder="Your account number"  formControlName="AccountNumber" />

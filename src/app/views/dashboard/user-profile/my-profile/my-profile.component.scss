@@ -1,5 +1,5 @@
 @import '../../../../../assets/sass/variables';
-
+$status-span : 1rem;
 .main-container {
   padding: 5%;
   @media only screen and (max-width: 600px) {
@@ -18,131 +18,110 @@
       text-align: center;
     }
   }
+}
+.cards {
+  grid-template-columns: 100%;
+  margin-bottom: 10rem;
 
-  h1 {
-    font-size: 1.777rem;
-    text-align: left;
-    text-transform: capitalize;
-    font-weight: 400;
-    padding-bottom: 1rem;
-  }
-
-  form {
-    max-width: 100%;
-    margin: 0 auto;
-    background: $white-color;
-    padding: 2%;
-    @media only screen and (max-width: 600px) {
-      background:none;
+  .card {
+    padding-right: 1rem;
+    grid-template-columns: 100%;
+    h1{
+      font-size: 1.2rem;
+      text-align: center;
+      font-weight: 400;
     }
 
-    .controls {
-      padding-bottom: 0.666rem;
-      .error {
-        padding: 2rem;
+    .col-1-of-2 {
+      .details-sec-1 {
+        .share-name {
+          font-size: 1.555rem;
+          font-weight: 700;
+          color: #3827b4;
+        }
 
+        .growth {
+          padding: 1rem;
+
+          img {
+            display: inline;
+            height: 1rem;
+          }
+
+          h1 {
+            display: inline;
+            font-size: 1rem;
+            font-weight: 800;
+            color: #2ecc71;
+          }
+        }
+
+        .status {
+          span {
+            width: $status-span;
+            height: $status-span;
+            border-radius: $status-span;
+            display: inline-block;
+            margin-right: .5rem;
+          }
+        }
+        .remove{
+          color: red;
+          margin-left: 4rem;
+        }
+      }
+
+      .details-sec-2 {
+        display: grid;
+        grid-template-columns: 50% 50%;
         h1 {
-          font-size: 1rem;
+          font-size: .9rem;
           font-weight: 500;
-          color: $red-color;
-          letter-spacing: 0;
+          color: #7f8c8d;
+          margin: .6rem 0;
+
+          .label {
+            display: block;
+            font-size: .6rem;
+            font-weight: 400;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            letter-spacing: .3rem;
+          }
+          &.upload-proof-of-payment {
+            font-weight: 500;
+            font-size: .7rem;
+            color: $orange-color;
+            margin: .211rem;
+            &:hover{
+              cursor: pointer;
+            }
+          }
+        }
+        .edit{
+          float: right;
+          margin-right: 2rem;
+        }
+
+        .col-1-of-2 {
+          grid-template-columns: 70% 30%;
+          grid-gap: 0rem;
+        }
+
+        a {
+          // margin: .5rem 0;
+          // float: right;
+          cursor: pointer;
+
+          &:hover {
+            color: #0a3977;
+          }
         }
       }
     }
-
   }
 }
-
-.dashboard-forms {
-  label {
-    color: black;
-  }
-
-  .input-field {
-    padding: 1rem;
-    border: solid 1px $nav-background;
-    @media only screen and (max-width: 600px) {
-      padding: .7rem;
-
-    }
-  }
-
-  .alert {
-    color: $red-color;
-  }
-
-  .button {
-    padding: 1.4rem;
-    padding-left: 5rem;
-    padding-right: 5rem;
-    text-transform: uppercase;
-    color: #fff;
-    font-weight: 500;
-    letter-spacing: .5rem;
-    border: none;
-    float: right;
-    text-align: right;
-    margin-right: -2rem;
-    margin: 0;
-    cursor: pointer;
-    max-width: 75rem;
-    background: $primary-color;
-    @media only screen and (max-width: 600px) {
-      border-radius: .5rem;
-      letter-spacing: 0rem;
-      padding: .9rem 1rem;
-      margin: 0 auto;
-
-
-
-    }
-    &:disabled{
-      opacity: .4;
-    }
-
-  }
-
-}
-
-.showError {
-  padding: 1rem;
-  background: #f39c12;
-  padding-top: 0.1rem;
-  padding-bottom: 0.1rem;
-  border-radius: 0.5rem;
-  .alert{
-    color: #fff;
-   
-  }
-  h1 {
-    font-size: 1.333rem;
-    text-align: left;
-    text-transform: capitalize;
-    font-weight: 600;
-    padding-bottom: 1rem;
-    letter-spacing: 0;
-  }
-  
-}
-
-::ng-deep .ui-widget {
-  background: #ecf0f1;
-}
-::ng-deep .ui-accordion-header {
- 
-  padding: 2%;
-}
-::ng-deep .ui-accordion-header a{
-  background-color: #ecf0f1 !important;
-  border: none !important;
-  color: #1500B2 !important;
-  text-align: center;
-  padding: 1%;
-}
-::ng-deep .ui-accordion-toggle-icon{
-display: none;
-}
-::ng-deep .ui-accordion-content{
-  background-color: #ecf0f1 !important;
-  border: none !important;
+.nodata{
+  color: #8d5e06;
+  font-size: .8rem;
 }

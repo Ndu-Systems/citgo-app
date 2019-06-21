@@ -1,3 +1,69 @@
-<p>
-  update-benefitiaries works!
-</p>
+<div class="main">
+  <h1 class="form-headings">
+    Update Benefitiary
+  </h1>
+  <form [formGroup]="rForm" *ngIf="rForm" (ngSubmit)="onSubmit(rForm.value)" class="box form-group" class="dashboard-forms">
+      <div class="col-1-of-2 ">
+        <div class="controls">
+          <label for="">NAME</label> <br />
+          <input type="text" class="input-field" placeholder="enter name" formControlName="Name" />
+          <div class="alert" *ngIf="!rForm.controls['Name'].valid">
+            NAME is requried
+          </div>
+        </div>
+        <div class="controls">
+          <label for="">SURNAME</label> <br />
+          <input type="text" class="input-field" placeholder="enter surname" formControlName="Surname" />
+          <div class="alert"  *ngIf="!rForm.controls['Surname'].valid">
+            SURNAME is requried
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="col-1-of-2 ">
+        <div class="controls">
+          <label for="">ID NUMBER</label> <br />
+          <input type="text" class="input-field" placeholder="enter id/passport number" formControlName="IDNumber" />
+         
+          <div class="alert" *ngIf="rForm.controls['IDNumber'].errors?.required">
+            ID Number is required
+          </div>
+          <div class="alert"
+            *ngIf="rForm.controls['IDNumber'].errors?.minlength || rForm.controls['IDNumber'].errors?.maxlength">
+            ID Number/passport must be 8 to 16 characters long
+          </div>
+        </div>
+        <div class="controls">
+          <label for="">Relationship</label> <br />
+          <select class="input-field" formControlName="Relation">
+            <option value=""> Select Relation</option>
+            <option value="parent">parent</option>
+            <option value="child">child</option>
+            <option value="spouse">spouse</option>
+            <option value="sibling">sibling</option>
+            <option value="grandparents">grandparents</option>
+            <option value="grandchild">grandchild</option>
+            <option value="parent's sibling">parent's sibling</option>
+            <option value="sibling's child">sibling's child</option>
+            <option value="aunt's/uncle's child">aunt's/uncle's child</option>
+          </select>
+          <div class="alert" *ngIf="!rForm.controls['Relation'].valid">
+            RELATION is requried
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class=" col-1-of-2 small-nav">
+      
+        <div class="controls">
+          <input type="submit" value="UPDATE" class="button" />
+        </div>
+      </div>
+
+    </form>
+
+</div>
