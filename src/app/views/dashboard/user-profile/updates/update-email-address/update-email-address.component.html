@@ -1,3 +1,16 @@
-<p>
-  update-email-address works!
-</p>
+<div class="awaiting" *ngIf="isDone">
+  <div class="image">
+    <img src="assets/images/dashboard/hourglass-half-solid.svg" alt="">
+  </div>
+  <div>
+    <h1>Well done!</h1>
+    <p>
+     You email address was updated to  <b>{{email}}</b>
+
+        Please login again with your new email address
+    </p>
+    <div class="btns">
+      <button (click)="login()">LOGIN</button>
+    </div>
+  </div>
+</div>

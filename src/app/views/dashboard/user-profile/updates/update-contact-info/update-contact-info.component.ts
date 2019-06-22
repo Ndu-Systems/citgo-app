@@ -2,10 +2,7 @@ import { FormBuilder, Validators } from "@angular/forms";
 import { Component, OnInit } from "@angular/core";
 import { User } from "src/app/models/user";
 import { ActivatedRoute, Router } from "@angular/router";
-import {
-  UserService,
-  EmailService
-} from "src/app/services";
+import { UserService, EmailService } from "src/app/services";
 import { MessageService } from "primeng/api";
 import {
   DEFAULT_PASSWORD,
@@ -25,6 +22,7 @@ export class UpdateContactInfoComponent implements OnInit {
   allUsers: any;
   isDone: boolean;
   userExist: string = "";
+  email: string = "";
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
@@ -38,6 +36,7 @@ export class UpdateContactInfoComponent implements OnInit {
       this.userService.getUserById(this.userId).subscribe(r => {
         if (r) {
           this.user = r;
+          this.email = this.user.Email;
           this.rForm = this.fb.group({
             Email: [this.user.Email, [Validators.required, Validators.email]],
             CellphoneNumber: [
@@ -135,7 +134,9 @@ export class UpdateContactInfoComponent implements OnInit {
     }
   }
   sendChangeEmailConfirmation(email) {
-    let link = `${WEB_HOST}/#/${REQUEST_NEW_EMAIL_REQUEST}/${this.user.UserId}&&${email}`;
+    let link = `${WEB_HOST}/#/${REQUEST_NEW_EMAIL_REQUEST}/${
+      this.user.UserId
+    }&&${email}`;
 
     let data = {
       name: email,
@@ -144,10 +145,9 @@ export class UpdateContactInfoComponent implements OnInit {
     };
     this.emailService.sendNewEmailRequest(data).subscribe(r => {
       this.isDone = true;
-      alert(JSON.stringify(r));
     });
   }
-  back(){
-this.router.navigate(["/"])
+  back() {
+    this.router.navigate(["/"]);
   }
 }
