@@ -3,21 +3,15 @@ import { Component, OnInit } from "@angular/core";
 import { User } from "src/app/models/user";
 import { ActivatedRoute, Router } from "@angular/router";
 import {
-  AuthenticateService,
   UserService,
-  CleintService,
   EmailService
 } from "src/app/services";
 import { MessageService } from "primeng/api";
-import { UserProfileProcessService } from "src/app/services/app-state/user-profile-process.service";
 import {
-  STATUS_USER_ACTIVE,
   DEFAULT_PASSWORD,
   WEB_HOST,
-  UPDATE_CONTACT_INFO,
   REQUEST_NEW_EMAIL_REQUEST
 } from "src/app/shared/config";
-import { first } from "rxjs/operators";
 
 @Component({
   selector: "app-update-contact-info",
@@ -30,9 +24,10 @@ export class UpdateContactInfoComponent implements OnInit {
   rForm: any;
   allUsers: any;
   isDone: boolean;
-  userExist: string;
+  userExist: string = "";
   constructor(
     private activatedRoute: ActivatedRoute,
+    private router: Router,
     private userService: UserService,
     private fb: FormBuilder,
     private messageService: MessageService,
@@ -44,8 +39,15 @@ export class UpdateContactInfoComponent implements OnInit {
         if (r) {
           this.user = r;
           this.rForm = this.fb.group({
-            Email: [this.user.Email,  [Validators.required, Validators.email]],
-            CellphoneNumber: [this.user.CellphoneNumber, [Validators.required, Validators.minLength(10),Validators.maxLength(15)]],
+            Email: [this.user.Email, [Validators.required, Validators.email]],
+            CellphoneNumber: [
+              this.user.CellphoneNumber,
+              [
+                Validators.required,
+                Validators.minLength(10),
+                Validators.maxLength(15)
+              ]
+            ],
 
             CreateUserId: [this.user.CreateUserId, Validators.required],
             StatusId: [this.user.StatusId, Validators.required],
@@ -57,22 +59,27 @@ export class UpdateContactInfoComponent implements OnInit {
           });
 
           this.rForm.valueChanges.subscribe(data => {
-
             this.userExist = "";
             let email = data.Email;
             let cellPhone = data.CellphoneNumber;
             let checkMails = this.allUsers.filter(x => x.Email == email);
-            let checkCells = this.allUsers.filter(x => x.CellphoneNumber == cellPhone);
-            if (checkMails.length > 0 && checkMails[0].Email != this.user.Email) {
+            let checkCells = this.allUsers.filter(
+              x => x.CellphoneNumber == cellPhone
+            );
+            if (
+              checkMails.length > 0 &&
+              checkMails[0].Email != this.user.Email
+            ) {
               //user with email exist
               this.userExist =
                 "An account for the specified email address already exists. Try another email address.";
-            } 
-            else if(checkCells.length > 0 && checkCells[0].CellphoneNumber != this.user.CellphoneNumber){
+            } else if (
+              checkCells.length > 0 &&
+              checkCells[0].CellphoneNumber != this.user.CellphoneNumber
+            ) {
               this.userExist =
-              "An account with the specified cellphone number  already exists. Try another cellphone number.";
-            }
-            else {
+                "An account with the specified cellphone number  already exists. Try another cellphone number.";
+            } else {
               this.userExist = "";
             }
           });
@@ -88,6 +95,15 @@ export class UpdateContactInfoComponent implements OnInit {
     });
   }
   updateContactfo(data: User) {
+    if (this.userExist != "") {
+      this.messageService.add({
+        life: 7000,
+        severity: "warn",
+        summary: "Sorry!",
+        detail: this.userExist
+      });
+      return false;
+    }
     if (
       data.Email == this.user.Email &&
       data.CellphoneNumber == this.user.CellphoneNumber
@@ -99,23 +115,27 @@ export class UpdateContactInfoComponent implements OnInit {
         detail: "nothing changed"
       });
     } else {
-      // cell only changeded
-      let datatosend = data;
-      datatosend.Email = this.user.Email; // we not updating the email yet
-      this.userService.updateUser(datatosend).subscribe(r => {
-        this.messageService.add({
-          life: 7000,
-          severity: "success",
-          summary: "Nice!",
-          detail: "Cellphone number updated!"
+      if (data.CellphoneNumber != this.user.CellphoneNumber) {
+        // cell only changeded
+        let datatosend = data;
+        datatosend.Email = this.user.Email; // we not updating the email yet
+        this.userService.updateUser(datatosend).subscribe(r => {
+          this.user = r;
+          this.messageService.add({
+            life: 7000,
+            severity: "success",
+            summary: "Nice!",
+            detail: "Cellphone number updated!"
+          });
         });
-      });
+      }
       if (data.Email != this.user.Email) {
+        this.sendChangeEmailConfirmation(data.Email);
       }
     }
   }
   sendChangeEmailConfirmation(email) {
-    let link = `${WEB_HOST}/#/${REQUEST_NEW_EMAIL_REQUEST}/${this.user.UserId}`;
+    let link = `${WEB_HOST}/#/${REQUEST_NEW_EMAIL_REQUEST}/${this.user.UserId}&&${email}`;
 
     let data = {
       name: email,
@@ -124,6 +144,10 @@ export class UpdateContactInfoComponent implements OnInit {
     };
     this.emailService.sendNewEmailRequest(data).subscribe(r => {
       this.isDone = true;
+      alert(JSON.stringify(r));
     });
+  }
+  back(){
+this.router.navigate(["/"])
   }
 }
