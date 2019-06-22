@@ -1,3 +1,4 @@
+import { LoginProcessService } from 'src/app/services/app-state/login-process.service';
 import { FormBuilder, Validators } from "@angular/forms";
 import { Component, OnInit } from "@angular/core";
 import { User } from "src/app/models/user";
@@ -23,20 +24,22 @@ export class UpdateContactInfoComponent implements OnInit {
   isDone: boolean;
   userExist: string = "";
   email: string = "";
+  doneMessage: string;
+  isCellUpdated: boolean;
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private userService: UserService,
     private fb: FormBuilder,
     private messageService: MessageService,
-    private emailService: EmailService
+    private emailService: EmailService,
+    private loginProcessService: LoginProcessService,
   ) {
     this.activatedRoute.params.subscribe(r => {
       this.userId = r["id"];
       this.userService.getUserById(this.userId).subscribe(r => {
         if (r) {
           this.user = r;
-          this.email = this.user.Email;
           this.rForm = this.fb.group({
             Email: [this.user.Email, [Validators.required, Validators.email]],
             CellphoneNumber: [
@@ -116,16 +119,11 @@ export class UpdateContactInfoComponent implements OnInit {
     } else {
       if (data.CellphoneNumber != this.user.CellphoneNumber) {
         // cell only changeded
-        let datatosend = data;
+        let datatosend = {...data};
         datatosend.Email = this.user.Email; // we not updating the email yet
         this.userService.updateUser(datatosend).subscribe(r => {
           this.user = r;
-          this.messageService.add({
-            life: 7000,
-            severity: "success",
-            summary: "Nice!",
-            detail: "Cellphone number updated!"
-          });
+          this.isCellUpdated = true;
         });
       }
       if (data.Email != this.user.Email) {
@@ -134,6 +132,7 @@ export class UpdateContactInfoComponent implements OnInit {
     }
   }
   sendChangeEmailConfirmation(email) {
+    this.email = email;
     let link = `${WEB_HOST}/#/${REQUEST_NEW_EMAIL_REQUEST}/${
       this.user.UserId
     }&&${email}`;
@@ -149,5 +148,10 @@ export class UpdateContactInfoComponent implements OnInit {
   }
   back() {
     this.router.navigate(["/"]);
+  }
+  login() {
+    this.loginProcessService.showLogin();
+    this.router.navigate(["/"]);
+
   }
 }

@@ -42,7 +42,7 @@ $status-span : 1rem;
     }
 
     .actions {
-
+      text-align: center;
       .action {
         display: inline;
         color: white;
@@ -170,5 +170,6 @@ $status-span : 1rem;
 .nodata {
   color: #8d5e06;
   font-size: .8rem;
+  text-transform: uppercase;
 }
 

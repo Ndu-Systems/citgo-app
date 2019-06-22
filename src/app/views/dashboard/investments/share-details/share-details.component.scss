@@ -6,22 +6,7 @@
     grid-template-columns: 40% auto;
     grid-gap: 0;
   }
-  h1 {
-    font-size: 1.777rem;
-    text-align: left;
-    text-transform: capitalize;
-    font-weight: 400;
-    padding-bottom: 1rem;
-
-    .notification {
-      font-size: 0.8rem;
-      padding: 1rem;
-      background: $orange-color;
-      border-radius: 0.5rem;
-      font-weight: 300;
-      color: $white-color;
-    }
-  }
+ 
 
   .cards {
     grid-template-columns: 100%;

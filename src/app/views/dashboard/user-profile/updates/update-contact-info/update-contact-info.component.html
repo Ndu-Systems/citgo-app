@@ -2,8 +2,7 @@
   <h1 class="form-headings">
     Update Contact Details
   </h1>
-  <form *ngIf="rForm" [formGroup]="rForm" (ngSubmit)="updateContactfo(rForm.value)" class="box form-group"
-    class="dashboard-forms">
+  <form *ngIf="rForm" [formGroup]="rForm" (ngSubmit)="updateContactfo(rForm.value)" class="dashboard-forms">
     <div class="col-1-of-2 ">
       <div class="controls">
         <label for="">Email</label> <br />
@@ -46,18 +45,35 @@
 <p-toast></p-toast>
 
 <div class="awaiting" *ngIf="isDone">
-    <div class="image">
-      <img src="assets/images/dashboard/hourglass-half-solid.svg" alt="">
-    </div>
-    <div>
-      <h1>Update Contact details</h1>
-      <p>
-        To make sure that you have used a correct  email address we have sent you an email to <b>{{email}}</b>
+  <div class="image">
+    <img src="assets/images/dashboard/check-circle-regular.svg" alt="">
+  </div>
+  <div>
+    <h1>Update Contact details</h1>
+    <p>
+      To make sure that you have used a correct email address we have sent you an email to <b>{{email}}</b>
 
-          Please click the link in the message to update to to new email.
-      </p>
-      <div class="btns">
-        <button (click)="back()">DONE</button>
-      </div>
+      Please click the link in the message to update to to new email.
+    </p>
+    <div class="btns">
+      <button (click)="back()">DONE</button>
     </div>
   </div>
+</div>
+
+
+<div class="awaiting" *ngIf="isCellUpdated">
+  <div class="image">
+    <img src="assets/images/dashboard/check-circle-regular.svg" alt="">
+  </div>
+  <div>
+    <h1>Update Cellphne number</h1>
+    <p>Your cell phone number was updated successfully. <br>
+
+      Please login again for changes to take affect!
+    </p>
+    <div class="btns">
+      <button (click)="login()">LOGIN</button>
+    </div>
+  </div>
+</div>
