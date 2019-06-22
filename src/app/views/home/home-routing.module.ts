@@ -29,6 +29,7 @@ import { EmailSentScreenComponent } from "./client-sign-up/email-sent-screen/ema
 import { EmailNotificationComponent } from './email-notification';
 import { SignUpFromLinkComponent } from './client-sign-up/sign-up-from-link/sign-up-from-link.component';
 import { UpdateContactInfoComponent } from '../dashboard/user-profile/updates/update-contact-info/update-contact-info.component';
+import { SessionExpiredComponent } from './session-expired/session-expired.component';
 
 const routes: Routes = [
   {
@@ -61,6 +62,7 @@ const routes: Routes = [
       },
       { path: `${UPDATE_CONTACT_INFO}/:id`, component: UpdateContactInfoComponent },
       { path: `${REQUEST_NEW_EMAIL_REQUEST}/:id`, component: UpdateEmailAddressComponent },
+      { path: `session-expired`, component: SessionExpiredComponent },
 
     ]
   }
@@ -89,7 +91,8 @@ export const declarations: Array<any> = [
   ResetPasswordComponent,
   SignUpFromLinkComponent,
   UpdateContactInfoComponent,
-  UpdateEmailAddressComponent
+  UpdateEmailAddressComponent,
+  SessionExpiredComponent
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],

@@ -1,24 +1,41 @@
-import { Injectable } from '@angular/core';
-import { API_URL, CURRENT_USER } from 'src/app/shared/config';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { HttpHeaders } from '@angular/common/http';
-import { map } from 'rxjs/operators';
-import { User } from 'src/app/models/user';
+import { Router } from '@angular/router';
+import { Injectable } from "@angular/core";
+import { API_URL, CURRENT_USER } from "src/app/shared/config";
+import { BehaviorSubject, Observable } from "rxjs";
+import { HttpClient } from "@angular/common/http";
+import { HttpHeaders } from "@angular/common/http";
+import { map } from "rxjs/operators";
+import { User } from "src/app/models/user";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class AuthenticateService {
   url = API_URL;
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
+  checkInterval: any;
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private router:Router) {
     this.currentUserSubject = new BehaviorSubject<User>(
       JSON.parse(localStorage.getItem(CURRENT_USER))
     );
     this.currentUser = this.currentUserSubject.asObservable();
+
+    this.checkInterval  = setInterval(() => {
+      if( this.currentUserSubject.value){
+        this.getUserByEmailObj(
+          this.currentUserSubject.value.Email,
+          this.currentUserSubject.value.UserId
+        ).subscribe(r=>{
+          if(!r){
+            this.logout();
+            this.router.navigate(["session-expired"]);
+          }
+        })
+      }
+    
+    }, 10000);
   }
 
   public loginUser(Email: string, Password: string): Observable<any> {
@@ -50,6 +67,10 @@ export class AuthenticateService {
 
   logout() {
     // remove user from local storage to log user out
+    if(this.checkInterval){
+      clearInterval(this.checkInterval);
+
+    }
     localStorage.removeItem(CURRENT_USER);
     this.currentUserSubject.next(null);
   }
@@ -70,5 +91,13 @@ export class AuthenticateService {
     return this.httpClient.get<any>(
       `${this.url}/api/user/get-user-by-email.php?Email=${email}`
     );
+  }
+  getUserByEmailObj(email: string, UserId) {
+    return this.httpClient
+      .get<any>(
+        `${
+          this.url
+        }/api/user/get-user-by-emai-and-userid.php?Email=${email}&UserId=${UserId}`
+      )
   }
 }

@@ -27,9 +27,27 @@ export class FormPersolDetailsComponent implements OnInit {
   allUsers: User[] = [];
   userExist: string = "";
   ParentId: string = "";
+  rForm: FormGroup;
 
-  //form
-  rForm = new FormGroup({
+
+
+  constructor(
+    private fb: FormBuilder,
+    private accountService: AccountService,
+    private emailService: EmailService,
+    private userService: UserService,
+    private signUpProcessService: SignUpProcessService,
+    private loginProcess: LoginProcessService,
+    private confirmationService: ConfirmationService
+  ) { }
+
+  ngOnInit() {
+    this.signUpProcessService.castUserRegistrationProcess.subscribe(r => {
+      this.ParentId = r.parentId;
+    })
+
+      //form
+  this.rForm = new FormGroup({
     FirstName:  new FormControl('',[Validators.required, Validators.minLength(3),Validators.maxLength(30)]),
     MiddleName:  new FormControl(null),
     Surname:   new FormControl(null, [Validators.required, Validators.minLength(3),Validators.maxLength(30)]),
@@ -46,21 +64,6 @@ export class FormPersolDetailsComponent implements OnInit {
     StatusId: new FormControl(STATUS_USER_NEW, Validators.required), 
     ParentId: new FormControl(this.ParentId)
   });
-
-  constructor(
-    private fb: FormBuilder,
-    private accountService: AccountService,
-    private emailService: EmailService,
-    private userService: UserService,
-    private signUpProcessService: SignUpProcessService,
-    private loginProcess: LoginProcessService,
-    private confirmationService: ConfirmationService
-  ) { }
-
-  ngOnInit() {
-    this.signUpProcessService.castUserRegistrationProcess.subscribe(r => {
-      this.ParentId = r.parentId;
-    })
 
 
     this.rForm.valueChanges.subscribe(data => {
@@ -80,11 +83,15 @@ export class FormPersolDetailsComponent implements OnInit {
       else {
         this.userExist = "";
       }
+      console.log(data);
+      console.log(this.ParentId);
+
     });
     //get all emails
     this.userService.getAllUsers().subscribe(r => {
       this.allUsers = r;
     });
+    
   }
 
   closeModal() {

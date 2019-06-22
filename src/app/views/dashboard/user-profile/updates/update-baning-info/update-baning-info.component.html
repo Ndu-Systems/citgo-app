@@ -23,9 +23,7 @@
           <option value="Standard Bank">Standard Bank</option>
         </select>
         <div class="alert" *ngIf="
-            !rForm.controls['BankName'].valid &&
-            rForm.controls['BankName'].touched
-          ">
+            !rForm.controls['BankName'].valid">
           BANK NAME is required
         </div>
       </div>
@@ -60,10 +58,7 @@
           <option value="Current">Current</option>
           <option value="Transmission ">Transmission </option>
         </select>
-        <div class="alert" *ngIf="
-            !rForm.controls['AccountType'].valid &&
-            rForm.controls['AccountType'].touched
-          ">
+        <div class="alert" *ngIf="!rForm.controls['AccountType'].valid">
           Account Type is required
         </div>
       </div>

@@ -1,10 +1,9 @@
 import { AuthenticateService } from 'src/app/services/home/user/authenticate.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { getCurrentUser, LAST_INSERT_ID } from 'src/app/shared/config';
-import { BeneficiariesService, SignUpProcessService } from 'src/app/services';
+import { BeneficiariesService } from 'src/app/services';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ConfirmationService, MessageService } from 'primeng/api';
+import { MessageService } from 'primeng/api';
 import { Beneficiaty } from 'src/app/models/beneficiaty.model';
 
 @Component({
@@ -17,7 +16,6 @@ export class UpdateBenefitiariesComponent implements OnInit {
   count: number = 1;
   beneficiaries: Array<any> = [];
   message: string = "";
-  UserId: string = getCurrentUser();
   clientId: string;
   showVerificationEmailSent: boolean;
   progress: string;

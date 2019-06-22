@@ -1,9 +1,8 @@
 import { Bank } from "./../../../../../models/bank.model";
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { getCurrentUser, LAST_INSERT_ID } from "src/app/shared/config";
-import { BankingInfoService, SignUpProcessService } from "src/app/services";
-import { ConfirmationService, MessageService } from "primeng/api";
+import { BankingInfoService } from "src/app/services";
+import {  MessageService } from "primeng/api";
 import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({

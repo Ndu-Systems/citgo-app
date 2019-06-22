@@ -5,7 +5,6 @@ import {
   RouterStateSnapshot,
   Router
 } from "@angular/router";
-import { ADMIN_USER_ROLE } from "../shared/config";
 import { AuthenticateService } from "../services";
 
 @Injectable({ providedIn: "root" })
@@ -27,7 +26,7 @@ export class AuthGuard implements CanActivate {
       }
       return true;
     }
-    this.routeTo.navigate(["/"], { queryParams: { returnUrl: state.url } });
+    this.routeTo.navigate(["session-expired"]);
     return false;
   }
 }
