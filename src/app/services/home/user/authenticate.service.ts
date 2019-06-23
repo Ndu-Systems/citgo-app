@@ -1,10 +1,10 @@
-import { Router } from '@angular/router';
+import { Router } from "@angular/router";
 import { Injectable } from "@angular/core";
 import { API_URL, CURRENT_USER } from "src/app/shared/config";
-import { BehaviorSubject, Observable } from "rxjs";
-import { HttpClient } from "@angular/common/http";
+import { BehaviorSubject, Observable, throwError } from "rxjs";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { HttpHeaders } from "@angular/common/http";
-import { map } from "rxjs/operators";
+import { map, catchError } from "rxjs/operators";
 import { User } from "src/app/models/user";
 
 @Injectable({
@@ -16,25 +16,24 @@ export class AuthenticateService {
   public currentUser: Observable<User>;
   checkInterval: any;
 
-  constructor(private httpClient: HttpClient, private router:Router) {
+  constructor(private httpClient: HttpClient, private router: Router) {
     this.currentUserSubject = new BehaviorSubject<User>(
       JSON.parse(localStorage.getItem(CURRENT_USER))
     );
     this.currentUser = this.currentUserSubject.asObservable();
 
-    this.checkInterval  = setInterval(() => {
-      if( this.currentUserSubject.value){
+    this.checkInterval = setInterval(() => {
+      if (this.currentUserSubject.value) {
         this.getUserByEmailObj(
           this.currentUserSubject.value.Email,
           this.currentUserSubject.value.UserId
-        ).subscribe(r=>{
-          if(!r){
+        ).subscribe(r => {
+          if (!r) {
             this.logout();
             this.router.navigate(["session-expired"]);
           }
-        })
+        });
       }
-    
     }, 10000);
   }
 
@@ -51,6 +50,7 @@ export class AuthenticateService {
         headers: reqheaders
       })
       .pipe(
+        catchError(this.handleError),
         map(user => {
           if (user && user.Role) {
             localStorage.setItem(CURRENT_USER, JSON.stringify(user));
@@ -67,9 +67,8 @@ export class AuthenticateService {
 
   logout() {
     // remove user from local storage to log user out
-    if(this.checkInterval){
+    if (this.checkInterval) {
       clearInterval(this.checkInterval);
-
     }
     localStorage.removeItem(CURRENT_USER);
     this.currentUserSubject.next(null);
@@ -93,11 +92,20 @@ export class AuthenticateService {
     );
   }
   getUserByEmailObj(email: string, UserId) {
-    return this.httpClient
-      .get<any>(
-        `${
-          this.url
-        }/api/user/get-user-by-emai-and-userid.php?Email=${email}&UserId=${UserId}`
-      )
+    return this.httpClient.get<any>(
+      `${
+        this.url
+      }/api/user/get-user-by-emai-and-userid.php?Email=${email}&UserId=${UserId}`
+    );
+  }
+  handleError(errorResponse: HttpErrorResponse) {
+    if (errorResponse.error instanceof ErrorEvent) {
+      console.log("cleint side: ", errorResponse.error);
+    } else {
+      console.log("server side: ", errorResponse.error);
+    }
+    return throwError(
+      "oops Sorry something went wrong with the network please try again later"
+    );
   }
 }

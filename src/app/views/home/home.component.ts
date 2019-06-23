@@ -1,3 +1,4 @@
+import { SpinnerProcessService } from './../../services/app-state/spinner-process.service';
 import { Component, OnInit } from "@angular/core";
 import { SignUpProcessService } from "src/app/services/app-state/sign-up-process.service";
 import { LoginProcessService } from "src/app/services/app-state/login-process.service";
@@ -18,11 +19,14 @@ export class HomeComponent implements OnInit {
   showEmailSentScreen: boolean;
   showEmailNotificationScreen: boolean;
   showForgotPassword: boolean;
+  showSpinner:boolean;
   message: string;
   constructor(
     private signUpProcessService: SignUpProcessService,
     private loginProcessService: LoginProcessService,
-    private navigationProcessService: NavigationProcessService
+    private navigationProcessService: NavigationProcessService,
+    private spinnerProcessService: SpinnerProcessService
+
   ) {
 
   }
@@ -39,6 +43,11 @@ export class HomeComponent implements OnInit {
     //nav
     this.navigationProcessService.castNavigationProcess.subscribe(process=>{
       this.showNav = process.showNav;
+    })
+    // spinner 
+
+    this.spinnerProcessService.castSpinnerProcess.subscribe(process=>{
+      this.showSpinner = process.showSpinner;
     })
 
     // login

@@ -1,4 +1,4 @@
-import { MessageService } from 'primeng/api';
+import { MessageService } from "primeng/api";
 import { SignUpProcessService } from "src/app/services/app-state/sign-up-process.service";
 import { Component, OnInit, EventEmitter, Output } from "@angular/core";
 import {
@@ -28,19 +28,19 @@ export class SignInComponent implements OnInit {
     private loginService: AuthenticateService,
     private loginProcess: LoginProcessService,
     private signUpProcessService: SignUpProcessService,
-    private messageService:MessageService
+    private messageService: MessageService
   ) {}
 
   ngOnInit() {
     this.rForm = this.fb.group({
       email: new FormControl(
-        "",
+        "john.doe@mail.com",
         Validators.compose([
           Validators.required,
           Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$")
         ])
       ),
-      password: ["", Validators.required]
+      password: ["pass", Validators.required]
     });
   }
   closeModal() {
@@ -61,14 +61,25 @@ export class SignInComponent implements OnInit {
     this.loginService
       .loginUser(this.formValues.email.value, this.formValues.password.value)
       .pipe(first())
-      .subscribe(response => {
-        if (response.UserId) {
-          this.routeTo.navigate(["/dashboard"]);
-        } else {
-          // this.error = response;
-          this.messageService.add({ life:7000,severity:'warn', summary: 'access denied!', detail:'Please make sure you enter your email address and password correctly'});
+      .subscribe(
+        response => {
+          if (response.UserId) {
+            this.routeTo.navigate(["/dashboard"]);
+          } else {
+            // this.error = response;
+            this.messageService.add({
+              life: 7000,
+              severity: "warn",
+              summary: "access denied!",
+              detail:
+                "Please make sure you enter your email address and password correctly"
+            });
+          }
+        },
+        error => {
+          alert(error);
         }
-      });
+      );
   }
 
   resetPassword() {

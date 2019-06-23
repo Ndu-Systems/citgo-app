@@ -1,3 +1,4 @@
+import { SpinnerComponent } from './spinner/spinner.component';
 import { UpdateEmailAddressComponent } from './../dashboard/user-profile/updates/update-email-address/update-email-address.component';
 import { ForgotPasswordComponent } from './client-sign-in/forgot-password/forgot-password.component';
 import { NgModule } from "@angular/core";
@@ -92,7 +93,8 @@ export const declarations: Array<any> = [
   SignUpFromLinkComponent,
   UpdateContactInfoComponent,
   UpdateEmailAddressComponent,
-  SessionExpiredComponent
+  SessionExpiredComponent,
+  SpinnerComponent
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],

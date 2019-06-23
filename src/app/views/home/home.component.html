@@ -11,6 +11,9 @@
 <div  *ngIf="showEmailNotificationScreen">
     <app-email-notification [message]="message"></app-email-notification>
 </div>
+<div  *ngIf="showSpinner">
+   <app-spinner></app-spinner>
+</div>
 <div class="container home">
   <app-home-nav *ngIf="showNav"></app-home-nav>
   <header class="container-col-1-of-3">
