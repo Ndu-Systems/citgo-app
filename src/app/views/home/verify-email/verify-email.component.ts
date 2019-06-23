@@ -23,7 +23,7 @@ export class VerifyEmailComponent implements OnInit {
   currentUser: User;
   isDone: boolean;
   progress: string = "Verifying your account....";
-  Error: string;
+  linkedUsed: boolean;
   constructor(
     private activatedRoute: ActivatedRoute,
     private authicateService: AuthenticateService,
@@ -73,9 +73,7 @@ export class VerifyEmailComponent implements OnInit {
           });
         });
       } else {
-        this.Error = "This activation link  have already been used";
-        alert(this.Error);
-        this.progress = "";
+        this.linkedUsed = true;
       }
     });
   }

@@ -3,14 +3,29 @@
       <img src="assets/images/dashboard/check-circle-regular.svg" alt="">
     </div>
     <div>
-      <h1>Well done!</h1>
+      <h1>Welcome!</h1>
       <p>
-       You email address was updated to  <b>{{email}}</b>
-  
-          Please login again with your new email address
+          Thank you for your perseverance while we making sure your account is secured.
+          Your email address was verified successfully. now please creator up your password.
+          
       </p>
       <div class="btns">
-        <button (click)="updatePassword()">LOGIN</button>
+        <button (click)="updatePassword()">CREATE MY PASSWORD</button>
+      </div>
+    </div>
+  </div>
+<div class="awaiting" *ngIf="linkedUsed">
+    <div class="image">
+        <img src="assets/images/dashboard/exclamation-triangle-solid.svg" alt="">
+      </div>
+    <div>
+      <h1>Sorry! Link Invalid</h1>
+      <p>
+          Sorry it's look like this link has been used before
+          
+      </p>
+      <div class="btns">
+      <a routerLink="/">  <button (click)="updatePassword()">HOME</button></a>
       </div>
     </div>
   </div>
