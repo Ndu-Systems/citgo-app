@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserProfileProcessService } from 'src/app/services/app-state/user-profile-process.service';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { PASSWORD_DONT_MATCH_ERROR } from 'src/app/shared/config';
+import { PASSWORD_DONT_MATCH_ERROR, OLD_PASSWORD_DONT_MATCH_ERROR } from 'src/app/shared/config';
 import { User } from 'src/app/models/user';
 import { AuthenticateService, UserService } from 'src/app/services';
 import { first } from 'rxjs/operators';
@@ -35,17 +35,20 @@ export class UpdatePasswordComponent implements OnInit {
       }      
     });
     this.rForm = this.fb.group({
+      OldPassword: [null, Validators.required],
       Password: [null, Validators.required],
       confirmPassword: [null, Validators.required]
     });
 
     // get current user
     const user = this.authenticateService.currentUserValue;
+    
     this.authenticateService.getFullClientDetails(user.UserId).subscribe(response => {
       if (response.UserId) {
         this.currentUser = response;
       }
     });
+
   }
 
   get formValues() {
@@ -54,9 +57,12 @@ export class UpdatePasswordComponent implements OnInit {
 
   updatePassword() {
     this.error = '';
+    if (this.formValues.OldPassword.value !== this.currentUser.Password) {
+      this.messageService.add({ life:7000,severity:'warn', summary: 'Opps!', detail:OLD_PASSWORD_DONT_MATCH_ERROR});
+      return false;
+    }
     if (this.formValues.Password.value !== this.formValues.confirmPassword.value) {
-      this.error = PASSWORD_DONT_MATCH_ERROR;
-      this.messageService.add({ life:7000,severity:'warn', summary: 'Opps!', detail:this.error});
+      this.messageService.add({ life:7000,severity:'warn', summary: 'Opps!', detail:PASSWORD_DONT_MATCH_ERROR});
       return false;
     }
     this.currentUser.Password = this.formValues.Password.value;
