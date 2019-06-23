@@ -1,3 +1,4 @@
+import { CreatePasswordComponent } from './user-profile/my-profile/create-password/create-password.component';
 import { AllClientsComponent } from './admin-components/all-clients/all-clients.component';
 import { ToActionComponent } from './admin-components/to-action/to-action.component';
 import { AdminSammaryComponent } from './admin-components/admin-sammary/admin-sammary.component';
@@ -33,6 +34,7 @@ const routes: Routes = [
     children: [
       { path: "", component: DashboardHomeComponent },
       { path: "update-password", component: UpdatePasswordComponent },
+      { path: "create-password", component: CreatePasswordComponent },
       { path: "my-refferals/:id", component: MyRefferalsComponent },
       { path: "buy-share/:id", component: BuyShareComponent },
       { path: "share-details/:id", component: ShareDetailsComponent },
@@ -74,6 +76,7 @@ export const declarations: Array<any> = [
   UpdatePersonalInfoComponent,
   UpdateBaningInfoComponent,
   UpdateBenefitiariesComponent,
+  CreatePasswordComponent
    
   
 ];
