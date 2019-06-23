@@ -36,7 +36,7 @@ export class UpdatePasswordComponent implements OnInit {
     });
     this.rForm = this.fb.group({
       OldPassword: [null, Validators.required],
-      Password: [null, Validators.required],
+      Password: [null, [Validators.required, Validators.minLength(8)]],
       confirmPassword: [null, Validators.required]
     });
 

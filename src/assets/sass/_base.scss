@@ -14,6 +14,7 @@ body {
     padding-top: 1rem;
     padding-bottom: 1rem;
     box-sizing: border-box;
+    background: #ecf0f1;
 
 
     @media only screen and (max-width: 600px) {
@@ -21,17 +22,6 @@ body {
       margin: 0;
     }
 
-}
-
-.container {
-  -webkit-box-shadow: 10px 10px 34px 6px rgba(92,92,92,1);
-  -moz-box-shadow: 10px 10px 34px 6px rgba(92,92,92,1);
-  box-shadow: 10px 10px 34px 6px rgba(92,92,92,1);
-
-  
-  @media only screen and (max-width: 600px) {
-    box-shadow: none;
-  }
 }
 
 .overlay {
@@ -60,11 +50,6 @@ body {
     animation-fill-mode: backwards;
   }
 
-  .shadow-black {
-    -webkit-box-shadow: 10px 10px 32px 1px rgba(0, 0, 0, 0.685);
-    -moz-box-shadow: 10px 10px 32px 1px  rgba(0, 0, 0, 0.685);
-    box-shadow: 10px 10px 32px 1px  rgba(0, 0, 0, 0.685);
-  }
 
   input[type="button"], input[type="submit"], input[type="reset"], input[type="file"]::-webkit-file-upload-button, button {
     border-radius: 15px;

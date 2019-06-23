@@ -28,11 +28,8 @@
     color: #000;
     border-radius: 1000em;
     padding: 0.5em 1.5em;
-    box-shadow: 10px -1px 83px -21px rgba(0, 0, 0, 1);
     cursor: "pointer";
-    @media only screen and (max-width: 600px) {
-      box-shadow: none;
-    }
+ 
   }
 
   input[type="submit"]:hover {
@@ -182,9 +179,6 @@
       background-color: #29b6f6;
     }
 
-    &:focus + .slider {
-      box-shadow: 0 0 1px #29b6f6;
-    }
 
     &:checked + .slider:before {
       -webkit-transform: translateX(26px);

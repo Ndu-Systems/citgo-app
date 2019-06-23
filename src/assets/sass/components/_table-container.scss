@@ -1,5 +1,4 @@
 $screen-sm-min: 768px;
-$shadow: 0 2px 3px rgba(0, 0, 0, .2);
 $gray-border: darken(#f8f8f8, 10%);
 $gray-light: rgba(0, 0, 0, .35);
 $faded-yellow: lighten(#f1c40f, 40%);
@@ -26,7 +25,6 @@ $faded-yellow: lighten(#f1c40f, 40%);
         tbody tr {
 
           background: white;
-          box-shadow: none;
           margin: 0;
 
         }
@@ -36,9 +34,7 @@ $faded-yellow: lighten(#f1c40f, 40%);
           text-align: left;
 
 
-          th:last-child {
-            box-shadow: none;
-          }
+        
 
           th {
             border-bottom: 1px solid $gray-border;
@@ -145,7 +141,6 @@ $faded-yellow: lighten(#f1c40f, 40%);
           }
 
           tbody tr {
-            box-shadow: $shadow;
             background: #fff;
             border-bottom: 1px solid $gray-border;
             // cursor: pointer;
