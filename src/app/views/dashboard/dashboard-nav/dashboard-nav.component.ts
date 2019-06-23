@@ -10,7 +10,7 @@ import {
 } from "src/app/services";
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { ExitModalEventEmmiter, Client } from "src/app/models";
+import { Client } from "src/app/models";
 import { MessageService } from "primeng/api";
 import { BuySharesProcessService } from "src/app/services/app-state/buy-shares-process.service";
 

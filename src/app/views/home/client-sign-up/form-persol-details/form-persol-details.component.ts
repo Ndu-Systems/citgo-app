@@ -83,8 +83,7 @@ export class FormPersolDetailsComponent implements OnInit {
       else {
         this.userExist = "";
       }
-      console.log(data);
-      console.log(this.ParentId);
+   
 
     });
     //get all emails

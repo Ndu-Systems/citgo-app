@@ -66,7 +66,6 @@ export class DashboardHomeComponent implements OnInit {
           x => x.StatusId == SHARE_PENDING
         );
         if (pending.length > 0) {
-          console.log(' pending[0]', pending[0]);
           
           this.amount = pending[0].Amount;
           this.showBankingInfo = true;

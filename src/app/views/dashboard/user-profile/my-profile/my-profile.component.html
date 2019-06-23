@@ -76,7 +76,7 @@
       <h1>
         Your bank details to withdraw money from Citgo
       </h1>
-      <div class="col-1-of-2">
+      <div class="col-1-of-2" *ngIf="client.BankName; else nobanking">
 
         <div class="details-sec-2">
           <h1>
@@ -102,6 +102,13 @@
           </div>
         </div>
       </div>
+      
+      <ng-template #nobanking>
+          <p class="nodata">You have no bank details
+  
+              <a class="edit" [routerLink]="['../update-banking-info',client.ClientId]">ADD</a>
+          </p>
+        </ng-template>
     </div>
 
     <div class="card" *ngIf="beneficiaries">
@@ -131,7 +138,6 @@
       <ng-template #noben>
         <p class="nodata">You have no beneficiaries
 
-          <a [routerLink]="['../update-benefitiaries','please-add-new']" class="edit"> ADD</a>
         </p>
       </ng-template>
       <p class="nodata">

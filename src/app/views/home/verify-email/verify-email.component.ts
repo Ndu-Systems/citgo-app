@@ -1,8 +1,12 @@
-import { UserRole } from 'src/app/models/userole.model';
+import { UserRole } from "src/app/models/userole.model";
 import { User } from "src/app/models/user";
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { STATUS_USER_NEW, STATUS_USER_ACTIVE, CLIENT_USER_ROLE } from "src/app/shared/config";
+import {
+  STATUS_USER_NEW,
+  STATUS_USER_ACTIVE,
+  CLIENT_USER_ROLE
+} from "src/app/shared/config";
 import { first } from "rxjs/operators";
 import { MessageService } from "primeng/api";
 import { AuthenticateService } from "src/app/services/home/user/authenticate.service";
@@ -17,6 +21,7 @@ import { UserProfileProcessService } from "src/app/services/app-state/user-profi
 export class VerifyEmailComponent implements OnInit {
   userId: string;
   currentUser: User;
+  isDone: boolean;
   progress: string = "Verifying your account....";
   Error: string;
   constructor(
@@ -42,17 +47,16 @@ export class VerifyEmailComponent implements OnInit {
         this.currentUser.StatusId = STATUS_USER_ACTIVE;
         this.currentUser.ModifyUserId = this.userId;
         this.userService.verifyUser(this.currentUser).subscribe(res => {
-          let role:UserRole ={
-            UserId:this.currentUser.UserId,
-            RoleId:CLIENT_USER_ROLE,
+          let role: UserRole = {
+            UserId: this.currentUser.UserId,
+            RoleId: CLIENT_USER_ROLE,
             CreateUserId: this.currentUser.UserId,
             ModifyUserId: this.currentUser.UserId,
             StatusId: 1
           };
           this.userService.addUserRole(role).subscribe(role => {
             // lOGIN USER
-            console.log(role);
-            
+
             this.authicateService
               .loginUser(this.currentUser.Email, this.currentUser.Password)
               .pipe(first())
@@ -61,7 +65,7 @@ export class VerifyEmailComponent implements OnInit {
                   this.userProfileProcess.updateUserProfileProcessState({
                     resetPasswordMessage: "Create your new password."
                   });
-                  this.router.navigate(["/dashboard"]);
+                  this.isDone = true;
                 } else {
                   alert("Error");
                 }
@@ -70,6 +74,7 @@ export class VerifyEmailComponent implements OnInit {
         });
       } else {
         this.Error = "This activation link  have already been used";
+        alert(this.Error);
         this.progress = "";
       }
     });
@@ -80,5 +85,8 @@ export class VerifyEmailComponent implements OnInit {
       summary: summary,
       detail: detail
     });
+  }
+  updatePassword() {
+    this.router.navigate(["/dashboard/update-password"]);
   }
 }
