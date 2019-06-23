@@ -1,3 +1,4 @@
+import { SpinnerProcessService } from "./../../../../services/app-state/spinner-process.service";
 import { MessageService } from "primeng/api";
 import { SignUpProcessService } from "src/app/services/app-state/sign-up-process.service";
 import { Component, OnInit, EventEmitter, Output } from "@angular/core";
@@ -28,7 +29,8 @@ export class SignInComponent implements OnInit {
     private loginService: AuthenticateService,
     private loginProcess: LoginProcessService,
     private signUpProcessService: SignUpProcessService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private spinnerProcessService: SpinnerProcessService
   ) {}
 
   ngOnInit() {
@@ -57,12 +59,14 @@ export class SignInComponent implements OnInit {
   }
   Login() {
     // this.spinnerService.showSpinner();
-
+    this.spinnerProcessService.showSpinner();
     this.loginService
       .loginUser(this.formValues.email.value, this.formValues.password.value)
       .pipe(first())
       .subscribe(
         response => {
+          this.spinnerProcessService.closeSpinner();
+
           if (response.UserId) {
             this.routeTo.navigate(["/dashboard"]);
           } else {
@@ -77,7 +81,13 @@ export class SignInComponent implements OnInit {
           }
         },
         error => {
-          alert(error);
+          this.messageService.add({
+            life: 12000,
+            severity: "error",
+            summary: "Newtork error occured!",
+            detail: error
+          });
+          this.spinnerProcessService.closeSpinner();
         }
       );
   }

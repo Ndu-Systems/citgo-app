@@ -105,7 +105,7 @@ export class AuthenticateService {
       console.log("server side: ", errorResponse.error);
     }
     return throwError(
-      "oops Sorry something went wrong with the network please try again later"
+      "No connection, check your network and try again"
     );
   }
 }
