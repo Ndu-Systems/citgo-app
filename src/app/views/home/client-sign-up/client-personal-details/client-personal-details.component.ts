@@ -4,7 +4,7 @@ import { getCurrentUser, STATUS_USER_NEW, WEB_HOST, VERIFICATIONLINK, LAST_INSER
 import { User } from 'src/app/models/user';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { AccountService, EmailService, UserService, SignUpProcessService, LoginProcessService } from 'src/app/services';
-import { ConfirmationService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-client-personal-details',
@@ -34,7 +34,8 @@ export class ClientPersonalDetailsComponent implements OnInit {
    private signUpProcessService: SignUpProcessService,
    private loginProcess: LoginProcessService,
    private confirmationService: ConfirmationService,
-   private router:Router
+   private router:Router,
+   private messageService:MessageService,
  ) { }
 
  ngOnInit() {
@@ -109,6 +110,12 @@ export class ClientPersonalDetailsComponent implements OnInit {
        let user:User = response;
        localStorage.setItem(LAST_INSERT_EMAIL, user.Email)
        // #todo  - update state
+       this.messageService.add({
+        life: 7000,
+        severity: "success",
+        summary: "Welcome to Citgo famaily!",
+        detail: "A warm welcome to you to join us!"
+      });
        this.router.navigate(["/client-banking-details", user.ClientId]);
       }
    });

@@ -30,10 +30,7 @@
           <div class="alert" *ngIf="rForm.controls['IDNumber'].errors?.required">
             ID Number is required
           </div>
-        
-          <div class="alert" *ngIf="rForm.controls['IDNumber'].errors?.required">
-            ID Number is required
-          </div>
+     
           <div class="alert"
             *ngIf="rForm.controls['IDNumber'].errors?.minlength || rForm.controls['IDNumber'].errors?.maxlength">
             ID Number/passport must be 8 to 16 characters long
@@ -64,7 +61,7 @@
       <div class=" col-1-of-2 small-nav">
       
         <div class="controls">
-          <input type="submit" value="UPDATE" class="button" />
+          <input type="submit" value="UPDATE" [disabled]="!rForm.valid" class="button" />
         </div>
       </div>
 

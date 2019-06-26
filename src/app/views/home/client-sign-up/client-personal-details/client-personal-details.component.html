@@ -12,7 +12,7 @@
     <div class="tag">
       <h1>
         <span class="heading">
-          We make it simple.
+            Become a family.
         </span>
         <div class="paragraph">
           Sign up quickly and be approved immediately to start investing
@@ -100,7 +100,7 @@
           </div>
           <div class="alert" *ngIf="emailUsed">
            {{emailUsed}}
-           <a href="" class="login">Login</a>
+           <a  routerLink="/sign-in" class="login">Login</a>
           </div>
         </div>
         <div class="controls">
@@ -187,3 +187,5 @@
   </div>
   
 </div>
+
+<p-toast [style]="{marginTop: '80px'}"></p-toast>

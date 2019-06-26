@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { LoginProcessService } from './../../../services/app-state/login-process.service';
 import { Component, OnInit } from '@angular/core';
 import {CloseModalEventEmmiter, ExitModalEventEmmiter } from 'src/app/models';
@@ -17,7 +18,7 @@ export class IndexComponent implements OnInit {
   showNav: boolean;
   showSignIn: boolean;
 
-  constructor(private loginProcessService:LoginProcessService) { }
+  constructor(private loginProcessService:LoginProcessService, private router: Router) { }
 
   ngOnInit() { }
   togleNav() {
@@ -62,6 +63,6 @@ export class IndexComponent implements OnInit {
     this.showBenefitariesForm = false;
   }
 investNow(){
-  this.loginProcessService.showLogin()
+  this.router.navigate(['sign-in'])
 }
 }

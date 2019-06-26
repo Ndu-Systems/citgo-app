@@ -78,7 +78,7 @@
       }
       .controls {
         @media only screen and (max-width: 600px) {
-          padding: 1rem 0;
+          padding: .3rem 0;
         }
         label {
           color: rgb(47, 16, 56);
@@ -135,6 +135,8 @@
           text-align: center;
           .paragraph {
             width: 100%;
+            font-weight: 400;
+            text-transform: none;
           }
         }
       }

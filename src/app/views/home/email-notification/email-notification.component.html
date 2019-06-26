@@ -1,18 +1,16 @@
-<div class="overlay">
-  <div class="main">
-    <div class="body">
-      <div class="header">
-        <img src="assets/images/home/logowhite.svg" alt="">
+
+<div class="awaiting">
+    <div class="image">
+        <img src="assets/images/home/icon-white-round.svg" alt="">
       </div>
-      <h1>
-        {{message}}
-      </h1>
-      <div class="link">
-        <a (click)="backHome()">Back Home</a>
+    <div>
+      <h1>Password reset link sent</h1>
+      <p>
+          {{message}}
+          
+      </p>
+      <div class="btns">
+     <button  (click)="backHome()" >HOME</button>
       </div>
-      <div class="footer">
-          <img src="assets/images/home/logo-black.svg" alt="">
-        </div>
     </div>
   </div>
-</div>

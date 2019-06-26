@@ -1,3 +1,4 @@
+import { MessageService } from 'primeng/api';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -19,13 +20,14 @@ export class ForgotPasswordComponent implements OnInit {
     private fb: FormBuilder,
     private emailService: EmailService,
     private authenticateService: AuthenticateService,
-    private loginProcess: LoginProcessService
+    private loginProcess: LoginProcessService,
+    private messageService:MessageService
   ) {
 
   }
   ngOnInit() {
     this.rForm = this.fb.group({
-      email: new FormControl('youremail@example.com', Validators.compose([
+      email: new FormControl('', Validators.compose([
         Validators.required,
         Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
       ]))
@@ -56,6 +58,13 @@ export class ForgotPasswordComponent implements OnInit {
         });
       } else {
         this.error = `User with ${this.formValues.email.value} couldn't be found!`;
+        this.messageService.add({
+          life: 7000,
+          severity: "warn",
+          summary: "Email unrecognized!",
+          detail:
+          `User with ${this.formValues.email.value} couldn't be found!`
+        });
       }
     });
   }
