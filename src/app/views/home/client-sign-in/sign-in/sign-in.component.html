@@ -1,20 +1,30 @@
-<section class="modal account-modal shadow-black">
-  <section class="modal-header">
-    <img src="assets/images/home/logo-white-bg.svg" alt="" />
-    <img
-      src="assets/images/home/close-x.svg"
-      (click)="closeModal()"
-      class="close-btn"
-      alt=""
-    />
-  </section>
-  <section class="popup-body">
+
+
+
+<div class="banner-betta">
+  <div class="header-content">
     <h1>
-      <span class="main">
-        sign in
+      <span class="heading-main">
+          Access your dashboard
       </span>
     </h1>
-    <form
+  </div>
+</div>
+<div class="main-container-betta">
+  <div class="simple">
+    <div class="tag">
+      <h1>
+        <span class="heading">
+          Sign in
+        </span>
+        <div class="paragraph">
+          Sign up quickly and be approved immediately to start investing
+          and grasping this opportunity.
+        </div>
+      </h1>
+    </div>
+    <div class="form">
+      <form
       [formGroup]="rForm"
       (ngSubmit)="Login()"
       class="box form-group"
@@ -47,26 +57,22 @@
             [disabled]="!rForm.valid"
           />
         </div>
+        <div class="actions">
+            <div class="reset-pass">
+                <a routerLink="/forgot-password">forgot password</a>
+              </div>
+              <div class="sign-up">
+                <p>Don't have an account?</p>
+                <a routerLink="/client-personal-details">Sign up</a>
+              </div>
+        </div>
+       
       </div>
-     
-      <img
-        *ngIf="loading"
-        class="pl-2"
-        src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
-      />
     </form>
-    <div class="forgotPassword">
-      <h1 (click)="resetPassword()">
-        forgot password
-      </h1>
-      <h1 class="active" (click)="createAccount()">
-        <span class="text">
-          Don't have an account?
-        </span>
-      <a  routerLink="client-personal-details">  sign-up </a>
-      </h1>
     </div>
-  </section>
-</section>
-<p-toast [style]="{marginTop: '80px'}"></p-toast>
+  </div>
 
+</div>
+
+
+<p-toast [style]="{marginTop: '80px'}"></p-toast>

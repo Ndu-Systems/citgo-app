@@ -43,7 +43,7 @@ export class UpdateBenefitiariesComponent implements OnInit {
        this.rForm = this.fb.group({
         Name: ["", Validators.required],
         Surname: ["",Validators.required],
-        IDNumber: ["", Validators.required],
+        IDNumber: ["", [Validators.required, Validators.minLength(8),Validators.maxLength(16)]],
         Relation: ["", Validators.required],
         CreateUserId: [userId, Validators.required],
         StatusId: [1, Validators.required],

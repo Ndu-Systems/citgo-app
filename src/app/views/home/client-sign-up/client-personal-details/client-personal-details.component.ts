@@ -21,6 +21,8 @@ export class ClientPersonalDetailsComponent implements OnInit {
  userExist: string = "";
  ParentId: string = "";
  rForm: FormGroup;
+  emailUsed: string;
+  cellUsed: string;
 
 
 
@@ -62,23 +64,20 @@ export class ClientPersonalDetailsComponent implements OnInit {
 
    this.rForm.valueChanges.subscribe(data => {
 
-     this.userExist = "";
+     this.cellUsed = "";
+     this.emailUsed = "";
      let email = data.Email;
      let cellPhone = data.CellphoneNumber;
      if (this.allUsers.filter(x => x.Email == email).length > 0) {
        //user with email exist
-       this.userExist =
+       this.emailUsed =
          "An account for the specified email address already exists. Try another email address.";
      } 
-     else if(this.allUsers.filter(x => x.CellphoneNumber == cellPhone).length > 0){
-       this.userExist =
+     if(this.allUsers.filter(x => x.CellphoneNumber == cellPhone).length > 0){
+       this.cellUsed =
        "An account with the specified cellphone number  already exists. Try another cellphone number.";
      }
-     else {
-       this.userExist = "";
-     }
-  
-
+   
    });
    //get all emails
    this.userService.getAllUsers().subscribe(r => {

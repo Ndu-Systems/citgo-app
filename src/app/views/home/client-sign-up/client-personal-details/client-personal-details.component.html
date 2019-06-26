@@ -98,6 +98,10 @@
           <div class="alert" *ngIf="rForm.controls['Email'].errors?.email || rForm.controls['Email'].errors?.email">
             Email address must be valid
           </div>
+          <div class="alert" *ngIf="emailUsed">
+           {{emailUsed}}
+           <a href="" class="login">Login</a>
+          </div>
         </div>
         <div class="controls">
           <label for="">Cellphone Number</label> <br />
@@ -110,6 +114,9 @@
           <div class="alert"
             *ngIf="rForm.controls['CellphoneNumber'].errors?.minlength || rForm.controls['CellphoneNumber'].errors?.maxlength">
             Cellphone Number must be 10 to 15 characters long
+          </div>
+          <div class="alert" *ngIf="cellUsed">
+            {{cellUsed}}
           </div>
         </div>
       </div>

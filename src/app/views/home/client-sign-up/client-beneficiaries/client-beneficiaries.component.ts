@@ -34,7 +34,7 @@ export class ClientBeneficiariesComponent implements OnInit {
     this.rForm = this.fb.group({
       Name: [null, Validators.required],
       Surname: [null,Validators.required],
-      IDNumber: [null, Validators.required],
+      IDNumber: [null, [Validators.required, Validators.minLength(8),Validators.maxLength(16)]],
       Relation: [null, Validators.required],
       CreateUserId: [this.clientId, Validators.required],
       StatusId: [1, Validators.required],

@@ -65,6 +65,14 @@ const routes: Routes = [
         component: ContactUsComponent
       },
       {
+        path: "sign-in",
+        component: SignInComponent
+      },
+      {
+        path: "forgot-password",
+        component: ForgotPasswordComponent
+      },
+      {
         path: "client-personal-details",
         component: ClientPersonalDetailsComponent
       },

@@ -46,6 +46,7 @@
             <label for="">ID NUMBER</label> <br />
             <input type="text" class="input-field" placeholder="enter id/passport number" formControlName="IDNumber" />
            
+          
             <div class="alert" *ngIf="rForm.controls['IDNumber'].errors?.required">
               ID Number is required
             </div>
@@ -100,9 +101,7 @@
             </h1>
   
             <div></div>
-            <!-- <div>
-              <a class="edit" [routerLink]="['../update-benefitiaries',data.BeneficiaryId]">EDIT</a>
-            </div> -->
+          
           </div>
         </div>
         </div>
