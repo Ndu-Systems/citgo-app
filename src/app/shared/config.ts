@@ -9,6 +9,7 @@ if (IS_LOCAL) {
 export const API_URL = api;
 export const WEB_HOST = web;
 export const LAST_INSERT_ID = 'LAST_INSERT_ID';
+export const LAST_INSERT_EMAIL = 'LAST_INSERT_ID';
 export const CURRENT_USER = 'currentUser';
 export const ADMIN_USER_ROLE =1;
 export const CLIENT_USER_ROLE =2;

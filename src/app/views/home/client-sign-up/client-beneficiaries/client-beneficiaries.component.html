@@ -75,28 +75,36 @@
   
         </div>
   
-        <div class="col-1-of-1">
+        <div class="actions">
   
-          <input value=" ADD +" (click)="addMore(rForm.value)" class="button" />
+          <input type="button" [disabled]="!rForm.valid" value="Add more" (click)="addMore(rForm.value)" class="add-more" />
+          <input type="submit" [disabled]="!rForm.valid && !beneficiaries.length"  value="Finish" class="finish" />
+
         </div>
-        <div class="col-1-of-1">
-          <table class="list"  *ngIf="beneficiaries.length" >
-           
-            <thead>
-              <th>Full Name</th>
-              <th>Relationship</th>
-            </thead>
-            <tbody>
-              <tr  *ngFor="let ben of beneficiaries">
-                <td>
-                  {{ben.Name}} {{ben.Surname}}
-                </td>
-                <td>
-                  {{ben.Relation}}
-                </td>
-              </tr>
-            </tbody>
-          </table>
+       
+        <div class="card" *ngIf="beneficiaries">
+          <h1>
+            Beneficiaries
+          </h1>
+        <div class="col-1-of-2" *ngIf="beneficiaries.length; else noben">
+
+          <div class="details-sec-2" *ngFor="let data of beneficiaries">
+            <h1>
+              {{data.Name }} {{data.Surname }}
+              <span class="label">Full Name</span>
+            </h1>
+  
+            <h1>
+              {{data.Relation}}
+              <span class="label">Relation</span>
+            </h1>
+  
+            <div></div>
+            <!-- <div>
+              <a class="edit" [routerLink]="['../update-benefitiaries',data.BeneficiaryId]">EDIT</a>
+            </div> -->
+          </div>
+        </div>
         </div>
   
   
@@ -115,9 +123,7 @@
             </ul>
   
           </div>
-          <div class="controls">
-            <input type="submit" *ngIf="beneficiaries.length" value="FINISH" class="button" />
-          </div>
+        
         </div>
   
       </form>

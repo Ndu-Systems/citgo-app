@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { getCurrentUser, STATUS_USER_NEW, WEB_HOST, VERIFICATIONLINK, LAST_INSERT_ID } from 'src/app/shared/config';
+import { getCurrentUser, STATUS_USER_NEW, WEB_HOST, VERIFICATIONLINK, LAST_INSERT_ID, LAST_INSERT_EMAIL } from 'src/app/shared/config';
 import { User } from 'src/app/models/user';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { AccountService, EmailService, UserService, SignUpProcessService, LoginProcessService } from 'src/app/services';
@@ -108,6 +108,7 @@ export class ClientPersonalDetailsComponent implements OnInit {
        this.verifyAcc(data.FirstName, data.Email, link);
        localStorage.setItem(LAST_INSERT_ID, response.ClientId);
        let user:User = response;
+       localStorage.setItem(LAST_INSERT_EMAIL, user.Email)
        // #todo  - update state
        this.router.navigate(["/client-banking-details", user.ClientId]);
       }

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SignUpProcessService } from 'src/app/services';
 import { Router } from '@angular/router';
+import { LAST_INSERT_EMAIL } from 'src/app/shared/config';
 
 @Component({
   selector: 'app-email-sent-screen',
@@ -15,8 +16,7 @@ export class EmailSentScreenComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    let process = this.signUpProcessService.getRegistraionProcess();
-    let email = process.user.Email;
+    let email = localStorage.getItem(LAST_INSERT_EMAIL) || 'your email address'
     this.progress = `To ensure that your email address is valid, we have sent you an email to  ${email}, to  verify your account,  please check your mailbox`;
   }
   backHome() {
