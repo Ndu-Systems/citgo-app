@@ -1,0 +1,182 @@
+<div class="banner-betta">
+  <div class="header-content">
+    <h1>
+      <span class="heading-main">
+        create new account
+      </span>
+    </h1>
+  </div>
+</div>
+<div class="main-container-betta">
+  <div class="simple">
+    <div class="tag">
+      <h1>
+        <span class="heading">
+          We make it simple.
+        </span>
+        <div class="paragraph">
+          Sign up quickly and be approved immediately to start investing
+          and grasping this opportunity.
+        </div>
+      </h1>
+    </div>
+    <div class="form">
+      <form [formGroup]="rForm" (ngSubmit)="createClientAccount(rForm.value)" class="dashboard-forms">
+      <h1 class="form-headings">
+        Personal Details
+      </h1>
+      <div class="col-1-of-2 ">
+        <div class="controls">
+          <label for="">First Name</label> <br />
+          <input type="text" class="input-field" placeholder="First Name" formControlName="FirstName" pKeyFilter="alpha"
+            minlength="3" maxlength="25" class="input-field" />
+          <div class="alert" *ngIf="rForm.controls['FirstName'].errors?.required ">
+            First Name is required
+          </div>
+
+          <div class="alert"
+            *ngIf="rForm.controls['FirstName'].errors?.minlength || rForm.controls['FirstName'].errors?.maxlength">
+            First Name must be 3 to 25 characters long
+          </div>
+
+        </div>
+        <div class="controls">
+          <label for="">Surname</label> <br />
+          <input type="text" class="input-field" pKeyFilter="alpha" minlength="3" maxlength="25" placeholder="Surname"
+            formControlName="Surname" />
+
+          <div class="alert" *ngIf="rForm.controls['Surname'].errors?.required ">
+            Surname is required
+          </div>
+
+          <div class="alert"
+            *ngIf="rForm.controls['Surname'].errors?.minlength || rForm.controls['Surname'].errors?.maxlength">
+            Surname must be 3 to 25 characters long
+          </div>
+        </div>
+      </div>
+
+      <div class="col-1-of-2 ">
+        <div class="controls">
+          <label for="">Gender</label> <br />
+          <select class="input-field" formControlName="Gender">
+            <option value=""> Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+          <div class="alert" *ngIf="!rForm.controls['Gender'].valid ">
+            Gender is required
+          </div>
+        </div>
+
+        <div class="controls">
+          <label for="">ID Number</label> <br />
+          <input type="text" maxlength="16" min="8" class="input-field" formControlName="IDNumber">
+
+
+          <div class="alert" *ngIf="rForm.controls['IDNumber'].errors?.required">
+            ID Number is required
+          </div>
+          <div class="alert"
+            *ngIf="rForm.controls['IDNumber'].errors?.minlength || rForm.controls['IDNumber'].errors?.maxlength">
+            ID Number/passport must be 8 to 16 characters long
+          </div>
+
+        </div>
+      </div>
+      <h1 class="form-headings">
+        Contact Details
+      </h1>
+      <div class="col-1-of-2 ">
+        <div class="controls">
+          <label for="">Email</label> <br />
+          <input type="email" class="input-field" placeholder="Email address" formControlName="Email" />
+
+          <div class="alert" *ngIf="rForm.controls['Email'].errors?.required">
+            Email is required
+          </div>
+          <div class="alert" *ngIf="rForm.controls['Email'].errors?.email || rForm.controls['Email'].errors?.email">
+            Email address must be valid
+          </div>
+        </div>
+        <div class="controls">
+          <label for="">Cellphone Number</label> <br />
+          <input type="text" class="input-field" formControlName="CellphoneNumber" placeholder="Cellphone number"
+            pKeyFilter="int" minlength="10" maxlength="15" />
+
+          <div class="alert" *ngIf="rForm.controls['CellphoneNumber'].errors?.required">
+            Cellphone Number is required
+          </div>
+          <div class="alert"
+            *ngIf="rForm.controls['CellphoneNumber'].errors?.minlength || rForm.controls['CellphoneNumber'].errors?.maxlength">
+            Cellphone Number must be 10 to 15 characters long
+          </div>
+        </div>
+      </div>
+      <h1 class="form-headings">
+        Address Details
+      </h1>
+      <div class="col-1-of-2 ">
+
+        <div class="controls">
+          <label for="">Country</label> <br />
+          <select class="input-field" formControlName="Country">
+
+
+            <option value=""> Select Country</option>
+            <option value="South Africa"> South Africa</option>
+            <option value="Botshwana"> Botshwana</option>
+            <option value="Mozambique"> Mozambique</option>
+            <option value="Swaziland"> Swaziland</option>
+            <option value="Lesotho"> Lesotho</option>
+            <option value="Namibia"> Namibia</option>
+            <option value="Zambia"> Zambia</option>
+            <option value="Zimbabwe"> Zimbabwe</option>
+
+          </select>
+          <div class="alert" *ngIf="!rForm.controls['Country'].valid">
+            Country is required
+          </div>
+        </div>
+        <div class="controls">
+          <label for="">Province</label> <br />
+          <input type="text" placeholder="Your province/state" class="input-field" formControlName="Province" />
+          <div class="alert" *ngIf="!rForm.controls['Province'].valid">
+            Province Id is required
+          </div>
+        </div>
+      </div>
+      <div class="col-1-of-2 ">
+
+        <div class="controls">
+          <label for="">City</label> <br />
+          <input type="text" placeholder="Your city/town" class="input-field" formControlName="City" />
+          <div class="alert" *ngIf="!rForm.controls['City'].valid">
+            City is required
+          </div>
+        </div>
+      </div>
+
+      <div class=" col-1-of-2 small-nav">
+        <div class="nav">
+          <ul>
+            <li>
+              <span class="dot dot-active"></span>
+            </li>
+            <li>
+              <span class="dot "></span>
+            </li>
+            <li>
+              <span class="dot"></span>
+            </li>
+          </ul>
+        </div>
+        <div class="controls">
+          <input type="submit" value="NEXT" class="button" [disabled]="!rForm.valid" />
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>
+  
+</div>

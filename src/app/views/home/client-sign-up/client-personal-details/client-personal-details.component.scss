@@ -1,0 +1,8 @@
+@import '../../../../../assets/sass/variables';
+.banner-betta {
+  background-image: url(../../../../../assets/images/home/background-home.png);
+  @media only screen and (max-width: 600px) {
+    background: $nav-background;
+
+  }
+}

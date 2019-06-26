@@ -1,10 +1,10 @@
+import { Beneficiary } from 'src/app/models/beneficiaty.model';
 import { AuthenticateService } from 'src/app/services/home/user/authenticate.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { BeneficiariesService } from 'src/app/services';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MessageService } from 'primeng/api';
-import { Beneficiaty } from 'src/app/models/beneficiaty.model';
 
 @Component({
   selector: 'app-update-benefitiaries',
@@ -20,7 +20,7 @@ export class UpdateBenefitiariesComponent implements OnInit {
   showVerificationEmailSent: boolean;
   progress: string;
   beneficiarId: any;
-  beneficiary: Beneficiaty;
+  beneficiary: Beneficiary;
   isAdd: boolean;
 
   constructor(

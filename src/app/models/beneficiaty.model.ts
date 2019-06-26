@@ -1,4 +1,4 @@
-export interface Beneficiaty {
+export interface Beneficiary {
     BeneficiaryId: string;
     ClientId: string;
     Name: string;

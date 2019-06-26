@@ -85,6 +85,6 @@ export class VerifyEmailComponent implements OnInit {
     });
   }
   updatePassword() {
-    this.router.navigate(["/dashboard/update-password"]);
+    this.router.navigate(["/dashboard/create-password"]);
   }
 }

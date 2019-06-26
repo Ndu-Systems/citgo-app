@@ -26,6 +26,8 @@ export class HomeNavComponent implements OnInit {
   }
   showSignIn() {
     this.loginProcess.showLogin();
+    this.navigationProcessService.closeNav();
+
   }
   showSignUp() {
     this.signUpProcessService.showPersonalInfoForm();

@@ -1,7 +1,7 @@
 @import '../../../../assets/sass/variables';
 .footer {
     padding-top: 5rem;
-    background: $blue-gray-color;
+    background:#eedcffd3;
     text-align: center;
     ul {
         list-style: none;
@@ -24,6 +24,7 @@
             letter-spacing: 0;
             font-weight: 400;
             display: block;
+            text-transform: lowercase;
         }
     }
 

@@ -19,7 +19,6 @@ export class CreatePasswordComponent implements OnInit {
   loading = false;
   error = '';
   currentUser: User;
-  heading;
   constructor(
     private fb: FormBuilder,
     private userProfileProcess: UserProfileProcessService,
@@ -30,11 +29,7 @@ export class CreatePasswordComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.userProfileProcess.castUserProfileProcess.subscribe(process => {
-      if (process.resetPasswordMessage != null) {
-        this.heading = process.resetPasswordMessage || 'Update Your password';
-      }      
-    });
+
     this.rForm = this.fb.group({
       OldPassword: [null],
       Password: [null, [Validators.required, Validators.minLength(8)]],
@@ -73,7 +68,8 @@ export class CreatePasswordComponent implements OnInit {
           .subscribe(response => {
             if (response) {
               this.userProfileProcess.updateUserProfileProcessState({ resetPasswordMessage: "reset your password." })
-              this.messageService.add({ life:7000,severity:'success', summary: 'Welcome back!', detail:'Your Password has been changed!'});
+              this.messageService.add({ life:3000,severity:'success', summary: 'Welcome TO Citgo!', detail:'Your Password has been create!'});
+              this.messageService.add({ life:12000,severity:'info', summary: 'Buy Citgo shares!', detail:'Now you can buy your first share by clicking buy shares button below!'});
               this.router.navigate(["/dashboard"]);
             } else {
               this.error = response;

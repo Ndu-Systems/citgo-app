@@ -1,0 +1,117 @@
+<div class="banner-betta">
+  <div class="header-content">
+    <h1>
+      <span class="heading-main">
+        create new account
+      </span>
+    </h1>
+  </div>
+</div>
+<div class="main-container-betta">
+  <div class="simple">
+    <div class="tag">
+      <h1>
+        <span class="heading">
+          We make it simple.
+        </span>
+        <div class="paragraph">
+          Sign up quickly and be approved immediately to start investing
+          and grasping this opportunity.
+        </div>
+      </h1>
+    </div>
+    <div class="form">
+      <form [formGroup]="rForm" (ngSubmit)="insertBankingInfo(rForm.value)" class="box form-group"
+      class="dashboard-forms">
+      <div class="col-1-of-2 ">
+        <div class="controls">
+          <label for="">BANK NAME</label> <br />
+
+
+          <select class="input-field" formControlName="BankName">
+            <option value=""> Select your bank</option>
+            <option value="ABSA Bank">ABSA Bank</option>
+            <option value="Bank of Athens">Bank of Athens</option>
+            <option value="Bidvest Bank">Bidvest Bank</option>
+            <option value="Capitec Bank">Capitec Bank</option>
+            <option value="FNB">FNB</option>
+            <option value="Investec">Investec</option>
+            <option value="Nedbank">Nedbank</option>
+            <option value="SA Post Bank">SA Post Bank</option>
+            <option value="Standard Bank">Standard Bank</option>
+          </select>
+          <div class="alert" *ngIf="
+              !rForm.controls['BankName'].valid &&
+              rForm.controls['BankName'].touched
+            ">
+            BANK NAME is required
+          </div>
+        </div>
+
+        <div class="controls">
+          <label for="">Account Holder</label> <br />
+          <input type="text" class="input-field" placeholder="Account Holder Full Name" formControlName="AccountHolder" />
+          <div class="alert" *ngIf="rForm.controls['AccountHolder'].hasError('required')">
+            Account Holder is required
+          </div>
+          
+        </div>
+      </div>
+      <div class="col-1-of-2 ">
+        <div class="controls">
+          <label for="">ACCOUNT NUMBER</label> <br />
+          <input type="number" class="input-field" placeholder="Your account number" formControlName="AccountNumber" />
+          <div class="alert" *ngIf="rForm.controls['AccountNumber'].hasError('required')">
+            ACCOUNT NUMBER is required
+          </div>
+          <div class="alert"
+            *ngIf="rForm.controls['AccountNumber'].hasError('min') ||  rForm.controls['AccountNumber'].hasError('max')">
+            ACCOUNT NUMBER must be 8 to 15 characters digits
+          </div>
+        </div>
+
+        <div class="controls">
+          <label for="">Account Type</label> <br />
+          <select class="input-field" formControlName="AccountType">
+            <option value=""> Select your bank</option>
+            <option value="Savings">Savings</option>
+            <option value="Current">Current</option>
+            <option value="Transmission ">Transmission </option>
+          </select>
+          <div class="alert" *ngIf="
+              !rForm.controls['AccountType'].valid &&
+              rForm.controls['AccountType'].touched
+            ">
+            Account Type is required
+          </div>
+        </div>
+
+
+
+      </div>
+
+     
+
+      <div class=" col-1-of-2 small-nav">
+        <div class="nav">
+          <ul>
+            <li>
+              <span class="dot"></span>
+            </li>
+            <li>
+              <span class="dot dot-active"></span>
+            </li>
+            <li>
+              <span class="dot"></span>
+            </li>
+          </ul>
+        </div>
+        <div class="controls">
+          <input type="submit" value="NEXT" class="button" [disabled]="!rForm.valid" />
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>
+  
+</div>

@@ -1,3 +1,4 @@
+import { ClientBankingDetailsComponent } from './client-sign-up/client-banking-details/client-banking-details.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { UpdateEmailAddressComponent } from './../dashboard/user-profile/updates/update-email-address/update-email-address.component';
 import { ForgotPasswordComponent } from './client-sign-in/forgot-password/forgot-password.component';
@@ -31,6 +32,8 @@ import { EmailNotificationComponent } from './email-notification';
 import { SignUpFromLinkComponent } from './client-sign-up/sign-up-from-link/sign-up-from-link.component';
 import { UpdateContactInfoComponent } from '../dashboard/user-profile/updates/update-contact-info/update-contact-info.component';
 import { SessionExpiredComponent } from './session-expired/session-expired.component';
+import { ClientPersonalDetailsComponent } from './client-sign-up/client-personal-details/client-personal-details.component';
+import { ClientBeneficiariesComponent } from './client-sign-up/client-beneficiaries/client-beneficiaries.component';
 
 const routes: Routes = [
   {
@@ -60,6 +63,18 @@ const routes: Routes = [
       {
         path: "contact-us",
         component: ContactUsComponent
+      },
+      {
+        path: "client-personal-details",
+        component: ClientPersonalDetailsComponent
+      },
+      {
+        path: "client-banking-details/:id",
+        component: ClientBankingDetailsComponent
+      },
+      {
+        path: "client-beneficiaries/:id",
+        component: ClientBeneficiariesComponent
       },
       { path: `${UPDATE_CONTACT_INFO}/:id`, component: UpdateContactInfoComponent },
       { path: `${REQUEST_NEW_EMAIL_REQUEST}/:id`, component: UpdateEmailAddressComponent },
@@ -94,7 +109,12 @@ export const declarations: Array<any> = [
   UpdateContactInfoComponent,
   UpdateEmailAddressComponent,
   SessionExpiredComponent,
-  SpinnerComponent
+  SpinnerComponent,
+
+  // new sign up
+  ClientPersonalDetailsComponent,
+  ClientBankingDetailsComponent,
+  ClientBeneficiariesComponent
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],

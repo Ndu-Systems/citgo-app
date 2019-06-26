@@ -7,7 +7,7 @@ import {
 } from "src/app/services";
 import { User } from "src/app/models/user";
 import { ConfirmationService, MessageService } from "primeng/api";
-import { SHARE_REMOVED } from "src/app/shared/config";
+import { SHARE_REMOVED, DAILY_GROWTH } from "src/app/shared/config";
 
 @Component({
   selector: "app-investments",
@@ -17,6 +17,7 @@ import { SHARE_REMOVED } from "src/app/shared/config";
 export class InvestmentsComponent implements OnInit {
   investmentsList: Investment[] = [];
   status: string = "";
+  DAILY_GROWTH= DAILY_GROWTH;
   user: User;
   constructor(
     private investmentService: InvestmentService,
