@@ -156,6 +156,11 @@ $status-span:.7rem;
 }
 .active{
   color: green;
+  .status{
+    font-size: .7rem;
+    width: 100%;
+    display: block;
+  }
 }
 
 .detals{

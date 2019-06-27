@@ -23,19 +23,23 @@
 
   <div class="cards" *ngIf="refferals$ | async as refferals; else nodata">
     <div *ngIf="refferals.length; else zerodata">
-        <div class="card detals bonus"  *ngFor="let data of refferals">
-            <div>
-              <h4>
-                  {{data.FirstName}} {{data.Surname}}
-              </h4>
-            </div>
-            <div class="value">
-              <h4>
-                  <p class="status active" *ngIf="data.Amount">{{data.Amount | currency:'R'}}</p>
-                  <p class="status " *ngIf="!data.Amount">R00.00</p>
-              </h4>
-            </div>
-          </div>
+      <div class="card detals bonus" *ngFor="let data of refferals">
+        <div>
+          <h4>
+            {{data.FirstName}} {{data.Surname}}
+          </h4>
+        </div>
+        <div class="value">
+          <h4>
+            <p class="status active" *ngIf="data.Amount">
+              {{data.Amount | currency:'R'}}
+              <span *ngIf="data.BonusStatus=='1'" class="status">available</span>
+              <span *ngIf="data.BonusStatus=='2'" class="status">withdraw</span>
+            </p>
+            <p class="status " *ngIf="!data.Amount">R00.00</p>
+          </h4>
+        </div>
+      </div>
     </div>
     <ng-template #zerodata>
       <h1>
