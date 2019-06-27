@@ -1,0 +1,105 @@
+@import '../../../../assets/sass/variables' ;
+
+.main {
+  background: #fff;
+  padding: 8rem 3rem;
+  @media only screen and (max-width: 600px) {
+    padding: 4rem 0;
+  }
+  .heading{
+    text-align: center;
+    display: block;
+    font-size: 1.6rem;;
+    font-weight: 300;
+    color: black;
+
+  }
+
+  .dashboard-forms {
+    padding: 0 20rem;
+    label {
+      color: black;
+      font-weight: 400;
+    }
+    .currency{
+      color:  green;
+      letter-spacing: .4rem;
+      font-weight: 600;
+
+    }
+    .col-1-of-1 {
+      grid-gap: 0;
+      margin-bottom: 0;
+    }
+    @media only screen and (max-width: 600px) {
+      padding: 0 2rem;
+    }
+  }
+}
+.controls {
+  padding-bottom: 2rem;
+}
+.dashboard-forms .input-field {
+  border: none;
+  background: #ecf0f1;
+  border-radius: 1rem;
+  padding: 1.2;
+  margin: 1rem 0;
+  width: 100%;
+  color: #192a56;
+  font-size: 1rem;
+  font-weight: 100;
+
+  @media only screen and (max-width: 600px) {
+    border-radius: .4rem;
+  padding: .4rem 1.2rem;
+
+
+  }
+}
+
+.button {
+  background: $green-light;
+
+  @media only screen and (max-width: 600px) {
+    border-radius: .4rem;
+    margin-right: .8rem;
+  }
+
+  &:hover {
+    border-bottom: 0;
+  }
+  &:disabled {
+   opacity: .3;
+    &:hover {
+      background: $green-light;
+      color: $white-color;
+      border: none;
+    }
+  }
+}
+
+.error {
+  color: $red-color;
+}
+
+.alert {
+  color: $red-color;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  // display: none;
+}
+
+.explainContract {
+  color: #3498db;
+  letter-spacing: 0ch;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+.normal{
+  font-style: normal;
+  color: black;
+}

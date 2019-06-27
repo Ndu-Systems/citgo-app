@@ -2,6 +2,68 @@
   quick start
 </h1>
 <div class="cards">
+  <div class="card withdraw">
+    <h1>
+      My Wallet
+    </h1>
+    <h1 class="main">
+        <span class="label">Available Funds</span>
+      {{availableFunds  | currency:'R'}}
+    </h1>
+    <div class="action">
+      <button (click)="withdraw()">Withdraw</button>
+    </div>
+
+    <div class="card detals bonus">
+      <div>
+        <h4>
+            Bonus earned
+        </h4>
+      </div>
+      <div class="value">
+        <h4>
+            {{totalBonuses  | currency:'R'}}
+            <span class="label" (click)="AddRef()">More</span>
+        </h4>
+      </div>
+    </div>
+    <div class="card detals bonus">
+      <div>
+        <h4>
+            All profit earned
+        </h4>
+      </div>
+      <div class="value">
+        <h4>
+            {{totalProfit  | currency:'R'}}
+            
+        </h4>
+      </div>
+    </div>
+    <!-- <div class="card detals" *ngFor="let data of details">
+      <div  class="key">
+        <h4>
+         {{data.key}}
+        </h4>
+      </div>
+      <div class="value">
+        <h4>
+            {{data.value  | currency:'R'}}
+        </h4>
+      </div>
+    </div> -->
+    <!-- <h1 class="main">
+      {{totalProfit  | currency:'R'}}
+      <span class="label">Total Profit</span>
+    </h1> -->
+    <!-- <div class="detals">
+      <h1 class="bonus">
+        {{totalBonuses  | currency:'R'}}
+        <span class="label">Bonus</span>
+      </h1>
+    </div> -->
+ <!-- you currently do not have any withdrawable amount -->
+  </div>
   <div class="card" (click)="AddRef()">
     <div class="img">
       <img class="img-smaller" src="assets/images/dashboard/user.svg" alt="">
@@ -24,16 +86,10 @@
       </span>
     </h1>
   </div>
-  <div class="card withdraw">
-    <div class="img">
-      <img src="assets/images/dashboard/withdraw.svg" alt="">
-    </div>
-    <h1>
-      withdraw
-      <span>
-        you currently do not have any withdrawable amount
-      </span>
-      <span *ngIf="bonus" class="bonus">Bonus: {{bonus  | currency:'R'}}</span>
-    </h1>
-  </div>
+
 </div>
+
+
+<!-- totalProfit:number = 0;
+availableFunds=0;
+totalBonuses=0; -->

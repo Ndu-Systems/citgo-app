@@ -1,4 +1,4 @@
-export const IS_LOCAL:boolean = true;
+export const IS_LOCAL:boolean = false;
 let api = 'https://citgoafrica.com/api';
 let web = 'https://citgoafrica.com/';
 if (IS_LOCAL) {
@@ -43,6 +43,7 @@ export const SHARE_PENDING=2;
 export const SHARE_PENDING_VERFICATION=3;
 export const SHARE_DECLINED=4;
 export const SHARE_REMOVED=5;
+export const WITHDRAWABLE='WITHDRAWABLE';
 
 
 export const PASSWORD_DONT_MATCH_ERROR = 'Your password(s) do not match';

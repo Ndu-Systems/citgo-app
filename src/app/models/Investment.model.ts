@@ -4,6 +4,7 @@ export interface Investment {
     Amount: number;
     Profit: number;
     Total: number;
+    Growth?: number;
     Name?: string;
     Type?: string;
     InvestmentDate?: Date;
@@ -12,6 +13,7 @@ export interface Investment {
     ModifyDate?: Date;
     ModifyUserId?: string;
     StatusId: number;
+    Status?: string;
     ClientId?: string;
     bankId?: number;
 }

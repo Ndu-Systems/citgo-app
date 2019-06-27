@@ -1,0 +1,56 @@
+<div class="main">
+    <h1 class="heading">
+        Withdraw
+    </h1>
+  
+    <div class="body">
+      <form [formGroup]="rForm" (ngSubmit)="withdraw(rForm.value)" class="box form-group dashboard-forms">
+  
+        <div class="col-1-of-1">
+          <div class="controls">
+            <label for="">Withdrawal amount <span class="currency"> (ZAR)</span></label> <br />
+            <input type="number" class="input-field" formControlName="Amount" />
+  
+            <div class="explain">
+              <p class="explainContract">Minimum withdrawal:  R100.00</p>
+              <p class="explainContract">Maximum withdrawal: {{funds | currency: "R" }}</p>
+            </div>
+            <div class="alert" *ngIf="!rForm.controls['Amount'].valid && rForm.controls['Amount'].touched">
+                Share amount must be between R100 and  {{funds | currency: "R" }}.
+            </div>
+          </div>
+         
+          <div class="controls">
+            <!-- <label for="">Period type</label> <br /> -->
+            <hr>
+         
+  
+            <div class="explain ">
+                <p class="explainContract normal"> If you request a withdrawal now, it will be process between 28 June 2019 and 2 July 2019
+            
+            </div>
+           
+        
+            
+          </div>
+          <div class="controls button-container">
+            <input type="submit" value="buy shares" class="button" [disabled]="!rForm.valid" />
+          </div>
+          <div class="controls">
+            <h1>
+              <span class="error">
+                {{error}}
+              </span>
+            </h1>
+          </div>
+        </div>
+      
+        <img *ngIf="loading" class="pl-2"
+          src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+      </form>
+    </div>
+  
+  </div>
+  
+  
+  <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>  

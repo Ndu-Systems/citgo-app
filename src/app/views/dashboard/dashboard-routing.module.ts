@@ -1,3 +1,4 @@
+import { DoWithdrawalComponent } from './do-withdrawal/do-withdrawal.component';
 import { CreatePasswordComponent } from './user-profile/my-profile/create-password/create-password.component';
 import { AllClientsComponent } from './admin-components/all-clients/all-clients.component';
 import { ToActionComponent } from './admin-components/to-action/to-action.component';
@@ -37,6 +38,7 @@ const routes: Routes = [
       { path: "create-password", component: CreatePasswordComponent },
       { path: "my-refferals/:id", component: MyRefferalsComponent },
       { path: "buy-share/:id", component: BuyShareComponent },
+      { path: "do-withdrawal/:id", component: DoWithdrawalComponent },
       { path: "share-details/:id", component: ShareDetailsComponent },
       { path: "payment/:id", component: PaymentComponent },
       { path: "my-profile", component: MyProfileComponent },
@@ -64,6 +66,7 @@ export const declarations: Array<any> = [
   MyProfileComponent,
   ShareDetailsComponent,
   PaymentComponent,
+  DoWithdrawalComponent,
   //admin
   AdminHomeComponent,
   AdminNavComponent,
