@@ -151,6 +151,42 @@ $status-span:.7rem;
 .pending{
   color: orange;
 }
+.status{
+  color: rgb(158, 158, 158);
+}
 .active{
   color: green;
+}
+
+.detals{
+  grid-template-columns: 40% auto;
+  margin: .5rem ;
+  padding: .3rem;
+//   border-left: .4rem solid #8e44ad;
+  border-radius: 0;
+//   background:  #EADDF0;
+  h4{
+      font-weight: 400;
+      font-size: .8rem;
+      margin: 0
+  }
+
+  .key{
+      text-align: left;
+      h4{
+          font-weight: 400;
+      }
+  }
+
+  .value{
+      text-align: right;
+      h4{
+          font-weight: 600;
+          .label{
+              display: block;
+              text-align: right;
+              color: #3827B4;
+          }
+      }
+  }
 }

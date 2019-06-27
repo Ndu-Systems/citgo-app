@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { API_URL } from 'src/app/shared/config';
 import { HttpClient } from '@angular/common/http';
-import { post } from 'selenium-webdriver/http';
 import { Observable } from 'rxjs';
 
 @Injectable({

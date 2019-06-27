@@ -1,3 +1,4 @@
+import { SpinnerProcessService } from './../../../../services/app-state/spinner-process.service';
 import { Bonus } from "./../../../../models/bonus.model";
 import { CleintService } from "./../../../../services/dashboard/cleint.service";
 import { MessageService } from "primeng/api";
@@ -25,12 +26,14 @@ export class ToActionComponent implements OnInit {
     private investmentService: InvestmentService,
     private bonusService: BonusService,
     private messageService: MessageService,
-    private cleintService: CleintService
+    private cleintService: CleintService,
+    private spinnerProcessService: SpinnerProcessService,
   ) {}
 
   ngOnInit() {}
   Approve(data: Investment) {
     data.StatusId = SHARE_ACTIVE;
+    this.spinnerProcessService.showSpinner();
     this.investmentService.updateInvestment(data).subscribe(res => {
       let updatedInvestment: Investment = res;
       if (updatedInvestment.StatusId == SHARE_ACTIVE) {
@@ -40,6 +43,10 @@ export class ToActionComponent implements OnInit {
           summary: "Now active! ",
           detail: "Share approved!"
         });
+
+        //update list 
+        this.shares$= this.investmentService.getInvestmentsByStatus(SHARE_PENDING_VERFICATION);
+        this.spinnerProcessService.closeSpinner();
 
         //check if client have a parent
         this.cleintService

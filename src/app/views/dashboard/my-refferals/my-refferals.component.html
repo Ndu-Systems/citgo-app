@@ -23,26 +23,19 @@
 
   <div class="cards" *ngIf="refferals$ | async as refferals; else nodata">
     <div *ngIf="refferals.length; else zerodata">
-      <div class="card" *ngFor="let data of refferals">
-        <div class="col-1-of-2">
-          <div class="details-sec-1">
-            <h1 class="share-name">
-              {{data.FirstName}} {{data.Surname}}
-            </h1>
-            <div class="growth">
-              <h1>
-                {{data.Email}}
-              </h1> <br>
-              <p class="status active" *ngIf="data.StatusId == '3'">Active</p>
-              <p class="status pending" *ngIf="data.StatusId =='4'">Pending</p>
+        <div class="card detals bonus"  *ngFor="let data of refferals">
+            <div>
+              <h4>
+                  {{data.FirstName}} {{data.Surname}}
+              </h4>
             </div>
-
-            <a class="status {{data.Status}}"> <span class="{{data.Status}}-BG"></span>{{data.Status}}</a>
-
+            <div class="value">
+              <h4>
+                  <p class="status active" *ngIf="data.Amount">{{data.Amount | currency:'R'}}</p>
+                  <p class="status " *ngIf="!data.Amount">R00.00</p>
+              </h4>
+            </div>
           </div>
-
-        </div>
-      </div>
     </div>
     <ng-template #zerodata>
       <h1>
