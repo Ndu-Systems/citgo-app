@@ -1,29 +1,26 @@
+import { WithdrawalService } from './../../../services/dashboard/withdrawal/withdrawal.service';
+import { Bonus } from "./../../../models/bonus.model";
+import { BonusService } from "./../../../services/dashboard/bonus.service";
 import { Withdrawal, withdrawalInit } from "./../../../models/withdrawal.model";
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { Investment } from "src/app/models";
-import {
-  AuthenticateService,
-  InvestmentService,
-  NotificationProcessService
-} from "src/app/services";
+import { Investment, AvailableFunds } from "src/app/models";
+import { AuthenticateService, InvestmentService } from "src/app/services";
 import { MessageService, ConfirmationService } from "primeng/api";
 import { Router } from "@angular/router";
-import { UserNotification } from "src/app/models/processes/notification.process.model";
 import { SHARE_PENDING, WITHDRAWABLE } from "src/app/shared/config";
-import { WithdrawalService } from "src/app/services/dashboard/withdrawal/withdrawal.service";
 import { User } from "src/app/models/user";
-
+AvailableFunds;
 @Component({
   selector: "app-do-withdrawal",
   templateUrl: "./do-withdrawal.component.html",
   styleUrls: ["./do-withdrawal.component.scss"]
 })
 export class DoWithdrawalComponent implements OnInit {
+  cleintId;
   rForm: FormGroup;
   error = "";
   currentUser: User;
-  investmentsList: Investment[] = [];
   canBuy: boolean = true;
   profits: any[];
   total: number;
@@ -32,13 +29,19 @@ export class DoWithdrawalComponent implements OnInit {
   funds = localStorage.getItem(WITHDRAWABLE);
 
   withdrawal: Withdrawal = withdrawalInit;
+  investmentsList: Investment[] = [];
+
+  // get funds data
+
 
   maturityDate: Date;
+  bonuses: any;
   constructor(
     private fb: FormBuilder,
     private authenticationService: AuthenticateService,
     private investmentService: InvestmentService,
     private withdrawalService: WithdrawalService,
+    private bonusService: BonusService,
     private confirmationService: ConfirmationService,
     private routeTo: Router
   ) {
@@ -48,6 +51,17 @@ export class DoWithdrawalComponent implements OnInit {
         this.investmentsList = val;
       }
     });
+
+    //get bonuses
+    
+        // get bonuses
+        this.bonusService.getClientBonuses(this.cleintId).subscribe(r => {
+          this.bonuses = r;
+        });
+
+
+        // get client withdrawals
+        // this.withdrawalService.get
   }
 
   ngOnInit() {
@@ -67,22 +81,36 @@ export class DoWithdrawalComponent implements OnInit {
     });
   }
 
-  withdraw(data:Withdrawal) {
+  withdraw(data: Withdrawal) {
     this.confirmationService.confirm({
       message: `You are withdraw an amount of R${data.Amount}, continue?`,
       accept: () => {
         this.error = "";
         this.withdrawalService.addWithdrawal(data).subscribe(response => {
           if (response) {
-           let addedWithdrawal:Withdrawal = response;
-           if(addedWithdrawal.WithdrawalId){
-             let amount = data.Amount;
+            let addedWithdrawal: Withdrawal = response;
+            if (addedWithdrawal.WithdrawalId) {
+              let amount = data.Amount;
+              let funds = {
+                funds: []
+              };
 
-           }
+              this.withdrawalService
+                .addClientwithdrawalsRange(funds)
+                .subscribe(r => {});
+            }
           }
         });
       }
     });
   }
 
+  postFunds(clientwithdrawals, amountRequested) {
+    let funds = new AvailableFunds(
+      this.investmentsList,
+      this.bonuses,
+      clientwithdrawals,
+      amountRequested
+    );
+  }
 }

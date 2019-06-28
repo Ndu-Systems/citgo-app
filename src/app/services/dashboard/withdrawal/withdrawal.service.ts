@@ -22,14 +22,14 @@ export class WithdrawalService {
       data
     );
   }
-  addClientwithdrawalsRange(data:Withdrawal): Observable<any> {
+  addClientwithdrawalsRange(data): Observable<any> {
     return this.httpClient.post<any>(
       `${API_URL}/api/clientwithdrawals/add-clientwithdrawals-range.php`,
       data
     );
   }
 
-  getInvestmentsById(InvestmentId): Observable<Investment> {
+  getClientEivestents(InvestmentId): Observable<Investment> {
     return this.httpClient.get<any>(
       `${this.url}/api/investments/get-investment-by-id.php?InvestmentId=${InvestmentId}`
     );

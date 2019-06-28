@@ -27,20 +27,21 @@
 .main-container-betta {
 
   margin: -2rem auto;
-  width: 85%;
-  background: #ECF0F1;
+  width: 40%;
+  background: #ffffff;
   margin-bottom: 5rem;
   padding: 3%;
   border-radius: 5px;
 
   
-  -webkit-box-shadow: 10px 10px 29px 19px rgba(0,0,0,0.18);
-  -moz-box-shadow: 10px 10px 29px 19px rgba(0,0,0,0.18);
-  box-shadow: 10px 10px 29px 19px rgba(0,0,0,0.18);
+  // -webkit-box-shadow: 10px 10px 29px 19px rgba(0,0,0,0.18);
+  // -moz-box-shadow: 10px 10px 29px 19px rgba(0,0,0,0.18);
+  // box-shadow: 10px 10px 29px 19px rgba(0,0,0,0.18);
 
   @media only screen and (max-width: 600px) {
     margin-bottom: 0rem;
     box-shadow:none;
+    width: 85%;
 
   }
 
@@ -87,7 +88,7 @@
           }
         }
         .input-field {
-          background: #fff;
+          background: #ecf0f1;
           border-radius: .5rem;
           border: none;
           width: 100%;

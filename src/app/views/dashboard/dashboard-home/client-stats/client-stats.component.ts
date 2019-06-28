@@ -9,6 +9,7 @@ import { InvestmentService } from "src/app/services";
 import { Investment } from "src/app/models";
 import { WITHDRAWABLE } from "src/app/shared/config";
 
+
 export interface Detail{
   key:string;
   value:number;
