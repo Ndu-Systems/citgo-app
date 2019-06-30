@@ -214,3 +214,14 @@ h1 {
 .bottom  .right{
   top:40% !important;
 }
+
+.show-password{
+ float:right;
+ margin-right: 1rem;
+ .show{
+color: #6c18a4c5;
+ }
+ .hide{
+  color: #9a9fa1ce;
+ }
+}

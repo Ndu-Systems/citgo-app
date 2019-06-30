@@ -1,4 +1,4 @@
-import { EmailService } from './../../../services/shared-services/email/email.service';
+import { EmailService } from "./../../../services/shared-services/email/email.service";
 import { Client } from "src/app/models";
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
@@ -15,6 +15,7 @@ export class EnquireComponent implements OnInit {
   rForm: FormGroup;
   client: Client;
   clientId = "";
+  done: boolean;
   constructor(
     private fb: FormBuilder,
     private messageService: MessageService,
@@ -34,23 +35,14 @@ export class EnquireComponent implements OnInit {
       this.rForm = this.fb.group({
         name: [`${this.client.FirstName} ${this.client.FirstName}`],
         email: [this.client.Email],
-        subject: ['', Validators.required],
-        body: ['', Validators.required]
-
+        subject: ["", Validators.required],
+        body: ["", Validators.required]
       });
     });
   }
-submit(){
-
-}
-  send(name, email, link) {
-    let data = {
-      name: name,
-      email: email,
-      link: link
-    };
-    this.emailService.sendVerifyAcc(data).subscribe(r => {
-      // this.progress = `To ensure that your email account is valid, we have sent you an email to  ${email} to  verify your account,  please check your mailbox`;
+  submit(data) {
+    this.emailService.sendEnquiry(data).subscribe(r => {
+      this.done = true;
     });
   }
 }

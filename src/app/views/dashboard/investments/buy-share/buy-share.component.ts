@@ -79,8 +79,6 @@ export class BuyShareComponent implements OnInit {
         this.Ref = `CTG${this.ClientRef}-${this.investmentsList.length + 1}`;
         // localStorage.setItem()
         this.rForm.valueChanges.subscribe(data => {
-          console.log(data);
-
           let amount = data.Amount;
           this.maturityDate = new Date(
             new Date().setFullYear(new Date().getFullYear() + 1)

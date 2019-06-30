@@ -47,5 +47,19 @@
 
 </div>
 
-
-<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+<div class="awaiting" *ngIf="done">
+  <div class="image">
+      <img src="assets/images/dashboard/check-circle-regular.svg" alt="">
+    </div>
+  <div>
+    <h1>Enquiry sent</h1>
+    <p>
+      Hi {{client?.name}} we have received your enquiry we're working on it.
+      We will be in touch as soon as possible
+        
+    </p>
+    <div class="btns">
+    <a routerLink="/dashboard">  <button >HOME</button></a>
+    </div>
+  </div>
+</div>

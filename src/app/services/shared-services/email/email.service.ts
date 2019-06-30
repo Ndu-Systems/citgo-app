@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { SEND_ACC_VERIFICATION_EMAIL, SEND_FORGOT_PASSWORD_EMAIL, SEND_UPDATE_CONTACT_DETAILS_EMAIL, SEND_NEW_EMAIL_REQUEST_EMAIL } from '../../../shared/config';
+import { SEND_ACC_VERIFICATION_EMAIL, SEND_FORGOT_PASSWORD_EMAIL, SEND_UPDATE_CONTACT_DETAILS_EMAIL, SEND_NEW_EMAIL_REQUEST_EMAIL, SEND_ENQUIRY } from '../../../shared/config';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +30,12 @@ export class EmailService {
   sendNewEmailRequest(data): Observable<any> {
     return this.http.post<any>(
       SEND_NEW_EMAIL_REQUEST_EMAIL,
+      data
+    );
+  }
+  sendEnquiry(data): Observable<any> {
+    return this.http.post<any>(
+      SEND_ENQUIRY,
       data
     );
   }
