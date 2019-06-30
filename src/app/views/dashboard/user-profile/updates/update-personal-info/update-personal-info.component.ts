@@ -68,6 +68,10 @@ export class UpdatePersonalInfoComponent implements OnInit {
           ParentId: new FormControl(this.cleint.ParentId)
         });
 
+        this.rForm.valueChanges.subscribe(data => {
+          console.log(data);
+        });
+
       });
     });
   }

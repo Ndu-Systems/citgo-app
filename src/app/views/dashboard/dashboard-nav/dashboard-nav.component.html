@@ -23,35 +23,20 @@
     </ul>
     <ul>
       <li class="account container-col-1-of-3">
-        <div class="nofication">
-          <h1 class="dropbtn"><i class="fas fa-bell" (click)="not.toggle($event)"></i>
-          </h1>
-
-
-          <p-overlayPanel #not>
-            <div class="notifications" *ngIf="notifications">
-              <div *ngFor="let item of notifications">
-                <h1 class="notification" (click)="openNotification(item)">{{item.message}}</h1>
-              </div>
-            </div>
-          </p-overlayPanel>
-
-
-        </div>
-        <div class="user" *ngIf="client">
-          <p-overlayPanel #op1>
-            <h1> <a routerLink="my-profile">my profile</a></h1>
-            <h1><a routerLink="" (click)="logout()">Logout</a></h1>
-          </p-overlayPanel>
+  <a routerLink="my-profile"  class="user">
+        <div  *ngIf="client">
           <img src="assets/images/dashboard/user-female.svg" *ngIf="client.Gender=='Female'"
             (click)="op1.toggle($event)" alt="user image">
-          <img src="assets/images/dashboard/user-male.svg" *ngIf="client.Gender=='Male'" (click)="op1.toggle($event)"
+          <img src="assets/images/dashboard/user-male.svg" *ngIf="client.Gender=='Male'"
             alt="user image">
         </div>
-        <div class="user">
+        <div >
           <h1>Hello {{client?.FirstName}}</h1>
         </div>
-
+  </a>
+      </li>
+      <li>
+        <a routerLink="" (click)="logout()">Logout</a>
       </li>
     </ul>
   </nav>
@@ -75,8 +60,6 @@
       <img src="assets/images/home/icon-white-round.svg" alt="logo"></a>
   </div>
   <div class="menu" *ngIf="client">
-    <!-- <img src="assets/images/dashboard/burger-menu.svg" (click)="openMobileNav()" alt="menu icon">
-    <img src="assets/images/dashboard/user.svg" (click)="openMobileNav()" alt="menu icon"> -->
     <a  routerLink="my-profile">
     <img src="assets/images/dashboard/user-female.svg" *ngIf="client.Gender=='Female'" alt="user image">
     <img src="assets/images/dashboard/user-male.svg" *ngIf="client.Gender=='Male'" alt="user image">

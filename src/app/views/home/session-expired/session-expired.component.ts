@@ -16,7 +16,7 @@ export class SessionExpiredComponent implements OnInit {
   ngOnInit() {
   }
   login(){
-    this.loginProcessService.showLogin()
+    this.router.navigate(["sign-in"])
   }
   home(){
 this.router.navigate([""])

@@ -67,6 +67,9 @@
         padding: .6rem;
         border-radius: .1rem;
         border: none;
+        &:disabled{
+          background: rgb(187, 187, 187);
+        }
 
     }
   }

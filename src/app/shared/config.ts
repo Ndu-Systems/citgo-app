@@ -10,6 +10,7 @@ export const API_URL = api;
 export const WEB_HOST = web;
 export const LAST_INSERT_ID = 'LAST_INSERT_ID';
 export const LAST_INSERT_EMAIL = 'LAST_INSERT_ID';
+export const REF = 'REF';
 export const CURRENT_USER = 'currentUser';
 export const ADMIN_USER_ROLE =1;
 export const CLIENT_USER_ROLE =2;
@@ -44,6 +45,7 @@ export const SHARE_PENDING_VERFICATION=3;
 export const SHARE_DECLINED=4;
 export const SHARE_REMOVED=5;
 export const WITHDRAWABLE='WITHDRAWABLE';
+export const REMBERPASSWORD='REMBERPASSWORD';
 
 
 export const PASSWORD_DONT_MATCH_ERROR = 'Your password(s) do not match';

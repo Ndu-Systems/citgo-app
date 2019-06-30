@@ -1,5 +1,4 @@
 <div class="dashboard">
-
   <div class="main" *ngIf="!isCurrentUserAdmin">
     <div class="banking-details" *ngIf="showBankingInfo">
       <div class="icon">
@@ -20,7 +19,7 @@
             <b>Recipient</b>: Citgo Africa <br>
             <b>Branch</b>: 225 485 <br>
             <b>Amount</b> : {{amount  | currency:'ZAR'}}<br>
-            <b>Reference</b> : 2158S1 <br>
+            <b>Reference</b> : {{ref}} <br>
           </div>
           <div class="image">
             <img src="assets/images/dashboard/fnb.svg" alt="">
@@ -36,7 +35,7 @@
             <b>Recipient</b>: Citgo Africa <br>
             <b>Branch</b>: 225 485 <br>
             <b>Amount</b> : {{amount  | currency:'ZAR'}} <br>
-            <b>Reference</b> : 2158S1 <br>
+            <b>Reference</b> :  {{ref}} <br>
           </div>
           <div class="image">
             <img src="assets/images/dashboard/stbank.svg" alt="">

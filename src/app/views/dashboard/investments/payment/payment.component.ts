@@ -1,3 +1,4 @@
+import { REF } from './../../../../shared/config';
 import { Investment } from "src/app/models";
 import { InvestmentService } from "src/app/services";
 import { Router, ActivatedRoute } from "@angular/router";
@@ -16,6 +17,7 @@ export class PaymentComponent implements OnInit {
   isStandardBank = false;
   investment: Investment;
   bankId: number = 1;
+  ref= localStorage.getItem(REF)
   constructor(
     private router: Router,
     private investmentService: InvestmentService,

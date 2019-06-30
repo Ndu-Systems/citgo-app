@@ -2,10 +2,12 @@
 
 .main {
   background: #ecf0f1;
-  padding: 8rem 3rem;
+  padding:5rem 30rem;
+
   @media only screen and (max-width: 600px) {
     padding: 4rem 2rem;
   }
+
   .heading {
     text-align: center;
     display: block;
@@ -13,6 +15,7 @@
     font-weight: 300;
     color: black;
   }
+
   .intro {
     color: #000;
     letter-spacing: 0ch;
@@ -21,6 +24,7 @@
     padding: 1.5rem 1rem;
     border-radius: 0.5rem;
   }
+
   .body {
     .banking {
       display: grid;
@@ -29,18 +33,26 @@
       background: #fff;
       border-radius: 0.5rem;
       margin-bottom: 0;
-    
+
 
       .image {
         text-align: center;
+
         img {
-          width: 80%;
+          width: 40%;
+
+          @media only screen and (max-width: 600px) {
+            // display: none;
+            width: 80%;
+          }
         }
       }
     }
+
     .radio {
       grid-template-columns: 100%;
       margin-bottom: 1rem;
+
       .select-bank {
         position: relative;
         display: grid;
@@ -48,6 +60,7 @@
         margin: 0.2rem;
         padding: 0.1rem;
         display: block;
+
         img.fnb {
           width: 3rem;
           position: relative;
@@ -63,6 +76,7 @@
           top: 0.7rem;
           display: inline;
         }
+
         .selected {
           display: inline-block;
           width: 1rem;
@@ -73,23 +87,27 @@
           right: 0rem;
           top: 0.5rem;
         }
+
         .active-true {
           background: #6d2ba9;
         }
       }
     }
+
     .fnb {
       border-bottom: 3px solid #79e2e8;
       animation: moveInLeft .5s ease-out 0.1s;
       animation-fill-mode: backwards;
     }
+
     .sbank {
       border-bottom: 3px solid #0081c7;
       animation: moveInRight .5s ease-out 0.1s;
       animation-fill-mode: backwards;
     }
-  
+
   }
+
   .error {
     color: $red-color;
   }
@@ -108,6 +126,7 @@
     font-size: 0.8rem;
     font-style: italic;
   }
+
   .normal {
     font-style: normal;
     color: black;
@@ -131,20 +150,58 @@
   z-index: 1000;
   text-align: center;
 
-  padding-top: 5rem;
   color: #fff;
+  padding: 20rem;
+  padding-top: 10rem;
+
+   
+  @media only screen and (max-width: 600px) {
+    padding: 0;
+    padding: 1.5rem;
+    padding-top: 5rem;
+  }
+
   .image {
     text-align: center;
 
     img {
+      width: 10%;
+      @media only screen and (max-width: 600px) {
+
       width: 30%;
+      }
+    }
+
+
+  }
+
+  p {
+    font-weight: 300;
+  }
+
+  .btns {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    padding-top: 5rem;
+
+    button {
+      text-align: center;
+      background: #0081c7;
+      padding: 2%;
+      border: none;
+      color: #fff;
+      width: 8rem;
+      font-weight: 700;
+      border-radius: 0.2rem;
     }
   }
 }
 
+
 .btns {
   text-align: center;
   padding: 1.5rem 1rem;
+
   button {
     text-align: center;
     background: #0081c7;

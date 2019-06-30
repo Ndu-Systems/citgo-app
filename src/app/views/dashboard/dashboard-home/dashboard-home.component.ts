@@ -30,6 +30,7 @@ export class DashboardHomeComponent implements OnInit {
   investmentsList: Investment[] = [];
   amount;
   showBankingInfo: boolean;
+  ref: string;
 
   constructor(
     private authenticateService: AuthenticateService,
@@ -48,7 +49,7 @@ export class DashboardHomeComponent implements OnInit {
         if (response.UserId) {
           this.currentUser = response;
           if (this.currentUser.Password === DEFAULT_PASSWORD) {
-            this.router.navigate(["dashboard/update-password"]);
+            this.router.navigate(["dashboard/create-password"]);
           }
         } else {
           // kick out
@@ -66,7 +67,7 @@ export class DashboardHomeComponent implements OnInit {
           x => x.StatusId == SHARE_PENDING
         );
         if (pending.length > 0) {
-          
+          this.ref = pending[0].Ref
           this.amount = pending[0].Amount;
           this.showBankingInfo = true;
           if (pending[0].bankId == 1) {

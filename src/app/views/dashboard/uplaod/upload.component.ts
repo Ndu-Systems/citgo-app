@@ -1,3 +1,4 @@
+import { SpinnerProcessService } from './../../../services/app-state/spinner-process.service';
 import { AuthenticateService } from "./../../../services/home/user/authenticate.service";
 import { WEB_HOST, API_URL, SHARE_PENDING_VERFICATION } from "src/app/shared/config";
 import {
@@ -29,7 +30,8 @@ export class UploadComponent implements OnInit {
     private notificationProcessService: NotificationProcessService,
     private authenticateService: AuthenticateService,
     private investmentService: InvestmentService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private spinnerProcessService: SpinnerProcessService,
 
   ) {}
 
@@ -51,8 +53,10 @@ export class UploadComponent implements OnInit {
       this.message = "Please select the files!";
       return false;
     }
+    this.spinnerProcessService.showSpinner()
     this.documentsService.uploadFile(this.file).subscribe(response => {
       let url = `${API_URL}/api/upload/${response}`;
+      this.spinnerProcessService.closeSpinner()
       let doc: UserDoc = {
         ClientId: this.clientId,
         InvestmentId: this.InvestmentId,

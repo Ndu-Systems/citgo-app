@@ -47,19 +47,8 @@ export class ResetPasswordComponent implements OnInit {
             .pipe(first())
             .subscribe(response => {
               if (response) {
-               
-                // setTimeout(function() {
-                //   this.popMessage(
-                //     "success",
-                //     "Account verified",
-                //     `Your account was verified successfully`
-                //   );
-
-                // }, 3000);
                 this.userProfileProcess.updateUserProfileProcessState({resetPasswordMessage: "reset your password."})
                 this.router.navigate(["/dashboard"]);
-
-
               } else {
                 alert("Error");
               }

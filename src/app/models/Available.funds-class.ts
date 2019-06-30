@@ -7,7 +7,7 @@ export class AvailableFunds {
   bonuses: Bonus[];
   clientwithdrawals: Clientwithdrawals[];
   amountRequested: number;
-  myBalance: MyBalance;
+  myBalance = new MyBalance();
   constructor(
     investments: Investment[],
     bonuses: Bonus[],
@@ -26,6 +26,7 @@ export class AvailableFunds {
   }
 
   getAllBonusAmount() {
+    debugger
     let sum: number = 0;
     this.bonuses.forEach(bonus => {
       let sum_single_withdrawn: number = 0;
@@ -55,6 +56,7 @@ export class AvailableFunds {
   }
 
   getAllProfitAmount() {
+    debugger
     let sum: number = 0;
     let sum_withdrawn: number = 0;
 
@@ -125,7 +127,7 @@ export class AvailableFunds {
     }
     this.myBalance.amoutToWithdraw = amount;
   }
-  get() {
+  public  get():MyBalance {
     return this.myBalance;
   }
 }

@@ -1,3 +1,5 @@
+import { MyBalance } from './../../../models/Available.funds-class';
+import { Clientwithdrawals } from './../../../models/client.withdrawals.model';
 import { WithdrawalService } from './../../../services/dashboard/withdrawal/withdrawal.service';
 import { Bonus } from "./../../../models/bonus.model";
 import { BonusService } from "./../../../services/dashboard/bonus.service";
@@ -35,7 +37,9 @@ export class DoWithdrawalComponent implements OnInit {
 
 
   maturityDate: Date;
-  bonuses: any;
+  bonuses: any=[];
+  clientwithdrawals: any;
+  balance: MyBalance;
   constructor(
     private fb: FormBuilder,
     private authenticationService: AuthenticateService,
@@ -61,7 +65,9 @@ export class DoWithdrawalComponent implements OnInit {
 
 
         // get client withdrawals
-        // this.withdrawalService.get
+         this.withdrawalService.getClientWithdrawal(this.cleintId).subscribe(r=>{
+           this.clientwithdrawals = r;
+         })
   }
 
   ngOnInit() {
@@ -94,6 +100,7 @@ export class DoWithdrawalComponent implements OnInit {
               let funds = {
                 funds: []
               };
+              this.postFunds(amount);
 
               this.withdrawalService
                 .addClientwithdrawalsRange(funds)
@@ -105,12 +112,15 @@ export class DoWithdrawalComponent implements OnInit {
     });
   }
 
-  postFunds(clientwithdrawals, amountRequested) {
+  postFunds(amountRequested) {
     let funds = new AvailableFunds(
       this.investmentsList,
       this.bonuses,
-      clientwithdrawals,
+      this.clientwithdrawals,
       amountRequested
     );
+
+    this.balance = funds.get();
+    console.log('this.balance' , this.balance);
   }
 }

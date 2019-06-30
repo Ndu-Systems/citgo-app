@@ -1,8 +1,9 @@
 .dashboard {
   .main {
-    padding:3rem;
-    padding-right: 0;
-    padding: 1rem;
+    padding:5rem 20rem;
+    @media only screen and (max-width: 600px) {
+      padding: 1rem;
+    }
 
     .banking-details{
       padding: 2rem 1rem;
@@ -26,9 +27,7 @@
       }
     }
 
-    @media only screen and (max-width: 600px) {
-      padding: 1rem;
-    }
+ 
   }
 }
 

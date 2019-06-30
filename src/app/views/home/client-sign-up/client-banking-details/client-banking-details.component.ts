@@ -47,9 +47,7 @@ export class ClientBankingDetailsComponent implements OnInit {
       StatusId: [1, Validators.required],
       ClientId: [this.clientId, Validators.required]
     });
-    this.rForm.valueChanges.subscribe(data => {
-      console.log(data);
-    });
+
   }
 
   closeModal() {

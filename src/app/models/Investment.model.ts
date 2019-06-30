@@ -7,6 +7,7 @@ export interface Investment {
     Growth?: number;
     Name?: string;
     Type?: string;
+    Ref?: string;
     InvestmentDate?: Date;
     CreateDate?: Date;
     CreateUserId?: string;

@@ -1,3 +1,4 @@
+import { EnquireComponent } from './enquire/enquire.component';
 import { DoWithdrawalComponent } from './do-withdrawal/do-withdrawal.component';
 import { CreatePasswordComponent } from './user-profile/my-profile/create-password/create-password.component';
 import { AllClientsComponent } from './admin-components/all-clients/all-clients.component';
@@ -41,6 +42,7 @@ const routes: Routes = [
       { path: "do-withdrawal/:id", component: DoWithdrawalComponent },
       { path: "share-details/:id", component: ShareDetailsComponent },
       { path: "payment/:id", component: PaymentComponent },
+      { path: "enquire/:id", component: EnquireComponent },
       { path: "my-profile", component: MyProfileComponent },
 
       //updates
@@ -79,7 +81,8 @@ export const declarations: Array<any> = [
   UpdatePersonalInfoComponent,
   UpdateBaningInfoComponent,
   UpdateBenefitiariesComponent,
-  CreatePasswordComponent
+  CreatePasswordComponent,
+  EnquireComponent
    
   
 ];

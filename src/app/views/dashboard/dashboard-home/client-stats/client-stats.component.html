@@ -1,48 +1,55 @@
 <h1 class="heading">
-  quick start
+
 </h1>
 <div class="cards">
+  <div class="card withdraw" *ngIf="client$|async as client">
+    <h1>
+      <span class="label">
+        Your Client Id <b>CTG-{{client.ClientRef}}</b>
+      </span>
+    </h1>
+  </div>
   <div class="card withdraw">
     <h1>
       My Wallet
     </h1>
     <h1 class="main">
-        <span class="label">Available Funds</span>
+      <span class="label">Available Funds</span>
       {{availableFunds  | currency:'R'}}
       <span class="where-from" *ngFor="let data of details">
-      <b>  <i class="fas fa-chart-line"></i> </b> {{data.key}} ..... <b>{{data.value | currency:'R'}}</b>
+        <b> <i class="fas fa-chart-line"></i> </b> {{data.key}} ..... <b>{{data.value | currency:'R'}}</b>
       </span>
       <span class="where-from">
         <b><i class="far fa-heart"></i></b> Bonus earned ..... <b>{{totalBonuses | currency:'R'}}</b>
       </span>
     </h1>
     <div class="action">
-      <button (click)="withdraw()">Withdraw</button>
+      <button (click)="withdraw()" disabled>Withdraw</button>
     </div>
 
     <div class="card detals bonus">
       <div>
         <h4>
-            Bonus earned
+          Bonus earned
         </h4>
       </div>
       <div class="value">
         <h4>
-            {{totalBonuses  | currency:'R'}}
-            <span class="label" (click)="AddRef()">More</span>
+          {{totalBonuses  | currency:'R'}}
+          <span class="label" (click)="AddRef()">More</span>
         </h4>
       </div>
     </div>
     <div class="card detals bonus">
       <div>
         <h4>
-            All profit earned
+          All profit earned
         </h4>
       </div>
       <div class="value">
         <h4>
-            {{totalProfit  | currency:'R'}}
-            
+          {{totalProfit  | currency:'R'}}
+
         </h4>
       </div>
     </div>
@@ -68,7 +75,7 @@
         <span class="label">Bonus</span>
       </h1>
     </div> -->
- <!-- you currently do not have any withdrawable amount -->
+    <!-- you currently do not have any withdrawable amount -->
   </div>
   <div class="card" (click)="AddRef()">
     <div class="img">

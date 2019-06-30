@@ -12,6 +12,7 @@ import { Router } from "@angular/router";
 import { first } from "rxjs/operators";
 import { LoginProcessService } from "src/app/services/app-state/login-process.service";
 import { AuthenticateService } from "src/app/services/home/user/authenticate.service";
+import { REMBERPASSWORD } from "src/app/shared/config";
 
 @Component({
   selector: "app-sign-in",
@@ -23,6 +24,10 @@ export class SignInComponent implements OnInit {
   loading = false;
   error = "";
   isLogin: boolean = true;
+
+  email:string = "";
+  password:string = ""
+  savePassword:boolean = false;
   constructor(
     private fb: FormBuilder,
     private routeTo: Router,
@@ -31,18 +36,26 @@ export class SignInComponent implements OnInit {
     private signUpProcessService: SignUpProcessService,
     private messageService: MessageService,
     private spinnerProcessService: SpinnerProcessService
-  ) {}
+  ) {
+    let data =  localStorage.getItem(REMBERPASSWORD);
+    if( data !== null && data !== "null"){
+    this.email= JSON.parse(data).email;
+    this.password = JSON.parse(data).password;
+    this.savePassword = true;
+    }
+  }
 
   ngOnInit() {
     this.rForm = this.fb.group({
       email: new FormControl(
-        "",
+       this.email,
         Validators.compose([
           Validators.required,
           Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$")
         ])
       ),
-      password: ["", Validators.required]
+      password: [this.password, Validators.required],
+      savePassword: [this.savePassword, Validators.required],
     });
   }
   closeModal() {
@@ -59,6 +72,11 @@ export class SignInComponent implements OnInit {
   }
   Login() {
     // this.spinnerService.showSpinner();
+    if(this.formValues.savePassword.value){
+      localStorage.setItem(REMBERPASSWORD, JSON.stringify({email:this.formValues.email.value,password:this.formValues.password.value }))
+    }else{
+      localStorage.setItem(REMBERPASSWORD,null);
+    }
     this.spinnerProcessService.showSpinner();
     this.loginService
       .loginUser(this.formValues.email.value, this.formValues.password.value)

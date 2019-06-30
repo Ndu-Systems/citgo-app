@@ -6,11 +6,13 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position-x: center;
-  margin: -12.22rem 0px;
+  // margin: -12.22rem 0px;
   padding: 9% 0rem;
 
   @media screen and (max-width: 600px) {
     padding: 0;
+      margin: -12.22rem 0px;
+
     margin-bottom: 4rem;
   }
 

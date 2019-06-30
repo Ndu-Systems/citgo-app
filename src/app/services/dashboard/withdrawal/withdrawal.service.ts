@@ -29,9 +29,9 @@ export class WithdrawalService {
     );
   }
 
-  getClientEivestents(InvestmentId): Observable<Investment> {
+  getClientWithdrawal(ClientId): Observable<Investment> {
     return this.httpClient.get<any>(
-      `${this.url}/api/investments/get-investment-by-id.php?InvestmentId=${InvestmentId}`
+      `${this.url}/api/withdrawal/get-withdrawal-by-client-id.php?ClientId=${ClientId}`
     );
   }
  

@@ -1,45 +1,35 @@
 <div class="main">
   <h1 class="heading">
-    Buy shares
+    enquire
   </h1>
 
   <div class="body">
-    <form [formGroup]="rForm" *ngIf="rForm" (ngSubmit)="buy(rForm.value)" class="box form-group dashboard-forms">
+    <form [formGroup]="rForm" *ngIf="rForm" (ngSubmit)="submit(rForm.value)" class="box form-group dashboard-forms">
 
       <div class="col-1-of-1">
         <div class="controls">
-          <label for="">Share amount <span class="currency"> (ZAR)</span></label> <br />
-          <input type="number" class="input-field" formControlName="Amount" />
+          <label for="">Subject </label> <br />
+          <input type="text" class="input-field" formControlName="subject" />
 
           <div class="explain">
-            <p class="explainContract">Minimum deposit:  R5 000.00</p>
-            <p class="explainContract">Maximum deposit:  R200 000.00</p>
+            <p class="explainContract">If you inquiring about your shares please include the reference number in the subject</p>
           </div>
-          <div class="alert" *ngIf="!rForm.controls['Amount'].valid && rForm.controls['Amount'].touched">
-              Share amount must be between R5000 and R200 000.
+          <div class="alert" *ngIf="!rForm.controls['subject'].valid && rForm.controls['subject'].touched">
+            Subject is required
           </div>
         </div>
-       
-        <div class="controls">
-          <!-- <label for="">Period type</label> <br /> -->
-          <hr>
-       
 
-          <div class="explain ">
-              <p class="explainContract normal">{{ explainContract }}</p>
-            <p class="explainContract normal">You can withdraw your interest payouts monthly,
-              and the total investemnts at maturity<i> (12 Months)</i></p>
+        <div class="controls">
+          <label for="">How can we help you </label> <br />
+          <textarea class="input-field textarea" formControlName="body"></textarea>
+
+          <div class="alert" *ngIf="!rForm.controls['body'].valid && rForm.controls['body'].touched">
+            Body message is required
           </div>
-          <div class="explain" *ngIf="total">
-              <p class="widrawalDay"><b>Maturity date:</b> {{ maturityDate |date  }}</p>
-              <p> <b>Share value on maturity</b> : {{ total | currency: "R" }}</p>
-              <p> <b>Profit in Next 30 days</b> : {{ nextProfitAmount | currency: "R" }}</p>
-            </div>
-      
-          
         </div>
+    
         <div class="controls button-container">
-          <input type="submit" value="buy shares" class="button" [disabled]="!rForm.valid" />
+          <input type="submit" value="enquire" class="button" [disabled]="!rForm.valid" />
         </div>
         <div class="controls">
           <h1>
