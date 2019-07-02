@@ -27,7 +27,7 @@ export const VERIFICATIONLINK = "etr70554f35IG6767-ctrl789954";
 export const RESET_PASSWORD = "e23587411e523332s33111a33333ds1";
 export const UPDATE_CONTACT_INFO = "e23587488969889a33333ds1";
 export const REQUEST_NEW_EMAIL_REQUEST= "e23587488969889a33333vc4";
-export const REFERALLINK = "sign-up-from-link";
+export const REFERALLINK = "sur";
 
 const onlineApi = "https://citgoafrica.com/api";
 export const SEND_ACC_VERIFICATION_EMAIL = `${onlineApi}/email/email-acc-verify.php`;

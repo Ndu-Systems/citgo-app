@@ -29,7 +29,6 @@ import { ContactUsComponent } from "./contact-us";
 import { CalculatorComponent } from "./index/calculator";
 import { EmailSentScreenComponent } from "./client-sign-up/email-sent-screen/email-sent-screen.component";
 import { EmailNotificationComponent } from './email-notification';
-import { SignUpFromLinkComponent } from './client-sign-up/sign-up-from-link/sign-up-from-link.component';
 import { UpdateContactInfoComponent } from '../dashboard/user-profile/updates/update-contact-info/update-contact-info.component';
 import { SessionExpiredComponent } from './session-expired/session-expired.component';
 import { ClientPersonalDetailsComponent } from './client-sign-up/client-personal-details/client-personal-details.component';
@@ -54,7 +53,7 @@ const routes: Routes = [
       },
       {
         path: `${REFERALLINK}/:id`,
-        component: SignUpFromLinkComponent
+        component: ClientPersonalDetailsComponent
       },
       {
         path: "how-it-works",
@@ -113,7 +112,6 @@ export const declarations: Array<any> = [
   ForgotPasswordComponent,
   EmailNotificationComponent,
   ResetPasswordComponent,
-  SignUpFromLinkComponent,
   UpdateContactInfoComponent,
   UpdateEmailAddressComponent,
   SessionExpiredComponent,
