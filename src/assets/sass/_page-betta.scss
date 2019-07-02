@@ -6,6 +6,11 @@
   background-size: cover;
   background-position-x: center;
   margin: -8rem 0;
+  margin-top: -12rem;
+  @media only screen and (max-width: 600px) {
+    margin-top: -5rem;
+    margin-right: -1rem;
+  }
 
   
 

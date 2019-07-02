@@ -11,14 +11,9 @@ import { NavigationProcessService } from "src/app/services";
 })
 export class HomeComponent implements OnInit {
   showOverlay: boolean;
-  showSignUp: boolean;
-  showBankingInfoForm: boolean;
-  showBenefitariesForm: boolean;
   showNav: boolean;
-  showSignIn: boolean;
   showEmailSentScreen: boolean;
   showEmailNotificationScreen: boolean;
-  showForgotPassword: boolean;
   showSpinner:boolean;
   message: string;
   constructor(
@@ -34,9 +29,6 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.signUpProcessService.castUserRegistrationProcess.subscribe(process => {
       this.showEmailSentScreen = process.showVerificationMailSent;
-      this.showSignUp = process.whichModalToShow.showPersonalInfoForm;
-      this.showBankingInfoForm = process.whichModalToShow.showBankingInfoForm;
-      this.showBenefitariesForm = process.whichModalToShow.showBenefitariesForm;
       this.showOverlay = process.whichModalToShow.showOverlay;
     });
 
@@ -52,8 +44,6 @@ export class HomeComponent implements OnInit {
 
     // login
     this.loginProcessService.castUserLoginProcess.subscribe(process => {
-      this.showSignIn = process.showLogin;
-      this.showForgotPassword = process.showResetPass;
       this.showOverlay = process.showOverlay;
       this.showEmailNotificationScreen = process.showEmailNotification;
       this.message = process.message;

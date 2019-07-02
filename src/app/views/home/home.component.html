@@ -1,10 +1,4 @@
-<div class="overlay" *ngIf="showOverlay">
-  <app-form-persol-details *ngIf="showSignUp"></app-form-persol-details>
-  <app-form-banking-details *ngIf="showBankingInfoForm"></app-form-banking-details>
-  <app-form-beneficiaries *ngIf="showBenefitariesForm"></app-form-beneficiaries>
-  <app-sign-in  *ngIf="showSignIn"></app-sign-in>
-  <app-forgot-password *ngIf="showForgotPassword"></app-forgot-password>
-</div>
+
 <div  *ngIf="showEmailSentScreen">
     <app-email-sent-screen></app-email-sent-screen>
 </div>
@@ -41,4 +35,3 @@
   <router-outlet></router-outlet>
   <app-footer-section></app-footer-section>
 </div>
-
