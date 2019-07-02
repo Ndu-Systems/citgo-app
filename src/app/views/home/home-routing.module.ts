@@ -73,7 +73,7 @@ const routes: Routes = [
         component: ForgotPasswordComponent
       },
       {
-        path: "client-personal-details",
+        path: "client-personal-details/:id",
         component: ClientPersonalDetailsComponent
       },
       {
