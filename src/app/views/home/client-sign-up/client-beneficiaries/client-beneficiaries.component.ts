@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { getCurrentUser, LAST_INSERT_ID } from 'src/app/shared/config';
@@ -26,11 +27,15 @@ export class ClientBeneficiariesComponent implements OnInit {
     private beneficiariesService: BeneficiariesService,
     private router: Router,
     private signUpProcessService: SignUpProcessService,
-    private confirmationService: ConfirmationService
-  ) {}
+    private confirmationService: ConfirmationService,
+    private activatedRoute: ActivatedRoute,
+  ) {
+    this.activatedRoute.params.subscribe(r => {
+      this.clientId = r["id"];
+    });
+  }
 
   ngOnInit() {
-    this.clientId = localStorage.getItem(LAST_INSERT_ID);
     this.rForm = this.fb.group({
       Name: [null, Validators.required],
       Surname: [null,Validators.required],
@@ -87,10 +92,7 @@ export class ClientBeneficiariesComponent implements OnInit {
     let formData = { beneficiaries: this.beneficiaries };
     this.beneficiariesService.addBeneficiaries(formData).subscribe(response => {
       if (response) {
-    
         this.signUpProcessService.showVerificationMailSent();
-      } else {
-        // alert(`Error: ${response}`);
       }
     });
   }
