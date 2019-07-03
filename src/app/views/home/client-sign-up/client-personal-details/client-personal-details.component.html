@@ -29,7 +29,7 @@
         <div class="controls">
           <label for="">First Name</label> <br />
           <input type="text" class="input-field" placeholder="First Name" formControlName="FirstName" pKeyFilter="alpha"
-            minlength="3" maxlength="25" class="input-field" />
+            minlength="3" maxlength="25" class="input-field" autofocus />
           <div class="alert" *ngIf="rForm.controls['FirstName'].errors?.required ">
             First Name is required
           </div>

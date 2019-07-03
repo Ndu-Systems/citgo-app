@@ -13,11 +13,7 @@ import {
   ApartSectionComponent,
   InvestSectionComponent
 } from "./index";
-import {
-  FormPersolDetailsComponent,
-  FormBeneficiariesComponent,
-  FormBankingDetailsComponent
-} from "./client-sign-up";
+
 
 import { FooterSectionComponent } from "./footer-section";
 import { HomeNavComponent } from "./home-nav";
@@ -93,7 +89,6 @@ const routes: Routes = [
 export const declarations: Array<any> = [
   HomeComponent,
   IndexComponent,
-  FormPersolDetailsComponent,
   ControlSectionComponent,
   AssetsComponentComponent,
   GrowthSectionComponent,
@@ -101,8 +96,6 @@ export const declarations: Array<any> = [
   InvestSectionComponent,
   FooterSectionComponent,
   HomeNavComponent,
-  FormBankingDetailsComponent,
-  FormBeneficiariesComponent,
   SignInComponent,
   VerifyEmailComponent,
   HowItWorksComponent,

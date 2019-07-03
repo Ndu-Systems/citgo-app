@@ -1,37 +1,60 @@
-
-<div  *ngIf="showEmailSentScreen">
-    <app-email-sent-screen></app-email-sent-screen>
-</div>
-<div  *ngIf="showEmailNotificationScreen">
-    <app-email-notification [message]="message"></app-email-notification>
-</div>
-<div  *ngIf="showSpinner">
-   <app-spinner></app-spinner>
-</div>
-<div class="container home">
-  <app-home-nav *ngIf="showNav"></app-home-nav>
-  <header class="container-col-1-of-3">
+<div class="main">
+  <div class="nav-bar">
     <div class="logo">
       <a routerLink="">
-        <img src="assets/images/home/icon-white-round.svg" alt="logo"></a>
+        <img src="assets/images/home/icon-white-round.svg" alt="logo">
+      </a>
     </div>
-    <div class="account">
-      <div class="access">
-        <h1>access account </h1>
+    <div class="access">
+      <label>ACCOUNT ACCESS</label>
+      <div class="col-1-of-3">
+        <div class="icon"> <img src="assets/images/home/user.svg" alt="user icon"></div>
+        <div class="login">
+          <h1>
+            <a routerLink="/sign-in"> login </a> <span class="dash"> - </span>
+            <a routerLink="/client-personal-details/new"> sign-up </a>
+
+          </h1>
+        </div>
       </div>
-      <div class="login container-col-1-of-3">
-        <img src="assets/images/home/user.svg" alt="user icon">
-        <a  routerLink="/sign-in"><h1>login</h1></a>
-        <a  routerLink="/client-personal-details/new"><h1>sign-up</h1></a>
+
+    </div>
+    <div class="nav-btn">
+      <img src="assets/images/menu-big.svg" (click)="togleNav()" alt="menu icon">
+    </div>
+  </div>
+  <div class="body-section">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="footer-section">
+    <app-footer-section></app-footer-section>
+  </div>
+
+  <div class="nav" *ngIf="showNav">
+    <div class="top">
+      <div>
+          <a routerLink="">
+              <img src="assets/images/home/icon-white-round.svg" alt="logo" class="logo"></a>
       </div>
+      
+      <div  class="close-btn" >
+          <img src="assets/images/home/close-x.png" alt="close btn" id="close-menu" (click)="togleNav()">
+
+      </div>
+     
     </div>
-    <div class="menu">
-      <img src="assets/images/home/menu-icon.png" (click)="OpenNav()" alt="menu icon">
-    </div>
-    <div class="mobile-menu">
-      <img src="assets/images/home/burger-menu.svg" (click)="OpenNav()" alt="burger menu" class="burger-menu">
-    </div>
-  </header>
-  <router-outlet></router-outlet>
-  <app-footer-section></app-footer-section>
+    <app-home-nav></app-home-nav>
+  </div>
+</div>
+
+
+
+<div *ngIf="showEmailSentScreen">
+  <app-email-sent-screen></app-email-sent-screen>
+</div>
+<div *ngIf="showEmailNotificationScreen">
+  <app-email-notification [message]="message"></app-email-notification>
+</div>
+<div *ngIf="showSpinner">
+  <app-spinner></app-spinner>
 </div>

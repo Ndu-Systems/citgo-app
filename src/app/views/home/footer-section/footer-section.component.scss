@@ -1,14 +1,16 @@
 @import '../../../../assets/sass/variables';
 .footer {
-    padding-top: 5rem;
-    background:#eedcffd3;
+    padding-top: 1rem;
+    background:#440082;
     text-align: center;
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
     ul {
         list-style: none;
 
         a {
             text-decoration: none;
-            color: $primary-color;
+            color: #fff;
 
             &:Hover{
                 color: $purple-dark-color;
@@ -19,7 +21,7 @@
 
     h1 {
         .paragraph {
-            color: $primary-color;
+            color: #fff;
             font-size: 1rem;
             letter-spacing: 0;
             font-weight: 400;

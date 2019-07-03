@@ -1,86 +1,170 @@
-@import "../../../assets/sass/variables";
+.main {
+  border-radius: 1rem;
+  background-image: url(../../../assets/images/home/background-home.png);
+  height: 90%;
 
-header {
-  padding: 1rem 2rem;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 
-  .logo {
-    img {
-      height: 4rem;
+  -webkit-box-shadow: 10px 9px 10px -8px rgba(74, 35, 90, 1);
+  -moz-box-shadow: 10px 9px 10px -8px rgba(74, 35, 90, 1);
+  box-shadow: 10px 9px 10px -8px rgba(74, 35, 90, 1);
+
+  .nav-bar {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 30% 30% auto;
+    grid-template-columns: 30% 30% auto;
+
+    width: 100%;
+    padding: 1rem 6rem;
+    border-radius: 1rem;
+    height: 7rem;
+
+    @media only screen and (max-width: 600px) {
+      grid-template-columns: 50% auto;
+      padding: 1rem;
     }
-  }
 
-  .account {
-    text-transform: uppercase;
+    // position: fixed;
+    // top: 4rem;
+    // left: 5rem;
+    // background: #9934f7d8;
 
-    h1 {
-      font-weight: 400;
+
+    .logo {
+      padding: 1rem;
+
+      a {
+        img {
+          width: 3rem;
+          @media only screen and (max-width: 600px) {
+            width: 2rem;
+          }
+        }
+      }
     }
 
     .access {
+      width: 100%;
       text-align: center;
-      font-size: 0.4444rem;
-      color: #aea2a2;
-    }
-
-    .login.container-col-1-of-3 {
-      grid-gap: 0;
-      text-align: left;
-      margin: auto;
-      color: #ffffff;
-      a{
-        color: #ffffff;
-      }
-
-      img {
-        height: 3rem;
-        margin: auto;
-      }
-
-      h1 {
-        font-size: 20px;
-        cursor: pointer;
-      }
-    }
-
-    @media only screen and (max-width: 600px) {
-      display: none;
-    }
-  }
-
-  .menu {
-    margin: auto;
-
-    img {
-      height: 3rem;
-      cursor: pointer;
+      padding: 1rem;
 
       @media only screen and (max-width: 600px) {
         display: none;
+
+      }
+
+      label {
+        display: block;
+        font-size: .6rem;
+        color: #AEA2A2;
+        text-align: left;
+        padding-left: 50%;
+      }
+
+      .col-1-of-3 {
+        grid-template-columns: 50% auto;
+        grid-gap: 0rem;
+
+        .icon {
+          padding: .6rem;
+          padding-top: 0;
+
+          img {
+            width: 2rem;
+            float: right;
+            width: 1.111116666rem;
+            float: right;
+            position: relative;
+            top: .8rem;
+          }
+        }
+
+        .login {
+          padding: 0;
+
+          h1 {
+            margin-top: 0;
+            padding-top: 0;
+            color: #fff;
+            text-align: left;
+
+            a {
+              text-align: left;
+              font-weight: 900;
+              font-size: .7rem;
+              color: #fff;
+              text-transform: uppercase;
+            }
+
+            .dash {
+              display: inline-block;
+              position: relative;
+              top: .2rem;
+            }
+          }
+
+        }
       }
     }
-  }
 
-  .mobile-menu {
-    display: none;
+    .nav-btn {
+      padding: 1rem;
+      cursor: pointer;
 
-    @media only screen and (max-width: 600px) {
-      display: block;
+
       img {
+        width: 5rem;
         float: right;
-        height: 1rem;
+
+        &:hover {
+          -webkit-box-shadow: 10px 9px 10px -8px rgba(4, 118, 194, 1);
+          -moz-box-shadow: 10px 9px 10px -8px rgba(4, 118, 194, 1);
+          box-shadow: 10px 9px 10px -8px rgba(4, 118, 194, 1);
+        }
       }
     }
   }
+}
 
-  @media screen and (max-width: 600px) {
-    header {
-      &.container-col-1-of-3 {
-        grid-template-columns: repeat(2, auto);
-      }
+
+.nav {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  animation: slide-menu 1s ease-in forwards;
+
+
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#6d2ba9+0,5701a8+0,192a56+37,192a56+52 */
+  background: #6d2ba9;
+  /* Old browsers */
+  background: -moz-linear-gradient(-45deg, #6d2ba9 0%, #5701a8 0%, #192a56 37%, #192a56 52%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, #6d2ba9 0%, #5701a8 0%, #192a56 37%, #192a56 52%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, #6d2ba9 0%, #5701a8 0%, #192a56 37%, #192a56 52%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6d2ba9', endColorstr='#192a56', GradientType=1);
+  /* IE6-9 fallback on horizontal gradient */
+
+  .top {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% auto;
+    padding: 2rem;
+
+    img {
+      width: 2rem;
     }
 
-    .logo img {
-      height: 2rem;
+    .close-btn {
+      text-align: right;
     }
   }
 }

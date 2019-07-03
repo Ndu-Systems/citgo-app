@@ -52,14 +52,8 @@ export class HomeComponent implements OnInit {
 
   }
 
-  OpenNav(){
-    this.navigationProcessService.showNav();
-  }
-  openSignUp(){
-    this.signUpProcessService.showPersonalInfoForm();
-  }
-  openSignIn(){
-    this.loginProcessService.showLogin();
+  togleNav(){
+    this.showNav = ! this.showNav;
   }
 
 }
