@@ -1,119 +1,36 @@
-<div class="overlay" *ngIf="showOverlay">
-  <app-buy-share  *ngIf="showBuyShares"></app-buy-share>
-</div>
-<div class="dashboard-nav" *ngIf="client">
-  <nav class="topnav col-1-of-3">
+
+<div class="main"  *ngIf="client">
     <div class="logo">
-      <img src="assets/images/dashboard/logo-white-bg.svg" alt="">
-      <!-- <span>{{mylink}}</span>
-      <input type="button" (click)="copylink()" value="copy my link" class="button share-link" /> -->
+        <img src="assets/images/dashboard/logo-white-bg.svg" alt="">
     </div>
-    <ul class="nav-tems">
-      <li class="container-1-of-1">
-        <a routerLink="/dashboard/">My wallet</a>
-      </li>
-      <li class="container-1-of-1">
-        <a [routerLink]="['my-refferals',client.ClientId]">My referrals</a>
-      </li>
-      <li class="container-1-of-1">
-      </li>
-      <li class="container-1-of-1">
-        <a  [routerLink]="['buy-share',client.ClientId]" >Buy shares</a>
-      </li>
-    </ul>
-    <ul>
-      <li class="account container-col-1-of-3">
-  <a routerLink="my-profile"  class="user">
-        <div  *ngIf="client">
-          <img src="assets/images/dashboard/user-female.svg" *ngIf="client.Gender=='Female'"
-            (click)="op1.toggle($event)" alt="user image">
-          <img src="assets/images/dashboard/user-male.svg" *ngIf="client.Gender=='Male'"
-            alt="user image">
-        </div>
-        <div >
-          <h1>Hello {{client?.FirstName}}</h1>
-        </div>
-  </a>
-      </li>
-      <li>
-        <a routerLink="" (click)="logout()">Logout</a>
-      </li>
-    </ul>
-  </nav>
-</div>
-
-
-
-
-
-
-<!-- Mobile nav bar starts here -->
-
-
-
-
-
-
-<div class="open-mobilen-nav">
-  <div class="logo">
-    <a routerLink="/dashboard/">
-      <img src="assets/images/home/icon-white-round.svg" alt="logo"></a>
-  </div>
-  <div class="menu" *ngIf="client">
-    <a  routerLink="my-profile">
-    <img src="assets/images/dashboard/user-female.svg" *ngIf="client.Gender=='Female'" alt="user image">
-    <img src="assets/images/dashboard/user-male.svg" *ngIf="client.Gender=='Male'" alt="user image">
-    </a>
-    <a class="logout"  (click)="logout()" >Logout</a>
-  </div>
-</div>
-
-
-<header *ngIf="showMobileNav" class="mobile-header col-1-of-2">
-  <div class="logo">
-    <img src="assets/images/dashboard/logo-white-bg.svg" alt="">
-    <input type="button" value="copy my link" class="button share-link" />
-  </div>
-  <div class="menu-section">
-    <img src="assets/images/dashboard/burger-menu.svg" alt="burger-menu">
-  </div>
-  <nav class="show-menu">
-
-
-    <img src="assets/images/dashboard/close.svg" alt="close btn" class="close-btn" id="close-menu"
-      (click)="closeMobileNav()">
-    <ul class="mobile-ul">
-      <li>
-        <a routerLink="/dashboard/" (click)="closeMobileNav()" class="col-1-of-2"><img
-            src="assets/images/dashboard/wallet.svg" class="menu-icons" alt="wallet-icon">
-          <h1>My wallet</h1>
-        </a>
-      </li>  
-      <li>
-        <a routerLink="/dashboard/" (click)="closeMobileNav()" class="col-1-of-3"><img
-            src="assets/images/dashboard/bell.svg" class="menu-icons" alt="bell-icon">
-          <h1>My notifications</h1>
-          <h1 class="circle">99</h1>
-        </a>
-      </li>
-      <li>
-        <a  [routerLink]="['buy-share',client.ClientId]"  (click)="closeMobileNav()" class="col-1-of-2"><img
-            src="assets/images/dashboard/shares.svg" class="menu-icons" alt="shares-icon">
-          <h1>Buy shares</h1>
-        </a>
-      </li>
-      <li>
-          <a [routerLink]="['my-refferals',client.ClientId]" (click)="closeMobileNav()" class="col-1-of-2"><img
-              src="assets/images/dashboard/users.svg" class="menu-icons" alt="shares-icon">
-            <h1>My referrals</h1>
+    <div class="menu">
+        <div class="wallet">
+          <a routerLink="/dashboard/"  routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" >
+            <img src="assets/images/dashboard/wallet.svg"
+              class="menu-icons" alt="wallet-icon">
+            <h1>My wallet</h1>
           </a>
-        </li>
-        <li>
-            <a [routerLink]="['my-refferals',client.ClientId]" (click)="logout()" class="col-1-of-2"><img
-                src="assets/images/dashboard/logout.svg" class="menu-icons" alt="shares-icon">
-              <h1 class="logout">Logout</h1>
+        </div>
+    
+        <div class="buy-shares">
+            <a [routerLink]="['buy-share',client.ClientId]"  routerLinkActive="active"   [routerLinkActiveOptions]="{exact:true}" >
+              <img   src="assets/images/dashboard/shares.svg" class="menu-icons" alt="shares-icon">
+              <h1>Buy shares</h1>
             </a>
-          </li>
-    </ul>
-  </nav>
-</header>
+          </div>
+    
+          <div class="referrals">
+              <a [routerLink]="['my-refferals',client.ClientId]"    routerLinkActive="active"   [routerLinkActiveOptions]="{exact:true}" >
+                <img   src="assets/images/dashboard/users.svg" class="menu-icons" alt="shares-icon">
+                <h1>My referrals</h1>
+              </a>
+            </div>
+          <div class="referrals">
+              <a [routerLink]="['enquire',client.ClientId]"    routerLinkActive="active"   [routerLinkActiveOptions]="{exact:true}" >
+                <img   src="assets/images/dashboard/users.svg" class="menu-icons" alt="shares-icon">
+                <h1>Enquire</h1>
+              </a>
+            </div>
+      
+      </div>
+  </div>

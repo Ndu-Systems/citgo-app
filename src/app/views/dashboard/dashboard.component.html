@@ -1,14 +1,14 @@
-<div class="container">
-  <div class="main">
+<div class="main">
+  <div class="nav-left">
     <app-dashboard-nav *ngIf="!isCurrentUserAdmin"></app-dashboard-nav>
-    <app-admin-nav *ngIf="isCurrentUserAdmin"></app-admin-nav>
-    <div class="container">
-      <p-toast [style]="{marginTop: '80px'}"></p-toast>
-      <router-outlet></router-outlet>
-    </div>
-    <app-dash-footer></app-dash-footer>
+    <!-- <app-dash-footer></app-dash-footer> -->
   </div>
-  <div  *ngIf="showUplaod" >
-    <app-upload></app-upload>
+  <div class="body">
+    <router-outlet></router-outlet>
   </div>
 </div>
+
+<div *ngIf="showUplaod">
+  <app-upload></app-upload>
+</div>
+<p-toast [style]="{marginTop: '80px'}"></p-toast>

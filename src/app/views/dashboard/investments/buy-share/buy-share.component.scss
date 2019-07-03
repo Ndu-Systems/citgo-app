@@ -17,7 +17,11 @@
   }
 
   .dashboard-forms {
-    padding: 0 20rem;
+    padding:  0 5rem;
+    @media only screen and (max-width: 600px) {
+      padding: 0 20rem;
+
+    }
     label {
       color: black;
       font-weight: 400;
