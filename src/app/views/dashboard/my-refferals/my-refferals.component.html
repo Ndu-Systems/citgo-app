@@ -21,10 +21,10 @@
     </div>
   </div>
 
-  <div class="cards" *ngIf="refferals$ | async as refferals; else nodata">
-    <div *ngIf="refferals.length; else zerodata">
-      <div class="card detals bonus" *ngFor="let data of refferals">
-        <div>
+  <div *ngIf="refferals$ | async as refferals; else nodata">
+    <div  class="cards" *ngIf="refferals.length; else zerodata">
+      <div class="card" *ngFor="let data of refferals">
+        <div class="name">
           <h4>
             {{data.FirstName}} {{data.Surname}}
           </h4>
