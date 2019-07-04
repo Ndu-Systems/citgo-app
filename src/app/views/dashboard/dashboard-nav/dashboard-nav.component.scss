@@ -7,22 +7,30 @@
   .menu{
     text-align: left;
     padding: 2rem;
-    div{
+    .menu-item{
       padding: 1rem .1rem;
+      background: #eaeaea;
+      border-top: .05rem solid  #5e50dd;
+
     }
     img{
-      width: 1.2rem;
+      width: 1rem;
       display: inline;
     }
     h1{
       display: inline;
       color: #5e50dd;
-      font-weight: 600;
-      font-size: 1.3rem;
+      font-weight: 400;
+      font-size: .9rem;
+      text-transform: uppercase;
+      margin-left: 1rem;
  
     }
     .active{
-     border-bottom: .15rem solid #5e50dd;
+      h1{
+        font-weight: 800;
+      }
+     
     }
   }
 }

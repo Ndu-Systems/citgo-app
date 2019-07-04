@@ -4,7 +4,7 @@
         <img src="assets/images/dashboard/logo-white-bg.svg" alt="">
     </div>
     <div class="menu">
-        <div class="wallet">
+        <div class="menu-item wallet">
           <a routerLink="/dashboard/"  routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" >
             <img src="assets/images/dashboard/wallet.svg"
               class="menu-icons" alt="wallet-icon">
@@ -12,23 +12,23 @@
           </a>
         </div>
     
-        <div class="buy-shares">
+        <div class="menu-item buy-shares">
             <a [routerLink]="['buy-share',client.ClientId]"  routerLinkActive="active"   [routerLinkActiveOptions]="{exact:true}" >
               <img   src="assets/images/dashboard/shares.svg" class="menu-icons" alt="shares-icon">
               <h1>Buy shares</h1>
             </a>
           </div>
     
-          <div class="referrals">
+          <div class="menu-item referrals">
               <a [routerLink]="['my-refferals',client.ClientId]"    routerLinkActive="active"   [routerLinkActiveOptions]="{exact:true}" >
                 <img   src="assets/images/dashboard/users.svg" class="menu-icons" alt="shares-icon">
                 <h1>My referrals</h1>
               </a>
             </div>
-          <div class="referrals">
+          <div class="menu-item enquire">
               <a [routerLink]="['enquire',client.ClientId]"    routerLinkActive="active"   [routerLinkActiveOptions]="{exact:true}" >
-                <img   src="assets/images/dashboard/users.svg" class="menu-icons" alt="shares-icon">
-                <h1>Enquire</h1>
+                <img   src="assets/images/dashboard/inquire.svg" class="menu-icons" alt="shares-icon">
+                <h1>Inquire</h1>
               </a>
             </div>
       

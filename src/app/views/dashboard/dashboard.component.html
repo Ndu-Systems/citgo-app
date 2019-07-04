@@ -1,10 +1,24 @@
 <div class="main">
   <div class="nav-left">
     <app-dashboard-nav *ngIf="!isCurrentUserAdmin"></app-dashboard-nav>
-    <!-- <app-dash-footer></app-dash-footer> -->
   </div>
   <div class="body">
+    <div class="top-bar">
+      <div class="profile">
+        <a routerLink ="my-profile">
+          <img src="assets/images/dashboard/user-simple.svg" alt="">
+          <span>My Profile</span>
+          </a>
+      </div>
+      <div class="logout">
+       <img src="assets/images/dashboard/log-off-simple.svg" alt=""> 
+       <span>Logout</span>
+      </div>
+    </div>
     <router-outlet></router-outlet>
+    <div class="mobile-menu">
+      <app-dash-footer></app-dash-footer>
+    </div>
   </div>
 </div>
 

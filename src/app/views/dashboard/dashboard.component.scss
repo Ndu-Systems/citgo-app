@@ -1,28 +1,63 @@
-@import '../../../assets/sass/variables';
+@import "../../../assets/sass/variables";
 .main {
-    border-radius: 1rem;
-    background: $blue-gray-color;
-    background:#f5f5f5;
-    position: relative;
-    height: 95vh;
-    overflow-y: scroll;
+  border-radius: 1rem;
+  background: $blue-gray-color;
+  background: #f5f5f5;
+  position: relative;
+  height: 95vh;
+  overflow-y: scroll;
 
-    -webkit-box-shadow: 10px 9px 10px -8px rgba(74, 35, 90, 1);
-    -moz-box-shadow: 10px 9px 10px -8px rgba(74, 35, 90, 1);
-    box-shadow: 10px 9px 10px -8px rgba(74, 35, 90, 1);
+  -webkit-box-shadow: 10px 9px 10px -8px rgba(74, 35, 90, 1);
+  -moz-box-shadow: 10px 9px 10px -8px rgba(74, 35, 90, 1);
+  box-shadow: 10px 9px 10px -8px rgba(74, 35, 90, 1);
 
-    display: grid;
-    grid-template-columns: 20% auto;
+  display: grid;
+  grid-template-columns: 20% auto;
 
+  @media screen and (max-width: 600px) {
+    grid-template-columns: 100%;
+  }
+  .nav-left {
     @media screen and (max-width: 600px) {
-        grid-template-columns:100%
+      display: none;
     }
-    .nav-left{
-        @media screen and (max-width: 600px) {
-           display: none;
+  }
+  .body {
+    .top-bar {
+      display: grid;
+      grid-template-columns: 80% auto;
+      background: #eaeaea;
+    //   border-radius: 0.5rem;
+    //   margin: 1rem;
+      padding: 1rem;
+      border-top-right-radius:  0.5rem;
+
+      div {
+        text-align: right;
+        padding: 0.2rem 2rem;
+        img {
+          width: 1rem;
+          display: inline;
         }
+        span {
+            color: #865FAA;
+            margin-left: 1rem;
+            @media screen and (max-width: 600px) {
+              display: none;
+            }
+          }
+
+          a{
+              color: #865FAA;
+          }
+      }
+  
     }
-    .body{
-      
+    .mobile-menu {
+      display: none;
+      @media screen and (max-width: 600px) {
+        display: block;
+      }
     }
+  }
 }
