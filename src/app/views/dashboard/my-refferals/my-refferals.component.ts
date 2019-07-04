@@ -24,12 +24,13 @@ export class MyRefferalsComponent implements OnInit {
   ) {
     this.activatedRoute.params.subscribe(r => {
       this.clientId = r["id"];
+      this.mylink = `${WEB_HOST}/#/${REFERALLINK}/${ this.clientId}`;
+
     });
   }
 
   ngOnInit() {
     this.refferals$ = this.cleintService.getClientReferrals(this.clientId);
-    this.getUserDetails();
   }
  
   copylink() {
@@ -54,11 +55,7 @@ export class MyRefferalsComponent implements OnInit {
     document.execCommand("copy");
     document.body.removeChild(selBox);
   }
-  getUserDetails() {
-    this.cleintService.getClientById(this.clientId).subscribe(r => {
-      this.mylink = `${WEB_HOST}/#/${REFERALLINK}/${r.ClientId}`;
-    });
-  }
+
   closeTip(){
     this.showTip=false;
   }
