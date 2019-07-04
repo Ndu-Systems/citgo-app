@@ -1,6 +1,6 @@
 <div class="cards" *ngIf="investmentsList">
   <div class="card" *ngFor="let data of investmentsList">
-    <div class="col-1-of-2">
+    <div class="col-1-of-1">
       <div class="details-sec-1">
         <h1 class="share-name">
           {{data.Name}}
@@ -14,7 +14,7 @@
 
         <a class="status {{data.Status}}"> <span class="{{data.Status}}-BG"></span>{{data.Status}}</a>
         <a *ngIf="data.Status == 'PENDING'" class="remove" (click)="remove(data)" ><i class="fas fa-trash-alt"></i>Remove</a>
-
+     
       </div>
 
       <div class="details-sec-2">
@@ -27,11 +27,15 @@
           {{data.Amount  | currency:'R'}}
           <span class="label">Buy Amount</span>
         </h1>
-        <div class="col-1-of-2">
+        <div class="col-1-of-1">
           <div>
             <h1 class="upload-proof-of-payment" *ngIf="data.Status == 'PENDING'" (click)="oplaodPOP(data)">
               UPLOAD PROOF OF PAYMENT
             </h1>
+          </div>
+          <div  class="info"  *ngIf="data.Status == 'AWAITING-CONFIRMATION'" >
+              <p>We are processing your payment,
+                It can take  up to 24 hours for approval</p>
           </div>
           <div>
               <a [routerLink]="['share-details',data.InvestmentId]">More</a>

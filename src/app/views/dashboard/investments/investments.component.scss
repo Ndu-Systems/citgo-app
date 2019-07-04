@@ -1,15 +1,18 @@
-@import '../../../../assets/sass/variables';
-$status-span:.7rem;
+@import "../../../../assets/sass/variables";
+$status-span: 0.7rem;
 
 .cards {
-  grid-template-columns: 100%;
+  grid-template-columns: 30% 30% auto;
   margin-bottom: 10rem;
+
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: 100%;
+  }
 
   .card {
     padding-right: 1rem;
     grid-template-columns: 100%;
-
-    .col-1-of-2 {
+    .col-1-of-1 {
       .details-sec-1 {
         .share-name {
           font-size: 1.555rem;
@@ -39,43 +42,44 @@ $status-span:.7rem;
             height: $status-span;
             border-radius: $status-span;
             display: inline-block;
-            margin-right: .5rem;
+            margin-right: 0.5rem;
           }
         }
-        .remove{
+        .remove {
           color: red;
           margin-left: 4rem;
         }
+   
       }
 
       .details-sec-2 {
         h1 {
-          font-size: .9rem;
+          font-size: 0.9rem;
           font-weight: 500;
           color: #7f8c8d;
-          margin: .6rem 0;
+          margin: 0.6rem 0;
 
           .label {
             display: block;
-            font-size: .6rem;
+            font-size: 0.6rem;
             font-weight: 400;
             color: #7f8c8d;
             text-transform: uppercase;
-            letter-spacing: .3rem;
+            letter-spacing: 0.3rem;
           }
           &.upload-proof-of-payment {
             font-weight: 500;
-            font-size: .7rem;
+            font-size: 0.7rem;
             color: $orange-color;
-            margin: .211rem;
-            &:hover{
+            margin: 0.211rem;
+            &:hover {
               cursor: pointer;
             }
           }
         }
 
-        .col-1-of-2 {
-          grid-template-columns: 70% 30%;
+        .col-1-of-1 {
+          grid-template-columns: 100%;
           grid-gap: 0rem;
         }
 
@@ -118,17 +122,17 @@ $status-span:.7rem;
     }
   }
 
-  &.col-1-of-2 {
-    grid-template-columns: 60% 40%;
+  &.col-1-of-1 {
+    grid-template-columns: 100%;
 
     img {
       height: 2rem;
     }
 
     .profit {
-      &.col-1-of-2 {
+      &.col-1-of-1 {
         grid-gap: 0;
-        grid-template-columns: 10% 90%;
+        grid-template-columns:100%;
 
         h1 {
           margin: 0;
@@ -141,5 +145,18 @@ $status-span:.7rem;
         }
       }
     }
+  }
+}
+
+
+.info {
+  width: 100%;
+  display: block;
+  p{
+    display: block;
+    font-size: 0.6rem;
+    font-weight: 400;
+    color: #2278fa;
+    text-transform: uppercase;
   }
 }
