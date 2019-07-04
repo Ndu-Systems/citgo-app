@@ -3,6 +3,7 @@ export class User {
     UserId: string;
     Role: number;
     ClientId?: string;
+    ClientRef?: string;
     Email?: string;
     Password?: string;
     FirstName?: string;

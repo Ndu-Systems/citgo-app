@@ -1,8 +1,6 @@
-<h1 class="heading">
 
-</h1>
 <div class="cards">
-  <div class="card withdraw" *ngIf="client$|async as client">
+  <div class="card withdraw  client-ref" *ngIf="client$|async as client">
     <h1>
       <span class="label">
         Your Client Id <b>CTG-{{client.ClientRef}}</b>

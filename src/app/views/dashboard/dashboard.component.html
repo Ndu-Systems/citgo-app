@@ -8,9 +8,10 @@
         <a routerLink ="my-profile">
           <img src="assets/images/dashboard/user-simple.svg" alt="">
           <span>My Profile</span>
+          <span class="client-id"> Your Client Id:  <b>{{ClientRef}}</b></span>
           </a>
       </div>
-      <div class="logout">
+      <div class="logout" (click)="logout()">
        <img src="assets/images/dashboard/log-off-simple.svg" alt=""> 
        <span>Logout</span>
       </div>
