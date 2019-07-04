@@ -31,6 +31,7 @@ export class DashboardHomeComponent implements OnInit {
   amount;
   showBankingInfo: boolean;
   ref: string;
+  isNedbank: boolean;
 
   constructor(
     private authenticateService: AuthenticateService,
@@ -73,8 +74,17 @@ export class DashboardHomeComponent implements OnInit {
           if (pending[0].bankId == 1) {
             this.isFnb = true;
             this.isStandardBank = false;
+            this.isNedbank = false;
+
           } else if (pending[0].bankId == 2) {
             this.isStandardBank = true;
+            this.isFnb = false;
+            this.isNedbank = false;
+
+          }else if(pending[0].bankId == 3){
+            
+            this.isNedbank = true;
+            this.isStandardBank = false;
             this.isFnb = false;
           }
         }else{

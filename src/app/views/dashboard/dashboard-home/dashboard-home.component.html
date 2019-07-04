@@ -1,9 +1,6 @@
 <div class="dashboard">
   <div class="main" *ngIf="!isCurrentUserAdmin">
     <div class="banking-details" *ngIf="showBankingInfo">
-      <div class="icon">
-        <img src="assets/images/dashboard/info.svg" alt="">
-      </div>
       <div class="details">
         <h1>
           Depost details
@@ -39,6 +36,21 @@
           </div>
           <div class="image">
             <img src="assets/images/dashboard/stbank.svg" alt="">
+          </div>
+
+        </div>
+        <div class="banking sbank" *ngIf="isNedbank">
+
+          <div class="info ">
+              <b>Bank Name</b>: Nedbank <br>
+              <b>Account Number</b>:1191213080 <br>
+              <b>Account holder</b>:CITGO AFRICA INVESTMENTS <br>
+              <b>Branch code</b>: 19500500 <br>
+            <b>Amount</b> : {{amount  | currency:'ZAR'}} <br>
+            <b>Reference</b> :  {{ref}} <br>
+          </div>
+          <div class="image">
+            <img src="assets/images/dashboard/icons/nedbank.png" alt="">
           </div>
 
         </div>

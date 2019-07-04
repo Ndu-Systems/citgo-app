@@ -18,6 +18,7 @@ export class PaymentComponent implements OnInit {
   investment: Investment;
   bankId: number = 1;
   ref= localStorage.getItem(REF)
+  isNedbank: boolean;
   constructor(
     private router: Router,
     private investmentService: InvestmentService,
@@ -37,7 +38,6 @@ export class PaymentComponent implements OnInit {
   ngOnInit() {}
   next() {
     this.isDone = true;
-
     this.investment.bankId = this.bankId;
     this.investmentService.updateInvestment(this.investment).subscribe(r => {
       this.investment = r;
@@ -52,9 +52,16 @@ export class PaymentComponent implements OnInit {
     if (id == 1) {
       this.isFnb = true;
       this.isStandardBank = false;
+      this.isNedbank = false;
     } else if (id == 2) {
       this.isFnb = false;
       this.isStandardBank = true;
+      this.isNedbank = true;
+    }
+    else if (id == 3) {
+      this.isFnb = false;
+      this.isStandardBank = false;
+      this.isNedbank = true;
     }
   }
 }

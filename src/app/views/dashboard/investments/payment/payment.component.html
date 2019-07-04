@@ -19,6 +19,10 @@
           <img class="fnb" src="assets/images/dashboard/icons/fnbicon.png" alt="">FNB
           <span class="selected active-{{isFnb}}"></span>
         </div>
+        <div class="select-bank " (click)="selectBank('Nedbank',3)">
+          <img class="ned" src="assets/images/dashboard/icons/nedbank.png" alt="">Nedbank 
+          <span class="selected active-{{isNedbank}}"></span>
+        </div>
 
         <!-- <div class="select-bank " (click)="selectBank('Standard  Bank',2)">
           <img class="str" src="assets/images/dashboard/icons/standatbankicon.png" alt=""> Standard  Bank
@@ -58,6 +62,24 @@
         </div> -->
     
      
+      <div class="btns">
+        <button (click)="next()">NEXT</button>
+      </div>
+    </div>
+
+    <div class="banking fnb" *ngIf="isNedbank">
+
+        <div class="info ">
+          <b>Bank Name</b>: Nedbank <br>
+          <b>Account Number</b>:1191213080 <br>
+          <b>Account holder</b>:CITGO AFRICA INVESTMENTS <br>
+          <b>Branch code</b>: 19500500 <br>
+          <b>Amount</b> : {{amount  | currency:'ZAR'}}<br>
+          <b>Reference</b> : {{ref}} <br>
+        </div>
+        <div class="image">
+          <img src="assets/images/dashboard/icons/nedbank.png" alt="">
+        </div>
       <div class="btns">
         <button (click)="next()">NEXT</button>
       </div>

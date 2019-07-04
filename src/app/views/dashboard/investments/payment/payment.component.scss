@@ -2,7 +2,7 @@
 
 .main {
   background: #ecf0f1;
-  padding:5rem 30rem;
+  padding:5rem;
 
   @media only screen and (max-width: 600px) {
     padding: 4rem 2rem;
@@ -75,6 +75,15 @@
           position: relative;
           top: 0.7rem;
           display: inline;
+        }
+
+        img.ned {
+          width: 1.5rem;
+          position: relative;
+          top: 0.4rem;
+          display: inline;
+          margin-right: 1.5rem;
+          left: .5rem;
         }
 
         .selected {
