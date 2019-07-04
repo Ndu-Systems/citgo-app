@@ -84,12 +84,16 @@ $status-span: 0.7rem;
         }
 
         a {
-          // margin: .5rem 0;
-          // float: right;
           cursor: pointer;
+          float: right;
+          background: #0a3977;
+          color: #fff;
+          padding: .2rem 1rem;
+          border-radius: .3rem;
+          transition: .2s ease-in-out;
 
           &:hover {
-            color: #0a3977;
+            background: #042544;
           }
         }
       }
@@ -154,9 +158,8 @@ $status-span: 0.7rem;
   display: block;
   p{
     display: block;
-    font-size: 0.6rem;
-    font-weight: 400;
+    font-size: 0.8rem;
+    font-weight: 600;
     color: #2278fa;
-    text-transform: uppercase;
   }
 }
