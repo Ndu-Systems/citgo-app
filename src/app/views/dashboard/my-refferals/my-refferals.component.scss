@@ -1,7 +1,7 @@
 $status-span:.7rem;
 
 .main{
-  padding: 8rem 3rem;
+  padding: 2rem 3rem;
   @media only screen and (max-width: 600px) {
     padding: 4rem 0;
   }
@@ -52,7 +52,8 @@ $status-span:.7rem;
   }
 
   .cards {
-    grid-template-columns: repeat(4,25%);
+    grid-template-columns: repeat(3,30%);
+    
     @media only screen and (max-width: 600px) {
       grid-template-columns: 100%;
     }
@@ -95,103 +96,7 @@ $status-span:.7rem;
     }
   }
   
-  .card {
-    h1 {
-      margin: 0;
-  
-      span {
-        font-size: 100%;
-  
-        &.main {
-          font-size: 1.555rem;
-          font-weight: 700;
-          color: #3827b4;
-        }
-  
-        &.sub-main {
-          font-weight: 500;
-          color: #8a8e90;
-          font-size: 1.222rem;
-        }
-  
-        &.span {
-          font-size: 40%;
-        }
-      }
-    }
-  
-    &.col-1-of-2 {
-      grid-template-columns: 60% 40%;
-  
-      img {
-        height: 2rem;
-      }
-  
-      .profit {
-        &.col-1-of-2 {
-          grid-gap: 0;
-          grid-template-columns: 10% 90%;
-  
-          h1 {
-            margin: 0;
-  
-            span {
-              .span {
-                font-size: 40%;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+
   
 }
 
-.pending{
-  color: orange;
-}
-.status{
-  color: rgb(158, 158, 158);
-}
-.active{
-  color: green;
-  .status{
-    font-size: .7rem;
-    width: 100%;
-    display: block;
-  }
-}
-
-.detals{
-  grid-template-columns: 40% auto;
-  margin: .5rem ;
-  padding: .3rem;
-//   border-left: .4rem solid #8e44ad;
-  border-radius: 0;
-//   background:  #EADDF0;
-  h4{
-      font-weight: 400;
-      font-size: .8rem;
-      margin: 0
-  }
-
-  .key{
-      text-align: left;
-      h4{
-          font-weight: 400;
-      }
-  }
-
-  .value{
-      text-align: right;
-      h4{
-          font-weight: 600;
-          .label{
-              display: block;
-              text-align: right;
-              color: #3827B4;
-          }
-      }
-  }
-}

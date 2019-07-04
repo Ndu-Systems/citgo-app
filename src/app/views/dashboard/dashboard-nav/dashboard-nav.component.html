@@ -1,33 +1,33 @@
 
-<div class="main"  *ngIf="client">
+<div class="main"  *ngIf="user">
     <div class="logo">
         <img src="assets/images/dashboard/logo-white-bg.svg" alt="">
     </div>
     <div class="menu">
         <div class="menu-item wallet">
           <a routerLink="/dashboard/"  routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" >
-            <img src="assets/images/dashboard/wallet.svg"
+            <img src="assets/images/dashboard/wallet-bg.svg"
               class="menu-icons" alt="wallet-icon">
             <h1>My wallet</h1>
           </a>
         </div>
     
         <div class="menu-item buy-shares">
-            <a [routerLink]="['buy-share',client.ClientId]"  routerLinkActive="active"   [routerLinkActiveOptions]="{exact:true}" >
-              <img   src="assets/images/dashboard/shares.svg" class="menu-icons" alt="shares-icon">
+            <a [routerLink]="['buy-share',user.ClientId]"  routerLinkActive="active"   [routerLinkActiveOptions]="{exact:true}" >
+              <img   src="assets/images/dashboard/buy-shares.svg" class="menu-icons" alt="shares-icon">
               <h1>Buy shares</h1>
             </a>
           </div>
     
           <div class="menu-item referrals">
-              <a [routerLink]="['my-refferals',client.ClientId]"    routerLinkActive="active"   [routerLinkActiveOptions]="{exact:true}" >
-                <img   src="assets/images/dashboard/users.svg" class="menu-icons" alt="shares-icon">
+              <a [routerLink]="['my-refferals',user.ClientId]"    routerLinkActive="active"   [routerLinkActiveOptions]="{exact:true}" >
+                <img   src="assets/images/dashboard/refs.svg" class="menu-icons" alt="shares-icon">
                 <h1>My referrals</h1>
               </a>
             </div>
           <div class="menu-item enquire">
-              <a [routerLink]="['enquire',client.ClientId]"    routerLinkActive="active"   [routerLinkActiveOptions]="{exact:true}" >
-                <img   src="assets/images/dashboard/inquire.svg" class="menu-icons" alt="shares-icon">
+              <a [routerLink]="['enquire',user.ClientId]"    routerLinkActive="active"   [routerLinkActiveOptions]="{exact:true}" >
+                <img   src="assets/images/dashboard/inquire-bg.svg" class="menu-icons" alt="shares-icon">
                 <h1>Inquire</h1>
               </a>
             </div>
