@@ -4,8 +4,11 @@
 .main {
   background: #fff;
   padding:5rem;
+  height: 80vh;
+  overflow-y: scroll;
   @media only screen and (max-width: 600px) {
     padding: 4rem 0;
+    height: auto;
   }
   .heading{
     text-align: center;

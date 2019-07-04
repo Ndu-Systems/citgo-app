@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import {
   AuthenticateService,
   NotificationProcessService,
@@ -44,6 +44,15 @@ export class DashboardComponent implements OnInit {
         this.showUplaod = process.showUplaod;
       }
     );
+
+    
+    //scroll up
+    this.routeTo.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+          return;
+      }
+      window.scrollTo(0, 0)
+  });
   }
   logout() {
     this.authenticateService.logout();

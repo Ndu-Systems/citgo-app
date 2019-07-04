@@ -1,5 +1,7 @@
 .main {
-  padding: 5rem 2rem;
+  padding: 5rem 7rem;
+  height: 70vh;
+  overflow-y: scroll;
 h1{
     font-size: 1.5rem;
 }
@@ -13,10 +15,9 @@ h1{
         padding: 1rem 0;
       }
       label {
-        @media only screen and (max-width: 600px) {
           color: rgb(47, 16, 56);
           font-size: 0.8rem;
-        }
+        
       }
       .input-field {
         background: #fff;

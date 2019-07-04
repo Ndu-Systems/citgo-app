@@ -2,8 +2,11 @@
   .main {
     // padding:5rem 20rem;
     padding:3rem;
+    height: 80vh;
+    overflow-y: scroll;
     @media only screen and (max-width: 600px) {
       padding: 1rem;
+      // height: auto;
     }
 
     .banking-details{

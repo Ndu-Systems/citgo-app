@@ -2,8 +2,11 @@ $status-span: 0.7rem;
 
 .main {
   padding: 2rem 3rem;
+  height: 80vh;
+  overflow-y: scroll;
   @media only screen and (max-width: 600px) {
     padding: 4rem 0;
+    // height: auto;
   }
   .heading {
     text-align: center;
