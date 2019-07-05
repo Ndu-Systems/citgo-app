@@ -49,6 +49,11 @@ const routes: Routes = [
       { path: "update-personal-info/:id", component: UpdatePersonalInfoComponent },
       { path: "update-banking-info/:id", component: UpdateBaningInfoComponent },
       { path: "update-benefitiaries/:id", component: UpdateBenefitiariesComponent },
+
+      
+      //admin
+      { path: "shares/:id", component: ToActionComponent},
+      { path: "clients/:id", component: AllClientsComponent}
       
     ]
   }

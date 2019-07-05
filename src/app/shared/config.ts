@@ -12,9 +12,11 @@ export const LAST_INSERT_ID = 'LAST_INSERT_ID';
 export const LAST_INSERT_EMAIL = 'LAST_INSERT_ID';
 export const REF = 'REF';
 export const CURRENT_USER = 'currentUser';
+
 export const ADMIN_USER_ROLE =1;
 export const CLIENT_USER_ROLE =2;
 export const STATUS_USER_NEW =4;
+
 
 export const  STATUS_USER_ACTIVE =3;
 export const DEFAULT_PASSWORD= "pass@123!";

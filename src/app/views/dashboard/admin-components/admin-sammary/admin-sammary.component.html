@@ -1,5 +1,17 @@
 <div class="cards" *ngIf="stat$|async as stat; else nodata">
-  <div class="card">
+  <div class="card" (click)="goToShares(4)">
+    <h1>
+      {{stat.awiatingConframation}}
+
+      <span>
+        Awaiting Confirmation
+      </span>
+    </h1>
+    <div class="img">
+      <img src="assets/images/dashboard/admin/money.svg" alt="">
+    </div>
+  </div>
+  <div class="card" (click)="goToShares(1)">
     <h1>
       {{stat.activeShares}}
 
@@ -12,7 +24,7 @@
     </div>
   </div>
 
-  <div class="card">
+  <div class="card" (click)="goToShares(2)">
     <h1>
       {{stat.pendingShares}}
       <span>
@@ -24,11 +36,34 @@
     </div>
   </div>
 
-  <div class="card">
+  <div class="card" (click)="goToClients(1)">
     <h1>
       {{stat.activeClients}}
       <span>
         active clients
+      </span>
+    </h1>
+    <div class="img">
+      <img src="assets/images/dashboard/admin/actice-clients.svg" alt="">
+    </div>
+  </div>
+
+  <div class="card"  (click)="goToClients(10)">
+    <h1>
+      {{stat.blockedClients}}
+      <span>
+        Bloacked clients
+      </span>
+    </h1>
+    <div class="img">
+      <img src="assets/images/dashboard/admin/actice-clients.svg" alt="">
+    </div>
+  </div>
+  <div class="card"  (click)="goToClients(4)">
+    <h1>
+      {{stat.waitingAccountConfirmation}}
+      <span>
+        pending email Confirmation
       </span>
     </h1>
     <div class="img">
