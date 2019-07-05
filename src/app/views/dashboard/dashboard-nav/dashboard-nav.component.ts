@@ -1,3 +1,4 @@
+import { ADMIN_USER_ROLE } from './../../../shared/config';
 
 import { User } from "src/app/models/user";
 import {
@@ -13,7 +14,8 @@ import { Router } from "@angular/router";
 })
 export class DashboardNavComponent implements OnInit {
 
-  user: User; // pass role clientId
+  user: User; 
+  IsUserAdmin:boolean; 
 
   constructor(
     private routeTo: Router,
@@ -22,6 +24,7 @@ export class DashboardNavComponent implements OnInit {
   ) {}
   ngOnInit() {
     this.user = this.authenticateService.currentUserValue;
+    this.IsUserAdmin = this.user.Role == ADMIN_USER_ROLE;
 
    
   }

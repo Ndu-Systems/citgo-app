@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="947" height="947" viewBox="0 0 947 947">
+  <defs>
+    <filter id="Ellipse_3" x="0" y="0" width="947" height="947" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="49.5" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <linearGradient id="linear-gradient" x1="0.842" y1="-0.181" x2="0.672" y2="1.074" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#979797"/>
+    </linearGradient>
+  </defs>
+  <g id="citgo-silver" transform="translate(-213.5 -4.5)">
+    <g transform="matrix(1, 0, 0, 1, 213.5, 4.5)" filter="url(#Ellipse_3)">
+      <circle id="Ellipse_3-2" data-name="Ellipse 3" cx="325" cy="325" r="325" transform="translate(148.5 145.5)" fill="#a767c2"/>
+    </g>
+    <g id="Group_82" data-name="Group 82" transform="translate(481.6 600.728)">
+      <text id="CITGO_AFRICA" data-name="CITGO AFRICA" transform="translate(224 56)" fill="#b9b9b9" font-size="58" font-family="Montserrat-Black, Montserrat" font-weight="800"><tspan x="-224.46" y="0">CITGO AFRICA</tspan></text>
+    </g>
+    <g id="Group_91" data-name="Group 91" transform="translate(626.178 653.468)">
+      <text id="OIL" transform="translate(53 56)" fill="#b9b9b9" font-size="58" font-family="Montserrat-Black, Montserrat" font-weight="800"><tspan x="-52.635" y="0">OIL</tspan></text>
+    </g>
+    <g id="Group_90" data-name="Group 90" transform="translate(547.979 264.72)">
+      <g id="Group_89" data-name="Group 89" transform="translate(0)">
+        <path id="Path_18" data-name="Path 18" d="M-11315.5,16495.576l49.084,36.086-4.328,163.133s-46.922,28.873-44.756,29.594S-11315.5,16495.576-11315.5,16495.576Z" transform="translate(11490.177 -16495.576)" fill="url(#linear-gradient)"/>
+        <path id="Path_19" data-name="Path 19" d="M-11291.929,16510.492v169.617l45.473-30.316v-106.1Z" transform="translate(11548.895 -16458.523)" fill="url(#linear-gradient)"/>
+        <path id="Path_20" data-name="Path 20" d="M-11233.773,16580.27l45.473-29.586v62.084l-127.039,81.563v-62.078Z" transform="translate(11490.741 -16358.688)" fill="url(#linear-gradient)"/>
+        <path id="Path_21" data-name="Path 21" d="M-11296.693,16750.938l2.885-223.039-47.636,28.869v161.688Z" transform="translate(11425.898 -16415.301)" fill="url(#linear-gradient)"/>
+        <path id="Path_23" data-name="Path 23" d="M-11365.686,16558.832l49.086-30.316v169.629l-49.086-34.656Z" transform="translate(11365.686 -16420.725)" fill="url(#linear-gradient)"/>
+      </g>
+      <path id="Path_22" data-name="Path 22" d="M-11233.59,16553.531l-132.1,86.609V16575.9l132.1-80.113Z" transform="translate(11365.686 -16495.066)" fill="url(#linear-gradient)"/>
+    </g>
+  </g>
+</svg>
