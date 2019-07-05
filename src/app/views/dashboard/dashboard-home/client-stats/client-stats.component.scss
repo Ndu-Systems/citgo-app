@@ -18,13 +18,10 @@
   }
 
   img {
-    width: 100%;
+    width: 45%;
     margin: 2rem 0;
   }
 
-  .img-smaller {
-    width:95%;
-  }
 }
 
 .withdraw {
@@ -114,4 +111,11 @@
     display: block;
 
   }
+}
+.cards{
+  grid-template-columns: 50% auto;
+
+}
+.withdraw-holder{
+  grid-template-columns: 100%;
 }

@@ -16,7 +16,7 @@ $status-span: 0.7rem;
     .col-1-of-1 {
       .details-sec-1 {
         .share-name {
-          font-size: 1.555rem;
+          font-size: 140%;
           font-weight: 700;
           color: #3827b4;
         }
@@ -26,12 +26,12 @@ $status-span: 0.7rem;
 
           img {
             display: inline;
-            height: 1rem;
+            width: 4%;
           }
 
           h1 {
             display: inline;
-            font-size: 1rem;
+            font-size: 100%;
             font-weight: 800;
             color: #2ecc71;
           }
@@ -55,14 +55,14 @@ $status-span: 0.7rem;
 
       .details-sec-2 {
         h1 {
-          font-size: 0.9rem;
+          font-size:105%;
           font-weight: 500;
           color: #7f8c8d;
           margin: 0.6rem 0;
 
           .label {
             display: block;
-            font-size: 0.6rem;
+            font-size: 75%;
             font-weight: 400;
             color: #7f8c8d;
             text-transform: uppercase;

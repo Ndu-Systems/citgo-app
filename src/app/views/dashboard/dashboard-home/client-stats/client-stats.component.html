@@ -1,12 +1,4 @@
-
-<div class="cards">
-  <div class="card withdraw  client-ref" *ngIf="client$|async as client">
-    <h1>
-      <span class="label">
-        Your Client Id <b>CTG-{{client.ClientRef}}</b>
-      </span>
-    </h1>
-  </div>
+<div class="cards withdraw-holder">
   <div class="card withdraw">
     <h1>
       My Wallet
@@ -51,29 +43,16 @@
         </h4>
       </div>
     </div>
-    <!-- <div class="card detals" *ngFor="let data of details">
-      <div  class="key">
-        <h4>
-         {{data.key}}
-        </h4>
-      </div>
-      <div class="value">
-        <h4>
-            {{data.value  | currency:'R'}}
-        </h4>
-      </div>
-    </div> -->
-    <!-- <h1 class="main">
-      {{totalProfit  | currency:'R'}}
-      <span class="label">Total Profit</span>
-    </h1> -->
-    <!-- <div class="detals">
-      <h1 class="bonus">
-        {{totalBonuses  | currency:'R'}}
-        <span class="label">Bonus</span>
-      </h1>
-    </div> -->
-    <!-- you currently do not have any withdrawable amount -->
+  </div>
+</div>
+
+<div class="cards">
+  <div class="card withdraw  client-ref" *ngIf="client$|async as client">
+    <h1>
+      <span class="label">
+        Your Client Id <b>CTG-{{client.ClientRef}}</b>
+      </span>
+    </h1>
   </div>
   <div class="card" (click)="AddRef()">
     <div class="img">
