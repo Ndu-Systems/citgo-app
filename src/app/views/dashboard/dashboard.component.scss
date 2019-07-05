@@ -16,6 +16,7 @@
 
   @media screen and (max-width: 600px) {
     grid-template-columns: 100%;
+    border-radius: 0;
   }
   .nav-left {
     @media screen and (max-width: 600px) {
@@ -34,7 +35,7 @@
 
       div {
         text-align: right;
-        padding: 0.2rem 2rem;
+        padding:1% 2%;
         img {
           width: 1rem;
           display: inline;

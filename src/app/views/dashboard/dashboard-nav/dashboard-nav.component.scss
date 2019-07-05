@@ -6,13 +6,13 @@
 
   .menu{
     text-align: left;
-    padding: 2rem;
+    padding: 4%;
     .menu-item{
       background: #eaeaea;
       a{
         width: 100%;
         display: block;
-        padding: 1rem;
+        padding: 4%;
         border-radius: .2rem;
       }
 
@@ -26,7 +26,7 @@
       display: inline;
       color: #5e50dd;
       font-weight: 400;
-      font-size: .9rem;
+      font-size: 68%;
       text-transform: uppercase;
       margin-left: 1rem;
  
@@ -39,5 +39,11 @@
       }
    
     }
+  }
+}
+
+.logo{
+  img{
+    width: 38%;
   }
 }

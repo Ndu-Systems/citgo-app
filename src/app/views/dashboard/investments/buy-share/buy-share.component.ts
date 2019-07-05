@@ -1,3 +1,4 @@
+import { SpinnerProcessService } from './../../../../services/app-state/spinner-process.service';
 import { Router } from "@angular/router";
 import { UserNotification } from "./../../../../models/processes/notification.process.model";
 import { Component, OnInit } from "@angular/core";
@@ -42,6 +43,7 @@ export class BuyShareComponent implements OnInit {
     private messageService: MessageService,
     private confirmationService: ConfirmationService,
     private cleintService: CleintService,
+    private spinnerProcessService: SpinnerProcessService,
     private routeTo: Router
   ) {
     //get user shares -for naming purpose e.g  Share 1
@@ -106,8 +108,10 @@ export class BuyShareComponent implements OnInit {
           });
           return 0;
         }
-
+this.spinnerProcessService.showSpinner();
         this.investmentService.buyShares(data).subscribe(response => {
+          this.spinnerProcessService.closeSpinner();
+
           if (response.investments) {
             this.investmentService.setInvestments(response.investments);
             // update notifications

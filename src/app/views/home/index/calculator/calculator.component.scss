@@ -1,14 +1,11 @@
 @import "../../../../../assets/sass/variables";
+*{
+  width: 100%;
+}
 
 .index-container {
-
-  // padding: 0;
-  // width: 85%;
-  // margin: -70px auto;
-  // margin-bottom: 5rem;
-  // background: $white-color;
   .heading-container {
-    padding: 4rem 2rem;
+    padding: .5%;
   }
 
   .col-1-of-1 {
@@ -17,7 +14,8 @@
   }
 
   .col-1-of-2 {
-    grid-template-columns: 30% auto;
+    grid-template-columns: 40% auto;
+    grid-gap: 0rem;
 
     @media only screen and (max-width: 600px) {
       grid-template-columns: 100%;
@@ -31,13 +29,13 @@
   }
 
   .dashboard-forms {
-    padding-top: 0;
+   padding: 5%;
 
     .input-field {
       font-size: 1.3rem;
       font-weight: 400;
-      padding: 1.3rem;
-      border-radius: 1.5rem;
+      padding:3%;
+      border-radius: 5%;
       background: $blue-gray-color;
 
       @media only screen and (max-width: 600px) {

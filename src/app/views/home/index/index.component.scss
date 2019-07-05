@@ -1,7 +1,8 @@
 @import '../../../../assets/sass/variables';
 
 .home {
-  padding: 6rem;
+  // padding: 6rem;
+  padding: 4% 9%;
   margin-bottom: 10rem;
   @media only screen and (max-width: 600px) {
     padding: 1rem;
@@ -34,7 +35,7 @@
     }
 
     .big {
-      font-size: 5rem;
+      font-size: 150%;
       animation: moveInLeft .5s ease-out 0.1s;
       animation-fill-mode: backwards;
       @media only screen and (max-width: 600px) {
@@ -56,8 +57,9 @@
   .cta{
     img{
       float: right;
-      margin-right: 20rem;
+      margin-right: 10%;
       margin-top: 3rem;
+      width: 20%;
       animation: moveInButton .5s ease-out 1s;
       animation-fill-mode: backwards;
       @media only screen and (max-width: 600px) {
@@ -82,17 +84,3 @@
     width: 95%;
   }
 }
-
-
-
-// .fnb {
-//   border-bottom: 3px solid #79e2e8;
-//   animation: moveInLeft .5s ease-out 0.1s;
-//   animation-fill-mode: backwards;
-// }
-
-// .sbank {
-//   border-bottom: 3px solid #0081c7;
-//   animation: moveInRight .5s ease-out 0.1s;
-//   animation-fill-mode: backwards;
-// }

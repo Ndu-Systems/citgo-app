@@ -64,10 +64,24 @@
   }
 }
 
-img.image-mobile {
-   
-}
 
 @media only screen and (max-width: 600px) { 
 
+}
+img{
+  width: 80%;
+  position: relative;
+  top: 27%;
+  left: 36%;
+
+  @media only screen and (max-width: 600px) {
+    width: 30%;
+    margin: 0 auto;
+    left: 0;
+
+  }
+  
+}
+.col-1-of-2{
+  grid-gap: 1rem;
 }

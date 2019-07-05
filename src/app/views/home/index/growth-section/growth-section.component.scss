@@ -7,7 +7,7 @@
     }
 
     h1 {
-        margin: 0 15rem;
+        margin:0 4%;
         .main{
             color: $primary-color;
             font-weight: 500;
@@ -47,4 +47,8 @@ img.image-mobile {
     }
   
   
+  }
+
+  img{
+    width: 100%;
   }

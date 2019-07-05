@@ -139,8 +139,7 @@ export class ClientPersonalDetailsComponent implements OnInit {
         let link = `${WEB_HOST}/#/${VERIFICATIONLINK}/${response.UserId}`;
         this.verifyAcc(data.FirstName, data.Email, link);
         let user: User = response;
-        localStorage.setItem(LAST_INSERT_EMAIL, user.Email);
-        localStorage.setItem(LAST_INSERT_ID, user.ClientId);
+        localStorage.setItem(LAST_INSERT_EMAIL,  data.Email);
 
         // #todo  - update state
         this.messageService.add({

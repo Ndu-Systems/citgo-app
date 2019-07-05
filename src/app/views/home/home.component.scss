@@ -13,11 +13,15 @@
   -moz-box-shadow: 10px 9px 10px -8px rgba(74, 35, 90, 1);
   box-shadow: 10px 9px 10px -8px rgba(74, 35, 90, 1);
 
+  @media only screen and (max-width: 600px) {
+    border-radius: 0rem;
+  }
+
   .nav-bar {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 30% 30% auto;
-    grid-template-columns: 30% 30% auto;
+    -ms-grid-columns: 15% 50% auto;
+    grid-template-columns:15% 50% auto;
 
     width: 100%;
     padding: 1rem 6rem;
@@ -40,7 +44,7 @@
 
       a {
         img {
-          width: 3rem;
+          width: 35%;
           @media only screen and (max-width: 600px) {
             width: 2rem;
           }
@@ -118,8 +122,12 @@
 
 
       img {
-        width: 5rem;
+        width: 30%;
         float: right;
+
+        @media only screen and (max-width: 600px) {
+          width: 40%;
+        }
 
         &:hover {
           -webkit-box-shadow: 10px 9px 10px -8px rgba(4, 118, 194, 1);

@@ -21,7 +21,7 @@
     </div>
     <div class="form">
       <form [formGroup]="rForm" (ngSubmit)="onSubmit(rForm.value)" class="box form-group" class="dashboard-forms">
-        <div class="col-1-of-2 ">
+        <div class="col-1-of-1 ">
           <div class="controls">
             <label for="">NAME</label> <br />
             <input type="text" class="input-field" placeholder="enter name" formControlName="Name" />
@@ -40,7 +40,7 @@
   
         </div>
   
-        <div class="col-1-of-2 ">
+        <div class="col-1-of-1 ">
           <div class="controls">
             <label for="">ID NUMBER</label> <br />
             <input type="text" class="input-field" placeholder="enter id/passport number" formControlName="IDNumber" />
@@ -86,7 +86,7 @@
           <h1>
             Beneficiaries
           </h1>
-        <div class="col-1-of-2" *ngIf="beneficiaries.length; else noben">
+        <div class="col-1-of-1" *ngIf="beneficiaries.length; else noben">
 
           <div class="details-sec-2" *ngFor="let data of beneficiaries">
             <h1>
@@ -106,7 +106,7 @@
         </div>
   
   
-        <div class=" col-1-of-2 small-nav">
+        <div class=" col-1-of-1 small-nav">
           <div class="nav">
             <ul>
               <li>
