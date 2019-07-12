@@ -12,6 +12,7 @@ import { Observable } from "rxjs";
 import { InvestmentService } from "src/app/services";
 import { Investment, Client } from "src/app/models";
 import { BonusService } from "src/app/services/dashboard/bonus.service";
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: "app-to-action",
@@ -19,16 +20,21 @@ import { BonusService } from "src/app/services/dashboard/bonus.service";
   styleUrls: ["./to-action.component.scss"]
 })
 export class ToActionComponent implements OnInit {
-  shares$: Observable<
-    Investment[]
-  > = this.investmentService.getInvestmentsByStatus(SHARE_PENDING_VERFICATION);
+  shares$: Observable<Investment[]>;
+  statusId: any;
   constructor(
     private investmentService: InvestmentService,
     private bonusService: BonusService,
     private messageService: MessageService,
     private cleintService: CleintService,
     private spinnerProcessService: SpinnerProcessService,
-  ) {}
+    private activatedRoute: ActivatedRoute,
+  ) {
+    this.activatedRoute.params.subscribe(r => {
+      this.statusId = r["id"];
+      this.shares$ =  this.investmentService.getInvestmentsByStatus(this.statusId || SHARE_PENDING_VERFICATION)
+    });
+  }
 
   ngOnInit() {}
   Approve(data: Investment) {

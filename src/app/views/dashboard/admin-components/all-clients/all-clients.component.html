@@ -1,52 +1,107 @@
 <div class="main">
-  <div class="clients" *ngIf="clients$|async as clients; else nodata">
-<div class="client" *ngFor="let client  of clients">
-  <div class="prof-pic">
-    <img *ngIf="client.Gender=='Female'" src="assets/images/dashboard/admin/user-female.svg" alt="">
-    <img *ngIf="client.Gender=='Male'" src="assets/images/dashboard/admin/user-male.svg" alt="">
-    <p>
-      {{client.CreateDate  | date:'M/d/yy'}}
-    </p>
-  </div>
-<div class="detail">
-  <h1>
-    {{client.FirstName}} {{client.Surname}}
-    <span>
-      Full Name
-    </span>
-  </h1>
-</div>
+  <div class="clients cards" *ngIf="clients; else nodata">
+    <div class="client" *ngFor="let client  of clients">
+      <div class="card">
+       
+        <div class="col-1-of-2">
 
-<div class="detail">
-  <h1>
-     {{client.Shares}}
-    <span>
-      Amount invested
-    </span>
-  </h1>
-</div>
+          <div class="details-sec-2">
+            <h1 class="hearder">
+               Personal Details
+            </h1>
+            <h1>
+              {{client.FirstName }} {{client.Surname }}
+              <span class="label">Full Name</span>
+            </h1>
 
-<div class="detail">
-  <h1>
-     {{client.NumberOfShares}}
-    <span>
-      Invested shares
-    </span>
-  </h1>
-</div>
-<div class="detail">
-  <h1 class="active">
-    Active
-    <span>
-      Status
-    </span>
-  </h1>
-</div>
- <div class="more">
-   <button>View more</button>
- </div>
+            <h1>
+              {{client.Gender}}
+              <span class="label">Gender</span>
+            </h1>
+            <h1>
+              {{client.IDNumber}}
+              <span class="label">ID Number</span>
+            </h1>
+            <h1>
+              {{client.Country}}
+              <span class="label">Country</span>
+            </h1>
+            <h1>
+              {{client.Province}}
+              <span class="label">Province</span>
+            </h1>
+            <h1>
+              {{client.City}}
+              <span class="label">City</span>
+            </h1>
+            <div></div>
+         
+          </div>
+          <div class="details-sec-2">
+              <h1 class="hearder">
+                  Personal Details
+               </h1>
+              <h1>
+                {{client.BankName }}
+                <span class="label">Bank Name</span>
+              </h1>
+  
+              <h1>
+                {{client.AccountHolder}}
+                <span class="label">Acc Holder</span>
+              </h1>
+              <h1>
+                {{client.AccountNumber}}
+                <span class="label">Acc Number</span>
+              </h1>
+              <h1>
+                {{client.AccountType}}
+                <span class="label">Acc Type</span>
+              </h1>
+              <div></div>
+              <div>
+                <a class="edit" [routerLink]="['../../client-profile',client.ClientId]">MORE</a>
+              </div>
+            </div>
+        </div>
+      </div>
 
-</div>
+      <div class="card" *ngIf="!beneficiaries">
+        <h1>
+          Beneficiaries
+        </h1>
+        <div class="col-1-of-2" *ngIf="beneficiaries.length; else noben">
+
+          <div class="details-sec-2" *ngFor="let data of beneficiaries">
+            <h1>
+              {{data.Name }} {{data.Surname }}
+              <span class="label">Full Name</span>
+            </h1>
+
+            <h1>
+              {{data.Relation}}
+              <span class="label">Relation</span>
+            </h1>
+
+            <div></div>
+            <div>
+              <a class="edit" [routerLink]="['../update-benefitiaries',data.BeneficiaryId]">EDIT</a>
+            </div>
+          </div>
+        </div>
+
+        <ng-template #noben>
+          <p class="nodata">You have no beneficiaries
+
+          </p>
+        </ng-template>
+        <p class="nodata">
+          <a [routerLink]="['../update-benefitiaries','please-add-new']" class="edit"> ADD NEW</a>
+        </p>
+
+      </div>
+
+    </div>
   </div>
 
   <ng-template #nodata>

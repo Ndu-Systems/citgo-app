@@ -1,19 +1,8 @@
-<!-- <div class="footer col-1-of-2">
-  <p>@Citgo Oil Africa</p>
-  <div class="disclaimer">
-    <h1>Disclaimer:</h1>
-    <p>
-      We need your sensitive information, such as your Id number and your banking detail. It is our obligation to let
-      you know how we will use such information. If any of these information changes please contact us immediately to
-      avoid complication during your transactions.
-    </p>
-  </div>
-</div> -->
 
 <div class="footer col-1-of-2" *ngIf="client">
-  <div class="menu">
+  <div class="menu"  *ngIf="!IsUserAdmin">
     <div class="wallet">
-      <a routerLink="/dashboard/"  routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" >
+      <a routerLink="/dashboard/"  routerLinkActive="active"  >
         <img src="assets/images/dashboard/wallet.svg"
           class="menu-icons" alt="wallet-icon">
         <h1>My wallet</h1>
@@ -21,24 +10,60 @@
     </div>
 
     <div class="buy-shares">
-        <a [routerLink]="['buy-share',client.ClientId]"  routerLinkActive="active"   [routerLinkActiveOptions]="{exact:true}" >
+        <a [routerLink]="['buy-share',client.ClientId]"  routerLinkActive="active"    >
           <img   src="assets/images/dashboard/shares.svg" class="menu-icons" alt="shares-icon">
           <h1>Buy shares</h1>
         </a>
       </div>
 
       <div class="referrals">
-          <a [routerLink]="['my-refferals',client.ClientId]"    routerLinkActive="active"   [routerLinkActiveOptions]="{exact:true}" >
+          <a [routerLink]="['my-refferals',client.ClientId]"    routerLinkActive="active"    >
             <img   src="assets/images/dashboard/users.svg" class="menu-icons" alt="shares-icon">
             <h1>My referrals</h1>
           </a>
         </div>
       <div class="referrals">
-          <a [routerLink]="['enquire',client.ClientId]"    routerLinkActive="active"   [routerLinkActiveOptions]="{exact:true}" >
+          <a [routerLink]="['enquire',client.ClientId]"    routerLinkActive="active"    >
             <img   src="assets/images/dashboard/inquire.svg" class="menu-icons" alt="shares-icon">
             <h1>Enquire</h1>
           </a>
         </div>
   
   </div>
+
+
+
+  <div class="menu" *ngIf="IsUserAdmin">
+      <div class="menu-item wallet">
+        <a routerLink="/dashboard/" routerLinkActive="active"  [routerLinkActiveOptions]="{exact:true}">
+          <img src="assets/images/dashboard/citgo-silver.svg" class="menu-icons" alt="wallet-icon">
+          <h1>Dashboard</h1>
+        </a>
+      </div>
+  
+  
+  
+  
+      <div class="menu-item enquire">
+        <a routerLink="clients/4" routerLinkActive="active" >
+          <img src="assets/images/dashboard/citgo-silver.svg" class="menu-icons" alt="shares-icon">
+          <h1>Clients</h1>
+        </a>
+      </div>
+     
+      <div class="menu-item enquire">
+        <a routerLink="shares/1" routerLinkActive="active" >
+          <img src="assets/images/dashboard/citgo-silver.svg" class="menu-icons" alt="shares-icon">
+          <h1>Shares</h1>
+        </a>
+      </div>
+      <div class="menu-item enquire">
+        <a routerLink="withdrawals/10" routerLinkActive="active" >
+          <img src="assets/images/dashboard/citgo-silver.svg" class="menu-icons" alt="shares-icon">
+          <h1>Withdrawals</h1>
+        </a>
+      </div>
+  
+  
+    </div>
 </div>

@@ -28,6 +28,11 @@ export class CleintService {
       `${this.url}/api/clients/get-client-refferals.php?ClientId=${ClientId}`
     );
   }
+  getClientsByStatus(StatusId) {
+    return this.httpClient.get<any>(
+      `${this.url}/api/clients/get-clients-by-status-id.php?StatusId=${StatusId}`
+    );
+  }
 
   updateClient(data:any): Observable<any> {
     return this.httpClient.post<any>(`${this.url}/api/clients/update-client.php`, data);

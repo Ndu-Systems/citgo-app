@@ -1,13 +1,14 @@
-import { EnquireComponent } from './enquire/enquire.component';
-import { DoWithdrawalComponent } from './do-withdrawal/do-withdrawal.component';
-import { CreatePasswordComponent } from './user-profile/my-profile/create-password/create-password.component';
-import { AllClientsComponent } from './admin-components/all-clients/all-clients.component';
-import { ToActionComponent } from './admin-components/to-action/to-action.component';
-import { AdminSammaryComponent } from './admin-components/admin-sammary/admin-sammary.component';
-import { AdminNavComponent } from './admin-components/admin-nav/admin-nav.component';
-import { AdminHomeComponent } from './admin-components/admin-home/admin-home.component';
-import { ShareDetailsComponent } from './investments/share-details/share-details.component';
-import { MyRefferalsComponent } from './my-refferals/my-refferals.component';
+import { ClientProfileComponent } from "./admin-components/client-profile/client-profile.component";
+import { EnquireComponent } from "./enquire/enquire.component";
+import { DoWithdrawalComponent } from "./do-withdrawal/do-withdrawal.component";
+import { CreatePasswordComponent } from "./user-profile/my-profile/create-password/create-password.component";
+import { AllClientsComponent } from "./admin-components/all-clients/all-clients.component";
+import { ToActionComponent } from "./admin-components/to-action/to-action.component";
+import { AdminSammaryComponent } from "./admin-components/admin-sammary/admin-sammary.component";
+import { AdminNavComponent } from "./admin-components/admin-nav/admin-nav.component";
+import { AdminHomeComponent } from "./admin-components/admin-home/admin-home.component";
+import { ShareDetailsComponent } from "./investments/share-details/share-details.component";
+import { MyRefferalsComponent } from "./my-refferals/my-refferals.component";
 import { DashboardHomeComponent } from "./dashboard-home/dashboard-home.component";
 import { ProfitComponent } from "./profit/profit.component";
 import { NgModule } from "@angular/core";
@@ -17,15 +18,20 @@ import { DashboardNavComponent } from "./dashboard-nav";
 
 import { InvestmentsComponent, BuyShareComponent } from "./investments";
 import { AuthGuard } from "src/app/guards/auth.guard";
-import { CLIENT_USER_ROLE, ADMIN_USER_ROLE, UPDATE_CONTACT_INFO } from "src/app/shared/config";
+import {
+  CLIENT_USER_ROLE,
+  ADMIN_USER_ROLE,
+  UPDATE_CONTACT_INFO
+} from "src/app/shared/config";
 import { DashFooterComponent } from "./dash-footer/dash-footer.component";
 import { UpdatePasswordComponent, MyProfileComponent } from "./user-profile";
-import { UploadComponent } from './uplaod/upload.component';
-import { ClientStatsComponent } from './dashboard-home/client-stats/client-stats.component';
-import { PaymentComponent } from './investments/payment/payment.component';
-import { UpdatePersonalInfoComponent } from './user-profile/updates/update-personal-info/update-personal-info.component';
-import { UpdateBaningInfoComponent } from './user-profile/updates/update-baning-info/update-baning-info.component';
-import { UpdateBenefitiariesComponent } from './user-profile/updates/update-benefitiaries/update-benefitiaries.component';
+import { UploadComponent } from "./uplaod/upload.component";
+import { ClientStatsComponent } from "./dashboard-home/client-stats/client-stats.component";
+import { PaymentComponent } from "./investments/payment/payment.component";
+import { UpdatePersonalInfoComponent } from "./user-profile/updates/update-personal-info/update-personal-info.component";
+import { UpdateBaningInfoComponent } from "./user-profile/updates/update-baning-info/update-baning-info.component";
+import { UpdateBenefitiariesComponent } from "./user-profile/updates/update-benefitiaries/update-benefitiaries.component";
+import { SearchSharePipe } from "src/app/pipes/search-share.pipe";
 
 const routes: Routes = [
   {
@@ -46,15 +52,20 @@ const routes: Routes = [
       { path: "my-profile", component: MyProfileComponent },
 
       //updates
-      { path: "update-personal-info/:id", component: UpdatePersonalInfoComponent },
+      {
+        path: "update-personal-info/:id",
+        component: UpdatePersonalInfoComponent
+      },
       { path: "update-banking-info/:id", component: UpdateBaningInfoComponent },
-      { path: "update-benefitiaries/:id", component: UpdateBenefitiariesComponent },
+      {
+        path: "update-benefitiaries/:id",
+        component: UpdateBenefitiariesComponent
+      },
 
-      
       //admin
-      { path: "shares/:id", component: ToActionComponent},
-      { path: "clients/:id", component: AllClientsComponent}
-      
+      { path: "shares/:id", component: ToActionComponent },
+      { path: "clients/:id", component: AllClientsComponent },
+      { path: "client-profile/:id", component: ClientProfileComponent }
     ]
   }
 ];
@@ -81,6 +92,8 @@ export const declarations: Array<any> = [
   ToActionComponent,
   AllClientsComponent,
   ClientStatsComponent,
+  ClientProfileComponent,
+  SearchSharePipe,
 
   // update
   UpdatePersonalInfoComponent,
@@ -88,8 +101,6 @@ export const declarations: Array<any> = [
   UpdateBenefitiariesComponent,
   CreatePasswordComponent,
   EnquireComponent
-   
-  
 ];
 
 @NgModule({

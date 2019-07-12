@@ -1,6 +1,10 @@
 <div class="main">
+  <div class="card">
+    <label>Search</label> <br>
+    <input type="text" class="input-field" [(ngModel)]="search" name="" id="">
+  </div>
   <div class="shares" *ngIf="shares$|async as shares; else nodata">
-    <div class="share" *ngFor="let share  of shares">
+    <div class="share" *ngFor="let share  of shares | search_share:search">
 
       <div class="detail">
         <h1>
@@ -26,14 +30,14 @@
 
       <div class="detail">
         <h1 class="active">
-          Pending Confirmation
-          <span>
+          {{share.DaysNow}} day(s) ago
+          <span  *ngIf="share.DocumentUrl">
               <a href="{{share.DocumentUrl}}" target="_blank">View Attachment</a>
           </span>
         </h1>
       </div>
     
-      <div class="more">
+      <div class="more" *ngIf="statusId=='3'">
         <button (click)="Approve(share)">Approve</button>
       </div>
 

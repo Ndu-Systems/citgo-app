@@ -1,16 +1,48 @@
-@import "../../../../../assets/sass/variables";
+@import '../../../../../assets/sass/variables';
 $status-span : 1rem;
-.main {
-  padding: 3%;
-  .clients {
- .client{
-   margin: .5rem;
-  //  background: red;
- }
+
+.main-container {
+  padding: 5%;
+
+  @media only screen and (max-width: 600px) {
+
+    padding: 7rem 1rem;
+    padding: 0;
+    padding-top: 3.5rem;
+    padding-bottom: 5rem;
+
+  }
+
+  .main-profile {
+    background: linear-gradient(to right, #3827b4 0%, #6c18a4);
+    margin-top: 2rem;
+
+    .profile-heading {
+      color: #fff;
+      font-size: 1.5rem;
+    }
+
+    .prof-pic {
+      width: 100%;
+      text-align: center;
+    }
+
+    .user-details {
+      color: #fff;
+
+      h1 {
+        text-align: center;
+        color: #fff;
+
+      }
+
+      p {
+        text-align: center;
+      }
+    }
+
   }
 }
-
-
 
 .cards {
   grid-template-columns: 100%;
@@ -100,6 +132,7 @@ $status-span : 1rem;
         .edit {
           float: right;
           margin-right: 2rem;
+          display: none;
         }
 
         .col-1-of-2 {
@@ -126,3 +159,18 @@ $status-span : 1rem;
   font-size: .8rem;
   text-transform: uppercase;
 }
+
+.options{
+    .danger{
+      background:#e74c3c;
+      color: #fff;
+      padding: 2%;
+      border: none;
+    }
+    .success{
+      background:#2ecc71;
+      color: #fff;
+      padding: 2%;
+      border: none;
+    }
+  }
