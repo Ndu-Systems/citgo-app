@@ -22,6 +22,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ToActionComponent implements OnInit {
   shares$: Observable<Investment[]>;
   statusId: any;
+  search:string;
   constructor(
     private investmentService: InvestmentService,
     private bonusService: BonusService,

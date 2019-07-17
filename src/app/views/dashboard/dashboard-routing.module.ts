@@ -93,7 +93,7 @@ export const declarations: Array<any> = [
   AllClientsComponent,
   ClientStatsComponent,
   ClientProfileComponent,
-  SearchSharePipe,
+  // SearchSharePipe,
 
   // update
   UpdatePersonalInfoComponent,

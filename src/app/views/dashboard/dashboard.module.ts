@@ -10,6 +10,7 @@ import { MessageService, ConfirmationService } from 'primeng/api';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {AccordionModule} from 'primeng/accordion';
+import { SearchSharePipe } from 'src/app/pipes/search-share.pipe';
 
 
 
@@ -20,15 +21,15 @@ import {AccordionModule} from 'primeng/accordion';
     ChartModule,
     MessagesModule,
     MessageModule,
-    ToastModule, 
+    ToastModule,
     FormsModule,
     ReactiveFormsModule,
     OverlayPanelModule,
     ConfirmDialogModule,
-    AccordionModule
+    AccordionModule,
   ],
-  declarations: [...declarations],
-  providers: [MessageService,ConfirmationService]
+  declarations: [...declarations,SearchSharePipe],
+  providers: [MessageService, ConfirmationService]
 
 })
 export class DashboardModule { }

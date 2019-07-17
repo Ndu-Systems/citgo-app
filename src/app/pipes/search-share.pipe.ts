@@ -1,4 +1,4 @@
-import { User } from './../../../models/user';
+// import { User } from './../../../models/user';
 import { Investment } from 'src/app/models';
 import { Pipe, PipeTransform } from '@angular/core';
 
