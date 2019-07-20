@@ -54,6 +54,16 @@
       width: 100%;
       text-align: left;
       color: #6D2BA9;
+      text-align: right;
+
+    }
+    .money-list{
+      padding: 1rem 0rem;
+      .available{
+        display: block;
+        color: rgb(0, 0, 0);
+
+      }
     }
   }
 

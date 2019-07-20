@@ -13,6 +13,8 @@ import { Wallet } from 'src/app/models/wallet.model';
 export interface Detail {
   key: string;
   value: number;
+  days: number;
+  available: number;
 }
 @Component({
   selector: 'app-client-stats',
@@ -60,12 +62,17 @@ export class ClientStatsComponent implements OnInit {
       .subscribe(response => {
         if (response.investments) {
           this.investments = response.investments;
+          
           // get details
           this.investments.filter(x => x.Status === 'ACTIVE').forEach(val => {
             const detail: Detail = {
               key: val.Name,
-              value: Number(val.Growth - val.Amount)
+              value: Number(val.Growth - val.Amount),
+              days: Number(val.DaysNow),
+              available:  Number(val.DaysNow) >= 30 ? Number(val.Growth - val.Amount) : 0
             };
+            console.log(detail);
+            
             this.details.push(detail);
           });
         }

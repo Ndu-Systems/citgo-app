@@ -1,14 +1,14 @@
-import { Router } from "@angular/router";
-import { Injectable } from "@angular/core";
-import { API_URL, CURRENT_USER } from "src/app/shared/config";
-import { BehaviorSubject, Observable, throwError } from "rxjs";
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
-import { HttpHeaders } from "@angular/common/http";
-import { map, catchError } from "rxjs/operators";
-import { User } from "src/app/models/user";
+import { Router } from '@angular/router';
+import { Injectable } from '@angular/core';
+import { API_URL, CURRENT_USER } from 'src/app/shared/config';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
+import { map, catchError } from 'rxjs/operators';
+import { User } from 'src/app/models/user';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class AuthenticateService {
   url = API_URL;
@@ -30,11 +30,11 @@ export class AuthenticateService {
         ).subscribe(r => {
           if (!r) {
             this.logout();
-            this.router.navigate(["session-expired"]);
+            this.router.navigate(['session-expired']);
           }
         });
       }
-    }, 10000);
+    }, 90000);
   }
 
   public loginUser(Email: string, Password: string): Observable<any> {
@@ -43,10 +43,10 @@ export class AuthenticateService {
       password: Password
     };
 
-    const reqheaders = new HttpHeaders({ "Content-Type": "application/json" });
+    const reqheaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
     return this.httpClient
-      .post<any>(this.url + "/api/login/login-user.php", JSON.stringify(data), {
+      .post<any>(this.url + '/api/login/login-user.php', JSON.stringify(data), {
         headers: reqheaders
       })
       .pipe(
@@ -100,12 +100,12 @@ export class AuthenticateService {
   }
   handleError(errorResponse: HttpErrorResponse) {
     if (errorResponse.error instanceof ErrorEvent) {
-      console.log("cleint side: ", errorResponse.error);
+      console.log('cleint side: ', errorResponse.error);
     } else {
-      console.log("server side: ", errorResponse.error);
+      console.log('server side: ', errorResponse.error);
     }
     return throwError(
-      "No connection, check your network and try again"
+      'No connection, check your network and try again'
     );
   }
 }

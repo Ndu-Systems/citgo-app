@@ -17,6 +17,7 @@ export interface Investment {
     Status?: string;
     ClientId?: string;
     bankId?: number;
+    DaysNow?: number;
 }
  
     export interface InvestmentDocument {

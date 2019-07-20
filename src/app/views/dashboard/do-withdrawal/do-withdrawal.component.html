@@ -55,3 +55,19 @@
   
   
   <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>  
+
+
+  <div class="awaiting" *ngIf="isDone">
+    <div class="image">
+      <img src="assets/images/dashboard/hourglass-half-solid.svg" alt="">
+    </div>
+    <div>
+      <h1>Withdrawal request submitted</h1>
+      <p>
+        We have received your withdrawal request we will let you know as soon as we processed it thank you.
+      </p>
+      <div class="btns">
+        <button (click)="done()">DONE</button>
+      </div>
+    </div>
+  </div>

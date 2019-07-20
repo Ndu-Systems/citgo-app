@@ -37,6 +37,7 @@ export class DoWithdrawalComponent implements OnInit {
   maturityDate: Date;
   bonuses: any = [];
   clientwithdrawals: any;
+  isDone: boolean;
   constructor(
     private fb: FormBuilder,
     private authenticationService: AuthenticateService,
@@ -58,15 +59,15 @@ export class DoWithdrawalComponent implements OnInit {
     });
 
     // get bonuses
-            this.bonusService.getClientBonuses(this.cleintId).subscribe(r => {
-          this.bonuses = r;
-        });
+    this.bonusService.getClientBonuses(this.cleintId).subscribe(r => {
+      this.bonuses = r;
+    });
 
 
-        // get client withdrawals
-         this.withdrawalService.getClientWithdrawal(this.cleintId).subscribe(r => {
-           this.clientwithdrawals = r;
-         });
+    // get client withdrawals
+    this.withdrawalService.getClientWithdrawal(this.cleintId).subscribe(r => {
+      this.clientwithdrawals = r;
+    });
   }
 
   ngOnInit() {
@@ -93,10 +94,15 @@ export class DoWithdrawalComponent implements OnInit {
       accept: () => {
         this.error = '';
         this.withdrawalService.addWithdrawal(data).subscribe(response => {
-       alert(JSON.stringify(response));
+          if (response) {
+            this.isDone = true;
+          }
         });
       }
     });
   }
-
+  done() {
+    this.isDone = false;
+    this.routeTo.navigate([`dashboard`]);
+  }
 }

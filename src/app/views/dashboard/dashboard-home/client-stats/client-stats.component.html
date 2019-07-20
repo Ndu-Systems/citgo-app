@@ -6,8 +6,9 @@
     <h1 class="main">
       <span class="label">Available Funds</span>
       {{availableFunds  | currency:'R'}}
-      <span class="where-from" *ngFor="let data of details">
+      <span class="where-from money-list" *ngFor="let data of details">
         <b> <i class="fas fa-chart-line"></i> </b> {{data.key}} ..... <b>{{data.value | currency:'R'}}</b>
+        <span class="available">Available.......  {{data.available | currency:'R' }}</span>
       </span>
       <span class="where-from">
         <b><i class="far fa-heart"></i></b> Bonus earned ..... <b>{{totalBonuses | currency:'R'}}</b>
