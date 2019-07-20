@@ -4,6 +4,7 @@ import { Investment, InvestmentDocument } from "src/app/models";
 import { API_URL } from "src/app/shared/config";
 import { HttpClient } from "@angular/common/http";
 import { Observable, BehaviorSubject } from "rxjs";
+import { Wallet } from "src/app/models/wallet.model";
 
 @Injectable({
   providedIn: "root"
@@ -45,16 +46,22 @@ export class InvestmentService {
       `${this.url}/api/investments/get-investment-by-id.php?InvestmentId=${InvestmentId}`
     );
   }
-  //get  investments by status
+  // get  investments by status
   getInvestmentsByStatus(StatusId): Observable<Investment[]> {
     return this.httpClient.get<any>(
       `${this.url}/api/investments/get-investment-by-status.php?StatusId=${StatusId}`
     );
   }
-  //get single investment with docs by id
+  // get single investment with docs by id
   getInvestmentsandDocumentsById(InvestmentId): Observable<InvestmentDocument> {
     return this.httpClient.get<any>(
       `${this.url}/api/investments/get-investment-and-documents-by-id.php?InvestmentId=${InvestmentId}`
+    );
+  }
+  // get single investment with docs by id
+  getClientWallet(ClientId): Observable<Wallet> {
+    return this.httpClient.get<any>(
+      `${this.url}/api/investments/get-clientwallet.php?ClientId=${ClientId}`
     );
   }
 }

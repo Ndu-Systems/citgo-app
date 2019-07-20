@@ -6,14 +6,18 @@ export interface Withdrawal {
     ModifyDate?:  string;
     ModifyUserId?:  string;
     StatusId?:  number;
+    ClientId?:  number;
+
+    
 }
 
 export const withdrawalInit:Withdrawal = {
     "WithdrawalId": null,
-    "Amount":0,
+    "Amount":null,
     "CreateDate": null,
     "CreateUserId":null,
     "ModifyDate": null,
     "ModifyUserId": null,
-    "StatusId": 1
+    "StatusId": 1,
+    "ClientId": null,
 }

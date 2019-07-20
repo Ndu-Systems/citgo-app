@@ -14,22 +14,10 @@
       </span>
     </h1>
     <div class="action">
-      <button (click)="withdraw()" disabled>Withdraw</button>
+      <button (click)="withdraw()" [disabled]="!withDisabled">Withdraw</button>
     </div>
 
-    <div class="card detals bonus">
-      <div>
-        <h4>
-          Bonus earned
-        </h4>
-      </div>
-      <div class="value">
-        <h4>
-          {{totalBonuses  | currency:'R'}}
-          <span class="label" (click)="AddRef()">More</span>
-        </h4>
-      </div>
-    </div>
+
     <div class="card detals bonus">
       <div>
         <h4>
@@ -39,6 +27,19 @@
       <div class="value">
         <h4>
           {{totalProfit  | currency:'R'}}
+
+        </h4>
+      </div>
+    </div>
+    <div class="card detals bonus">
+      <div>
+        <h4>
+         Total withdrawn
+        </h4>
+      </div>
+      <div class="value">
+        <h4>
+          {{withdrawn  | currency:'R'}}
 
         </h4>
       </div>
