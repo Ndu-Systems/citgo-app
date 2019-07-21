@@ -27,7 +27,9 @@ export class ClientStatsComponent implements OnInit {
   details: Detail[] = [];
   // funds
   totalProfit = 0;
+  availableProfit = 0;
   availableFunds = 0;
+  availableBonus = 0;
   totalBonuses = 0;
   withdrawn = 0;
   client$;
@@ -48,13 +50,33 @@ export class ClientStatsComponent implements OnInit {
     // get wallet
     this.investmentService.getClientWallet(this.cleintId).subscribe(r => {
       const wallet: Wallet = r;
-      this.availableFunds = ( wallet.profit || 0 + wallet.bonuses || 0 ) - wallet.withdrawals || 0;
-      this.totalBonuses = wallet.bonuses || 0;
-      this.totalProfit = wallet.profit || 0;
-      this.withdrawn = wallet.withdrawals || 0;
-      if ( this.availableFunds >= 1000) {
+      const profit = Number(wallet.profit);
+      const bonuses = Number(wallet.bonuses);
+      const withdrawals = Number(wallet.withdrawals);
+      this.availableFunds = (profit + bonuses) - withdrawals;
+      this.totalBonuses = bonuses;
+      this.totalProfit = profit;
+      this.withdrawn = withdrawals;
+      if (this.availableFunds >= 1000) {
         this.withDisabled = true;
       }
+      this.availableBonus = bonuses;
+      this.availableProfit = profit;
+      // get avilbale bonus
+      if (withdrawals > 0) {
+        if (profit > bonuses && withdrawals <= bonuses) {
+          this.availableBonus = bonuses - withdrawals;
+        } else {
+          this.availableBonus = 0;
+          this.availableProfit = this.availableFunds;
+        }
+        if (bonuses > profit && withdrawals <= profit) {
+          this.availableBonus = bonuses - withdrawals;
+          this.availableProfit = profit;
+        }
+      }
+
+
     });
     // get cleint shares
     this.investmentService
@@ -62,17 +84,17 @@ export class ClientStatsComponent implements OnInit {
       .subscribe(response => {
         if (response.investments) {
           this.investments = response.investments;
-          
+
           // get details
           this.investments.filter(x => x.Status === 'ACTIVE').forEach(val => {
             const detail: Detail = {
               key: val.Name,
               value: Number(val.Growth - val.Amount),
               days: Number(val.DaysNow),
-              available:  Number(val.DaysNow) >= 30 ? Number(val.Growth - val.Amount) : 0
+              available: Number(val.DaysNow) >= 30 ? Number(val.Growth - val.Amount) : 0
             };
             console.log(detail);
-            
+
             this.details.push(detail);
           });
         }
