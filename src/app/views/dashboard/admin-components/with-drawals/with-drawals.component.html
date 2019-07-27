@@ -1,0 +1,49 @@
+<div class="main">
+    <div class="search">
+      <label>Search</label> <br>
+      <input type="text" class="input-field" [(ngModel)]="search" name="" id="">
+    </div>
+    <div class="withdrawals" *ngIf="withdrawals$|async as withdrawals; else nodata">
+      <div class="share" *ngFor="let share  of withdrawals | search_share:search">
+  
+        <div class="detail">
+          <h1>
+            {{share.Amount | currency:'R'}} <br> 
+            <span>
+                {{share.CreateDate | date:'M/d/yy'}}
+            </span>
+          </h1>
+        </div>
+  
+      
+  
+  
+        <div class="detail">
+          <h1>
+            {{share.FirstName}}
+            <span>
+              Client Name
+            </span>
+          </h1>
+        </div>
+ 
+      
+        <div class="more" *ngIf="statusId=='2'">
+          <button (click)="Approve(share)">Approve</button>
+        </div>
+        <div class="more" *ngIf="statusId=='2'">
+          <button class="error" (click)="Approve(share)">Decline</button>
+        </div>
+  
+  
+      </div>
+  
+    </div>
+  
+    <ng-template #nodata>
+      <h1>
+        No data
+      </h1>
+    </ng-template>
+  </div>
+  

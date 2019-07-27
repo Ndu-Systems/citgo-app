@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { API_URL } from 'src/app/shared/config';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +9,20 @@ import { Observable } from 'rxjs';
 export class CleintService {
 
   url = API_URL;
+  clintIdSubject = new BehaviorSubject<string>('000');
+  castClientId = this.clintIdSubject.asObservable();
+
+
+
+  getSelectedClientId() {
+    return this.clintIdSubject.value;
+  }
+
+  selectAnothereClientId(id: string) {
+    this.clintIdSubject.next(id);
+  }
+
+
 
   constructor(private httpClient: HttpClient) {
   }
@@ -34,8 +48,9 @@ export class CleintService {
     );
   }
 
-  updateClient(data:any): Observable<any> {
+  updateClient(data: any): Observable<any> {
     return this.httpClient.post<any>(`${this.url}/api/clients/update-client.php`, data);
-    
   }
+
+
 }

@@ -1,0 +1,44 @@
+<div class="main">
+    <h1 class="heading">
+      Client Refferals
+    </h1>
+  
+  
+    <div *ngIf="refferals$ | async as refferals; else nodata">
+      <div  class="cards" *ngIf="refferals.length; else zerodata">
+        <div class="card" *ngFor="let data of refferals">
+          <div class="name">
+            <h4>
+              {{data.FirstName}} {{data.Surname}}
+            </h4>
+          </div>
+          <div class="value">
+            <h4>
+              <p class="status active" *ngIf="data.Amount">
+                {{data.Amount | currency:'R'}}
+                <span *ngIf="data.BonusStatus=='1'" class="status">available</span>
+                <span *ngIf="data.BonusStatus=='2'" class="status">withdraw</span>
+              </p>
+              <p class="status " *ngIf="!data.Amount">R00.00</p>
+            </h4>
+          </div>
+        </div>
+      </div>
+      <ng-template #zerodata>
+        <h1>
+          <span class="notification">
+            no refferals available
+          </span>
+        </h1>
+      </ng-template>
+    </div>
+  
+    <ng-template #nodata>
+      <h1>
+        <span class="notification">
+          no refferals available
+        </span>
+      </h1>
+    </ng-template>
+  </div>
+  

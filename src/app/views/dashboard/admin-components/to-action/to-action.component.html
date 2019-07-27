@@ -1,5 +1,5 @@
 <div class="main">
-  <div class="card">
+  <div class="search">
     <label>Search</label> <br>
     <input type="text" class="input-field" [(ngModel)]="search" name="" id="">
   </div>
@@ -41,12 +41,14 @@
         <h1 class="active">
           {{share.DaysNow}} day(s) ago
           <span  *ngIf="share.DocumentUrl">
-              <a href="{{share.DocumentUrl}}" target="_blank">View Attachment</a>
+              <a href="{{share.DocumentUrl}}" target="_blank">View Attachment</a> <br>
+              <a [routerLink]="['../../client-profile',share.ClientId]" >View Client</a>
+            
           </span>
         </h1>
       </div>
     
-      <div class="more" *ngIf="statusId=='3'">
+      <div class="more" *ngIf="share.StatusId=='3'">
         <button (click)="Approve(share)">Approve</button>
       </div>
 

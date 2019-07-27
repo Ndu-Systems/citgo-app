@@ -9,6 +9,17 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class WithdrawalService {
+  gettWithdrawalByStatus(status: any): Observable<any[]> {
+    return this.httpClient.get<any>(
+      `${this.url}/api/withdrawal/get-withdrawal-by-status.php?StatusId=${status}`
+    );
+  }
+  update(data: Investment) {
+    return this.httpClient.post<any>(
+      `${API_URL}/api/withdrawal/add-withdrawal.php`,
+      data
+    );
+  }
 
 
   url = API_URL;
@@ -29,7 +40,7 @@ export class WithdrawalService {
     );
   }
 
-  getClientWithdrawal(ClientId): Observable<Investment> {
+  getClientWithdrawal(ClientId): Observable<any> {
     return this.httpClient.get<any>(
       `${this.url}/api/withdrawal/get-withdrawal-by-client-id.php?ClientId=${ClientId}`
     );

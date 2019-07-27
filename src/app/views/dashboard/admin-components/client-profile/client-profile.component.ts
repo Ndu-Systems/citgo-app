@@ -17,6 +17,7 @@ export class ClientProfileComponent implements OnInit {
   beneficiaries: any;
   isDone: boolean;
   cell: any;
+  clientId='';
   constructor(
     private clientService: CleintService,
     private authenticateService: AuthenticateService,
@@ -31,8 +32,10 @@ export class ClientProfileComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(r => {
-      let id = r["id"];
-      this.clientService.getClientById(id).subscribe(response => {
+      this.clientId = r['id'];
+      this.clientService.selectAnothereClientId(this.clientId);
+
+      this.clientService.getClientById(this.clientId).subscribe(response => {
         if (response.ClientId) {
           this.client = response;
           this.fullname = `${this.client.FirstName} ${this.client.Surname}`;
@@ -42,7 +45,7 @@ export class ClientProfileComponent implements OnInit {
       });
 
 
-      this.beneficiariesService.geBeneficiaries(id).subscribe(response => {
+      this.beneficiariesService.geBeneficiaries(this.clientId).subscribe(response => {
         this.beneficiaries = [];
         if (response) {
           this.beneficiaries = response;
@@ -54,24 +57,25 @@ export class ClientProfileComponent implements OnInit {
   }
 
   back() {
-    this.router.navigate(["/dashboard"]);
+    this.router.navigate(['dashboard/clients/4']);
   }
+
 
   block() {
     this.confirmationService.confirm({
       message: 'Are you sure that you want to perform this action?',
       accept: () => {
-        this.client.StatusId = "10";
+        this.client.StatusId = '10';
         this.clientService.updateClient(this.client).subscribe(r => {
 
           this.messageService.add({
             life: 7000,
-            severity: "warn",
-            summary: "Client blocked",
-            detail: "You  blocked !" + this.client.FirstName
+            severity: 'warn',
+            summary: 'Client blocked',
+            detail: 'You  blocked !' + this.client.FirstName
           });
-          // this.router.navigate(["/dashboard"]);
-          this.client.ClientStatus = "10"
+          // this.router.navigate(['/dashboard']);
+          this.client.ClientStatus = '10'
 
         })
       }
@@ -83,16 +87,16 @@ export class ClientProfileComponent implements OnInit {
     this.confirmationService.confirm({
       message: 'Are you sure that you want to perform this action?',
       accept: () => {
-        this.client.StatusId = "4";
+        this.client.StatusId = '4';
         this.clientService.updateClient(this.client).subscribe(r => {
           this.messageService.add({
             life: 7000,
-            severity: "success",
-            summary: "Client unblocked",
-            detail: "You  unblocked !" + this.client.FirstName
+            severity: 'success',
+            summary: 'Client unblocked',
+            detail: 'You  unblocked !' + this.client.FirstName
           });
-          this.client.ClientStatus = "4"
-          // this.router.navigate(["/dashboard"]);
+          this.client.ClientStatus = '4'
+          // this.router.navigate(['/dashboard']);
         })
 
       }

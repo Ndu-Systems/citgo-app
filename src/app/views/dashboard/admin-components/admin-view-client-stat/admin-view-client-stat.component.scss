@@ -1,0 +1,144 @@
+.card {
+    grid-template-columns: 20% 80%;
+    cursor: pointer;
+    @media only screen and (max-width: 600px) {
+      grid-template-columns: 100%;
+    }
+  
+    h1 {
+      letter-spacing: 0;
+      color: #3827B4;
+      font-size: 130%;
+      text-transform: capitalize;
+      font-weight: 700;
+  
+      span {
+        width: 100%;
+        margin-top: 0.1%;
+        font-weight: 500;
+      }
+  
+    }
+  
+    img {
+      width: 45%;
+      margin: 2rem 0;
+      @media only screen and (max-width: 600px) {
+        width: 20%;
+      }
+    }
+  
+  }
+  
+  .withdraw {
+    grid-template-columns: 100%;
+    padding: .5rem;
+  
+    h1 {
+      text-align: center;
+      margin: .3rem auto;
+      padding: 1.5555%;
+    }
+  
+    .main {
+      font-weight: 400;
+  
+      .label {
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 700;
+        display: block;
+        width: 100%;
+      }
+      .where-from{
+        width: 100%;
+        text-align: left;
+        color: #6D2BA9;
+        text-align: right;
+  
+      }
+      .money-list{
+        padding: 1rem 0rem;
+        .available{
+          display: block;
+          color: rgb(0, 0, 0);
+  
+        }
+      }
+    }
+  
+    .action{
+        width: 100%;
+        padding: .2rem 3rem;
+        text-align: center;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: .1rem solid rgba(108, 43, 169, 0.671);
+      button{
+          // float: right;
+          background: #6D2BA9;
+          color: #fff;
+          padding: .6rem;
+          border-radius: .1rem;
+          border: none;
+          &:disabled{
+            background: rgb(187, 187, 187);
+          }
+  
+      }
+    }
+    .detals{
+        grid-template-columns: 40% auto;
+        margin: .5rem ;
+        padding: .3rem;
+      //   border-left: .4rem solid #8e44ad;
+        border-radius: 0;
+      //   background:  #EADDF0;
+        h4{
+            font-weight: 400;
+            font-size: .8rem;
+            margin: 0
+        }
+  
+        .key{
+            text-align: left;
+            h4{
+                font-weight: 400;
+            }
+        }
+  
+        .value{
+            text-align: right;
+            h4{
+                font-weight: 600;
+                .label{
+                    display: block;
+                    text-align: right;
+                    color: #3827B4;
+                }
+            }
+        }
+    }
+  
+  }
+  .client-ref{
+    display: none;
+    @media only screen and (max-width: 600px) {
+      display: block;
+  
+    }
+  }
+  .cards{
+    grid-template-columns: 50% auto;
+    @media only screen and (max-width: 600px) {
+      grid-template-columns: 100%;
+    }
+  
+  }
+  .withdraw-holder{
+    grid-template-columns: 100%;
+  }
+
+  .refs{
+    border-top: 1px solid #000;
+  }

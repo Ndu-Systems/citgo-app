@@ -11,14 +11,14 @@ export class User {
     Title?: string;
     Gender?: string;
     PhoneNumber?: string;
-    IdNumber?: string;
+    IDNumber?: string;
     CreateUserId?: string;
     CreateDate?: string;
     ModifyUserId?: string;
     ModifyDate?: string;
     ParentId?: string;
     StatusId?: number;
-    CellphoneNumber?: number;
+    CellphoneNumber?: any;
 }
 
 //3 to 28   pending, awaiting for payments

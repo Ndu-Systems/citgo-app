@@ -1,0 +1,55 @@
+<div class="cards withdraw-holder">
+    <div class="card withdraw">
+      <h1>
+        Client Wallet
+      </h1>
+      <h1 class="main">
+        <span class="label">Available Funds</span>
+        {{availableFunds  | currency:'R'}}
+       
+        <span class="where-from money-list">
+          <b><i class="far fa-heart"></i></b> Profit earned ..... <b>{{totalProfit | currency:'R'}}</b>
+          <span class="available">Available.......  {{availableProfit | currency:'R' }}</span>
+        </span>
+  
+        <span class="where-from money-list">
+          <b><i class="far fa-heart"></i></b> Bonus earned ..... <b>{{totalBonuses | currency:'R'}}</b>
+          <span class="available">Available.......  {{availableBonus | currency:'R' }}</span>
+        </span>
+      </h1>
+    
+      <div class="card detals bonus">
+        <div>
+          <h4>
+           Total withdrawn
+          </h4>
+        </div>
+        <div class="value">
+          <h4>
+            {{withdrawn  | currency:'R'}}
+  
+          </h4>
+        </div>
+      </div>
+    </div>
+    <div class="card refs" (click)="ViewRef()">
+        <div class="img">
+          <img class="img-smaller" src="assets/images/dashboard/user.svg" alt="">
+        </div>
+        <h1>
+          Client referrals
+        
+        </h1>
+      </div>
+  </div>
+  
+  <div class="cards">
+    <div class="card withdraw  client-ref" *ngIf="client$|async as client">
+      <h1>
+        <span class="label">
+           Client Id <b>CTG-{{client.ClientRef}}</b>
+        </span>
+      </h1>
+    </div>
+
+  </div>

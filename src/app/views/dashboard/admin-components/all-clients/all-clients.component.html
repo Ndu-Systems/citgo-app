@@ -1,6 +1,11 @@
 <div class="main">
   <div class="clients cards" *ngIf="clients; else nodata">
-    <div class="client" *ngFor="let client  of clients">
+      <div class="search">
+          <label>Search</label> <br>
+          <input type="text" class="input-field" [(ngModel)]="search" placeholder="John Doe or ID number">
+        </div>
+    <div class="client" *ngFor="let client  of clients  | search_clients:search">
+      
       <div class="card">
        
         <div class="col-1-of-2">

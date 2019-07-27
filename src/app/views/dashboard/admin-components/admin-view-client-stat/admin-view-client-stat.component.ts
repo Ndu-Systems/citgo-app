@@ -1,28 +1,20 @@
-import { AuthenticateService } from './../../../../services/home/user/authenticate.service';
-import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/models/user';
-import { InvestmentService, CleintService } from 'src/app/services';
 import { Investment } from 'src/app/models';
-import { WITHDRAWABLE } from 'src/app/shared/config';
+import { Router } from '@angular/router';
+import { InvestmentService, AuthenticateService, CleintService } from 'src/app/services';
+import { User } from 'src/app/models/user';
 import { Wallet } from 'src/app/models/wallet.model';
+import { WITHDRAWABLE } from 'src/app/shared/config';
 
-
-export interface Detail {
-  key: string;
-  value: number;
-  days: number;
-  available: number;
-}
 @Component({
-  selector: 'app-client-stats',
-  templateUrl: './client-stats.component.html',
-  styleUrls: ['./client-stats.component.scss']
+  selector: 'app-admin-view-client-stat',
+  templateUrl: './admin-view-client-stat.component.html',
+  styleUrls: ['./admin-view-client-stat.component.scss']
 })
-export class ClientStatsComponent implements OnInit {
+export class AdminViewClientStatComponent implements OnInit {
+
   cleintId: any;
   investments: Investment[] = [];
-  // details: Detail[] = [];
   // funds
   totalProfit = 0;
   availableProfit = 0;
@@ -38,11 +30,11 @@ export class ClientStatsComponent implements OnInit {
     private investmentService: InvestmentService,
     private authenticateService: AuthenticateService,
     private cleintService: CleintService,
-  ) { }
+  ) { 
+  }
 
   ngOnInit() {
-    const user: User = this.authenticateService.currentUserValue;
-    this.cleintId = user.ClientId;
+    this.cleintId =     this.cleintService.getSelectedClientId();
     this.client$ = this.cleintService.getClientById(this.cleintId);
     // get wallet
     this.investmentService.getClientWallet(this.cleintId).subscribe(r => {
@@ -75,30 +67,10 @@ export class ClientStatsComponent implements OnInit {
 
 
     });
-    // get cleint shares
-    // this.investmentService
-    //   .getInvestmentsByClientId(this.cleintId)
-    //   .subscribe(response => {
-    //     if (response.investments) {
-    //       this.investments = response.investments;
-
-    //       // get details
-    //       this.investments.filter(x => x.Status === 'ACTIVE').forEach(val => {
-    //         const detail: Detail = {
-    //           key: val.Name,
-    //           value: Number(val.Growth - val.Amount),
-    //           days: Number(val.DaysNow),
-    //           available: Number(val.DaysNow) >= 30 ? Number(val.Growth - val.Amount) : 0
-    //         };
-    //         console.log(detail);
-
-    //         this.details.push(detail);
-    //       });
-    //     }
-    //   });
   }
-  AddRef() {
-    this.router.navigate(['dashboard/my-refferals', this.cleintId]);
+
+  ViewRef() {
+    this.router.navigate(['dashboard/admin-view-clinet-referals', this.cleintId]);
   }
   withdraw() {
     localStorage.setItem(WITHDRAWABLE, this.availableFunds + '');

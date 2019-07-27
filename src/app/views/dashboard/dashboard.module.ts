@@ -10,7 +10,6 @@ import { MessageService, ConfirmationService } from 'primeng/api';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {AccordionModule} from 'primeng/accordion';
-import { SearchSharePipe } from 'src/app/pipes/search-share.pipe';
 
 
 
@@ -28,7 +27,7 @@ import { SearchSharePipe } from 'src/app/pipes/search-share.pipe';
     ConfirmDialogModule,
     AccordionModule,
   ],
-  declarations: [...declarations,SearchSharePipe],
+  declarations: [...declarations],
   providers: [MessageService, ConfirmationService]
 
 })

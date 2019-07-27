@@ -1,0 +1,82 @@
+$status-span: 0.7rem;
+
+.main {
+  padding:3%;
+  height: 80vh;
+  overflow-y: scroll;
+  @media only screen and (max-width: 600px) {
+    padding: 4rem 0;
+    // height: auto;
+  }
+  .heading {
+    text-align: center;
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: black;
+  }
+  .card-info {
+    padding: 2%;
+    color: #fff;
+    background: #3498db;
+    margin-bottom: 3rem;
+    width: 88.999%;
+    @media only screen and (max-width: 600px) {
+     width: 100%;
+    }
+    p {
+      span {
+        color: #fcfcfc;
+        padding: 0.6rem;
+        font-weight: 800;
+      }
+      .link {
+        color: rgb(99, 212, 99);
+        cursor: pointer;
+      }
+      .copy {
+        &:hover {
+          color: #00ff6a;
+          font-weight: 900;
+          cursor: pointer;
+          transition: 0.5sec;
+        }
+      }
+    }
+    .close {
+      text-align: right;
+      a {
+        color: rgb(245, 190, 88);
+        cursor: pointer;
+        font-weight: 900;
+      }
+    }
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+
+    @media only screen and (max-width: 600px) {
+      grid-template-columns: 100%;
+    }
+
+    .card {
+      grid-template-columns: 100%;
+      padding: 1%;
+
+      .name {
+        h4 {
+          font-size: 1rem;
+          font-weight: normal;
+        }
+      }
+      .value {
+        h4 {
+          font-size: 1rem;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
