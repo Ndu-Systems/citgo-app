@@ -3,8 +3,10 @@ import { Observable } from 'rxjs';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ActivatedRoute } from '@angular/router';
 import { WithdrawalService } from 'src/app/services/dashboard/withdrawal/withdrawal.service';
-import { STATUS_WITHDRAWAL_PENDING, STATUS_WITHDRAWAL_APPROVED,
-   STATUS_WITHDRAWAL_DECLINED, STATUS_WITHDRAWAL_PAID } from 'src/app/shared/config';
+import {
+  STATUS_WITHDRAWAL_PENDING, STATUS_WITHDRAWAL_APPROVED,
+  STATUS_WITHDRAWAL_DECLINED, STATUS_WITHDRAWAL_PAID
+} from 'src/app/shared/config';
 import { Withdrawal } from 'src/app/models/withdrawal.model';
 
 @Component({
@@ -17,6 +19,7 @@ export class WithDrawalsComponent implements OnInit {
   withdrawals$: Observable<any[]>;
   statusId: any;
   search: string;
+  status = '';
   constructor(
     private withdrawalService: WithdrawalService,
     private activatedRoute: ActivatedRoute,
@@ -25,7 +28,8 @@ export class WithDrawalsComponent implements OnInit {
   ) {
     this.activatedRoute.params.subscribe(r => {
       this.statusId = r['id'];
-      this.withdrawals$ = this.withdrawalService.gettWithdrawalByStatus(this.statusId || STATUS_WITHDRAWAL_PENDING);
+      this.status += this.statusId + '_' + STATUS_WITHDRAWAL_APPROVED;
+        this.withdrawals$ = this.withdrawalService.gettWithdrawalByStatus(this.status);
     });
   }
 
@@ -39,7 +43,7 @@ export class WithDrawalsComponent implements OnInit {
         data.ModifyUserId = 'Admin';
         this.withdrawalService.update(data).subscribe(r => {
           console.log(r);
-          this.withdrawals$ = this.withdrawalService.gettWithdrawalByStatus(this.statusId || STATUS_WITHDRAWAL_PENDING);
+          this.withdrawals$ = this.withdrawalService.gettWithdrawalByStatus(this.status);
           this.messageService.add({
             life: 7000,
             severity: 'success',
@@ -59,7 +63,8 @@ export class WithDrawalsComponent implements OnInit {
         data.ModifyUserId = 'Admin';
         this.withdrawalService.update(data).subscribe(r => {
           console.log(r);
-          this.withdrawals$ = this.withdrawalService.gettWithdrawalByStatus(this.statusId || STATUS_WITHDRAWAL_PENDING);
+          this.withdrawals$ = this.withdrawalService.gettWithdrawalByStatus(this.status);
+          // this.withdrawals$ = this.withdrawalService.gettWithdrawalByStatus(this.status);
           this.messageService.add({
             life: 7000,
             severity: 'warn',
@@ -71,6 +76,7 @@ export class WithDrawalsComponent implements OnInit {
     });
   }
 
+
   Pay(data: Withdrawal) {
     this.confirmationService.confirm({
       message: `This confirms that you have made the payment to this client, continue?`,
@@ -79,7 +85,7 @@ export class WithDrawalsComponent implements OnInit {
         data.ModifyUserId = 'Admin';
         this.withdrawalService.update(data).subscribe(r => {
           console.log(r);
-          this.withdrawals$ = this.withdrawalService.gettWithdrawalByStatus(this.statusId || STATUS_WITHDRAWAL_PENDING);
+          this.withdrawals$ = this.withdrawalService.gettWithdrawalByStatus(this.status);
           this.messageService.add({
             life: 7000,
             severity: 'success',
@@ -90,4 +96,9 @@ export class WithDrawalsComponent implements OnInit {
       }
     });
   }
+  onChange(deviceValue) {
+    console.log(deviceValue);
+    this.withdrawals$ = this.withdrawalService.gettWithdrawalByStatus(deviceValue);
+
+}
 }

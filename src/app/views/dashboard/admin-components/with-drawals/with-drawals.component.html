@@ -1,53 +1,73 @@
 <div class="main">
-    <div class="search">
-      <label>Search</label> <br>
-      <input type="text" class="input-field" [(ngModel)]="search" name="" id="">
-    </div>
-    <div class="withdrawals" *ngIf="withdrawals$|async as withdrawals; else nodata">
-      <div class="share" *ngFor="let share  of withdrawals | search_share:search">
-  
-        <div class="detail">
-          <h1>
-            {{share.Amount | currency:'R'}} <br> 
-            <span>
-                {{share.CreateDate | date:'M/d/yy'}}
-            </span>
-          </h1>
-        </div>
-  
-      
-  
-  
-        <div class="detail">
-          <h1>
-            {{share.FirstName}}
-            <span>
-              Client Name
-            </span>
-          </h1>
-        </div>
- 
-      
-        <div class="more" *ngIf="share.StatusId=='2'">
-          <button (click)="Approve(share)">Approve</button>
-        </div>
-        <div class="more" *ngIf="share.StatusId=='2'">
-          <button class="error" (click)="Decline(share)">Decline</button>
-        </div>
 
-        <div class="more" *ngIf="share.StatusId=='3'">
-            <button class="pay" (click)="Pay(share)">Pay</button>
-        </div>
-  
-  
-      </div>
-  
-    </div>
-  
-    <ng-template #nodata>
-      <h1>
-        No data
-      </h1>
-    </ng-template>
+  <div class="search">
+    <label>Select Status</label> <br>
+    <select class="input-field" (change)="onChange($event.target.value)">
+      <option value="2_3">To Action</option>
+      <option value="2_0">Pending Confirmation</option>
+      <option value="3_0">Pending Payment</option>
+      <option value="4_0">Paid out</option>
+      <option value="5_0">Declined</option>
+    </select>
   </div>
-  <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>  
+  <div class="withdrawals" *ngIf="withdrawals$|async as withdrawals; else nodata">
+    <div class="share" *ngFor="let share  of withdrawals | search_share:search">
+
+      <div class="detail">
+        <h1>
+          {{share.Amount | currency:'R'}} <br>
+          <span>
+            {{share.CreateDate | date:'M/d/yy'}}
+          </span>
+        </h1>
+      </div>
+
+
+
+
+      <div class="detail">
+        <h1>
+          {{share.FirstName}}
+          <span>
+            Client Name
+          </span>
+        </h1>
+      </div>
+
+
+      <div class="more" *ngIf="share.StatusId=='2'">
+        <button (click)="Approve(share)">Approve</button>
+      </div>
+      <div class="more" *ngIf="share.StatusId=='2'">
+        <button class="error" (click)="Decline(share)">Decline</button>
+      </div>
+
+      <div class="more" *ngIf="share.StatusId=='3'">
+        <button class="pay" (click)="Pay(share)">Pay</button>
+      </div>
+
+      <div class="detail" *ngIf="share.StatusId=='4'">
+        <h1 class="success">
+            {{share.ModifyDate}} 
+          <span> Pay out date</span>
+        </h1>
+      </div>
+      <div class="detail" *ngIf="share.StatusId=='5'">
+        <h1 class="warning">
+          {{share.ModifyDate}}
+          <span>Declined date</span>
+        </h1>
+      </div>
+     
+
+    </div>
+
+  </div>
+
+  <ng-template #nodata>
+    <h1>
+      No data
+    </h1>
+  </ng-template>
+</div>
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
