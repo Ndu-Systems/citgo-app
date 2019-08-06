@@ -28,11 +28,15 @@
         </div>
  
       
-        <div class="more" *ngIf="statusId=='2'">
+        <div class="more" *ngIf="share.StatusId=='2'">
           <button (click)="Approve(share)">Approve</button>
         </div>
-        <div class="more" *ngIf="statusId=='2'">
-          <button class="error" (click)="Approve(share)">Decline</button>
+        <div class="more" *ngIf="share.StatusId=='2'">
+          <button class="error" (click)="Decline(share)">Decline</button>
+        </div>
+
+        <div class="more" *ngIf="share.StatusId=='3'">
+            <button class="pay" (click)="Pay(share)">Pay</button>
         </div>
   
   
@@ -46,4 +50,4 @@
       </h1>
     </ng-template>
   </div>
-  
+  <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>  

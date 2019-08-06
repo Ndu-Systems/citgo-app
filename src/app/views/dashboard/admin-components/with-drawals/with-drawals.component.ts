@@ -1,14 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { SHARE_PENDING_VERFICATION, SHARE_ACTIVE, BONUS_PERCENT } from 'src/app/shared/config';
 import { Observable } from 'rxjs';
-import { Investment, Client } from 'src/app/models';
-import { InvestmentService, CleintService } from 'src/app/services';
-import { BonusService } from 'src/app/services/dashboard/bonus.service';
-import { MessageService } from 'primeng/api';
-import { SpinnerProcessService } from 'src/app/services/app-state/spinner-process.service';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { ActivatedRoute } from '@angular/router';
-import { Bonus } from 'src/app/models/bonus.model';
 import { WithdrawalService } from 'src/app/services/dashboard/withdrawal/withdrawal.service';
+import { STATUS_WITHDRAWAL_PENDING, STATUS_WITHDRAWAL_APPROVED,
+   STATUS_WITHDRAWAL_DECLINED, STATUS_WITHDRAWAL_PAID } from 'src/app/shared/config';
+import { Withdrawal } from 'src/app/models/withdrawal.model';
 
 @Component({
   selector: 'app-with-drawals',
@@ -16,78 +13,81 @@ import { WithdrawalService } from 'src/app/services/dashboard/withdrawal/withdra
   styleUrls: ['./with-drawals.component.scss']
 })
 export class WithDrawalsComponent implements OnInit {
-
+  STATUS_WITHDRAWAL_DECLINED = STATUS_WITHDRAWAL_DECLINED;
   withdrawals$: Observable<any[]>;
   statusId: any;
-  search:string;
+  search: string;
   constructor(
     private withdrawalService: WithdrawalService,
-    private bonusService: BonusService,
-    private messageService: MessageService,
-    private cleintService: CleintService,
-    private spinnerProcessService: SpinnerProcessService,
     private activatedRoute: ActivatedRoute,
+    private confirmationService: ConfirmationService,
+    private messageService: MessageService,
   ) {
     this.activatedRoute.params.subscribe(r => {
       this.statusId = r['id'];
-      this.withdrawals$ =  this.withdrawalService.gettWithdrawalByStatus(this.statusId || 2)
+      this.withdrawals$ = this.withdrawalService.gettWithdrawalByStatus(this.statusId || STATUS_WITHDRAWAL_PENDING);
     });
   }
 
-  ngOnInit() {}
-  // Approve(data: Investment) {
-  //   data.StatusId = SHARE_ACTIVE;
-  //   this.spinnerProcessService.showSpinner();
-  //   this.withdrawalService.update(data).subscribe(res => {
-  //     let updatedInvestment: Investment = res;
-  //     if (updatedInvestment.StatusId == SHARE_ACTIVE) {
-  //       this.messageService.add({
-  //         life: 7000,
-  //         severity: 'success',
-  //         summary: 'Now active! ',
-  //         detail: 'Share approved!'
-  //       });
+  ngOnInit() { }
 
-  //       //update list 
-  //       this.spinnerProcessService.closeSpinner();
+  Approve(data: Withdrawal) {
+    this.confirmationService.confirm({
+      message: `You are about to confirm this withdrawal, continue?`,
+      accept: () => {
+        data.StatusId = STATUS_WITHDRAWAL_APPROVED;
+        data.ModifyUserId = 'Admin';
+        this.withdrawalService.update(data).subscribe(r => {
+          console.log(r);
+          this.withdrawals$ = this.withdrawalService.gettWithdrawalByStatus(this.statusId || STATUS_WITHDRAWAL_PENDING);
+          this.messageService.add({
+            life: 7000,
+            severity: 'success',
+            summary: 'Next is payout! ',
+            detail: 'Withdrawal approved!'
+          });
+        });
+      }
+    });
+  }
 
-  //       //check if client have a parent
-  //       this.cleintService
-  //         .getClientById(updatedInvestment.ClientId)
-  //         .subscribe(clientRes => {
-  //           let client: Client = clientRes;
-  //           if (client.ClientId && client.ParentId) {
+  Decline(data: Withdrawal) {
+    this.confirmationService.confirm({
+      message: `You are about to decline this withdrawal, continue?`,
+      accept: () => {
+        data.StatusId = STATUS_WITHDRAWAL_DECLINED;
+        data.ModifyUserId = 'Admin';
+        this.withdrawalService.update(data).subscribe(r => {
+          console.log(r);
+          this.withdrawals$ = this.withdrawalService.gettWithdrawalByStatus(this.statusId || STATUS_WITHDRAWAL_PENDING);
+          this.messageService.add({
+            life: 7000,
+            severity: 'warn',
+            summary: 'Opps! ',
+            detail: 'Withdrawal declined!'
+          });
+        });
+      }
+    });
+  }
 
-  //             //update the current list
-
-  //             let bonus: Bonus = {
-  //               Amount: updatedInvestment.Amount * BONUS_PERCENT,
-  //               ClientId: client.ParentId,
-  //               ParentId: updatedInvestment.ClientId,
-  //               CreateUserId: 'SYS',
-  //               ModifyUserId: 'SYS',
-  //               StatusId: 1
-  //             };
-
-  //             // grant a bonus
-  //             this.bonusService.addBonus(bonus).subscribe(cli => {
-  //               let bunusReceiver: Client = cli;
-  //               this.messageService.add({
-  //                 life: 7000,
-  //                 severity: 'success',
-  //                 summary: 'Now active! ',
-  //                 detail: `Referral bonus of R ${updatedInvestment.Amount *
-  //                   BONUS_PERCENT}  granted to ${bunusReceiver.FirstName} ${
-  //                   bunusReceiver.Surname
-  //                 }`
-  //               });
-  //             });
-  //           }
-  //         });
-  //     }
-  //   });
-  // }
-  Approve(){
-    alert('todo')
+  Pay(data: Withdrawal) {
+    this.confirmationService.confirm({
+      message: `This confirms that you have made the payment to this client, continue?`,
+      accept: () => {
+        data.StatusId = STATUS_WITHDRAWAL_PAID;
+        data.ModifyUserId = 'Admin';
+        this.withdrawalService.update(data).subscribe(r => {
+          console.log(r);
+          this.withdrawals$ = this.withdrawalService.gettWithdrawalByStatus(this.statusId || STATUS_WITHDRAWAL_PENDING);
+          this.messageService.add({
+            life: 7000,
+            severity: 'success',
+            summary: 'Well done! ',
+            detail: 'Withdrawal paid!'
+          });
+        });
+      }
+    });
   }
 }

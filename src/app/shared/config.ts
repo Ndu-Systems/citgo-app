@@ -17,6 +17,12 @@ export const ADMIN_USER_ROLE = 1;
 export const CLIENT_USER_ROLE = 2;
 export const STATUS_USER_NEW = 4;
 
+export const STATUS_WITHDRAWAL_ACTIVE = 1;
+export const STATUS_WITHDRAWAL_PENDING = 2;
+export const STATUS_WITHDRAWAL_APPROVED = 3;
+export const STATUS_WITHDRAWAL_PAID = 4;
+export const STATUS_WITHDRAWAL_DECLINED = 5;
+
 
 export const  STATUS_USER_ACTIVE = 3;
 export const DEFAULT_PASSWORD = 'pass@123!';

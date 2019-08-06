@@ -1,4 +1,12 @@
 <div class="cards withdraw-holder">
+    <div class="card withdrawal-notification" *ngIf="client$|async as client">
+        <h1>
+          <span class="label">
+             {{withdrawalUpdate}}
+          </span>
+
+        </h1>
+      </div>
   <div class="card withdraw">
     <h1>
       My Wallet
@@ -23,21 +31,6 @@
     <div class="action">
       <button (click)="withdraw()" [disabled]="!withDisabled">Withdraw</button>
     </div>
-
-
-    <!-- <div class="card detals bonus">
-      <div>
-        <h4>
-          All profit earned
-        </h4>
-      </div>
-      <div class="value">
-        <h4>
-          {{totalProfit  | currency:'R'}}
-
-        </h4>
-      </div>
-    </div> -->
     <div class="card detals bonus">
       <div>
         <h4>

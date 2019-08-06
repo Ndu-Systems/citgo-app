@@ -121,6 +121,17 @@
   }
 
 }
+.withdrawal-notification{
+  background:#3498db;
+  grid-template-columns: 100%;
+  padding: .7rem;
+  h1 {
+    span{
+      color: #fff;
+      text-transform: none;
+    }
+  }
+}
 .client-ref{
   display: none;
   @media only screen and (max-width: 600px) {
