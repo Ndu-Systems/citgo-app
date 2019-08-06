@@ -1,15 +1,13 @@
-import { Clientwithdrawals } from './../../../models/client.withdrawals.model';
 import { WithdrawalService } from './../../../services/dashboard/withdrawal/withdrawal.service';
-import { Bonus } from './../../../models/bonus.model';
 import { BonusService } from './../../../services/dashboard/bonus.service';
 import { Withdrawal, withdrawalInit } from './../../../models/withdrawal.model';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Investment } from 'src/app/models';
 import { AuthenticateService, InvestmentService } from 'src/app/services';
-import { MessageService, ConfirmationService } from 'primeng/api';
+import {ConfirmationService } from 'primeng/api';
 import { Router, ActivatedRoute } from '@angular/router';
-import { SHARE_PENDING, WITHDRAWABLE } from 'src/app/shared/config';
+import {WITHDRAWABLE } from 'src/app/shared/config';
 import { User } from 'src/app/models/user';
 @Component({
   selector: 'app-do-withdrawal',
@@ -36,7 +34,6 @@ export class DoWithdrawalComponent implements OnInit {
 
   maturityDate: Date;
   bonuses: any = [];
-  clientwithdrawals: any;
   isDone: boolean;
   constructor(
     private fb: FormBuilder,
@@ -61,12 +58,6 @@ export class DoWithdrawalComponent implements OnInit {
     // get bonuses
     this.bonusService.getClientBonuses(this.cleintId).subscribe(r => {
       this.bonuses = r;
-    });
-
-
-    // get client withdrawals
-    this.withdrawalService.getClientWithdrawal(this.cleintId).subscribe(r => {
-      this.clientwithdrawals = r;
     });
   }
 

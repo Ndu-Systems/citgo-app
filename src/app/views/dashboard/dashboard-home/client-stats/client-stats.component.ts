@@ -6,6 +6,7 @@ import { InvestmentService, CleintService } from 'src/app/services';
 import { Investment } from 'src/app/models';
 import { WITHDRAWABLE } from 'src/app/shared/config';
 import { Wallet } from 'src/app/models/wallet.model';
+import { WithdrawalService } from 'src/app/services/dashboard/withdrawal/withdrawal.service';
 
 
 export interface Detail {
@@ -33,11 +34,13 @@ export class ClientStatsComponent implements OnInit {
   client$;
   client: any;
   withDisabled: boolean;
+  clientwithdrawals: any;
   constructor(
     private router: Router,
     private investmentService: InvestmentService,
     private authenticateService: AuthenticateService,
     private cleintService: CleintService,
+    private withdrawalService: WithdrawalService,
   ) { }
 
   ngOnInit() {
@@ -75,27 +78,13 @@ export class ClientStatsComponent implements OnInit {
 
 
     });
-    // get cleint shares
-    // this.investmentService
-    //   .getInvestmentsByClientId(this.cleintId)
-    //   .subscribe(response => {
-    //     if (response.investments) {
-    //       this.investments = response.investments;
 
-    //       // get details
-    //       this.investments.filter(x => x.Status === 'ACTIVE').forEach(val => {
-    //         const detail: Detail = {
-    //           key: val.Name,
-    //           value: Number(val.Growth - val.Amount),
-    //           days: Number(val.DaysNow),
-    //           available: Number(val.DaysNow) >= 30 ? Number(val.Growth - val.Amount) : 0
-    //         };
-    //         console.log(detail);
-
-    //         this.details.push(detail);
-    //       });
-    //     }
-    //   });
+    // get withdrawal
+    this.withdrawalService.getClientWithdrawal(this.cleintId).subscribe(r => {
+      this.clientwithdrawals = r;
+      console.log(r);
+      
+    });
   }
   AddRef() {
     this.router.navigate(['dashboard/my-refferals', this.cleintId]);

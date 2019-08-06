@@ -45,6 +45,4 @@ export class WithdrawalService {
       `${this.url}/api/withdrawal/get-withdrawal-by-client-id.php?ClientId=${ClientId}`
     );
   }
- 
-
 }
