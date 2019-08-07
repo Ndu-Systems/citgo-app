@@ -68,7 +68,7 @@ export class DoWithdrawalComponent implements OnInit {
         this.withdrawal.Amount,
         Validators.compose([
           Validators.required,
-          Validators.min(1000),
+          Validators.min(750),
           Validators.max(Number(this.funds) || 0)
         ])
       ],

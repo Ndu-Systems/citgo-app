@@ -12,7 +12,7 @@
             <input type="number" class="input-field" formControlName="Amount" />
   
             <div class="explain">
-              <p class="explainContract">Minimum withdrawal:  R1000.00</p>
+              <p class="explainContract">Minimum withdrawal:  R750.00</p>
               <p class="explainContract">Maximum withdrawal: {{funds | currency: "R" }}</p>
             </div>
             <div class="alert" *ngIf="!rForm.controls['Amount'].valid && rForm.controls['Amount'].touched">

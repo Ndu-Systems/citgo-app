@@ -1,4 +1,4 @@
-export const IS_LOCAL = true;
+export const IS_LOCAL = false;
 let api = 'https://citgoafrica.com/api';
 let web = 'https://citgoafrica.com/';
 if (IS_LOCAL) {
@@ -22,6 +22,7 @@ export const STATUS_WITHDRAWAL_PENDING = 2;
 export const STATUS_WITHDRAWAL_APPROVED = 3;
 export const STATUS_WITHDRAWAL_PAID = 4;
 export const STATUS_WITHDRAWAL_DECLINED = 5;
+export const CAN_WITHDRAW = 'CAN_WITHDRAW';
 
 
 export const  STATUS_USER_ACTIVE = 3;

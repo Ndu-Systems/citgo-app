@@ -4,10 +4,14 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
 import { InvestmentService, CleintService } from 'src/app/services';
 import { Investment } from 'src/app/models';
-import { WITHDRAWABLE, STATUS_WITHDRAWAL_PENDING } from 'src/app/shared/config';
+import {
+  WITHDRAWABLE, STATUS_WITHDRAWAL_PENDING, STATUS_WITHDRAWAL_APPROVED,
+  STATUS_WITHDRAWAL_PAID, STATUS_WITHDRAWAL_ACTIVE
+} from 'src/app/shared/config';
 import { Wallet } from 'src/app/models/wallet.model';
 import { WithdrawalService } from 'src/app/services/dashboard/withdrawal/withdrawal.service';
 import { Withdrawal } from 'src/app/models/withdrawal.model';
+import { MessageService, ConfirmationService } from 'primeng/api';
 
 
 export interface Detail {
@@ -37,12 +41,16 @@ export class ClientStatsComponent implements OnInit {
   withDisabled: boolean;
   clientwithdrawals: Withdrawal[];
   withdrawalUpdate: string;
+  withdrawId: string;
+  minimumWithdrawal = 750;
   constructor(
     private router: Router,
     private investmentService: InvestmentService,
     private authenticateService: AuthenticateService,
     private cleintService: CleintService,
     private withdrawalService: WithdrawalService,
+    private messageService: MessageService,
+    private confirmationService: ConfirmationService,
   ) { }
 
   ngOnInit() {
@@ -59,8 +67,12 @@ export class ClientStatsComponent implements OnInit {
       this.totalBonuses = bonuses;
       this.totalProfit = profit;
       this.withdrawn = withdrawals;
-      if (this.availableFunds >= 1000) {
+      if (this.availableFunds >= this.minimumWithdrawal) {
         this.withDisabled = true;
+        if (!this.isDateGoodForMe()) {
+          this.withDisabled = false;
+          this.withdrawalUpdate = `Please note!  All Withdrawals must be done between the 20th to 28th of every month`;
+        }
       }
       this.availableBonus = bonuses;
       this.availableProfit = profit;
@@ -90,15 +102,43 @@ export class ClientStatsComponent implements OnInit {
 
         // check pending
         const pendings = this.clientwithdrawals.filter(x => Number(x.StatusId) === Number(STATUS_WITHDRAWAL_PENDING));
-        const amount = pendings.reduce((sum, item) => sum + Number(item.Amount), 0);
-        ;
+        let amount = pendings.reduce((sum, item) => sum + Number(item.Amount), 0);
         if (pendings.length) {
-          this.withdrawalUpdate = ` We have received your withdrawal of R${amount}, your
-          withdrawal request will be processed within four working days`;
+          this.withDisabled = false;
+          this.withdrawalUpdate = `
+          We have received your withdrawal of R${amount}, withdrawals are processed within 5 business days after
+           the 1st of every month. There may be a delay if we are unable to verify your information.
+          `;
+        }
+
+        // check aprroved
+        const aproved = this.clientwithdrawals.filter(x => Number(x.StatusId) === Number(STATUS_WITHDRAWAL_APPROVED));
+        amount = aproved.reduce((sum, item) => sum + Number(item.Amount), 0);
+        if (aproved.length) {
+          this.withDisabled = false;
+          this.withdrawalUpdate = `
+          Congratulations! your withdrawal of R${amount} has been processed and you have been approved!.
+          `;
+        }
+
+        // check paid
+        const paid = this.clientwithdrawals.filter(x => Number(x.StatusId) === Number(STATUS_WITHDRAWAL_PAID));
+        amount = paid.reduce((sum, item) => sum + Number(item.Amount), 0);
+        if (paid.length) {
+          this.withDisabled = false;
+          this.withdrawId = paid[0].WithdrawalId;
+          this.withdrawalUpdate = `
+            Great news! We can confirm R${amount} has just left Citgo and is winging its way to your bank account.`;
         }
       }
       console.log(r);
     });
+  }
+  isDateGoodForMe() {
+    const date = new Date();
+    // return date.getDate() >= 20 && date.getDate() <= 28;
+    return true;
+
   }
   AddRef() {
     this.router.navigate(['dashboard/my-refferals', this.cleintId]);
@@ -111,7 +151,29 @@ export class ClientStatsComponent implements OnInit {
     // this.buySharesProcessService.showBuyShares();
     this.router.navigate(['dashboard/buy-share', this.cleintId]);
   }
-  getArraySum() {
+  confirmMoney() {
+    this.confirmationService.confirm({
+      message: `This confirms that you have received your withdrawl  payment, continue?`,
+      accept: () => {
+        const data = this.clientwithdrawals.filter(x => x.WithdrawalId === this.withdrawId)[0];
+        data.StatusId = STATUS_WITHDRAWAL_ACTIVE;
+        data.ModifyUserId = this.cleintId;
+        this.withdrawalService.update(data).subscribe(r => {
+          console.log(r);
+          this.messageService.add({
+            life: 7000,
+            severity: 'success',
+            summary: 'Well done! ',
+            detail: 'Withdrawal paid!'
+          });
+          this.withDisabled = true;
+          this.withdrawalUpdate = undefined;
 
+          if (this.availableFunds >= this.minimumWithdrawal) {
+            this.withDisabled = true;
+          }
+        });
+      }
+    });
   }
 }

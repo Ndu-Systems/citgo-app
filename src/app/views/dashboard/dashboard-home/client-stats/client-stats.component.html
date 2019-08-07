@@ -1,11 +1,14 @@
 <div class="cards withdraw-holder">
-    <div class="card withdrawal-notification" *ngIf="client$|async as client">
+    <div class="card withdrawal-notification" *ngIf="withdrawalUpdate">
         <h1>
           <span class="label">
              {{withdrawalUpdate}}
           </span>
 
         </h1>
+        <div class="action" *ngIf="withdrawId">
+            <button (click)="confirmMoney()">I RECEIVED THE FUNDS</button>
+          </div>
       </div>
   <div class="card withdraw">
     <h1>
