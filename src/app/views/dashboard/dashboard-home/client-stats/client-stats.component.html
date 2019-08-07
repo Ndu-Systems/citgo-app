@@ -34,6 +34,27 @@
     <div class="action">
       <button (click)="withdraw()" [disabled]="!withDisabled">Withdraw</button>
     </div>
+    <h1 *ngIf="clientwithdrawals.length">My withdrawals</h1>
+    <div class="card detals bonus" *ngFor="let item of clientwithdrawals">
+      <div>
+        <h4>
+         Date: <span class="value"><b>{{item.CreateDate | date:'M/d/yy'}}</b></span>  <br>     
+        Status: 
+        <span class="value" *ngIf="item.StatusId == '1'"><b>ACTIVE</b></span> 
+        <span class="value" *ngIf="item.StatusId == '2'"><b>PENDING</b></span> 
+        <span class="value" *ngIf="item.StatusId == '3'"><b>APPROVED</b></span> 
+        <span class="value" *ngIf="item.StatusId == '4'"><b>PAID</b></span> 
+        <span class="value" *ngIf="item.StatusId == '5'"><b>DECLINED</b></span> 
+        </h4>
+      </div>
+      <div class="value">
+        <h4>
+          {{item.Amount  | currency:'R'}}
+
+        </h4>
+      </div>
+    </div>
+    <hr>
     <div class="card detals bonus">
       <div>
         <h4>

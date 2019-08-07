@@ -1,73 +1,80 @@
 <div class="main">
-    <h1 class="heading">
-        Withdraw
-    </h1>
-  
-    <div class="body">
-      <form [formGroup]="rForm" (ngSubmit)="withdraw(rForm.value)" class="box form-group dashboard-forms">
-  
-        <div class="col-1-of-1">
-          <div class="controls">
-            <label for="">Withdrawal amount <span class="currency"> (ZAR)</span></label> <br />
-            <input type="number" class="input-field" formControlName="Amount" />
-  
-            <div class="explain">
-              <p class="explainContract">Minimum withdrawal:  R750.00</p>
-              <p class="explainContract">Maximum withdrawal: {{funds | currency: "R" }}</p>
-            </div>
-            <div class="alert" *ngIf="!rForm.controls['Amount'].valid && rForm.controls['Amount'].touched">
-                Share amount must be between R100 and  {{funds | currency: "R" }}.
-            </div>
+  <h1 class="heading">
+    Withdraw
+  </h1>
+
+  <div class="body">
+    <form [formGroup]="rForm" (ngSubmit)="withdraw(rForm.value)" class="box form-group dashboard-forms">
+
+      <div class="col-1-of-1">
+        <div class="controls">
+          <label for="">Withdrawal amount <span class="currency"> (ZAR)</span></label> <br />
+          <input type="number" class="input-field" formControlName="Amount" />
+
+          <div class="explain">
+            <p class="explainContract">Minimum withdrawal: R750.00</p>
+            <p class="explainContract">Maximum withdrawal: {{funds | currency: "R" }}</p>
           </div>
-         
-          <div class="controls">
-            <!-- <label for="">Period type</label> <br /> -->
-            <hr>
-         
-  
-            <div class="explain ">
-                <p class="explainContract normal"> 1.  All withdrawals must be done between 4th and 28th of every month
-            </div>
-  
-            <div class="explain ">
-                <p class="explainContract normal"> 2.  All payments will be released on the 29th - 3rd of every month.
-            </div>
-           
-        
-            
-          </div>
-          <div class="controls button-container">
-            <input type="submit" value="Withdraw" class="button" [disabled]="!rForm.valid" />
-          </div>
-          <div class="controls">
-            <h1>
-              <span class="error">
-                {{error}}
-              </span>
-            </h1>
+          <div class="alert" *ngIf="!rForm.controls['Amount'].valid && rForm.controls['Amount'].touched">
+            Share amount must be between R100 and {{funds | currency: "R" }}.
           </div>
         </div>
-      
-         </form>
-    </div>
-  
-  </div>
-  
-  
-  <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>  
+
+        <div class="controls">
+          <!-- <label for="">Period type</label> <br /> -->
+          <hr>
+
+          <div class="explain ">
+            <p class="explainContract normal"> 1. All Withdrawals must be done between the 20th to 28th of every month
+            </p>
+          </div>
+
+          <div class="explain ">
+            <p class="explainContract normal"> 2. CITGO AFRICA OIL reserves the sole right to pay any withdrawal request
+              from any CITGO AFRICA OIL bank account, as it deems fit.</p>
+          </div>
+
+          <div class="explain ">
+            <p class="explainContract normal"> 3. CITGO AFRICA OIL does not take responsibility for any incorrect
+              payment instructions provided by the client in the withdrawal form. Please ensure that you enter the
+              correct account details in the form.</p>
+          </div>
 
 
-  <div class="awaiting" *ngIf="isDone">
-    <div class="image">
-      <img src="assets/images/dashboard/hourglass-half-solid.svg" alt="">
-    </div>
-    <div>
-      <h1>Withdrawal request submitted</h1>
-      <p>
-        We have received your withdrawal request we will let you know as soon as we processed it thank you.
-      </p>
-      <div class="btns">
-        <button (click)="done()">DONE</button>
+
+        </div>
+        <div class="controls button-container">
+          <input type="submit" value="Withdraw" class="button" [disabled]="!rForm.valid" />
+        </div>
+        <div class="controls">
+          <h1>
+            <span class="error">
+              {{error}}
+            </span>
+          </h1>
+        </div>
       </div>
+
+    </form>
+  </div>
+
+</div>
+
+
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+
+
+<div class="awaiting" *ngIf="isDone">
+  <div class="image">
+    <img src="assets/images/dashboard/hourglass-half-solid.svg" alt="">
+  </div>
+  <div>
+    <h1>Withdrawal request submitted</h1>
+    <p>
+      We have received your withdrawal request we will let you know as soon as we processed it thank you.
+    </p>
+    <div class="btns">
+      <button (click)="done()">DONE</button>
     </div>
   </div>
+</div>
