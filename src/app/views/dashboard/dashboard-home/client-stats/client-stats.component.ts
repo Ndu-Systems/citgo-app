@@ -43,6 +43,8 @@ export class ClientStatsComponent implements OnInit {
   withdrawalUpdate: string;
   withdrawId: string;
   minimumWithdrawal = 750;
+
+  pendingNoticeStop;
   constructor(
     private router: Router,
     private investmentService: InvestmentService,
@@ -106,9 +108,11 @@ export class ClientStatsComponent implements OnInit {
         if (pendings.length) {
           this.withDisabled = false;
           this.withdrawalUpdate = `
-          We have received your withdrawal of R${amount}, withdrawals are processed within 5 business days after
-           the 1st of every month. There may be a delay if we are unable to verify your information.
+          We have received your withdrawal of R${amount}, withdrawals are processed within 5 business days
+           after the 1st of each and every month. There may be a delay if we are unable to verify your information.
           `;
+
+          this.pendingNoticeStop = `You can not place a withdrawal while you still have pending withdrawal`;
         }
 
         // check aprroved
@@ -117,8 +121,13 @@ export class ClientStatsComponent implements OnInit {
         if (aproved.length) {
           this.withDisabled = false;
           this.withdrawalUpdate = `
-          Congratulations! your withdrawal of R${amount} has been processed and you have been approved!.
+          Congratulations! your withdrawal  of  R${amount} has been approved!.
+          Your funds shall be processed and paid out
+          to your registered account within 5  business days..
           `;
+
+          this.pendingNoticeStop = `You can not place a withdrawal while you still have pending withdrawal`;
+
         }
 
         // check paid
@@ -128,7 +137,10 @@ export class ClientStatsComponent implements OnInit {
           this.withDisabled = false;
           this.withdrawId = paid[0].WithdrawalId;
           this.withdrawalUpdate = `
-            Great news! We can confirm R${amount} has just left Citgo and is winging its way to your bank account.`;
+            Great news! We can confirm R${amount} has just left Citgo Africa Oil and is winging its way to your bank account.`;
+
+            this.pendingNoticeStop = `You can not place a withdrawal while you still have pending withdrawal`;
+
         }
       }
       console.log(r);
@@ -136,8 +148,8 @@ export class ClientStatsComponent implements OnInit {
   }
   isDateGoodForMe() {
     const date = new Date();
-    // return date.getDate() >= 20 && date.getDate() <= 28;
-    return true;
+   return date.getDate() >= 20 && date.getDate() <= 28;
+  // return true;
 
   }
   AddRef() {
@@ -171,6 +183,7 @@ export class ClientStatsComponent implements OnInit {
 
           if (this.availableFunds >= this.minimumWithdrawal) {
             this.withDisabled = true;
+            this.pendingNoticeStop = undefined;
           }
         });
       }

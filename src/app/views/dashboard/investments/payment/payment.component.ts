@@ -1,23 +1,23 @@
 import { REF } from './../../../../shared/config';
-import { Investment } from "src/app/models";
-import { InvestmentService } from "src/app/services";
-import { Router, ActivatedRoute } from "@angular/router";
-import { Component, OnInit } from "@angular/core";
+import { Investment } from 'src/app/models';
+import { InvestmentService } from 'src/app/services';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: "app-payment",
-  templateUrl: "./payment.component.html",
-  styleUrls: ["./payment.component.scss"]
+  selector: 'app-payment',
+  templateUrl: './payment.component.html',
+  styleUrls: ['./payment.component.scss']
 })
 export class PaymentComponent implements OnInit {
   isDone = false;
   investmentId: string;
   amount: number;
   isFnb = true;
-  isStandardBank = false;
+  isStandardBank: boolean;
   investment: Investment;
   bankId: number = 1;
-  ref= localStorage.getItem(REF)
+  ref = localStorage.getItem(REF)
   isNedbank: boolean;
   constructor(
     private router: Router,
@@ -25,7 +25,7 @@ export class PaymentComponent implements OnInit {
     private activatedRoute: ActivatedRoute
   ) {
     this.activatedRoute.params.subscribe(r => {
-      this.investmentId = r["id"];
+      this.investmentId = r['id'];
       this.investmentService
         .getInvestmentsById(this.investmentId)
         .subscribe(r => {
@@ -35,7 +35,7 @@ export class PaymentComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
   next() {
     this.isDone = true;
     this.investment.bankId = this.bankId;
@@ -45,20 +45,19 @@ export class PaymentComponent implements OnInit {
   }
   done() {
     this.isDone = false;
-    this.router.navigate(["dashboard"]);
+    this.router.navigate(['dashboard']);
   }
-  selectBank(bankName: string, id: number) {
+  selectBank(id: number) {
     this.bankId = id;
-    if (id == 1) {
+    if (id === 1) {
       this.isFnb = true;
       this.isStandardBank = false;
       this.isNedbank = false;
-    } else if (id == 2) {
+    } else if (id === 2) {
       this.isFnb = false;
+      this.isNedbank = false;
       this.isStandardBank = true;
-      this.isNedbank = true;
-    }
-    else if (id == 3) {
+    } else if (id === 3) {
       this.isFnb = false;
       this.isStandardBank = false;
       this.isNedbank = true;

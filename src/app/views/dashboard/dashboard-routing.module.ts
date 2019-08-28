@@ -21,7 +21,8 @@ import { AuthGuard } from 'src/app/guards/auth.guard';
 import {
   CLIENT_USER_ROLE,
   ADMIN_USER_ROLE,
-  UPDATE_CONTACT_INFO
+  UPDATE_CONTACT_INFO,
+  RESET_PASSWORD
 } from 'src/app/shared/config';
 import { DashFooterComponent } from './dash-footer/dash-footer.component';
 import { UpdatePasswordComponent, MyProfileComponent } from './user-profile';
@@ -46,6 +47,7 @@ const routes: Routes = [
     data: { roles: [CLIENT_USER_ROLE, ADMIN_USER_ROLE] },
     children: [
       { path: '', component: DashboardHomeComponent },
+      { path: `${RESET_PASSWORD}/:id`, component: DashboardComponent },
       { path: 'dashboard', component: DashboardHomeComponent },
       { path: 'update-password', component: UpdatePasswordComponent },
       { path: 'create-password', component: CreatePasswordComponent },
@@ -73,7 +75,7 @@ const routes: Routes = [
       { path: 'clients/:id', component: AllClientsComponent },
       { path: 'client-profile/:id', component: ClientProfileComponent },
       { path: 'with-drawals/:id', component: WithDrawalsComponent },
-      { path: 'admin-view-clinet-referals/:id', component: AdminViewClinetReferalsComponent}
+      { path: 'admin-view-clinet-referals/:id', component: AdminViewClinetReferalsComponent }
     ]
   }
 ];
@@ -113,7 +115,7 @@ export const declarations: Array<any> = [
   CreatePasswordComponent,
   EnquireComponent,
 
-  // pipes 
+  // pipes
   SearchSharePipe,
   SearchClientsPipe
 ];
@@ -122,4 +124,4 @@ export const declarations: Array<any> = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class DashboardRoutingModule {}
+export class DashboardRoutingModule { }

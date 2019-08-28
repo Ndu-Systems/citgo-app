@@ -8,7 +8,7 @@
       <option value="3_0">Pending Payment</option>
       <option value="4_0">Paid out</option>
       <option value="1_0">Active/ Confirmed</option>
-      <option value="5_0">Declined</option>
+      <!-- <option value="5_0">Declined</option> -->
     </select>
   </div>
   <div class="withdrawals" *ngIf="withdrawals$|async as withdrawals; else nodata">
@@ -32,6 +32,9 @@
           <span>
             Client Name
           </span>
+          <span>
+            <a [routerLink]="['../../client-profile',share.ClientId]" >View Client</a>
+          </span>
         </h1>
       </div>
 
@@ -39,9 +42,9 @@
       <div class="more" *ngIf="share.StatusId=='2'">
         <button (click)="Approve(share)">Approve</button>
       </div>
-      <div class="more" *ngIf="share.StatusId=='2'">
+      <!-- <div class="more" *ngIf="share.StatusId=='2'">
         <button class="error" (click)="Decline(share)">Decline</button>
-      </div>
+      </div> -->
 
       <div class="more" *ngIf="share.StatusId=='3'">
         <button class="pay" (click)="Pay(share)">Pay</button>

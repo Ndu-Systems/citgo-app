@@ -11,6 +11,19 @@
       <img src="assets/images/dashboard/admin/money.svg" alt="">
     </div>
   </div>
+
+  <div class="card records-{{stat.pendingWithdrawal}}" (click)="goToWithdrawals(stat.pendingWithdrawal)">
+    <h1>
+      {{stat.pendingWithdrawal}}
+
+      <span>
+        Pending Withdrawals
+      </span>
+    </h1>
+    <div class="img">
+      <img src="assets/images/dashboard/admin/money.svg" alt="">
+    </div>
+  </div>
   <div class="card  records-{{stat.activeShares}}" (click)="goToShares(1,stat.activeShares)">
     <h1>
       {{stat.activeShares}}

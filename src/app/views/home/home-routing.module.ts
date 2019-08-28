@@ -2,9 +2,9 @@ import { ClientBankingDetailsComponent } from './client-sign-up/client-banking-d
 import { SpinnerComponent } from './spinner/spinner.component';
 import { UpdateEmailAddressComponent } from './../dashboard/user-profile/updates/update-email-address/update-email-address.component';
 import { ForgotPasswordComponent } from './client-sign-in/forgot-password/forgot-password.component';
-import { NgModule } from "@angular/core";
-import { RouterModule, Routes } from "@angular/router";
-import { HomeComponent } from "./home.component";
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './home.component';
 import {
   IndexComponent,
   ControlSectionComponent,
@@ -12,18 +12,18 @@ import {
   GrowthSectionComponent,
   ApartSectionComponent,
   InvestSectionComponent
-} from "./index";
+} from './index';
 
 
-import { FooterSectionComponent } from "./footer-section";
-import { HomeNavComponent } from "./home-nav";
-import { SignInComponent, ResetPasswordComponent } from "./client-sign-in";
-import { VERIFICATIONLINK, RESET_PASSWORD, REFERALLINK, UPDATE_CONTACT_INFO, REQUEST_NEW_EMAIL_REQUEST } from "src/app/shared/config";
-import { VerifyEmailComponent } from "./verify-email/verify-email.component";
-import { HowItWorksComponent } from "./how-it-works";
-import { ContactUsComponent } from "./contact-us";
-import { CalculatorComponent } from "./index/calculator";
-import { EmailSentScreenComponent } from "./client-sign-up/email-sent-screen/email-sent-screen.component";
+import { FooterSectionComponent } from './footer-section';
+import { HomeNavComponent } from './home-nav';
+import { SignInComponent, ResetPasswordComponent } from './client-sign-in';
+import { VERIFICATIONLINK, RESET_PASSWORD, REFERALLINK, UPDATE_CONTACT_INFO, REQUEST_NEW_EMAIL_REQUEST } from 'src/app/shared/config';
+import { VerifyEmailComponent } from './verify-email/verify-email.component';
+import { HowItWorksComponent } from './how-it-works';
+import { ContactUsComponent } from './contact-us';
+import { CalculatorComponent } from './index/calculator';
+import { EmailSentScreenComponent } from './client-sign-up/email-sent-screen/email-sent-screen.component';
 import { EmailNotificationComponent } from './email-notification';
 import { UpdateContactInfoComponent } from '../dashboard/user-profile/updates/update-contact-info/update-contact-info.component';
 import { SessionExpiredComponent } from './session-expired/session-expired.component';
@@ -32,11 +32,11 @@ import { ClientBeneficiariesComponent } from './client-sign-up/client-beneficiar
 
 const routes: Routes = [
   {
-    path: "",
+    path: '',
     component: HomeComponent,
     children: [
       {
-        path: "",
+        path: '',
         component: IndexComponent
       },
       {
@@ -45,38 +45,38 @@ const routes: Routes = [
       },
       {
         path: `${RESET_PASSWORD}/:id`,
-        component: ResetPasswordComponent
+        component: ResetPasswordComponent,
       },
       {
         path: `${REFERALLINK}/:id`,
         component: ClientPersonalDetailsComponent
       },
       {
-        path: "how-it-works",
+        path: 'how-it-works',
         component: HowItWorksComponent
       },
       {
-        path: "contact-us",
+        path: 'contact-us',
         component: ContactUsComponent
       },
       {
-        path: "sign-in",
+        path: 'sign-in',
         component: SignInComponent
       },
       {
-        path: "forgot-password",
+        path: 'forgot-password',
         component: ForgotPasswordComponent
       },
       {
-        path: "client-personal-details/:id",
+        path: 'client-personal-details/:id',
         component: ClientPersonalDetailsComponent
       },
       {
-        path: "client-banking-details/:id",
+        path: 'client-banking-details/:id',
         component: ClientBankingDetailsComponent
       },
       {
-        path: "client-beneficiaries/:id",
+        path: 'client-beneficiaries/:id',
         component: ClientBeneficiariesComponent
       },
       { path: `${UPDATE_CONTACT_INFO}/:id`, component: UpdateContactInfoComponent },

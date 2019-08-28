@@ -17,10 +17,6 @@
     <h1 class="main">
       <span class="label">Available Funds</span>
       {{availableFunds  | currency:'R'}}
-      <!-- <span class="where-from money-list" *ngFor="let data of details">
-        <b> <i class="fas fa-chart-line"></i> </b> {{data.key}} ..... <b>{{data.value | currency:'R'}}</b>
-        <span class="available">Available.......  {{data.available | currency:'R' }}</span>
-      </span> -->
       <span class="where-from money-list">
         <b><i class="far fa-heart"></i></b> Profit earned ..... <b>{{totalProfit | currency:'R'}}</b>
         <span class="available">Available.......  {{availableProfit | currency:'R' }}</span>
@@ -33,7 +29,11 @@
     </h1>
     <div class="action">
       <button (click)="withdraw()" [disabled]="!withDisabled">Withdraw</button>
+      <p class="pending-notice" *ngIf="pendingNoticeStop">
+        {{pendingNoticeStop}}
+      </p>
     </div>
+
     <h1 *ngIf="clientwithdrawals.length">My withdrawals</h1>
     <div class="card detals bonus" *ngFor="let item of clientwithdrawals">
       <div>
@@ -50,7 +50,6 @@
       <div class="value">
         <h4>
           {{item.Amount  | currency:'R'}}
-
         </h4>
       </div>
     </div>
@@ -97,7 +96,7 @@
     <h1>
       buy share
       <span>
-        buy Citgo oil company shares here.
+        buy Citgo Africa Oil company shares here.
       </span>
     </h1>
   </div>

@@ -21,4 +21,8 @@ export class AdminSammaryComponent implements OnInit {
     if(Number(count)==0) return false;
     this.router.navigate([`/dashboard/clients/${status}`]);
   }
+  goToWithdrawals(count) {
+    if(Number(count)==0) return false;
+    this.router.navigate([`/dashboard/with-drawals/2`]);
+  }
 }

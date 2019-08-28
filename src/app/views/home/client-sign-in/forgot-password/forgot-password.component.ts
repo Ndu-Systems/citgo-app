@@ -42,7 +42,7 @@ export class ForgotPasswordComponent implements OnInit {
 
   forgotPassword() {
     this.authenticateService.getUserByEmail(this.formValues.email.value).subscribe(response => {
-      if (response) {        
+      if (response) {
         const link = `${WEB_HOST}/#/${RESET_PASSWORD}/${response}`;
         const data = {
           name: this.formValues.email.value,
@@ -52,7 +52,7 @@ export class ForgotPasswordComponent implements OnInit {
         this.emailService.sendForgotPasswordEmail(data).subscribe(response => {
           if (response) {
             const message = `An email has been sent to ${this.formValues.email.value}.
-            Please click on the Reset password button to change password & access Citgo`;
+            Please click on the Reset password button to change password & access Citgo Africa Oil`;
             this.loginProcess.showEmailNotification(message);
           }
         });

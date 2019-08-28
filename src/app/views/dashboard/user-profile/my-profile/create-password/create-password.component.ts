@@ -1,27 +1,27 @@
-import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { User } from "src/app/models/user";
-import { UserProfileProcessService } from "src/app/services/app-state/user-profile-process.service";
-import { AuthenticateService, UserService } from "src/app/services";
-import { Router } from "@angular/router";
-import { MessageService } from "primeng/api";
-import { PASSWORD_DONT_MATCH_ERROR } from "src/app/shared/config";
-import { first } from "rxjs/operators";
-import { Input } from "@angular/compiler/src/core";
-import { ValiDatePassword } from "src/app/models/validate.model";
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { User } from 'src/app/models/user';
+import { UserProfileProcessService } from 'src/app/services/app-state/user-profile-process.service';
+import { AuthenticateService, UserService } from 'src/app/services';
+import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
+import { PASSWORD_DONT_MATCH_ERROR } from 'src/app/shared/config';
+import { first } from 'rxjs/operators';
+import { Input } from '@angular/compiler/src/core';
+import { ValiDatePassword } from 'src/app/models/validate.model';
 
 @Component({
-  selector: "app-create-password",
-  templateUrl: "./create-password.component.html",
-  styleUrls: ["./create-password.component.scss"]
+  selector: 'app-create-password',
+  templateUrl: './create-password.component.html',
+  styleUrls: ['./create-password.component.scss']
 })
 export class CreatePasswordComponent implements OnInit {
   rForm: FormGroup;
   notShowing = true;
-  error = "";
+  error = '';
   currentUser: User;
   validations;
-  validator = new ValiDatePassword("");
+  validator = new ValiDatePassword('');
   constructor(
     private fb: FormBuilder,
     private userProfileProcess: UserProfileProcessService,
@@ -35,7 +35,7 @@ export class CreatePasswordComponent implements OnInit {
 
   ngOnInit() {
     this.rForm = this.fb.group({
-      OldPassword: ["Nan"],
+      OldPassword: ['Nan'],
       Password: [null, [Validators.required, Validators.minLength(8)]],
       confirmPassword: [null, Validators.required]
     });
@@ -52,7 +52,7 @@ export class CreatePasswordComponent implements OnInit {
       });
 
     this.rForm.valueChanges.subscribe(data => {
-      this.validator = new ValiDatePassword(data.Password || "");
+      this.validator = new ValiDatePassword(data.Password || '');
       console.log(data);
       this.validations = this.validator.validate();
     });
@@ -63,7 +63,7 @@ export class CreatePasswordComponent implements OnInit {
   }
 
   updatePassword() {
-    this.error = "";
+    this.error = '';
     if (
       !this.validations.LENGHT.pass ||
       !this.validations.LOWER.pass ||
@@ -73,9 +73,9 @@ export class CreatePasswordComponent implements OnInit {
     ) {
       this.messageService.add({
         life: 7000,
-        severity: "warn",
-        summary: "Opps!",
-        detail: "Sorry password requirements are not met."
+        severity: 'warn',
+        summary: 'Opps!',
+        detail: 'Sorry password requirements are not met.'
       });
       return false;
     }
@@ -84,8 +84,8 @@ export class CreatePasswordComponent implements OnInit {
     ) {
       this.messageService.add({
         life: 7000,
-        severity: "warn",
-        summary: "Opps!",
+        severity: 'warn',
+        summary: 'Opps!',
         detail: PASSWORD_DONT_MATCH_ERROR
       });
       return false;
@@ -100,22 +100,22 @@ export class CreatePasswordComponent implements OnInit {
           .subscribe(response => {
             if (response) {
               this.userProfileProcess.updateUserProfileProcessState({
-                resetPasswordMessage: "reset your password."
+                resetPasswordMessage: 'reset your password.'
               });
               this.messageService.add({
                 life: 3000,
-                severity: "success",
-                summary: "Welcome TO Citgo!",
-                detail: "Your Password has been create!"
+                severity: 'success',
+                summary: 'Welcome Citgo Africa Oil',
+                detail: 'Your Password has been create!'
               });
               this.messageService.add({
                 life: 12000,
-                severity: "info",
-                summary: "Buy Citgo shares!",
+                severity: 'info',
+                summary: 'Buy Citgo shares!',
                 detail:
-                  "Now you can buy your first share by clicking buy shares button below!"
+                  'Now you can buy your first share by clicking buy shares button below!'
               });
-              this.router.navigate(["/dashboard"]);
+              this.router.navigate(['/dashboard']);
             } else {
               this.error = response;
             }
@@ -124,18 +124,18 @@ export class CreatePasswordComponent implements OnInit {
     });
   }
   show() {
-    let inputpass = document.getElementById("pass");
-    let inputpasscon = document.getElementById("inputpasscon");
+    const inputpass = document.getElementById('pass');
+    const inputpasscon = document.getElementById('inputpasscon');
 
-    if(this.notShowing){
+    if (this.notShowing) {
       this.notShowing = false;
-      inputpass.attributes["type"].value = "text";
-      inputpasscon.attributes["type"].value = "text";
+      inputpass.attributes['type'].value = 'text';
+      inputpasscon.attributes['type'].value = 'text';
 
-    }else{
+    } else {
       this.notShowing = true;
-      inputpass.attributes["type"].value = "password";
-      inputpasscon.attributes["type"].value = "password";
+      inputpass.attributes['type'].value = 'password';
+      inputpasscon.attributes['type'].value = 'password';
     }
 
   }
