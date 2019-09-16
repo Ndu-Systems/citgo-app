@@ -5,7 +5,7 @@
         <h1 class="share-name">
           {{data.Name}}
         </h1>
-        <div class="growth"  *ngIf="data.StatusId!='3'">
+        <div class="growth"  *ngIf="data.StatusId!='PENDING'  ||  data.StatusId!='AWAITING-CONFIRMATION'">
           <img src="assets/images/dashboard/arrow-up.svg" alt="arrow-up">
           <h1>
             {{data.Growth  | currency:'R'}}
