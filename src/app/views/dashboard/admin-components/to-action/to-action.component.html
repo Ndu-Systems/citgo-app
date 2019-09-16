@@ -15,7 +15,7 @@
         </h1>
       </div>
 
-      <div class="detail">
+      <div class="detail" *ngIf="share.StatusId!='3'">
         <h1>
           {{share.Growth-share.Amount | currency:'R'}} <br> 
           <span>

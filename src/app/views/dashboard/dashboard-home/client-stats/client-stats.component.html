@@ -34,7 +34,7 @@
       </p>
     </div>
 
-    <h1 *ngIf="clientwithdrawals.length">My withdrawals</h1>
+    <h1 *ngIf="clientwithdrawals?.length">My withdrawals</h1>
     <div class="card detals bonus" *ngFor="let item of clientwithdrawals">
       <div>
         <h4>
