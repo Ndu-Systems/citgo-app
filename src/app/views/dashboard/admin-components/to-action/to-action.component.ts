@@ -32,7 +32,7 @@ export class ToActionComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
   ) {
     this.activatedRoute.params.subscribe(r => {
-      this.statusId = r["id"];
+      this.statusId = r[`id`];
       this.shares$ =  this.investmentService.getInvestmentsByStatus(this.statusId || SHARE_PENDING_VERFICATION)
     });
   }

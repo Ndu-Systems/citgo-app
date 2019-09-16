@@ -56,6 +56,10 @@ export class ClientStatsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if (!this.isDateGoodForMe()) {
+      this.withDisabled = false;
+      this.withdrawalUpdate = `Please note!  All Withdrawals must be done between the 20th to 28th of every month`;
+    }
     const user: User = this.authenticateService.currentUserValue;
     this.cleintId = user.ClientId;
     this.client$ = this.cleintService.getClientById(this.cleintId);
@@ -71,10 +75,6 @@ export class ClientStatsComponent implements OnInit {
       this.withdrawn = withdrawals;
       if (this.availableFunds >= this.minimumWithdrawal) {
         this.withDisabled = true;
-        if (!this.isDateGoodForMe()) {
-          this.withDisabled = false;
-          this.withdrawalUpdate = `Please note!  All Withdrawals must be done between the 20th to 28th of every month`;
-        }
       }
       this.availableBonus = bonuses;
       this.availableProfit = profit;
@@ -139,7 +139,7 @@ export class ClientStatsComponent implements OnInit {
           this.withdrawalUpdate = `
             Great news! We can confirm R${amount} has just left Citgo Africa Oil and is winging its way to your bank account.`;
 
-            this.pendingNoticeStop = `You can not place a withdrawal while you still have pending withdrawal`;
+          this.pendingNoticeStop = `You can not place a withdrawal while you still have pending withdrawal`;
 
         }
       }
@@ -148,14 +148,23 @@ export class ClientStatsComponent implements OnInit {
   }
   isDateGoodForMe() {
     const date = new Date();
-   return date.getDate() >= 20 && date.getDate() <= 28;
-  // return true;
+    return date.getDate() >= 20 && date.getDate() <= 28;
+    // return true;
 
   }
   AddRef() {
     this.router.navigate(['dashboard/my-refferals', this.cleintId]);
   }
   withdraw() {
+    if (!this.isDateGoodForMe()) {
+      this.messageService.add({
+        life: 7000,
+        severity: 'warn',
+        summary: 'Sorry!',
+        detail: 'Please note!  All Withdrawals must be done between the 20th to 28th of every month'
+      });
+      return false;
+    }
     localStorage.setItem(WITHDRAWABLE, this.availableFunds + '');
     this.router.navigate(['dashboard/do-withdrawal', this.cleintId]);
   }
