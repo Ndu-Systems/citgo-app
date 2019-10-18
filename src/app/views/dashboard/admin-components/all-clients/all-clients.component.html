@@ -2,7 +2,7 @@
   <div class="clients cards" *ngIf="clients; else nodata">
       <div class="search">
           <label>Search</label> <br>
-          <input type="text" class="input-field" [(ngModel)]="search" placeholder="John Doe or ID number">
+          <input type="text" class="input-field" [(ngModel)]="search" placeholder="John Doe or ID number or email">
         </div>
     <div class="client" *ngFor="let client  of clients  | search_clients:search">
       

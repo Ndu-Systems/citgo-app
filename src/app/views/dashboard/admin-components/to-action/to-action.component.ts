@@ -62,8 +62,6 @@ export class ToActionComponent implements OnInit {
             const client: Client = clientRes;
             if (client.ClientId && client.ParentId) {
 
-              // update the current list
-
               const bonus: Bonus = {
                 Amount: updatedInvestment.Amount * BONUS_PERCENT,
                 ClientId: client.ParentId,

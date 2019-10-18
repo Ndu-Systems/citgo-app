@@ -14,6 +14,7 @@ export class SearchClientsPipe implements PipeTransform {
     return clients.filter(x =>
      x.FirstName.toLocaleLowerCase().includes(val.toLocaleLowerCase()) ||
      (x.IDNumber || '').includes(val) ||
+     (x.Email || '').includes(val) ||
      x.Surname.toLocaleLowerCase().includes(val.toLocaleLowerCase()));
   }
 

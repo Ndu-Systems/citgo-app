@@ -15,10 +15,11 @@ export class PaymentComponent implements OnInit {
   amount: number;
   isFnb = true;
   isStandardBank: boolean;
+  isNedbank;
+
   investment: Investment;
-  bankId: number = 1;
-  ref = localStorage.getItem(REF)
-  isNedbank: boolean;
+  bankId = 1;
+  ref = localStorage.getItem(REF);
   constructor(
     private router: Router,
     private investmentService: InvestmentService,
