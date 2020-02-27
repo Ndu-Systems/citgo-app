@@ -1,5 +1,5 @@
 <div class="cards withdraw-holder">
-    <div class="card withdrawal-notification" *ngIf="withdrawalUpdate">
+    <!-- <div class="card withdrawal-notification" *ngIf="withdrawalUpdate">
         <h1>
           <span class="label">
              {{withdrawalUpdate}}
@@ -9,9 +9,9 @@
         <div class="action" *ngIf="withdrawId">
             <button (click)="confirmMoney()">I RECEIVED THE FUNDS</button>
           </div>
-      </div>
+      </div> -->
   <div class="card withdraw">
-    <h1>
+    <!-- <h1>
       My Wallet
     </h1>
     <h1 class="main">
@@ -32,7 +32,7 @@
       <p class="pending-notice" *ngIf="pendingNoticeStop">
         {{pendingNoticeStop}}
       </p>
-    </div>
+    </div> -->
 
     <h1 *ngIf="clientwithdrawals?.length">My withdrawals</h1>
     <div class="card detals bonus" *ngFor="let item of clientwithdrawals">
@@ -89,7 +89,7 @@
       </span>
     </h1>
   </div>
-  <div class="card" (click)="buyShares()">
+  <!-- <div class="card" (click)="buyShares()">
     <div class="img">
       <img src="assets/images/dashboard/shares.svg" alt="">
     </div>
@@ -99,7 +99,7 @@
         buy Citgo Africa Oil company shares here.
       </span>
     </h1>
-  </div>
+  </div> -->
 
 </div>
 

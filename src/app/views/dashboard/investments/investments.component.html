@@ -1,7 +1,7 @@
 <div class="cards" *ngIf="investmentsList">
   <div class="card" *ngFor="let data of investmentsList">
     <div class="col-1-of-1">
-      <div class="details-sec-1">
+      <!-- <div class="details-sec-1">
         <h1 class="share-name">
           {{data.Name}}
         </h1>
@@ -15,7 +15,7 @@
         <a class="status {{data.Status}}"> <span class="{{data.Status}}-BG"></span>{{data.Status}}</a>
         <a *ngIf="data.Status == 'PENDING'" class="remove" (click)="remove(data)" ><i class="fas fa-trash-alt"></i>Remove</a>
      
-      </div>
+      </div> -->
 
       <div class="details-sec-2">
         <h1>
@@ -38,7 +38,7 @@
                 It can take  up to 24 hours for approval</p>
           </div>
           <div>
-              <a [routerLink]="['share-details',data.InvestmentId]">More</a>
+              <!-- <a [routerLink]="['share-details',data.InvestmentId]">More</a> -->
           </div>       
         </div>
       </div>

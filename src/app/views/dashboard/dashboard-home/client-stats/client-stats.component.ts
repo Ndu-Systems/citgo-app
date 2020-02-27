@@ -148,7 +148,7 @@ export class ClientStatsComponent implements OnInit {
   }
   isDateGoodForMe() {
     const date = new Date();
-    return date.getDate() >= 20 && date.getDate() <= 28;
+    return date.getDate() >= 15 && date.getDate() <= 17;
     // return true;
 
   }
@@ -161,7 +161,7 @@ export class ClientStatsComponent implements OnInit {
         life: 7000,
         severity: 'warn',
         summary: 'Sorry!',
-        detail: 'Please note!  All Withdrawals must be done between the 20th to 28th of every month'
+        detail: 'Please note!  All Withdrawals must be done between the 15th to 17th of every month for now'
       });
       return false;
     }
